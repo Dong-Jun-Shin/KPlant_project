@@ -1,0 +1,14 @@
+/.metadata/
+Servers/
+KPlant_Admin/.classpath
+KPlant_Admin/.project
+KPlant_Admin/.tern-project
+KPlant_Admin/.settings/
+KPlant_Admin/.springBeans
+KPlant_Admin/target/
+KPlant_Client/.classpath
+KPlant_Client/.project
+KPlant_Client/.tern-project
+KPlant_Client/.settings/
+KPlant_Client/.springBeans
+KPlant_Client/target/

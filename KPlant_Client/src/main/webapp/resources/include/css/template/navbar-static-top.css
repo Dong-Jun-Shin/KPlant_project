@@ -1,0 +1,113 @@
+.status-login{
+	width: auto;
+	height: 40px;
+}
+
+.status-background{
+	background: #ebebeb;
+}
+
+
+.myinfo{
+	line-height: 38px;
+	font-weight: bold;
+}
+
+.member{
+	color: #729775;
+}
+
+.logout{
+	margin-left: 20px;
+	height: 30px;
+	color: #ffffff; 
+	background: #6d6e71;
+}
+
+.logout:hover, .logout:focus{
+	color: #ffffff;
+}
+
+.logo{
+	margin-top: 8px;
+	margin-right: 100px;
+}
+
+/* navbar */
+.active, .nav .open > a:hover{
+	border-bottom: none;
+}
+
+.navbar-static-top {
+	height: 100px;
+	margin-bottom: 19px;
+}
+
+.navbar-left:hover{
+	border-bottom: 5px solid #ACCB97;
+}
+
+#navbar{
+	padding: 10px 0px;
+}
+
+.menu{
+	margin: 0px 5px;
+	color: black;
+	font-weight: bold;
+}
+
+.menu-left-font{
+	font-size: 20px;
+}
+
+.menu-right-font{
+	margin: 0px;
+	font-size: 15px;
+}
+
+.menu-right-icon{
+	font-size: 20px;
+}
+
+.basket{
+	vertical-align: text-top;
+	padding: 3px 6px;
+	border-radius: 15px;
+	font-size: 12px;
+	color: #e5e5e5;
+	background: #729775;
+}
+
+.icon-margin{
+	margin-right: 5px;
+}
+
+.dropdown-sub{
+	font-size: 15px;
+	font-weight: bold;
+	border-top: 5px solid #ACCB97;
+}
+
+.dropdown-menu > li > a:hover{
+	background-image: linear-gradient(to top, rgba(172, 203, 151, .5) 0%, #eef6ee 100%);
+}
+
+/* section */
+.section {
+	min-height: 1000px;
+}
+
+/* footer */
+.footer {
+	padding-top: 19px;
+	width: 100%;
+	min-height: 200px;
+	color: #FFFFFF;
+	background: #6D6E71;
+}
+
+.footer-content{
+	margin: 0px auto;
+	width: 1170px;
+}

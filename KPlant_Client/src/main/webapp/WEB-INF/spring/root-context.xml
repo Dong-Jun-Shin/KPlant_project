@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- DB Connection -->
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName"
+			value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
+		<property name="jdbcUrl"
+			value="jdbc:log4jdbc:oracle:thin:@192.168.0.107:1521:orcl" />
+		<property name="username" value="KPlantAdmin" />
+		<property name="password" value="K3333" />
+	</bean>
+
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
+		destroy-method="close">
+		<constructor-arg ref="hikariConfig" />
+	</bean>
+
+	<!-- Mybatis Setting -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation"
+			value="classpath:config/mybatis-config.xml" />
+		<property name="mapperLocations"
+			value="classpath:query/*.xml" />
+	</bean>
+
+	<!-- <mybatis-spring:scan base-package="com.spring.client.board.dao" /> -->
+	<!-- dao 인터페이스의 구현클래스가 생성될 위치 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage">
+			<value>com.kplant.**.**.dao</value>
+		</property>
+	</bean>
+</beans>
