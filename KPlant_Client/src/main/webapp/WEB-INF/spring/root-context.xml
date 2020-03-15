@@ -10,7 +10,7 @@
 		<property name="jdbcUrl"
 			value="jdbc:log4jdbc:oracle:thin:@192.168.0.107:1521:orcl" />
 		<property name="username" value="KPlantAdmin" />
-		<property name="password" value="K3333" />
+		<property name="password" value="k3333" />
 	</bean>
 
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
