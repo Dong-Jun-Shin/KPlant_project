@@ -95,25 +95,19 @@
 
 /* section */
 .section {
-	min-height: 1080px;
+	min-height: 1000px;
 }
 
 /* footer */
 .footer {
 	padding-top: 19px;
 	width: 100%;
-	min-height: 150px;
+	min-height: 200px;
 	color: #FFFFFF;
 	background: #6D6E71;
 }
 
 .footer-content{
 	margin: 0px auto;
-	padding: 15px 0px;	
 	width: 1170px;
-}
-
-.footer-content > p{
-	text-align: center;
-	line-height: 30px;
 }

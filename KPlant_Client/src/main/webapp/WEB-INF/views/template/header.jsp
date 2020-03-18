@@ -15,7 +15,7 @@
 </div>
 <div class="container">
 	<div class="navbar-header">
-      <a class="navbar-brand" href="http://192.168.0.107:8080/" style="padding: 5px">
+      <a class="navbar-brand" href="http://192.168.0.107:8080/">
       	<img alt="logo" src="/resources/images/template/logo.png" width="200px">
       </a>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -47,7 +47,7 @@
       	<%-- 로그인
         <li><a class="menu menu-right-icon" href="#"><span class="glyphicon glyphicon-user icon-margin" aria-hidden="true" ></span></a></li>
          --%>
-        <li><a class="menu menu-right-icon" href="/order/cart"><span class="glyphicon glyphicon-shopping-cart icon-margin" aria-hidden="true" ></span><span class="basket">0</span></a></li>
+        <li><a class="menu menu-right-icon" href="#"><span class="glyphicon glyphicon-shopping-cart icon-margin" aria-hidden="true" ></span><span class="basket">0</span></a></li>
       </ul>
     </div>
 </div>
