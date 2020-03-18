@@ -28,7 +28,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0px;">
     	<tiles:insertAttribute name="header" />
     </nav>
 
