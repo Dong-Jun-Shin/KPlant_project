@@ -1,0 +1,62 @@
+@charset "UTF-8";@charset "UTF-8";
+/* common */
+.btn-style, .btn-style:hover, .btn-style:focus {
+	background: #707070;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+/* title */
+.sub-header {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eee;
+}
+
+/* hotdeal-header */
+.hotdeal-header {
+	margin: 0px 10px;
+	margin-bottom: 10px; text-align : right;
+	letter-spacing: 5px;
+	text-align: right;
+}
+
+.hotdeal-header>select, .hotdeal-header>input, .hotdeal-header>button {
+	display: inline-block;
+	height: 35px;
+}
+
+.hotdeal-header>select {
+	width: 150px;
+}
+
+.hotdeal-header>input {
+	width: 250px;
+}
+
+/* hotdeal-list */
+table {
+	width: 100%;
+}
+
+table tr {
+	height: 50px;
+	border-bottom: 1px solid #33333330;
+}
+
+table > thead > tr:nth-child(1) {
+	height: 40px;
+}
+
+table th {
+	background: #DDDDDD;
+	font-size: 16px;
+}
+
+table th, table td {
+	text-align: center;
+}
+
+
+.hotdeal-footer {
+	text-align: right;
+}
