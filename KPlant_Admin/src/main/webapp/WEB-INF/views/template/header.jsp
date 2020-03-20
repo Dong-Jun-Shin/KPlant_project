@@ -6,7 +6,7 @@
 <div class="content">
 	<!-- Brand and toggle get grouped for better mobile display -->
 	<div class="navbar-header">
-		<a class="navbar-brand" href="http://192.168.0.107:8080/admin/"> <img alt="Brand" src="/resources/images/template/logo.png" ></a> 
+		<a class="navbar-brand" href="/admin"> <img alt="Brand" src="/resources/images/template/logo.png" ></a> 
 		<p class="navbar-text">관리자 페이지입니다.</p>
 	</div>
 
@@ -23,10 +23,10 @@
 
 <div class="col-sm-3 col-md-2 sidebar">
 	<ul class="nav nav-sidebar">
-		<li role="presentation" class="active"><a href="#">회원 관리</a></li>
+		<li role="presentation" class="active"><a href="/admin">회원 관리</a></li>
 		<li role="presentation"><a href="#">상품 관리</a></li>
-		<li role="presentation"><a href="#">핫딜 관리</a></li>
-		<li role="presentation"><a href="#">주문 관리</a></li>
+		<li role="presentation"><a href="/admin/hotdeal/hotdealList">핫딜 관리</a></li>
+		<li role="presentation"><a href="/admin/order/orderList">주문 관리</a></li>
 		<li role="presentation"><a href="#">이벤트 관리</a></li>
 	</ul>
 </div>

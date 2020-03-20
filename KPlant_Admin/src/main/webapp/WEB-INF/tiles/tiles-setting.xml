@@ -8,9 +8,14 @@
 		<put-attribute name="title" value="Admin Page" />
 		<put-attribute name="header" value="/WEB-INF/views/template/header.jsp" />
 		<put-attribute name="body" value="" />
-		<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp" />
 	</definition>
 	<definition name="*" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/views/member/member.jsp" />
+	</definition>
+	<definition name="order/*" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/views/order/{1}.jsp" />
+	</definition>
+	<definition name="hotdeal/*" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/views/hotdeal/{1}.jsp" />
 	</definition>
 </tiles-definitions>

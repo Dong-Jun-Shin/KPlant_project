@@ -25,6 +25,7 @@
     <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
 	<script type="text/javascript" src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="/resources/include/dist/assets/js/docs.min.js"></script>
   </head>
 
   <body>
@@ -36,9 +37,6 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
          <tiles:insertAttribute name="body" />
     </div>
-    <footer class="footer">
-		<tiles:insertAttribute name="footer" />
-	</footer>
   </body>
   
 </html>
