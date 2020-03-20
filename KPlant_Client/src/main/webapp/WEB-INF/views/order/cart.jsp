@@ -1,4 +1,4 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -32,10 +32,11 @@
 						<th colspan="6">리스트 변경</th>
 					</tr>
 				</thead>
+				<tbody>
 					<%-- 데이터 출력 --%>
 					<c:choose>
 						<%-- 상품 요소 --%>
-						<c:when test="${not empty boardList}">
+						<c:when test="${not empty orderList}">
 							<c:forEach var="board" items="${boardList }" varStatus="status">
 								<tr>
 									<td><input type="checkbox" name="sel_prd" /></td>

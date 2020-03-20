@@ -58,7 +58,7 @@
 						<td colspan="3">할인금액</td>
 						<td class="price" colspan="3">0원</td>
 						<td class="ico" colspan="1"><img alt="합계" src="/resources/images/order/ico_total_sum.png"/></td>
-						<td colspan="3">총 주문금액</td>
+						<td colspan="3">총 결제금액</td>
 						<td class="price" colspan="3">12800원</td>
 					</tr>
 					<tr>
