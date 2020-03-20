@@ -19,4 +19,18 @@ public class ClientOrderController {
 		
 		return "order/cart";
 	}
+
+	@RequestMapping("/orderSheet")
+	public String orderSheet(Locale locale, Model model) {
+		log.info("client/주문결제 호출 성공");
+		
+		return "order/orderSheet";
+	}
+	
+	@RequestMapping("/complete")
+	public String complete(Locale locale, Model model) {
+		log.info("client/주문완료 호출 성공");
+		
+		return "order/complete";
+	}
 }
