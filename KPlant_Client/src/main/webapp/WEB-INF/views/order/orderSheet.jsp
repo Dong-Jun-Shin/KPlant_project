@@ -58,7 +58,7 @@
 							<img alt="상품대표사진" src="/resources/images/order/temp1.jpg">
 							<span>몽골바위솔 5포트 바위솔 10cm포트묘</span>
 						</td>
-						<td>1개</td>
+						<td>1</td>
 						<td colspan="2">9,800원</td>
 						<td colspan="2">9,800원</td>
 						<td colspan="2">3,000원</td>
