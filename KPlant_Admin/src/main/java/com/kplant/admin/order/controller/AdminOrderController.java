@@ -19,4 +19,11 @@ public class AdminOrderController {
 		
 		return "order/orderList";
 	}
+	
+	@RequestMapping("/orderDetail")
+	public String orderDetail(Locale locale, Model model) {
+		log.info("admin/orderDetail 호출 성공");
+		
+		return "order/orderDetail";
+	}
 }

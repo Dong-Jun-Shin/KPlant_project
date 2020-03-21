@@ -1,0 +1,160 @@
+@charset "UTF-8";
+/* common */
+.btn-style, .btn-style:hover, .btn-style:focus {
+	background: #707070;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+/* order-detail */
+#order-detail label {
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.order-body>div {
+	margin: 50px 0px;
+}
+
+#order-detail>.shipping-info {
+	margin: 50px 0px;
+}
+
+#order-detail div>table {
+	width: 80%;
+	border-top: 2px solid #DDDDDD;
+}
+
+#order-detail div>table>tbody>tr {
+	border-bottom: 1px solid #DDDDDD;
+}
+
+#order-detail div>table>tbody>tr>td:nth-child(1) {
+	background: #A3A4A5;
+	text-align: center;
+	height: 70px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+#order-detail div>table>tbody>tr>td:nth-child(2) {
+	padding: 10px 30px;
+}
+
+.write-point {
+	color: #FF0000;
+	margin: 5px;
+	font-size: 16px;
+}
+
+.write-control {
+	display: inline-block;
+	margin: 5px 0px;
+	padding: 0px 15px;
+	width: 400px;
+	height: 35px;
+	font-size: 16px;
+}
+
+.detail-ship>div {
+	margin-bottom: 20px;
+}
+
+.detail-ship>div>span {
+	display: inline-block;
+	margin: 5px 0px;
+}
+
+.detail-tel>span {
+	margin: 0px 5px;
+}
+
+/* product list */
+.body-title {
+	margin: 10px 0px;
+	font-weight: bold;
+}
+
+.body-list, .price-list {
+	width: 80%;
+}
+
+.body-list tr, .body-list tr>th {
+	text-align: center;
+}
+
+.body-list>thead>tr {
+	background: #F6F7F3;
+	height: 40px;
+	border-top: 1px solid #333333;
+	border-bottom: 1px solid #33333330;
+}
+
+.body-list>tbody>tr {
+	border-bottom: 1px solid #33333330;
+}
+
+.body-list>tbody>tr>td {
+	font-weight: bold;
+	height: 100px;
+}
+
+.body-list>tbody .prd {
+	text-align: left;
+}
+
+.body-list>tbody .prd>span {
+	display: inline-block;
+	width: 70%;
+	vertical-align: middle;
+}
+
+.body-list>tbody .prd>img {
+	width: 100px;
+	height: 100px;
+	margin: 15px;
+}
+
+/* price list */
+.price-list>tbody>tr {
+	background: #F6F7F3;
+	height: 65px;
+	color: #9E9E9E;
+}
+
+td.price {
+	text-align: right;
+	padding-right: 15px;
+}
+
+.price-list>tbody>tr:nth-child(1) {
+	font-size: 16px;
+	font-weight: bold;
+	color: #000000;
+}
+
+.price-list>tbody>tr:nth-child(2)>td {
+	padding-bottom: 0px;
+	padding-top: 30px;
+}
+
+.price-list>tbody>tr>td {
+	width: 50px;
+}
+
+.price-list>tbody>tr>td.ico>img {
+	width: 40px;
+}
+
+.price-list>tbody>tr>td:nth-child(1) {
+	padding-left: 30px;
+}
+
+/* detail-footer */
+.detail-footer {
+	display: inline-block;
+	float: right;
+	margin: 2% 0px;
+	padding-right: 20%;
+}
