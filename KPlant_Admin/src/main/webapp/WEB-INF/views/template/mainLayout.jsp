@@ -22,9 +22,10 @@
 	<link rel="stylesheet" type="text/css" href="/admin/resources/include/css/template/admin-header-footer-nav.css" />
 	
 	<script type="text/javascript" src="/resources/include/js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
 	<script type="text/javascript" src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="/resources/include/dist/js/bootstrap.min.js"></script>
     <script src="/resources/include/dist/assets/js/docs.min.js"></script>
   </head>
 
@@ -38,5 +39,4 @@
          <tiles:insertAttribute name="body" />
     </div>
   </body>
-  
 </html>
