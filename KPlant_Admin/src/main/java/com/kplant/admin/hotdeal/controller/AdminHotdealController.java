@@ -19,4 +19,18 @@ public class AdminHotdealController {
 		
 		return "hotdeal/hotdealList";
 	}
+	
+	@RequestMapping("/createHotdeal")
+	public String createHotdeal(Locale locale, Model model) {
+		log.info("admin/createHotdeal 호출 성공");
+		
+		return "hotdeal/createHotdeal";
+	}
+	
+	@RequestMapping("/updateHotdeal")
+	public String updateHotdeal(Locale locale, Model model) {
+		log.info("admin/updateHotdeal 호출 성공");
+		
+		return "hotdeal/updateHotdeal";
+	}
 }
