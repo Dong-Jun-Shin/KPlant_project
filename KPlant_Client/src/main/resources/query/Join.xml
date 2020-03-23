@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kplant.client.join.dao.MemberDAO">
+	
+	<!-- 아이디 체크 구현 확인 -->
+	<select id="memberIdCheck" parameterType="member" resultType="int">
+		/*join = memberIdCheck*/
+		select m_id from member where m_id=#{m_id}
+	</select>
+	
+</mapper>

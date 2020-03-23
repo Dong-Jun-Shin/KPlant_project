@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+.progress {
+	margin-top: 25px;
+}
+
+h1 {
+	text-align: center;
+	margin-top: 142px;
+	font: bold;
+	color: #7F7F7F;
+}
+
+table{
+	width: 400px;
+	margin: auto;
+	margin-top: -10px;
+}
+
+td{
+	padding-top: 40px;
+}
+th{
+	padding-top: 5px;
+}
+
+#eCheckBtn {
+	padding: 7px 40px;
+	background-color: #1E332C;
+	border: 2px solid #1E332C;
+	color: white;
+	border-radius: 3px;
+	margin-left: 80px;
+}
+
+#eResetBtn {
+	padding: 7px 40px;
+	background-color: white;
+	color: #1E332C;
+	border-radius: 3px;
+	border: 2px solid #1E332C;
+}
+
+#dtn {
+	margin-top: 35px;
+	text-align: center;
+}
