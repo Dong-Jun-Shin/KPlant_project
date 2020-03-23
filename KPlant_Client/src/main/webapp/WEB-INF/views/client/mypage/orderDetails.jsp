@@ -50,7 +50,7 @@
 
 
 	<div id="orderDiv">
-		<form id="orderForm">
+		<form id="orderForm" class="form-inline">
 			<p class="title">기본 정보</p>
 			<div class="guide">
 				<div class="orderImg">
@@ -65,18 +65,33 @@
 				<div class="dateTitle">
 					조회<br /> 기간
 				</div>
-				<span><a href="?mode=normal&s_date=G" class="btn_white02">오늘</a></span>
-				<span><a href="?mode=normal&s_date=A" class="btn_white02">1주일</a></span>
-				<span><a href="?mode=normal&s_date=B" class="btn_white02">1개월</a></span>
-				<span><a href="?mode=normal&s_date=C" class="btn_white02">2개월</a></span>
-				<span><a href="?mode=normal&s_date=D" class="btn_white02">3개월</a></span>
-				<span><a href="?mode=normal&s_date=E" class="btn_white02">6개월</a></span>
-				<span><a href="?mode=normal&s_date=F" class="btn_white02">1년</a></span>
-
+				<div class="dateSelect">
+					<div class="btn-group" role="group" aria-label="...">
+						<button type="button" class="btn btn-default">오늘</button>
+						<button type="button" class="btn btn-default">1주일</button>
+						<button type="button" class="btn btn-default">1개월</button>
+						<button type="button" class="btn btn-default">2개월</button>
+						<button type="button" class="btn btn-default">3개월</button>
+						<button type="button" class="btn btn-default">6개월</button>
+						<button type="button" class="btn btn-default">1년</button>
+					</div>
+					<div class="selectForm">
+						<div class="form-group" id="dateCheck">
+							<input type="date" name="start_date" id="start_date"
+								placeholder="시작일자" class="form-control" />&nbsp;~&nbsp;<input
+								type="date" name="end_date" id="end_date" placeholder="종료일자"
+								class="form-control" />
+						</div>
+						<button type="button" class="btn btn-success" id="searchBtn">검색</button>
+					</div>
+				</div>
 			</div>
 			<div></div>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> d3e60c6... 마이페이지 화면 완성
 			<p class = "title">주문내역</p>
 			<div class = "orderTable">
 				<table class="wishTable table table-striped ">
@@ -93,10 +108,16 @@
 			</table>
 			</div>
 			<div class="paging">
+<<<<<<< HEAD
 				<a class="prev" href="#">이전</a><a class="active" href="#">1</a>
 				<a class="next" href="#">다음</a>
 			</div>
 >>>>>>> Stashed changes
+=======
+				<a class="prev" href="#">이전</a><a class="active" href="#">1</a><a
+					class="next" href="#">다음</a>
+			</div>
+>>>>>>> d3e60c6... 마이페이지 화면 완성
 		</form>
 	</div>
 

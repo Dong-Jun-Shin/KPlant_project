@@ -59,6 +59,7 @@
 	text-align: left;
 	margin-botton: 30px;
 	font-size: 22px;
+	font-weight: bold;
 }
 
 #updateBtn2 {
@@ -260,6 +261,7 @@ select {
 	text-align: center;
 	margin-botton: 30px;
 	font-size: 22px;
+	font-weight: bold;;
 }
 
 #passwordTable {
@@ -324,6 +326,7 @@ select {
 	text-align: center;
 	margin-botton: 30px;
 	font-size: 22px;
+	font-weight: bold;;
 }
 
 #instructionForm {
@@ -512,7 +515,10 @@ select {
 }
 
 .orderDate {
-	oberflow:auto;
+	overflow:auto;
+	border: 1px solid #d9d9d9;
+	margin-top:10px;
+	margin-bottom:50px;
 }
 
 .dateTitle {
@@ -523,33 +529,19 @@ select {
     height: 122px;
     text-align: center;
     font-size: 20px;
-    font-weight: bold;
     padding-top: 30px;
 	padding-bottom: 30px;
 	padding-left: 20px;
 	padding-right: 20px;
     
 }
+
 .dateSelect{
 	float:left;
-	width:70%;
-}
-
-.btn_white02{
-	display: inline-block;
-    height: 35px;
-    width: 72px;
-    border-left: 1px solid #fff;
-    border-right: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-    color: #2e2e2e;
-    font-size: 12px;
-    line-height: 34px;
-    font-weight: bold;
-    text-align: center;
-    vertical-align: middle;
-    box-sizing: border-box;
-    cursor: pointer;
+	width:80%;
+	text-align:left;
+	padding-left:20px;
+	padding-top:20px;
 }
 
 #pwdName{
@@ -560,4 +552,33 @@ select {
 	height:55.994318px;
 }
 
+.selectForm{
+	margin-top:20px;
+}
+.orderTable{
+	margin-top:30px;
+	margin-bottom:50px;
+}
+.imgText{
+	overflow:auto;
+	text-align:center;
+}
+
+.wimg{
+	float:left;
+	width:50%;
+}
+
+.wtext{
+	float:left;
+	width:50%;
+	padding-top:20px;
+}
+
+.wtd{
+	margin-top:20px;
+}
+.wtd2{
+	margin-top:15px;
+}
 

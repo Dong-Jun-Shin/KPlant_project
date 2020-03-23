@@ -55,31 +55,37 @@
 					<td>구매</td>
 				</tr>
 				<tr>
-					<td><div>
+					<td>
+					<div class = "imgText">
+					<div class = "wimg">
 							<a href="#"><img src="/resources/images/mypage/truck (2).png" /></a>
 						</div>
-						<div>아로니아</div></td>
-					<td>8.000</td>
-					<td><input type="button" value="구매" class="btn btn-success" />&nbsp;&nbsp;<input
-						type="button" value="삭제" class="btn btn-primary" /></td>
+						<div class = "wtext">아로니아</div></div></td>
+					<td ><div class = "wtd">8.000</div></td>
+					<td><div class = "wtd2"><input type="button" value="구매" class="btn btn-success" />&nbsp;&nbsp;<input
+						type="button" value="삭제" class="btn btn-primary" /></div></td>
 				</tr>
 				<tr>
-					<td><div>
+				<td>
+					<div class = "imgText">
+					<div class = "wimg">
 							<a href="#"><img src="/resources/images/mypage/truck (2).png" /></a>
 						</div>
-						<div>사과나무</div></td>
-					<td>7.000</td>
-					<td><input type="button" value="구매" class="btn btn-success" />&nbsp;&nbsp;<input
-						type="button" value="삭제" class="btn btn-primary" /></td>
+						<div class = "wtext">아로니아</div></div></td>
+					<td><div class = "wtd">8.000</div></td>
+					<td><div class = "wtd2"><input type="button" value="구매" class="btn btn-success" />&nbsp;&nbsp;<input
+						type="button" value="삭제" class="btn btn-primary" /></div></td>
 				</tr>
 				<tr>
-					<td><div>
+					<td>
+					<div class = "imgText">
+					<div class = "wimg">
 							<a href="#"><img src="/resources/images/mypage/truck (2).png" /></a>
 						</div>
-						<div>참숯</div></td>
-					<td>12.000</td>
-					<td><input type="button" value="구매" class="btn btn-success" />&nbsp;&nbsp;<input
-						type="button" value="삭제" class="btn btn-primary" /></td>
+						<div class = "wtext">아로니아</div></div></td>
+					<td><div class = "wtd">8.000</div></td>
+					<td><div class = "wtd2"><input type="button" value="구매" class="btn btn-success" />&nbsp;&nbsp;<input
+						type="button" value="삭제" class="btn btn-primary" /></div></td>
 				</tr>
 			</table>
 			<div class="paging">
