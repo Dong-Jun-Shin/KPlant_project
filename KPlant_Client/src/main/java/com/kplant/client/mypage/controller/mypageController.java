@@ -63,5 +63,11 @@ public class mypageController {
 		
 		return "mypage/withdrawal";
 	}
+	@GetMapping("/cancel")
+	public String cancel(Locale locale, Model model) {
+		log.info("cancel 호출 성공");
+		
+		return "mypage/cancel";
+	}
 	
 }

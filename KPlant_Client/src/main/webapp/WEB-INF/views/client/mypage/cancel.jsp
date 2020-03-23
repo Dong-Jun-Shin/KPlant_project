@@ -4,7 +4,7 @@
 <%-------------------------------------------------------------------------------- --%>
 <div id="location">
 	<a>홈</a> > 마이페이지 > 회원정보 > <select>
-		<option value="회원정보수정">주문/배송내역</option>
+		<option value="회원정보수정">취소/반품/환불내역</option>
 	</select>
 </div>
 <div id="all">
@@ -51,7 +51,7 @@
 
 	<div id="orderDiv">
 		<form id="orderForm" class="form-inline">
-			<p class="title">주문/배송내역</p>
+			<p class="title">취소/반품/환불내역</p>
 			<div class="guide">
 				<div class="orderImg">
 					<img src="/resources/images/mypage/truck (2).png">

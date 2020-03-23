@@ -31,7 +31,7 @@
 					<hr class="hr" />
 					<ul class="point">
 						<li><a  href = "/mypage/orderDetails"class="menusub">주문/배송내역</a></li>
-						<li><a  href = "#"class="menusub">취소/반품/환불내역</a>
+						<li><a  href="/mypage/cancel" class="menusub">취소/반품/환불내역</a>
 							<hr class="hr" /></li>
 					</ul></li>
 				<li class="liTitle"><a class="menutitle" href="/mypage/wishList">위시리스트</a>
