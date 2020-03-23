@@ -4,7 +4,7 @@
 <%-------------------------------------------------------------------------------- --%>
 <div id="location">
 	<a>홈</a> > 마이페이지 > 회원정보 > <select>
-		<option value="회원정보수정">주문/배송내역</option>
+		<option value="회원정보수정">취소/반품/환불내역</option>
 	</select>
 </div>
 <div id="all">
@@ -51,7 +51,7 @@
 
 	<div id="orderDiv">
 		<form id="orderForm" class="form-inline">
-			<p class="title">주문/배송내역</p>
+			<p class="title">취소/반품/환불내역</p>
 			<div class="guide">
 				<div class="orderImg">
 					<img src="/resources/images/mypage/truck (2).png">
@@ -87,11 +87,6 @@
 				</div>
 			</div>
 			<div></div>
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> d3e60c6... 마이페이지 화면 완성
 			<p class = "title">주문내역</p>
 			<div class = "orderTable">
 				<table class="wishTable table table-striped ">
@@ -108,16 +103,9 @@
 			</table>
 			</div>
 			<div class="paging">
-<<<<<<< HEAD
-				<a class="prev" href="#">이전</a><a class="active" href="#">1</a>
-				<a class="next" href="#">다음</a>
-			</div>
->>>>>>> Stashed changes
-=======
 				<a class="prev" href="#">이전</a><a class="active" href="#">1</a><a
 					class="next" href="#">다음</a>
 			</div>
->>>>>>> d3e60c6... 마이페이지 화면 완성
 		</form>
 	</div>
 

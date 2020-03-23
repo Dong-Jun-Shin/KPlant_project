@@ -64,9 +64,17 @@ public class mypageController {
 		return "mypage/withdrawal";
 	}
 	@GetMapping("/cancel")
+<<<<<<< HEAD
 	public String cancelList(Locale locale, Model model) {
+=======
+	public String cancel(Locale locale, Model model) {
+>>>>>>> bfadd6d... 마이페이지 화면 구현 완료
 		log.info("cancel 호출 성공");
 		
 		return "mypage/cancel";
 	}
+<<<<<<< HEAD
+=======
+	
+>>>>>>> bfadd6d... 마이페이지 화면 구현 완료
 }
