@@ -20,6 +20,7 @@
 			<option value="ord_name">주문자명</option>
 			<option value="m_id">주문자 ID</option>
 			<option value="ord_date">주문 날짜</option>
+			<option value="ord_status">주문 상태</option>
 			<option value="ord_trn">운송장 번호</option>
 		</select>
 		<input type="text" class="form-control" placeholder="검색할 키워드를 입력해주세요."/>

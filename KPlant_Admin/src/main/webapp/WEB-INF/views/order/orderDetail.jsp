@@ -121,12 +121,12 @@
 					<td class="price" colspan="3">12800원</td>
 				</tr>
 				<tr>
-					<td colspan="4">주문금액</td>
-					<td class="price" colspan="2">9800원</td>
-					<td colspan="15" rowspan="2"></td>
+					<td colspan="14" rowspan="2"></td>
+					<td colspan="5">결제 수단</td>
+					<td class="price" colspan="2">신용카드</td>
 				</tr>
 				<tr>
-					<td colspan="4">선결제 배송비</td>
+					<td colspan="5">결제 승인 금액</td>
 					<td class="price" colspan="2">3000원</td>
 				</tr>
 			</tbody>

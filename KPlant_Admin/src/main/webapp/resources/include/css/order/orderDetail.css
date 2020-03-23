@@ -120,7 +120,7 @@
 .price-list>tbody>tr {
 	background: #F6F7F3;
 	height: 65px;
-	color: #9E9E9E;
+	color: #000000;
 }
 
 td.price {
@@ -131,12 +131,11 @@ td.price {
 .price-list>tbody>tr:nth-child(1) {
 	font-size: 16px;
 	font-weight: bold;
-	color: #000000;
 }
 
-.price-list>tbody>tr:nth-child(2)>td {
-	padding-bottom: 0px;
-	padding-top: 30px;
+.price-list>tbody>tr:nth-child(3)>td {
+	padding-top: 0px;
+    padding-bottom: 30px;
 }
 
 .price-list>tbody>tr>td {
@@ -145,10 +144,6 @@ td.price {
 
 .price-list>tbody>tr>td.ico>img {
 	width: 40px;
-}
-
-.price-list>tbody>tr>td:nth-child(1) {
-	padding-left: 30px;
 }
 
 /* detail-footer */
