@@ -15,7 +15,7 @@
 </div>
 <div class="container">
 	<div class="navbar-header">
-      <a class="navbar-brand" href="http://192.168.0.107:8080/" style="padding: 5px">
+      <a class="navbar-brand" href="#" style="padding: 5px">
       	<img alt="logo" src="/resources/images/template/logo.png" width="200px">
       </a>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -37,7 +37,13 @@
             <li><a href="#">지난 이벤트</a></li>
           </ul>
         </li>
-        <li class="menu navbar-left"><a class="menu-left-font" href="#contact">CUSTOMER</a></li>
+        <li class="menu navbar-left dropdown">
+       	  <a href="/customer/faq/faqList" class="dropdown-toggle menu-left-font" data-toggle="dropdown" data-hover="dropdown" role="button" >CUSTOMER <span class="caret"></span></a>
+       	  <ul class="dropdown-menu dropdown-sub" role="menu">
+            <li><a href="/customer/consult/consultMain">1:1상담</a></li>
+            <li><a href="/customer/faq/faqList">FAQ게시판</a></li>
+          </ul>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a class="menu menu-right-font" href="/join/memberAgree">회원가입</a></li>
