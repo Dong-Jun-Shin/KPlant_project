@@ -30,16 +30,18 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0px;">
-    	<tiles:insertAttribute name="header" />
-    </nav>
-	
-	
+  	<div>
+	    <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 5px;">
+	    	<tiles:insertAttribute name="header" />
+	    </nav>
+	</div>
     <div class="section container">
-		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+    	<div class="customer-body">
+		<nav class="d-none d-md-block bg-light sidebar">
 			<tiles:insertAttribute name="left"/>
 		</nav>
     	<tiles:insertAttribute name="body" />
+    	</div>
     </div>
 
     <footer>
