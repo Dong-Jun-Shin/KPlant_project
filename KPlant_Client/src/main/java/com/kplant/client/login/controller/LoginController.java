@@ -25,4 +25,24 @@ public class LoginController {
 		return "login/login";
 	}
 	
+	/**
+	 * 아이디 찾기
+	 */
+	@RequestMapping(value = "/ldentityId")
+	public String ldentityId(@ModelAttribute("data")MemberVO mvo, Model model) {
+		log.info("ldentityId 호출 성공");
+		return "login/ldentityId";
+	}
+	
+	/**
+	 * 비밀번호 찾기
+	 */
+	@RequestMapping(value = "/ldentityPwd")
+	public String ldentityPwd(@ModelAttribute("data")MemberVO mvo, Model model) {
+		log.info("ldentityPwd 호출 성공");
+		return "login/ldentityPwd";
+	}
+	
+	
+	
 }

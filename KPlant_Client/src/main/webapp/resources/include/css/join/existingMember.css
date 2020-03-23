@@ -6,7 +6,7 @@
 
 h1 {
 	text-align: center;
-	margin-top: 142px;
+	margin-top: 79px;
 	font: bold;
 	color: #7F7F7F;
 }
@@ -44,4 +44,8 @@ th{
 #dtn {
 	margin-top: 35px;
 	text-align: center;
+}
+
+.section {
+    min-height: 691px;
 }

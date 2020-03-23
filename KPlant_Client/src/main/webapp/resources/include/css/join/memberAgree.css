@@ -11,15 +11,15 @@
 }
 
 .section {
-	min-height: 619px;
+	min-height: 698px;
 }
 
-h1 {
-	margin-top: 130px;
+h1.starter-template {
+	margin-top: 104px;
 	font: bold;
 	color: #7F7F7F;
 }
-p{
+p.starter-template{
 	font: bold;
 	color: #7F7F7F;
 }

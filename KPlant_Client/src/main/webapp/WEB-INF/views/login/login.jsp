@@ -16,21 +16,39 @@
 		<!--[if lt IE 9]>
 		<script src="../js/html5shiv.js"></script>
 		<![endif]-->
+		<link rel="stylesheet" type="text/css" href="/resources/include/css/login/login.css">
 	</head>
 	<body>
 		<div class="container">
 			
 			<h1>로그인</h1>
-			<div class="well well-lg col-lg-6">
-				<input type="text" class="form-control" placeholder="아이디 입력">
-				<input type="text" class="form-control" placeholder="비밀번호 입력">
-				<input type="button"  class="btn btn-block btn-default" value="로그인">
-				<input type="button"  class="btn btn-success btn-block btn-default" value="NAVER">
-				<input type="button"  class="btn btn-block btn-default" value="Google">
-				<a target="_blank" id="" href="#">아이디 찾기</a>
-				<a target="_blank" id="" href="#">비밀번호 찾기</a>
-				<a class="text-center" target="_blank" id="" href="#">회원 가입</a>
-			</div>
+			<table>
+				<tr>
+					<td colspan="3">
+					<input type="text" class="form-control" id="m_id" name="m_id" placeholder="아이디 입력"></td>
+				</tr>
+				<tr>
+					<td colspan="3">
+					<input type="text" class="form-control" id="m_pwd" name="m_pwd" placeholder="비밀번호 입력"></td>
+				</tr>
+				<tr>
+					<td colspan="3">
+					<input type="button"  id="loginBtn" value="로그인"></td>
+				</tr>
+				<tr>
+					<td colspan="3">
+					<input type="button" id="naverBtn" value="NAVER" class="account__btn account__btn--naver oauth--connect"></td>
+				</tr>
+				<tr>
+					<td colspan="3">
+					<input type="button" id="kakaoBtn" value="kakao"></td>
+				</tr>
+				<tr>
+					<td id="a"><a target="_blank" id="findId" href="/login/ldentityId">아이디 찾기</a></td>
+					<td><a target="_blank" id="findPwd" href="/login/ldentityPwd">비밀번호 찾기</a></td>
+					<td id="d"><a class="text-center" target="_blank" id="memberAgree" href="/join/memberAgree">회원 가입</a></td>
+				</tr>
+			</table>
 			
 		</div>
 	</body>

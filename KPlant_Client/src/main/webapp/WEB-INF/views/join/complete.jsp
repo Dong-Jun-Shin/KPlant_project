@@ -42,19 +42,19 @@
 						<th><h2>회원 이름</h2></th>
 					</tr>
 					<tr>
-						<td>${m_name}</td>
+						<td>${m_name}회원 이름</td>
 					</tr>
 					<tr>
 						<th><h2>회원 아이디</h2></th>
 					</tr>
 					<tr>
-						<td>${m_id}</td>
+						<td>${m_id}회원 아이디</td>
 					</tr>
 					<tr>
-						<th><h2>회원 이메일</h2></th>
+						<th><h2>회원 이름</h2></th>
 					</tr>
 					<tr>
-						<td>${m_email}</td>
+						<td>${m_email}회원 이름</td>
 					</tr>
 				</table>
 			</form>
