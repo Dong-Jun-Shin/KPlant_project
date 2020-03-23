@@ -14,11 +14,18 @@
 	<definition name="*" extends="template">	
 		<put-attribute name="body" value="/WEB-INF/views/home/home.jsp"/>
 	</definition>
+	
 	<definition name="order/*" extends="template">	
 		<put-attribute name="body" value="/WEB-INF/views/order/{1}.jsp"/>
 	</definition>
+	
+	<definition name="event/*" extends="template">
+		<put-attribute name="title" value="이벤트" />	
+		<put-attribute name="body" value="/WEB-INF/views/event/{1}.jsp"/>
+	</definition>
+	
 	<definition name="customer" template="/WEB-INF/views/template/customer/customerLayout.jsp">
-		<put-attribute name="title" value="KingTenLi Plant" />
+		<put-attribute name="title" value="고객센터" />
 		<put-attribute name="header" value="/WEB-INF/views/template/header.jsp" />
 		<put-attribute name="left" value="/WEB-INF/views/template/customer/left.jsp"/>
 		<put-attribute name="body" value="" />
@@ -34,4 +41,6 @@
 		<put-attribute name="title" value="1:1상담"/>
 		<put-attribute name="body" value="/WEB-INF/views/customer/consult/{1}.jsp" />
 	</definition>
+	
+	
 </tiles-definitions>

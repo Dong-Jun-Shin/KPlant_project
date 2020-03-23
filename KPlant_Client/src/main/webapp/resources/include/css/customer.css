@@ -26,21 +26,46 @@
 
 .nav-be{
     display: inline-block;
-    width: 200px;
-    height: 1028px;
+    height: 1000px;
     padding-top: 45px;
 }
-
-.customer-table{
-	display: inline-block;
-    width: 75%;
-    text-align: center;
+.customer-body{
+	overflow: auto;
 }
 
+/*consult - 배너*/
+.visual_banner.customer {
+    background-image: url("/resources/images/consult/img_customer_visual.png");
+}
+.visual_banner {
+    display: table;
+    width: 105%;
+    min-height: 310px;
+    margin-bottom: 30px;
+    padding: 40px 310px 40px 50px;
+    box-sizing: border-box;
+    background-color: #e6e2df;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+.visual_banner.small_type {
+    min-height: 240px;
+}
+.visual_banner.small_type:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    min-height: 160px;
+}
 .customer-content{
 	text-align: center;
-    padding-top: 45px;
+    float: left;
 }
+.customer-nav{
+	width: 25%;
+}
+
 .font-select{
 	font-family: 'Noto Sans KR', sans-serif;
 }
@@ -91,3 +116,33 @@
 air{
 	padding: 10px;
 }
+ul.mylist, ol.mylist {
+    list-style: none;
+    margin: 0px;
+    padding: 20px;
+  
+    width: 100%;
+}
+.mylist li{
+	padding : 5px;
+}
+
+.form-btn{
+	color: white;
+	background: rgb(57,96,77);
+	width: 200px;
+	height: 50px;
+	margin: 100px;
+	border: 0px;
+	
+}
+.faq-btn{
+	border: 3px solid rgb(57,96,77); 
+	background-color: rgba(0,0,0,0); 
+	color: rgb(57,96,77); 
+	padding: 10px;
+}
+.table-reponsive{
+	display: inline-block;	
+}
+

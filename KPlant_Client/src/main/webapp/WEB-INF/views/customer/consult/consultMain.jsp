@@ -13,7 +13,7 @@
 	
 	<h2 style="width: 36%;">1:1상담</h2>
 	
-	<div class="table-reponsive customer-table">
+	<div class="table-reponsive customer-table font-select">
 	
 		<div class="visual_banner customer smell_type">
 			
@@ -25,22 +25,20 @@
 		</div>
 		
 		
-<!-- 		======== -->
-		<div>
-			<img alt="" src="">
-		</div>
 		<div class="row">
 			<div class="col-md-8">문의 사항은 FAQ에서 먼저 확인하여 주시기 바랍니다.</div>
 			<div class="col-md-4">
-				<button type="button" id="goFaqBnt" name="goFaqBnt">FAQ로 바로가기</button>
+				<button class="faq-btn" type="button" id="goFaqBnt" name="goFaqBnt">FAQ로 바로가기</button>
 			</div>
 		</div>
 		<div>
-			<button type="button" id="showConsultForm" name="showConsultForm">글 작성하기</button>
+			<button class="form-btn" type="button" id="showConsultForm" name="showConsultForm">글 작성하기</button>
 		</div>
-		<div class="well well-lg" style="text-align: left;">
-			<h4>유의 사항</h4>
-			<ul>
+		<div class="panel panel-success" style="text-align: left;">
+			<div class="panel-heading">
+			    <h3 class="panel-title">유의사항</h3>
+			</div>
+			<ul class="mylist">
 				<li>질문에 대한 답변은 등록시 작성하시는 고객님의 메일 주소로 회신됩니다.<li>
 				<li>로그인 후 작성하신 경우 홈페이지에서 작성일 기준 90일 이내에만 조회가 가능합니다.</li>
 				<li>이메일 서버 및 개인 메일함의 설정 상황에 따라 이메일 수신이 안될 수 있으므로 로그인후 홈페이지에서 답변을 조회하여 주시기 바랍니다.</li>
