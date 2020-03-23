@@ -12,3 +12,4 @@ KPlant_Client/.tern-project
 KPlant_Client/.settings/
 KPlant_Client/.springBeans
 KPlant_Client/target/
+*.orig
