@@ -29,7 +29,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0px;">
+    <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 5px;">
     	<tiles:insertAttribute name="header" />
     </nav>
 	
