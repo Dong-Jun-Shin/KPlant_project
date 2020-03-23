@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.css" />
 	<link rel="stylesheet" type="text/css" href="/resources/include/css/template/navbar-static-top.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/include/css/mypage/mypage.css" />
 	
     <script type="text/javascript" src="/resources/include/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
@@ -31,9 +32,10 @@
     <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0px;">
     	<tiles:insertAttribute name="header" />
     </nav>
-
+	
     <div class="section container">
     	<tiles:insertAttribute name="body" />
+    	<a href = "mypage/mypage">마이페이지</a>
     </div>
 
     <footer>
