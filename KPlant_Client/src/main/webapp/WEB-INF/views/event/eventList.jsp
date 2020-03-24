@@ -8,90 +8,18 @@
 	$(function () {
 		/*이벤트 단락 클릭시 상세 페이지로 이동하기 위한 처리 이벤트*/
 		$(".goDetail").click(function () {
-			var evnt_num=$(this).parents("div").attr("data-num");
+			var evnt_num=$(this).attr("data-num");
 			$("#evnt_num").val(evnt_num);
-			console.log("글번호: " + evnt_num);
-			//상세페이지로 이동하기 위해 form 추가(id : detailForm)
 			$("#detailForm").attr({
 				"method" : "get",
 				"action" : "/event/eventDetail"
 			});
 			$("#detailForm").submit();
-		})
-	})//상위 $ 함수 끝
-	
-	/*
-	/*동적으로 eventList 값 전달
-	function listData() {
-		console.log("EVENT 리스트 출력");
-		var count = 0;
-		
-		$.getJSON("/event/eventData", function (data) {
-			console.log("length : " + data.length);
-			$(data).each(function (index) {
-				var evnt_num = this.evnt_num;
-				var evnt_title = this.evnt_title;
-				var evnt_content = this.evnt_content;
-				var evnt_views = this.evnt_views;
-				var evnt_rgstDate = this.evnt_rgstDate;
-				var evnt_startDate = this.evnt_startDate;
-				var evnt_endDate = this.evnt_endDate;
-				var evnt_modifyDate = this.evnt_modifyDate;
-				var evnt_thumb = this.evnt_thumb;
-				var evnt_fileF = this.evnt_fileF;
-				var evnt_fileS = this.evnt_fileS;
-				var evnt_fileT = this.evnt_fileT;
-				thumbnailList(evnt_num, evnt_title, evnt_content, evnt_views, evnt_rgstDate, evnt_startDate, evnt_endDate, evnt_modifyDate, evnt_thumb, evnt_fileF, evnt_fileS, evnt_fileT, index);
-				
-			});
-		}).fail(function () {
-			alert("목록을 불러오는데 실패하였습니다. 잠시후에 다시 시도해 주세요.")
+			
 		});
-	}
+	});//상위 $ 함수 끝
 	
-	function thumbnailList(evnt_num, evnt_title, evnt_content, evnt_views, evnt_rgstDate, evnt_startDate, evnt_endDate, evnt_modifyDate, evnt_thumb, evnt_fileF, evnt_fileS, evnt_fileT, index){
-		var column = $("<div>");
-		column.attr("data-num", evnt_num);
-		column.addClass("col-sm-6 col-md-4");
-		
-		var thumbnail = $("<div>");
-		thumbnail.addClass("thumbnail");
-		
-		var lightbox_a = $("<a>");
-		lightbox_a.attr({"href":"/uploadStorage/event/"+evnt_fileF, "data-lightbox":"roadtrip", "title":evnt_title});
-		
-		var img = $("<img>");
-		img.attr("src", "/uploadStorage/gallery/thumbnail/"+evnt_thumb);
-
-		var caption = $("<div>");
-		caption.addClass("caption");
-		
-		var h3 = $("<h3>");
-		h3.html(g_subject.substring(0, 12)+"...");
-		
-		var pInfo = $("<p>");
-		pInfo.html("작성자: "+ g_name +" / 등록일: " + g_date);
-		
-		var pContent = $("<p>");
-		pContent.html(g_content.substring(0, 24)+"...");
-		
-		var pBtnArea = $("<p>");
-		
-		var upBtn = $("<a>");
-		upBtn.attr({"data-btn":"upBtn", "role":"button"});
-		upBtn.addClass("btn btn-primary gap");
-		upBtn.html("수정");
-		
-		var delBtn = $("<a>");
-		delBtn.attr({"data-btn":"delBtn", "role":"button"});
-		delBtn.addClass("btn btn-default");
-		delBtn.html("삭제");
-		
-		caption.append(h3).append(pInfo).append(pContent));
-		column.append(thumbnail.append(lightbox_a.append(img)).append(caption));
-		
-		$("#rowArea").append(column);
-	}*/
+	
 </script>
 <%-- ===========================스크립트 종료 ==============================--%>
 
@@ -121,11 +49,11 @@
 				<c:forEach var="event" items="${eventList}">
 					  <div class="col-sm-6 col-md-4">
 					    <div class="thumbnail goDetail" data-num="${event.evnt_num}">
-					      <img src="/uploadStorage/gallery/thumbnail/"+${event.evnt_thumb}>
+					      <img src="/uploadStorage/gallery/thumbnail/${event.evnt_thumb}">
 					      <div class="caption">
 					        <h3>${event.evnt_title}</h3>
 					        <p>${event.evnt_content}</p>
-							<p>${event.evnt_startDate} - ${event.evnt_endDate}</p>
+							<p>${event.evnt_startDate}부터  - ${event.evnt_endDate}까지</p>
 							<p>${event.evnt_rgstDate}</p>
 					      </div>
 					    </div>
