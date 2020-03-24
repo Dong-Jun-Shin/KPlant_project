@@ -27,18 +27,18 @@
 	<%--이벤트 제목출력 --%>
 	<hr id="top-line">
 	<div class="row">
-	  <div class="col-md-6 text-left">이벤트 제목입니다.</div>
-	  <div class="col-md-6 text-right">등록일 [2020-03-24]</div>
+	  <div class="col-md-6 text-left">이벤트 제목입니다.${detail.evnt_title}</div>
+	  <div class="col-md-6 text-right">등록일 [${detail.evnt_rgstDate}]</div>
 	</div>
 	<hr id="botton-line">	
 	
 	<%--이벤트 상세 정보 보여주기 --%>
 	<div> 
 		<div class="event_img" data-num="${detail.evnt_num}">
-			<img src="/uploadStorage/event/thumbnail/${evnt_thumb}">
-			<img src="/uploadStorage/event/fileF/${evnt_fileF}">
-			<img src="/uploadStorage/event/fileS/${evnt_fileS}">
-			<img src="/uploadStorage/evnet/fileT/${evnt_fileT}">
+			<img src="/uploadStorage/event/thumbnail/${detail.evnt_thumb}">
+			<img src="/uploadStorage/event/fileF/${detail.evnt_fileF}">
+			<img src="/uploadStorage/event/fileS/${detail.evnt_fileS}">
+			<img src="/uploadStorage/evnet/fileT/${detail.evnt_fileT}">
 		</div>
 		
 		<div class="event_content">
