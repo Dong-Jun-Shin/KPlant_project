@@ -7,6 +7,8 @@
 	<typeAliases>
 		<!-- 타입에 대한 별칭부여. BoardVO 타입을 가진 '별칭 board'라는 객체 -->
 		<!-- <typeAlias type="com.spring.client.board.vo.BoardVO" alias="board"/> -->
-		
+		<typeAlias type="com.kplant.admin.customer.faq.vo.FaqVO" alias="faq"/>
+		<typeAlias type="com.kplant.admin.customer.consult.vo.ConsultVO" alias="consult"/>
+		<typeAlias type="com.kplant.admin.event.vo.EventVO" alias="event"/>
 	</typeAliases>
 </configuration>

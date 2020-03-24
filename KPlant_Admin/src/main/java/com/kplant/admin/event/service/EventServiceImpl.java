@@ -1,12 +1,12 @@
-package com.kplant.client.event.service;
+package com.kplant.admin.event.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.kplant.client.event.dao.EventDAO;
-import com.kplant.client.event.vo.EventVO;
+import com.kplant.admin.event.dao.EventDAO;
+import com.kplant.admin.event.vo.EventVO;
 
 import lombok.Setter;
 
@@ -15,6 +15,7 @@ public class EventServiceImpl implements EventService {
 	
 	@Setter(onMethod_=@Autowired)
 	private EventDAO eventDAO;
+	
 	@Override
 	public List<EventVO> eventList(EventVO evo) {
 		List<EventVO> list = null;

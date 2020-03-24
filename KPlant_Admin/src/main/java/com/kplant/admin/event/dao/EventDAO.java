@@ -1,8 +1,9 @@
-package com.kplant.client.event.dao;
+package com.kplant.admin.event.dao;
 
 import java.util.List;
 
-import com.kplant.client.event.vo.EventVO;
+import com.kplant.admin.event.vo.EventVO;
+
 
 public interface EventDAO {
 	public List<EventVO> eventList(EventVO evo);

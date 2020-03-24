@@ -1,4 +1,4 @@
-package com.kplant.client.event.controller;
+package com.kplant.admin.event.controller;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.kplant.client.event.service.EventService;
-import com.kplant.client.event.vo.EventVO;
+import com.kplant.admin.event.service.EventService;
+import com.kplant.admin.event.vo.EventVO;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
