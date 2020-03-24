@@ -55,18 +55,18 @@
 				<tr>
 					<td class="tr1"><label class="text2">기존 비밀번호</label></td>
 					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-						type="password" class="form-control" placeholder="기존 비밀번호를 입력" />
+						type="password" class="form-control" id = "oldPwd" placeholder="기존 비밀번호를 입력" />
 					</td>
 				<tr>
 					<td class="tr1"><label class="text2">신규 비밀번호</label></td>
 					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-						type="password" class="form-control"
+						type="password" id = "newPwd" class="form-control"
 						placeholder="영어+문자+특수문자 8~20자리" />
 					</td>
 				<tr>
 					<td class="tr1"><label class="text2">신규 비밀번호 확인</label></td>
 					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-						type="password" class="form-control"
+						type="password" id = "newPwd2" class="form-control"
 						placeholder="영어+문자+특수문자 8~20자리" />
 					</td>
 			</table>

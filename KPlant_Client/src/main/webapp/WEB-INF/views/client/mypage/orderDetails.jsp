@@ -75,6 +75,28 @@
 
 			</div>
 			<div></div>
+<<<<<<< Updated upstream
+=======
+			<p class = "title">주문내역</p>
+			<div class = "orderTable">
+				<table class="wishTable table table-striped ">
+				<tr class="info">
+					<td>주문일자/번호</td>
+					<td>상품명/옵션</td>
+					<td>주문금액</td>
+					<td>진행현황</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan = "5">해당 내역이 없습니다.</td>
+				</tr>	
+			</table>
+			</div>
+			<div class="paging">
+				<a class="prev" href="#">이전</a><a class="active" href="#">1</a>
+				<a class="next" href="#">다음</a>
+			</div>
+>>>>>>> Stashed changes
 		</form>
 	</div>
 

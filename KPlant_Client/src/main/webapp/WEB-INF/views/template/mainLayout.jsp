@@ -26,6 +26,11 @@
     <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
 	<script type="text/javascript" src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
+	<script type="text/javascript" src="/resources/include/js/mypage/updateForm.js"></script>
+	<script type="text/javascript" src="/resources/include/js/mypage/updatePassword.js"></script>
+	<script type="text/javascript" src="/resources/include/js/mypage/withdrawal.js"></script>
+	<script type="text/javascript" src="/resources/include/js/mypage/mypage.js"></script>
+	
   </head>
 
   <body>

@@ -82,11 +82,11 @@
 			</table>
 		</form>
 		<div id="snsLogin">
-			<p class="title">SNS 계정 연결 현황</p>
+			<!-- <p class="title">SNS 계정 연결 현황</p>
 			<br /> <img src="/resources/images/mypage/naver.PNG" width="270"
 				height="52.7" class="img high" /> <img
 				src="/resources/images/mypage/kakao.PNG" class="high" width="270"
-				height="52.7" />
+				height="52.7" /> -->
 		</div>
 		<input type="button" id="homeupdateBtn" name="updateBtn"
 			value="회원 정보변경" class="btn btn-success" />
