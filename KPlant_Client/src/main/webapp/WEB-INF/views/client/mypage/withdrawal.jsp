@@ -116,8 +116,7 @@
 		</form>
 
 		<div class="lastConfirm">
-			<input type="checkbox" name = "agree" title="회원 탈퇴 안내를 모두 확인 하였습니다. 탈퇴에 동의 합니다."
-				value="회원 탈퇴 안내를 모두 확인 하였습니다. 탈퇴에 동의 합니다."> <label
+			<input type="checkbox" name = "agree" title="회원 탈퇴 안내를 모두 확인 하였습니다. 탈퇴에 동의 합니다." /><label
 				id="confirmFont">회원 탈퇴 안내를 모두 확인 하였습니다. 탈퇴에 동의 합니다.</label>
 		</div>
 		<div id="withdrawalBtnAll">

@@ -19,25 +19,29 @@
 		<div class="menu">
 			<ul>
 
-				<li class="liTitle"><a class="menutitle" href="/mypage/mypage">회원 정보</a>
+				<li class="liTitle"><a class="menutitle" href="/mypage/mypage">회원
+						정보</a>
 					<hr class="hr" />
 					<ul class="point">
-						<li><a href = "/mypage/updateForm" class="menusub">회원정보 수정</a></li>
-						<li><a href = "/mypage/passwordUpdate" class="menusub">비밀번호 수정</a></li>
-						<li><a href = "/mypage/withdrawal" class="menusub">회원 탈퇴</a>
+						<li><a href="/mypage/updateForm" class="menusub">회원정보 수정</a></li>
+						<li><a href="/mypage/passwordUpdate" class="menusub">비밀번호
+								수정</a></li>
+						<li><a href="/mypage/withdrawal" class="menusub">회원 탈퇴</a>
 							<hr class="hr" /></li>
 					</ul></li>
-				<li class="liTitle"><a  class="menutitle" href="/mypage/orderDetails">나의 쇼핑정보</a>
+				<li class="liTitle"><a class="menutitle"
+					href="/mypage/orderDetails">나의 쇼핑정보</a>
 					<hr class="hr" />
 					<ul class="point">
-						<li><a  href = "/mypage/orderDetails"class="menusub">주문/배송내역</a></li>
-						<li><a  href="/mypage/cancel" class="menusub">취소/반품/환불내역</a>
+						<li><a href="/mypage/orderDetails" class="menusub">주문/배송내역</a></li>
+						<li><a href="/mypage/cancel" class="menusub">취소/반품/환불내역</a>
 							<hr class="hr" /></li>
 					</ul></li>
-				<li class="liTitle"><a class="menutitle" href="/mypage/wishList">위시리스트</a>
+				<li class="liTitle"><a class="menutitle"
+					href="/mypage/wishList">위시리스트</a>
 					<hr class="hr" />
 					<ul class="point">
-						<li><a href = "/mypage/wishList" class="menusub">찜한 목록</a></li>
+						<li><a href="/mypage/wishList" class="menusub">찜한 목록</a></li>
 					</ul></li>
 			</ul>
 		</div>
@@ -55,18 +59,19 @@
 				<tr>
 					<td class="tr1"><label class="text2">기존 비밀번호</label></td>
 					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-						type="password" class="form-control" id = "oldPwd" placeholder="기존 비밀번호를 입력" />
+						type="password" class="form-control" id="oldPwd"
+						placeholder="기존 비밀번호를 입력" />
 					</td>
 				<tr>
 					<td class="tr1"><label class="text2">신규 비밀번호</label></td>
 					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-						type="password" id = "newPwd" class="form-control"
+						type="password" class="form-control"
 						placeholder="영어+문자+특수문자 8~20자리" />
 					</td>
 				<tr>
 					<td class="tr1"><label class="text2">신규 비밀번호 확인</label></td>
 					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-						type="password" id = "newPwd2" class="form-control"
+						type="password" id="newPwd2" class="form-control"
 						placeholder="영어+문자+특수문자 8~20자리" />
 					</td>
 			</table>

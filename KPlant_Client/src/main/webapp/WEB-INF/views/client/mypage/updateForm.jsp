@@ -123,9 +123,9 @@
 				<input type="button" id="withd" name="withd" value="회원 탈퇴"
 					class="btn btn-primary" />
 			</div>
+		
 			<div id="btn">
-				<input type="button" id="reset" name="reset" value="취소"
-					class="btn btn-default" /> <input type="button" id="updateBtn2"
+				<input type="button" id="reset" name="updateBtn" value="취소" class="btn btn-default" /> <input type="button" id="updateBtn2"
 					name="updateBtn" value="회원 정보변경" class="btn btn-success" />
 			</div>
 		</div>
