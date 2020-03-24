@@ -26,7 +26,6 @@ function formCheck(elem, item, msg){
 	}
 }
 
-<<<<<<< Updated upstream
 /*********
  * 함수명:chkData(유효성 체크 대상, 메시지 내용)
  * 출력영역: alert
@@ -45,5 +44,3 @@ function chkData(elem, str) {
 
 	return true;
 }
-=======
->>>>>>> Stashed changes

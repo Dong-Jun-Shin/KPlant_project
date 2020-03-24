@@ -63,14 +63,10 @@ public class mypageController {
 		
 		return "mypage/withdrawal";
 	}
-<<<<<<< Updated upstream
-=======
 	@GetMapping("/cancel")
 	public String cancelList(Locale locale, Model model) {
 		log.info("cancel 호출 성공");
 		
 		return "mypage/cancel";
 	}
->>>>>>> Stashed changes
-	
 }
