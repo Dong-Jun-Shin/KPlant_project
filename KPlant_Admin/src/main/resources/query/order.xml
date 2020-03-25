@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kplant.admin.order.dao.AdminOrderDAO">
+<!-- 	<resultMap id="orderResult" type="orderList"> -->
+<!-- 		<result property="ord_num" /> -->
+<!-- 		<result property="ord_name" /> -->
+<!-- 		<result property="ord_phone" /> -->
+<!-- 		<result property="ord_email" /> -->
+<!-- 		<result property="ord_date" /> -->
+<!-- 		<result property="ord_status" /> -->
+<!-- 		<result property="ord_trn" /> -->
+<!-- 		<association property="member"> -->
+			
+<!-- 		</association> -->
+<!-- 	</resultMap> -->
+	
+	<!-- 게시판 리스트 검색 구문 추가 -->
+	<select id="orderList" parameterType="orderList" resultType="orderList">
+		SELECT ord_num, ord_name, ord_phone, ord_email, 
+			to_char(ord_date, 'YYYY-MM-DD') as ord_date, 
+			ord_status, ord_trn, m_num
+		FROM order_list INNER JOIN
+		/* if가 만족할 때만 where가 추가 */
+		<where>
+			<if test="search=='ord_name'">
+				<![CDATA[b_title LIKE '%' || #{keyword} || '%']]>
+			</if>
+			<if test="search=='m_id'">
+				<![CDATA[b_content LIKE '%' || #{keyword} || '%']]>
+			</if>
+			<if test="search=='ord_date'">
+				<![CDATA[b_name LIKE '%' || #{keyword} || '%']]>
+			</if>
+			<if test="search=='ord_status'">
+				<![CDATA[b_name LIKE '%' || #{keyword} || '%']]>
+			</if>
+			<if test="search=='ord_trn'">
+				<![CDATA[b_name LIKE '%' || #{keyword} || '%']]>
+			</if>
+		</where>
+		ORDER BY b_num desc
+	</select>
+</mapper>

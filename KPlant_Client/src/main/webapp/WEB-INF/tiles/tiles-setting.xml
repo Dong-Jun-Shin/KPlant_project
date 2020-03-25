@@ -10,10 +10,28 @@
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp" />
 	</definition>
+	
 	<definition name="*" extends="template">	
 		<put-attribute name="body" value="/WEB-INF/views/home/home.jsp"/>
 	</definition>
 	<definition name="order/*" extends="template">	
 		<put-attribute name="body" value="/WEB-INF/views/order/{1}.jsp"/>
+	</definition>
+	<definition name="customer" template="/WEB-INF/views/template/customer/customerLayout.jsp">
+		<put-attribute name="title" value="KingTenLi Plant" />
+		<put-attribute name="header" value="/WEB-INF/views/template/header.jsp" />
+		<put-attribute name="left" value="/WEB-INF/views/template/customer/left.jsp"/>
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp" />
+	</definition>
+	
+	<definition name="customer/faq/*" extends="customer">
+		<put-attribute name="title" value="FAQ게시판"/>
+		<put-attribute name="body" value="/WEB-INF/views/customer/faq/{1}.jsp" />
+	</definition>
+
+	<definition name="customer/consult/*" extends="customer">
+		<put-attribute name="title" value="1:1상담"/>
+		<put-attribute name="body" value="/WEB-INF/views/customer/consult/{1}.jsp" />
 	</definition>
 </tiles-definitions>

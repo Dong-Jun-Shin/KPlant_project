@@ -19,24 +19,31 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.css" />
-	<link rel="stylesheet" type="text/css" href="/admin/resources/include/css/template/admin-header-footer-nav.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/include/css/template/navbar-static-top.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/include/css/customer.css" />
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 	
-	<script type="text/javascript" src="/resources/include/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/resources/include/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
 	<script type="text/javascript" src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="/resources/include/dist/js/bootstrap.min.js"></script>
-    <script src="/resources/include/dist/assets/js/docs.min.js"></script>
   </head>
 
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0px;">
     	<tiles:insertAttribute name="header" />
     </nav>
-		
-   	<!-- 내용 시작 -->
-	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-         <tiles:insertAttribute name="body" />
+	
+	
+    <div class="section container">
+		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<tiles:insertAttribute name="left"/>
+		</nav>
+    	<tiles:insertAttribute name="body" />
     </div>
+
+    <footer>
+    	<tiles:insertAttribute name="footer" />
+    </footer>
   </body>
 </html>
