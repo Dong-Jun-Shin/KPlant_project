@@ -69,6 +69,6 @@
 						
 		</table>
 		<nav><ul class="pagination">...</ul></nav>
-		
+		<div></div>
 	</div>
 </div>
