@@ -17,11 +17,58 @@
 		<script src="../js/html5shiv.js"></script>
 		<![endif]-->
 		<link rel="stylesheet" type="text/css" href="/resources/include/css/login/login.css">
+		<script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="/resources/include/js/common.js"></script>
+		<script type="text/javascript">
+			$(function () {
+				
+				$("#loginBtn").click(function () {
+					var m_id=$("#m_id").val();
+					var m_pwd=$("#m_pwd").val();
+						
+					if(!chkData("#m_id","아이디"))return;
+					if(!chkData("#m_pwd","비밀번호"))return;
+					else{
+						/* $.ajax({
+							url:"/login/loginCheck",//전송 url
+							type:"post",//전송시 method 방식
+							data:$("#m_id,#m_pwd").serialize(),//폼전체 데이터 전송
+							error:function(xhr, textStatus, errorThrown){
+								alert("시스템 오류 입니다. 관리자에게 문의 하세요");
+								alert(textStatus+" (HTTP - "+ xhr.status + "/" +errorThrown);
+							},
+							success:function(resultData){
+								var goUrl="";
+								if(resultData=='실패'){
+									$("#msg").text("직상시 입력한 아이디,비밀번호가 일지하지 않습니다.").css("color","red");
+									$("#m_id").select();
+									$("#m_pwd").select();
+								}else if(resultData=='성공'){
+									$("#msg").text("");
+									if(butChk==1){
+										goUrl="/home/home";
+									}
+									$("#m_data").attr("action",goUrl);
+									$("#m_data").submit();
+								}
+							}
+						}); */
+						$("#form").attr({
+							"method":"post",
+							"action":"/login/loginCheck"
+						});
+						$("#form").submit();
+					}
+				});
+			});
+		</script>
+		
 	</head>
 	<body>
 		<div class="container">
 			
 			<h1>로그인</h1>
+			<form name="form" id="form" method="post">
 			<table>
 				<tr>
 					<td colspan="3">
@@ -32,8 +79,9 @@
 					<input type="text" class="form-control" id="m_pwd" name="m_pwd" placeholder="비밀번호 입력"></td>
 				</tr>
 				<tr>
-					<td colspan="3">
-					<input type="button"  id="loginBtn" value="로그인"></td>
+					<td colspan="3" align="center">
+						<button type="button"  id="loginBtn">로그인</button>
+					</td>
 				</tr>
 				<tr>
 					<td colspan="3">
@@ -49,7 +97,7 @@
 					<td id="d"><a class="text-center" target="_blank" id="memberAgree" href="/join/memberAgree">회원 가입</a></td>
 				</tr>
 			</table>
-			
+			</form>
 		</div>
 	</body>
 </html>

@@ -41,7 +41,14 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a class="menu menu-right-font" href="/join/memberAgree">회원가입</a></li>
-        <li><a class="menu menu-right-font" href="/login/login">로그인</a></li>
+        <li>
+        	<c:if test="${empty m_id}">
+        		<a class="menu menu-right-font" href="/login/login">로그인</a>
+        	</c:if>
+        	<c:if test="${not empty m_id}">
+        		<a class="menu menu-right-font" href="/login/logout">로그아웃</a>
+        	</c:if>
+        </li>
 
       	<%-- <c:if test=""></c:if> --%>
       	<%-- 로그인
