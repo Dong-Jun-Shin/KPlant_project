@@ -1,4 +1,4 @@
-package com.kplant.admin.customer.consult.service;
+package com.kplant.admin.consult.service;
 
 import org.springframework.stereotype.Service;
 

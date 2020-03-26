@@ -41,6 +41,11 @@
 		<put-attribute name="title" value="1:1상담"/>
 		<put-attribute name="body" value="/WEB-INF/views/customer/consult/{1}.jsp" />
 	</definition>
+
+	<definition name="customer/consult/writeForm" extends="template">
+		<put-attribute name="title" value="1:1상담 글작성"/>
+		<put-attribute name="body" value="/WEB-INF/views/customer/consult/writeForm.jsp" />
+	</definition>
 	
 	
 </tiles-definitions>

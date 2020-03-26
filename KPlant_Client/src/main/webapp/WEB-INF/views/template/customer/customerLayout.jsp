@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.css" />
 	<link rel="stylesheet" type="text/css" href="/resources/include/css/template/navbar-static-top.css" />
-	<link rel="stylesheet" type="text/css" href="/resources/include/css/customer.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/include/css/customer/customer.css" />
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 	
     <script type="text/javascript" src="/resources/include/js/jquery-3.3.1.min.js"></script>
@@ -37,10 +37,14 @@
 	</div>
     <div class="section container">
     	<div class="customer-body">
-		<nav class="d-none d-md-block bg-light sidebar">
-			<tiles:insertAttribute name="left"/>
-		</nav>
-    	<tiles:insertAttribute name="body" />
+			<div>
+				<nav class="d-none d-md-block bg-light sidebar">
+					<tiles:insertAttribute name="left"/>
+				</nav>
+			</div>
+			<div>
+	    		<tiles:insertAttribute name="body" />
+	    	</div>
     	</div>
     </div>
 

@@ -1,8 +1,8 @@
-package com.kplant.admin.customer.faq.service;
+package com.kplant.admin.faq.service;
 
 import java.util.List;
 
-import com.kplant.admin.customer.faq.vo.FaqVO;
+import com.kplant.admin.faq.vo.FaqVO;
 
 
 public interface FaqService {

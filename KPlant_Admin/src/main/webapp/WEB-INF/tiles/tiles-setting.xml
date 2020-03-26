@@ -20,13 +20,16 @@
 		<put-attribute name="body" value="/WEB-INF/views/hotdeal/{1}.jsp" />
 	</definition>
 	
-	<definition name="customer/faq/*" extends="admin">
-		<put-attribute name="body" value="/WEB-INF/views/customer/faq/{1}.jsp" />
+	<definition name="faq/*" extends="admin">
+		<put-attribute name="title" value="Admin faq Page" />
+		<put-attribute name="body" value="/WEB-INF/views/faq/{1}.jsp" />
 	</definition>
-	<definition name="customer/consult/*" extends="admin">
-		<put-attribute name="body" value="/WEB-INF/views/customer/consult/{1}.jsp" />
+	<definition name="consult/*" extends="admin">
+		<put-attribute name="title" value="Admin consult Page" />
+		<put-attribute name="body" value="/WEB-INF/views/consult/{1}.jsp" />
 	</definition>
 	<definition name="event/*" extends="admin">
+		<put-attribute name="title" value="Admin event Page" />
 		<put-attribute name="body" value="/WEB-INF/views/event/{1}.jsp" />
 	</definition>
 	

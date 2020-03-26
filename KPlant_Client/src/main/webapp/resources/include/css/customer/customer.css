@@ -1,4 +1,7 @@
 @charset "UTF-8";
+*{
+	font-family: 'Noto Sans KR', sans-serif;
+}
 /* Sidebar navigation */
 .nav-sidebar {
   margin-right: -21px; /* 20px padding + 1px border */
@@ -29,9 +32,6 @@
     height: 1000px;
     padding-top: 45px;
 }
-.customer-body{
-	overflow: auto;
-}
 
 /*consult - 배너*/
 .visual_banner.customer {
@@ -39,10 +39,10 @@
 }
 .visual_banner {
     display: table;
-    width: 105%;
-    min-height: 310px;
+    width: 100%;
+    min-height: 250px;
     margin-bottom: 30px;
-    padding: 40px 310px 40px 50px;
+    padding: 110px 460px 0px 50px;
     box-sizing: border-box;
     background-color: #e6e2df;
     background-repeat: no-repeat;
@@ -60,12 +60,21 @@
 }
 .customer-content{
 	text-align: center;
+	width: 81%;
     float: left;
+    margin: 1%;
 }
 .customer-nav{
-	width: 25%;
+	width: 15%;
 }
-
+.customer-subTitle{
+	text-align: left;
+    color: gray;
+    font-size: 25px;
+    border-left: 8px solid gray;
+    padding-left: 25px;
+    margin-bottom: 35px;
+}
 .font-select{
 	font-family: 'Noto Sans KR', sans-serif;
 }
@@ -142,7 +151,45 @@ ul.mylist, ol.mylist {
 	color: rgb(57,96,77); 
 	padding: 10px;
 }
-.table-reponsive{
-	display: inline-block;	
+.banner_cont{
+	text-align: left;
+	font-size: 18px;
+}
+.customer-table{
+	margin-bottom: 100px;	
+}
+.modal-table{
+	width: 80%;
+    height: 140px;
+    margin: auto;
+    font-size: 20px;
+}
+.question{
+	color: #061AD1;
+	font-weight: bolder;
+}
+.answer{
+	color: #C80000;
+	font-weight: bolder;
+}
+.check-btn{
+	width: 200px;
+	color: white;
+    background: rgb(57,96,77);
+    width: 200px;
+    height: 50px;
+    margin: 20px;
+    border: 0px;
+}
+.btnDiv{
+	text-align: center;
+}
+.faq_title{
+	font-size: 25px;
+}
+.faq_content{
+	font-size: 20px;
 }
 
+
+}

@@ -1,4 +1,4 @@
-package com.kplant.admin.customer.faq.vo;
+package com.kplant.admin.faq.vo;
 
 import lombok.Data;
 

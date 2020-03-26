@@ -1,10 +1,10 @@
-package com.kplant.admin.customer.faq.service;
+package com.kplant.admin.faq.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.kplant.admin.customer.faq.vo.FaqVO;
+import com.kplant.admin.faq.vo.FaqVO;
 
 @Service
 public class FaqServiceImpl implements FaqService {

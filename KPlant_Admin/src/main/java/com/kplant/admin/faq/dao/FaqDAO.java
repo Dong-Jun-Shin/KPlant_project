@@ -1,7 +1,8 @@
-package com.kplant.admin.customer.faq.dao;
+package com.kplant.admin.faq.dao;
 
 import java.util.List;
-import com.kplant.admin.customer.faq.vo.FaqVO;
+
+import com.kplant.admin.faq.vo.FaqVO;
 
 public interface FaqDAO {
 
