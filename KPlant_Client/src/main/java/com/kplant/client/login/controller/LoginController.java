@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kplant.client.join.vo.MemberVO;
@@ -79,13 +81,29 @@ public class LoginController {
 		log.info("ldentityId 호출 성공");
 		return "login/ldentityId";
 	}
+	@ResponseBody
+	@RequestMapping(value = "/lookupId", method =RequestMethod.POST)
+	public int lookupId(MemberVO mvo, Model model)  throws Exception{
+		log.info("lookupId 호출 성공");
+		
+		int result = loginService.lookupId(mvo);
+		return result;
+	}
+	
+	
 	
 	/**
 	 * 아이디 찾기 보여주기
 	 */
-	@RequestMapping(value = "/findId")
+	@RequestMapping(value = "/findId", method = RequestMethod.GET)
 	public String findId(@ModelAttribute("data")MemberVO mvo, Model model) {
 		log.info("findId 호출 성공");
+		
+		log.info("mvo = "+mvo);
+	      
+	     MemberVO data = loginService.findId(mvo);
+	     model.addAttribute("data", data);
+		
 		return "login/findId";
 	}
 	

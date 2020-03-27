@@ -13,4 +13,10 @@ public interface LoginDAO {
 
 	// 로그아웃
 	public void logout(HttpSession session);
+	
+	//아이디 찾기
+	public int lookupId(MemberVO mvo);
+	
+	//아이디 보여주기
+	public MemberVO findId(MemberVO mvo);
 }

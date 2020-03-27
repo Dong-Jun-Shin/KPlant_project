@@ -43,4 +43,19 @@ public class LoginServiceImpl implements LoginService {
 	public MemberVO viewMember(MemberVO mvo) {
 		return loginDAO.viewMember(mvo);
 	}
+	
+	//아이디 찾기
+	@Override
+	public int lookupId(MemberVO mvo) {
+		int result =loginDAO.lookupId(mvo);
+		return result;
+	}
+	
+	//아이디 보여주기
+	@Override
+	public MemberVO findId(MemberVO mvo) {
+		MemberVO data = new MemberVO();
+	    data = loginDAO.findId(mvo);
+	    return data;
+	}
 }

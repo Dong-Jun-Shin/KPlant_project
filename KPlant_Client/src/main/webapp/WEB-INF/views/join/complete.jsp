@@ -19,7 +19,7 @@
 		<script type="text/javascript">
 			$(function() {
 				$("#home").click(function() {
-					location.href="/home/home";
+					location.href="/*";
 				})
 				$("#login").click(function () {
 					location.href="/login/login";
@@ -37,24 +37,25 @@
 			</div>
 			<h1>가입 완료</h1>
 			<form id="form">
+			<input type = "hidden" name = "m_num" id = "m_num" value = "${memberVO.m_num}" />
 				<table>
 					<tr>
 						<th><h2>회원 이름</h2></th>
 					</tr>
 					<tr>
-						<td>${m_name}회원 이름</td>
+						<td>${memberVO.m_name}</td>
 					</tr>
 					<tr>
 						<th><h2>회원 아이디</h2></th>
 					</tr>
 					<tr>
-						<td>${m_id}회원 아이디</td>
+						<td>${memberVO.m_id}</td>
 					</tr>
 					<tr>
-						<th><h2>회원 이름</h2></th>
+						<th><h2>회원 이메일</h2></th>
 					</tr>
 					<tr>
-						<td>${m_email}회원 이름</td>
+						<td>${memberVO.m_eMail}</td>
 					</tr>
 				</table>
 			</form>
