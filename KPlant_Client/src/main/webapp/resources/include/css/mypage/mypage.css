@@ -1,0 +1,602 @@
+@charset "UTF-8";
+
+.memberTable {
+	margin-top: 45px;
+	width: 100%;
+	height: 280px;
+}
+
+.tr1 {
+	width: 180px;
+	/* height: 29px; */
+	opacity: 0.9;
+	border: solid 0.5px #dddddd;
+	background-color: #39604d;
+	text-align: center;
+}
+
+.tr2 {
+	width: 329px;
+	/* height: 34px; */
+	object-fit: contain;
+	opacity: 0.9;
+	border: solid 0.5px #dddddd;
+	background-color: #ffffff;
+	text-align: left;
+	font-size: 16px;
+}
+
+.tr3 {
+	width: 699px;
+	/* height: 34px; */
+	object-fit: contain;
+	opacity: 0.9;
+	border: solid 0.5px #dddddd;
+	background-color: #ffffff;
+	text-align: left;
+	font-size: 16px;
+}
+
+.text {
+	width: 100px;
+	height: 13.5px;
+	object-fit: contain;
+	font-family: Arial;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.5;
+	letter-spacing: normal;
+	text-align: center;
+	color: #ffffff
+}
+
+.title {
+	height: 15px;
+	width: 200px;
+	object-fit: contain;
+	text-align: left;
+	margin-botton: 30px;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+#updateBtn2 {
+	margin-left: 10px;
+	text-align: center;
+	height: 43.99074px;
+}
+
+.img {
+	margin-right: 240px;
+	text-align: center
+}
+
+#nav {
+	float: left;
+	width: 16%;
+	margin-top: 16px;
+}
+
+#memberDiv {
+	text-align: center;
+	float: left;
+	width: 82%;
+	margin-top: 16px;
+	margin-left: 12px;
+}
+
+#all {
+	overflow: auto;
+	width: 1140px;
+	height: 1080px;
+}
+
+#all2 {
+	width: 1140px;
+	height: 1080px;
+}
+
+#snsLogin {
+	margin-top: 90px;
+}
+
+ul {
+	list-style: none;
+	padding-left: 0px;
+}
+
+.point {
+	background-color: #FCFCFB;
+}
+
+.liTitle {
+	margin-top: 15px;
+	font-weight: bold;
+}
+
+.profile {
+	width: 182.396px;
+	height: 178.594px;
+	background: #89bc3f;
+	text-align: center;
+}
+
+.hr {
+	margin-top: 9px;
+	margin-bottom: 9px;
+}
+
+.high {
+	margin-top: 40px;
+}
+
+a {
+	color: #2e2e2e;
+}
+
+.menutitle {
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.menusub {
+	font-size: 15px;
+}
+
+.profileTitle {
+	font: inherit;
+	font-size: 24px;
+	font-family: 'Malgun Gothic' ng;
+	font-weight: bold;
+	color: #3b3a37;
+	word-spacing: -2pt;
+	letter-spacing: -2px;
+	line-height: 38px;
+	margin-top: 8px;
+}
+
+.profileSub {
+	font: inherit;
+	font-size: 12px;
+	font-family: 'Malgun Gothic' ng;
+	font-weight: bold;
+	color: #3b3a37;
+	word-spacing: -2pt;
+}
+
+#profileImg {
+	margin-top: 22px;
+	width: 58px;
+}
+
+select {
+	height: 22px;
+	margin-top: 49px;
+}
+
+#rows1 {
+	width: 125.99074px;
+}
+
+#rows2 {
+	width: 125.99074px;
+}
+
+#emailSelect {
+	margin-top: 0px;
+	width: 116px;
+	margin-bottom: 5px;
+}
+
+.bottom {
+	margin-bottom: 5px;
+}
+
+#btn {
+	margin-top: 100px;
+	text-align: right;
+	float: left;
+	width: 50%;
+}
+
+#homeupdateBtn {
+	margin-top: 80px;
+}
+
+#updateBtn {
+	margin-top: 0px;
+	margin-left: 10px;
+}
+
+#withd {
+	height: 43.99074px;
+	width: 90px;
+}
+
+#reset {
+	height: 43.99074px;
+	width: 90px;
+}
+
+#delete {
+	text-align: left;
+	margin-top: 100px;
+	float: left;
+	width: 50%;
+}
+
+#btnAll {
+	overflow: auto;
+}
+
+#passwordDiv {
+	/* text-align: center; */
+	float: left;
+	width: 70%;
+	margin-top: 16px;
+	margin-left: 71px;
+}
+
+.text2 {
+	width: 150px;
+	height: 13.5px;
+	object-fit: contain;
+	font-family: Arial;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.5;
+	letter-spacing: normal;
+	text-align: center;
+	color: #ffffff
+}
+
+.passwordTitle {
+	height: 15px;
+	object-fit: contain;
+	text-align: center;
+	margin-botton: 30px;
+	font-size: 22px;
+	font-weight: bold;;
+}
+
+#passwordTable {
+	width: 100%;
+	height: 122px;
+}
+
+#pwdBtnAll {
+	text-align: center;
+}
+
+#pwdBtn {
+	margin-top: 100px;
+	width: 100%;
+}
+
+#pwdupdateBtn {
+	margin-top: 0px;
+	margin-left: 10px;
+	width: 145.979166px;
+	height: 43.979166px;
+}
+#pwdConfBtn{
+	margin-top: 0px;
+	margin-left: 10px;
+	width: 145.979166px;
+	height: 43.979166px;
+}
+
+#pwdReset {
+	height: 43.99074px;
+	width: 90px;
+}
+
+#instruction {
+	border-top: 1px solid #6D6E71;
+	border-bottom: 1px solid #6D6E71;
+	padding: 2px;
+	padding-top: 15px;
+	margin-top: 37px;
+	text-align: center;
+}
+
+.pwdForm {
+	margin-bottom: 18px;
+	margin-top: 100px;
+	height: 15px;
+	object-fit: contain;
+	font-size: 17px;
+	color: #7F7F7F;
+}
+
+#confirm {
+	width: 100%;
+	height: 120px;
+}
+
+#withdrawalDiv {
+	float: left;
+	width: 81%;
+	margin-top: 16px;
+	margin-left: 34px;
+}
+
+.withdrawalTitle {
+	height: 15px;
+	object-fit: contain;
+	text-align: center;
+	margin-botton: 30px;
+	font-size: 22px;
+	font-weight: bold;;
+}
+
+#instructionForm {
+	border: 1px solid #d9d9d9;
+}
+
+.note {
+	padding: 30px;
+	background: #fcfcfb;
+}
+
+#note2 {
+	padding-top: 40px;
+}
+
+#instructionForm2 {
+	margin-top: 20px;
+}
+
+.leave_check_list {
+	overflow: hidden;
+	padding: 40px 0px 40px 60px;
+	box-sizing: border-box;
+	border: 1px solid #d9d9d9;
+	background: #fdfdf8;
+}
+
+.check {
+	height: 15px;
+	object-fit: contain;
+	font-size: 17px;
+	color: black;
+	margin-top: 25px;
+	margin-bottom: 20px;
+}
+
+.leave_check_list li {
+	padding-top: 22px;
+	float: left;
+	width: 50%;
+	text-align: left;
+	font-size: 15px;
+	color: #2e2e2e;
+}
+
+.leave_check_list li label {
+	padding-left: 15px;
+}
+
+.strong {
+	font-size: 15px;
+	color: #2e2e2e;
+	line-height: 21px;
+}
+
+.subfont {
+	font-size: 14px;
+	color: #888888;
+	line-height: 20px;
+}
+
+#withdrawalBtnAll {
+	text-align: center;
+}
+
+#withdrawalBtn {
+	margin-top: 30px;
+	width: 100%;
+	margin-bottom: 80px;
+}
+
+#withBtn {
+	margin-top: 0px;
+	margin-left: 30px;
+	width: 145.979166px;
+	height: 43.979166px;
+}
+
+#withReset {
+	height: 43.99074px;
+	width: 90px;
+}
+
+.lastConfirm {
+	padding: 28px 0 22px 0;
+	text-align: center;
+	font-size: 15px;
+	color: #2e2e2e;
+}
+
+#confirmFont {
+	vertical-align: 0.5px;
+	display: inline-block;
+	line-height: 30px;
+	cursor: pointer;
+}
+
+#wishListDiv {
+	text-align: center;
+	float: left;
+	width: 82%;
+	margin-top: 16px;
+	margin-left: 12px;
+}
+
+.next {
+	width: 35px;
+	margin-left: 10px;
+	padding-right: 14px;
+	color: #000;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: right;
+}
+
+.prev {
+	background: none;
+	border-radius: 0;
+	color: #000;
+	font-weight: normal;
+	width: 35px;
+	margin-right: 10px;
+	padding-left: 14px;
+	color: #000;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+}
+
+.active {
+	border-radius: 100%;
+	color: #fff;
+	font-weight: bold;
+	background-color: #00BE39;
+	font-size: 14px;
+	display: inline-block;
+	width: 31px;
+	height: 31px;
+	text-decoration: none;
+	font-size: 12px;
+	line-height: 28px;
+}
+
+.wishTable {
+	margin-top: 20px;
+	width: 100%;
+	border: solid 0.5px #dddddd;
+	width: 100%;
+}
+
+#orderDiv {
+	text-align: center;
+	float: left;
+	width: 82%;
+	margin-top: 16px;
+	margin-left: 12px;
+}
+
+.guide {
+	margin-top: 30px;
+	background-color: #fcfcfb;
+	overflow: auto;
+	border: 1px solid #d9d9d9;
+}
+
+.orderImg {
+	background-color: #f9f8fc;
+	float: left;
+	width: 20%;
+	padding-top: 50px;
+	padding-left: 30px;
+	padding-bottom: 50px;
+	padding-right: 30px;
+}
+
+.orderText {
+	float: left;
+	width: 80%;
+	text-align: left;
+	font-family: Arial, 'Noto Sans KR', 'Malgun Gothic', 'dotum', sans-serif;
+	padding-top: 60px;
+	padding-bottom: 50px;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-weight: bold;
+}
+
+.orderDate {
+	overflow: auto;
+	border: 1px solid #d9d9d9;
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
+
+.dateTitle {
+	background-color: #f9f8fc;
+	float: left;
+	width: 20%;
+	font-weight: bold;
+	height: 122px;
+	text-align: center;
+	font-size: 20px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.dateSelect {
+	float: left;
+	width: 80%;
+	text-align: left;
+	padding-left: 20px;
+	padding-top: 20px;
+}
+
+#pwdName {
+	height: 55.994318px;
+}
+
+#pwdBefo {
+	height: 55.994318px;
+}
+
+.selectForm {
+	margin-top: 20px;
+}
+
+.orderTable {
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+
+.imgText {
+	overflow: auto;
+	text-align: center;
+}
+
+.wimg {
+	float: left;
+	width: 50%;
+}
+
+.wtext {
+	float: left;
+	width: 50%;
+	padding-top: 20px;
+}
+
+.wtd {
+	margin-top: 20px;
+}
+
+.wtd2 {
+	margin-top: 15px;
+}
+
+#phoneSelect {
+	margin-top: 0px;
+}
+
+#phone1 {
+	width: 66px;
+}
+
+#phone2 {
+	width: 66px;
+}

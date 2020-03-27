@@ -47,6 +47,7 @@
         	</c:if>
         	<c:if test="${not empty m_id}">
         		<a class="menu menu-right-font" href="/login/logout">로그아웃</a>
+        		 <li><a href = "/mypage/">마이페이지</a></li>
         	</c:if>
         </li>
 
