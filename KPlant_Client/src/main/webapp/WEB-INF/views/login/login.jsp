@@ -29,7 +29,7 @@
 					if(!chkData("#m_id","아이디"))return;
 					if(!chkData("#m_pwd","비밀번호"))return;
 					else{
-						/* $.ajax({
+						$.ajax({
 							url:"/login/loginCheck",//전송 url
 							type:"post",//전송시 method 방식
 							data:$("#m_id,#m_pwd").serialize(),//폼전체 데이터 전송
@@ -52,7 +52,7 @@
 									$("#m_data").submit();
 								}
 							}
-						}); */
+						});
 						$("#form").attr({
 							"method":"post",
 							"action":"/login/loginCheck"
