@@ -8,16 +8,16 @@
 <script type="text/javascript">
 	$(function () {
 		$("#goEventList").click(function () {
-			location.href="/event/eventList";
+			location.href="/admin/event/eventList";
 		});
+		
+		
 	});//최상위 $종료
 </script>
 <%-- 화면 구성 --%>
 <div>
-	<div class="page-header event-title">
-		<h1 class="event-title">EVENT</h1>
-		<p>이벤트 상세페이지 입니다.</p>
-	</div>
+	
+	<h2 class="sub-header">이벤트 관리<small>-이벤트 상세페이지 입니다.</small></h2>
 	
 	<%-- 이벤트 번호 저장 --%>
 	<form name="f_data" id="f_data" method="post">
@@ -62,8 +62,14 @@
 		</div>
 	</div>
 	
-	<%-- 목록으로 돌아가기 --%>
-	<div style="text-align: center;">
-		<button type="button" class="event-mainPage" id="goEventList">목록</button>
+	<div class="event-footer">
+		<div class="foot-right">
+			<input type="button" class="btn btn-style" id="updateFormBtn" name="updateFormBtn" value="수정"/>
+			<input type="button" class="btn btn-style" id="DeleteFormBtn" name="DeleteFormBtn" value="삭제"/>
+		</div>
+		<%-- 목록으로 돌아가기 --%>
+		<div style="text-align: center;">
+			<button type="button" class="event-mainPage" id="goEventList">목록</button>
+		</div>
 	</div>
 </div>

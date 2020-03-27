@@ -5,6 +5,26 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%-- script --%>
+<script type="text/javascript">
+	$(function () {
+		/*이벤트 단락 클릭시 상세 페이지로 이동하기 위한 처리 이벤트*/
+		$(".goDetail").click(function () {
+			var evnt_num=$(this).attr("data-num");
+			$("#evnt_num").val(evnt_num);
+			$("#detailForm").attr({
+				"method" : "get",
+				"action" : "/admin/event/eventDetail"
+			});
+			$("#detailForm").submit();
+			
+		});
+		
+		/*이벤트 생성 버튼 클릭시 입력 폼으로 이동처리*/
+		$("#insertFormBtn").click(function () {
+			location.href="/admin/event/writeForm"
+		});
+	});//최상위 $ 함수 끝 
+</script>
 <%-- script end--%>
 
 <%-- body --%>
@@ -18,7 +38,10 @@
 		<button type="button" class="btn btn-style">검색</button>
 	</div>
 	<div class="event-body">
-		<table class="table">
+		<form id="detailForm">
+			<input type="hidden" id="evnt_num" name="evnt_num"/>
+		</form>
+		<table class="table table-hover">
 			<tr>
 				<th>NO</th>
 				<th>제목</th>
@@ -28,8 +51,8 @@
 			</tr>
 			<c:choose>
 				<c:when test="${not empty eventList}">
-					<c:forEach var="faq" items="${eventList}">
-						<tr data-num="${event.evnt_num}">
+					<c:forEach var="event" items="${eventList}">
+						<tr data-num="${event.evnt_num}" class="goDetail">
 							<td>${event.evnt_num}</td>
 							<td>${event.evnt_title}</td>
 							<td>${event.evnt_startDate} ~ ${event.evnt_endDate}</td>
@@ -45,6 +68,12 @@
 				</c:otherwise>
 			</c:choose>
 		</table>
+	</div>
+	<div class="event-footer">
+		<div class="foot-right">
+			<input type="button" class="btn btn-style" id="insertFormBtn" name="insertFormBtn" value="이벤트 생성"/>
+			<input type="button" class="btn btn-style" id="eventList" name="eventList" value="이벤트 전체 보기"/>
+		</div>
 	</div>
 </div>
 <%-- body end--%>

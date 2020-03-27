@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kplant.admin.event.dao.EventDAO">
+	<select id="eventList" parameterType="event" resultType="event">
+		SELECT evnt_num, evnt_title, evnt_content, to_char(evnt_rgstdate,'YYYY-MM-DD') as evnt_rgstdate, to_char(evnt_enddate,'YYYY-MM-DD') as evnt_enddate, evnt_views,to_char(evnt_startdate,'YYYY-MM-DD') as evnt_startdate, to_char(evnt_modifydate,'YYYY-MM-DD') as evnt_modifydate, evnt_filef, evnt_files, evnt_filet, evnt_thumb
+		FROM event
+	</select>
+	<select id="eventDetail" parameterType="int" resultType="event">
+		/*Event = eventDetail*/
+		SELECT evnt_num, evnt_title, evnt_content, to_char(evnt_rgstdate,'YYYY-MM-DD') as evnt_rgstdate, to_char(evnt_enddate,'YYYY-MM-DD') as evnt_enddate, evnt_views,to_char(evnt_startdate,'YYYY-MM-DD') as evnt_startdate, to_char(evnt_modifydate,'YYYY-MM-DD') as evnt_modifydate, evnt_filef, evnt_files, evnt_filet, evnt_thumb
+		FROM event
+		WHERE evnt_num=#{evnt_num}
+	</select>
+</mapper>
