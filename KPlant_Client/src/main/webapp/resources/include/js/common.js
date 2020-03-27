@@ -1,16 +1,15 @@
 function checkExp(elem, str){
-	var spaceExp = /\s/g;
+	//var spaceExp = /\s/g;
 	
-	if($(elem).val().replace(spaceExp, "")==""){
+	if($(elem).val().replace(/\s/g, "")==""){
 		alert(str + "을(를) 입력해주세요.");
 		$(elem).focus();
 		$(elem).val("");
-		
+		return false;
+	}else{
 		return true;
 	}
-	
-	return false;
-};
+}
 
 
 //formCheck(유효성 체크 대상, 출력 영역, 메시지 내용)
@@ -44,3 +43,8 @@ function chkData(elem, str) {
 
 	return true;
 }
+
+
+
+
+

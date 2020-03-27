@@ -47,11 +47,11 @@
 					else{
  						$("#form").attr({
  							"method":"post",
- 							"action":"/join/ldentity"
+ 							"action":"/join/existingMember"
  						});
  						$("#form").submit();
  					}
-					location.href="/join/ldentity";
+					location.href="/join/existingMember";
 				});
 					
 			}); //최상의 끝 $

@@ -21,6 +21,13 @@ td, th {
 	padding: 6px;
 }
 
+#alert-success{
+	margin-top: 5px;
+}
+#alert-danger{
+	margin-top: 5px;
+}
+
 #find {
 	padding: 7px 22px;
 	background-color: #1E332C;
