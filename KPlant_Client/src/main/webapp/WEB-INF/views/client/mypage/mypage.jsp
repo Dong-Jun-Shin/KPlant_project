@@ -18,12 +18,12 @@
 		<div class="menu">
 			<ul>
 
-				<li class="liTitle"><a class="menutitle" href="/mypage/mypage">회원
+				<li class="liTitle"><a class="menutitle" href="/mypage/">회원
 						정보</a>
 					<hr class="hr" />
 					<ul class="point">
 						<li><a href="/mypage/updateForm" class="menusub">회원정보 수정</a></li>
-						<li><a href="/mypage/passwordUpdate" class="menusub">비밀번호
+						<li><a href="/mypage/passwordUpdateForm" class="menusub">비밀번호
 								수정</a></li>
 						<li><a href="/mypage/withdrawal" class="menusub">회원 탈퇴</a>
 							<hr class="hr" /></li>
@@ -54,30 +54,29 @@
 			<table border="1" class="memberTable">
 				<tr>
 					<td class="tr1"><label class="text">회원번호</label></td>
-					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7945</td>
+					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${data.m_num}</td>
 					<td class="tr1"><label class="text">아이디</label></td>
-					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;77tjrgus</td>
+					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${data.m_id}</td>
 				</tr>
 				<tr>
 					<td class="tr1"><label class="text">이름</label></td>
-					<td colspan="3" class="tr3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;고석현</td>
+					<td colspan="3" class="tr3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${data.m_name}</td>
 				</tr>
 				<tr>
 					<td class="tr1"><label class="text">생년월일</label></td>
-					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1998-05-18</td>
+					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${data.m_birth}</td>
 					<td class="tr1"><label class="text">성별</label></td>
-					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;남자</td>
+					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${data.m_gender}</td>
 				</tr>
 				<tr>
 					<td class="tr1"><label class="text">전화번호</label></td>
-					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;010-1234-5678</td>
+					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${data.m_phone}</td>
 					<td class="tr1"><label class="text">이메일</label></td>
-					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gjskfn@naver.com</td>
+					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${data.m_eMail}</td>
 				</tr>
 				<tr>
 					<td class="tr1"><label class="text">주소</label></td>
-					<td colspan="3" class="tr3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;31444
-						서울특별시 마포구 스토리보드로 17-8</td>
+					<td colspan="3" class="tr3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${data.m_residence}</td>
 				</tr>
 			</table>
 		</form>
@@ -85,5 +84,6 @@
 		<input type="button" id="homeupdateBtn" name="updateBtn"
 			value="회원 정보변경" class="btn btn-success" />
 	</div>
+	
 
 </div>

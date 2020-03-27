@@ -20,11 +20,11 @@
 		<div class="menu">
 			<ul>
 
-				<li class="liTitle"><a class="menutitle" href="/mypage/mypage">회원 정보</a>
+				<li class="liTitle"><a class="menutitle" href="/mypage/">회원 정보</a>
 					<hr class="hr" />
 					<ul class="point">
 						<li><a href = "/mypage/updateForm" class="menusub">회원정보 수정</a></li>
-						<li><a href = "/mypage/passwordUpdate" class="menusub">비밀번호 수정</a></li>
+						<li><a href = "/mypage/passwordUpdateForm" class="menusub">비밀번호 수정</a></li>
 						<li><a href = "/mypage/withdrawal" class="menusub">회원 탈퇴</a>
 							<hr class="hr" /></li>
 					</ul></li>
@@ -46,7 +46,8 @@
 
 
 	<div id="passwordDiv">
-		<form id="passwordForm" class="form-inline">
+		<form id="passwordConf" class="form-inline">
+		<input type="hidden" id="m_num" name="m_num" value = "${updateData.m_num}" />
 			<p class="passwordTitle">비밀번호 확인</p>
 			<div id="instruction">
 				<p>회원님의 개인 정보를 안전하게 보호하기 위해 비밀번호를 다시 입력하여 주십시오.</p>
@@ -55,20 +56,20 @@
 			<table border="1" id="confirm">
 				<tr>
 					<td class="tr1"><label class="text2">회원 아이디</label></td>
-					<td class="tr2" id="pwdName">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;77tjrgus
+					<td class="tr2" id="pwdName">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${updateData.m_id}
 					</td>
 				<tr>
 					<td class="tr1" id="pwdBefo"><label class="text2">기존
 							비밀번호</label></td>
 					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-						type="password" class="form-control" placeholder="기존 비밀번호를 입력" />
+						type="password" class="form-control" id = "m_pwd" name = "m_pwd" placeholder="기존 비밀번호를 입력" />
 					</td>
 			</table>
 
 		</form>
 		<div id="pwdBtnAll">
 			<div id="pwdBtn">
-				<input type="button" id="pwdupdateBtn" name="updateBtn" value="확인"
+				<input type="button" id="pwdConfBtn" name="updateBtn" value="확인"
 					class="btn btn-success" />
 			</div>
 		</div>

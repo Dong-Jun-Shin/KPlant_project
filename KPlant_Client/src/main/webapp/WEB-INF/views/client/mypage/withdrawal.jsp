@@ -18,12 +18,11 @@
 		</div>
 		<div class="menu">
 			<ul>
-
-				<li class="liTitle"><a class="menutitle" href="/mypage/mypage">회원 정보</a>
+				<li class="liTitle"><a class="menutitle" href="/mypage/">회원 정보</a>
 					<hr class="hr" />
 					<ul class="point">
 						<li><a href = "/mypage/updateForm" class="menusub">회원정보 수정</a></li>
-						<li><a href = "/mypage/passwordUpdate" class="menusub">비밀번호 수정</a></li>
+						<li><a href = "/mypage/passwordUpdateForm" class="menusub">비밀번호 수정</a></li>
 						<li><a href = "/mypage/withdrawal" class="menusub">회원 탈퇴</a>
 							<hr class="hr" /></li>
 					</ul></li>
@@ -46,6 +45,7 @@
 
 	<div id="withdrawalDiv">
 		<form id="withdrawalForm" class="form-inline">
+		<input type="hidden" id="m_num" name="m_num" value = "${updateData.m_num}" />
 			<p class="withdrawalTitle">회원탈퇴</p>
 			<div id="instruction">
 				<p>회원 탈퇴 시 신중하게 선택하신 후 진행해주시기 바랍니다.</p>

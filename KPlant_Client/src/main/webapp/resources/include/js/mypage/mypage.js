@@ -1,5 +1,10 @@
 $(function(){
 	$("#homeupdateBtn").click(function(){
-		location.href="/mypage/updateForm";
+		var butChk = 1;
+		$("#member").attr({
+			"method":"post",
+			"action":"/mypage/passwordConfirm"
+		});
+		$("#member").submit();
 	});
 });
