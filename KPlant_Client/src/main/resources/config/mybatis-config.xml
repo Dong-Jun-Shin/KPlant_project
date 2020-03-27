@@ -7,5 +7,11 @@
 	<typeAliases>
 		<typeAlias type="com.kplant.client.customer.faq.vo.FaqVO" alias="faq"/>
 		<typeAlias type="com.kplant.client.join.vo.MemberVO" alias="member"/>
+
+		<!-- OrderVO -->
+		<typeAlias type="com.kplant.client.order.vo.OrderListVO" alias="orderList"/>
+		<typeAlias type="com.kplant.client.order.vo.OrderDetailVO" alias="orderDetail"/>
+		<typeAlias type="com.kplant.client.order.vo.ShippingVO" alias="shipping"/>
+		<typeAlias type="com.kplant.client.order.vo.PaymentVO" alias="payment"/>
 	</typeAliases>
 </configuration>

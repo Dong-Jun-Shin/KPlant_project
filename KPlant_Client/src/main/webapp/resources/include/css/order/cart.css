@@ -1,4 +1,8 @@
 @charset "UTF-8";
+.btn-style, .btn-style:hover, .btn-style:focus{
+	color: #FFFFFF;
+}
+
 /* header */
 .order-header, .order-body, .order-footer{
 	width: 100%;
@@ -73,6 +77,10 @@
     border-bottom: 1px solid #33333330;
 }
 
+.body-list > thead > tr > .all-check{
+	cursor: pointer;
+}
+
 .body-list > tbody > tr{
     border-bottom: 1px solid #33333330;
 }
@@ -97,6 +105,10 @@
 	width: 100px;
 	height: 100px;
 	margin: 15px;
+}
+
+.body-list > tbody .spinner{
+	width: 20px;
 }
 
 .cart_btn, .order-footer{
