@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tiles-definitions PUBLIC
   "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
   "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
@@ -10,7 +10,6 @@
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp" />
 	</definition>
-	
 	<definition name="*" extends="template">	
 		<put-attribute name="body" value="/WEB-INF/views/home/home.jsp"/>
 	</definition>
@@ -33,5 +32,13 @@
 	<definition name="customer/consult/*" extends="customer">
 		<put-attribute name="title" value="1:1상담"/>
 		<put-attribute name="body" value="/WEB-INF/views/customer/consult/{1}.jsp" />
+	</definition>
+	<definition name="join/*" extends="template">
+		<put-attribute name="title" value="회원 가입"/>
+		<put-attribute name="body" value="/WEB-INF/views/join/{1}.jsp"/>
+	</definition>
+	<definition name="login/*" extends="template">
+		<put-attribute name="title" value="로그인"/>
+		<put-attribute name="body" value="/WEB-INF/views/login/{1}.jsp"/>
 	</definition>
 </tiles-definitions>

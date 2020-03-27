@@ -5,6 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <link rel="stylesheet" type="text/css" href="/resources/include/css/order/complete.css" />
+<script type="text/javascript" src="/resources/include/js/order/complete.js"></script>
 <div>
 	<div class="order-header">
 		<div class="left">
@@ -27,7 +28,7 @@
 			<table class="body-list">
 				<thead>
 					<tr>
-						<th colspan="14">상품명/옵션</th>
+						<th colspan="13">상품명/옵션</th>
 						<th>수량</th>
 						<th colspan="2">상품가</th>
 						<th colspan="2">주문금액</th>
@@ -35,16 +36,18 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td colspan="14" class="prd">
-							<img alt="상품대표사진" src="/resources/images/order/temp1.jpg">
-							<span>몽골바위솔 5포트 바위솔 10cm포트묘</span>
-						</td>
-						<td>1개</td>
-						<td colspan="2">9,800원</td>
-						<td colspan="2">9,800원</td>
-						<td colspan="2">3,000원</td>
-					</tr>
+					<c:forEach var="i" begin="0" end="${fn:length(prdList)-1 }">
+						<tr class="prd-list">
+							<td colspan="13" class="prd">
+								<img alt="${prdList[i].img_prd }" src="">
+								<span class="prd_name">${prdList[i].prd_name }</span>
+							</td>
+							<td>${ordDetailList[i].ord_qty }</td>
+							<td colspan="2"><span class="prd-price">${prdList[i].prd_price }원</span></td>
+							<td colspan="2"><span class="ord-price">${prdList[i].prd_price * ordDetailList[i].ord_qty }원 </span></td>
+							<td colspan="2"><span class="shipping">3000원</span></td>
+						</tr>
+ 					</c:forEach> 
 				</tbody>
 			</table>
 		</div>
@@ -53,22 +56,14 @@
 				<tbody>
 					<tr>
 						<td colspan="3">주문금액</td>
-						<td class="price" colspan="3">12800원</td>
+						<td id="all_price" class="price" colspan="3">0원</td>
 						<td class="ico" colspan="1"><img alt="마이너스" src="/resources/images/order/ico_total_minus.png"/></td>
 						<td colspan="3">할인금액</td>
-						<td class="price" colspan="3">0원</td>
+						<!-- TODO 특가 상품의 할인율 가져와서 적용 -->
+						<td id="all_discount" class="price" colspan="3">0원</td>
 						<td class="ico" colspan="1"><img alt="합계" src="/resources/images/order/ico_total_sum.png"/></td>
-						<td colspan="3">총 결제금액</td>
-						<td class="price" colspan="3">12800원</td>
-					</tr>
-					<tr>
-						<td colspan="4">주문금액</td>
-						<td class="price" colspan="2">9800원</td>
-						<td colspan="15" rowspan="2"></td>
-					</tr>
-					<tr>
-						<td colspan="4">선결제 배송비</td>
-						<td class="price" colspan="2">3000원</td>
+						<td colspan="3">총 주문금액</td>
+						<td id="result_price" class="price" colspan="3">0원</td>
 					</tr>
 				</tbody>
 			</table>

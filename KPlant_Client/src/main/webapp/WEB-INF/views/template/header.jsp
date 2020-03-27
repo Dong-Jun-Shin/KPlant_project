@@ -46,8 +46,8 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="menu menu-right-font" href="#">회원가입</a></li>
-        <li><a class="menu menu-right-font" href="#">로그인</a></li>
+        <li><a class="menu menu-right-font" href="/join/memberAgree">회원가입</a></li>
+        <li><a class="menu menu-right-font" href="/login/login">로그인</a></li>
 
       	<%-- <c:if test=""></c:if> --%>
       	<%-- 로그인
