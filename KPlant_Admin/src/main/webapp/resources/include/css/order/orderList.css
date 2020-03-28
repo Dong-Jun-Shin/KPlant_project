@@ -6,6 +6,9 @@
 	font-weight: bold;
 }
 
+.point {
+	color: #f556ff;
+}
 
 /* order-header */
 .order-header {
@@ -27,6 +30,10 @@
 
 .order-header>input {
 	width: 250px;
+}
+
+.order-header #date_input {
+	display: none;
 }
 
 .order-header>input[type='date'] {

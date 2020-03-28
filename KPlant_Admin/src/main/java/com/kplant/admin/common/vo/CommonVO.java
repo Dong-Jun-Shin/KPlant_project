@@ -16,9 +16,10 @@ public class CommonVO {
     private String start_date = "";
     private String end_date = "";
     
-    //페이지 처리시 사용할 필드(페이지 번호, 단위 데이터 양) 
+    //페이지 처리시 사용할 필드(페이지 번호, 단위 데이터 양, 총 데이터 수) 
     private int pageNum = 0;
     private int amount = 0;
+    private int cnt = 0;
     
     public CommonVO(){
     	//기본값은 1페이지 시작, 10개씩

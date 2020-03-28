@@ -36,8 +36,7 @@ public class AdminOrderController {
 		
 		// 전체 레코드 수 조회
 		int total = adminOrderService.orderListCnt(olvo);
-		
-		// 페이징 처리 (CommonVO 자리에 하위 클래스를 전달)
+		// 페이징 처리
 		model.addAttribute("pageMaker", new PageDTO(total, olvo));
 		
 		return "order/orderList";
@@ -52,9 +51,6 @@ public class AdminOrderController {
 		
 		List<Map<String, String>> prdInfo = adminOrderService.getOrderPrdInfo(olvo);		
 		model.addAttribute("prdList", prdInfo);
-		
-		log.info(detailInfo);
-		log.info(prdInfo);
 		
 		return "order/orderDetail";
 	}

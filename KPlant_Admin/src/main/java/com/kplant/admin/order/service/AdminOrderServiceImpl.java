@@ -18,6 +18,8 @@ public class AdminOrderServiceImpl implements AdminOrderService{
 	
 	@Override
 	public List<Map<String, String>> orderList(OrderListVO olvo) {
+		int cnt = orderListCnt(olvo);
+		olvo.setCnt(cnt);
 		
 		return odao.orderList(olvo);
 	}

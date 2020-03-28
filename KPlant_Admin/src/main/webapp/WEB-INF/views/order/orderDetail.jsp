@@ -46,15 +46,15 @@
 				<td>배송지 선택</td>
 				<td class="detail-ship">
 					<div>
-						<span>받으실 분</span><span class="write-point">*</span><br /> 
+						<strong>받으실 분</strong><span class="write-point">*</span><br /> 
 						<label>${detail.sh_name}</label>
 					</div>
 					<div class="detail-address">
-						<span>주소</span><span class="write-point">*</span><br /> 
+						<strong>주소</strong><span class="write-point">*</span><br /> 
 						<label>${detail.sh_residence}</label>
 					</div>
 					<div class="detail-tel">
-						<span>연락처</span><span class="write-point">*</span><br /> 
+						<strong>연락처</strong><span class="write-point">*</span><br /> 
 						<label>${detail.sh_phone}</label>
 					</div>
 				</td>
@@ -89,9 +89,9 @@
 							<span class="prd_name">${product.prd_name }</span>
 						</td>
 						<td>${product.ord_qty }</td>
-						<td colspan="2"><span class="prd-price">${product.prd_price }원</span></td>
-						<td colspan="2"><span class="ord-price">${product.prd_price * product.ord_qty }원 </span></td>
-						<td colspan="2"><span class="shipping">3000원</span></td>
+						<td colspan="3"><span class="prd-price">${product.prd_price }원</span></td>
+						<td colspan="3"><span class="ord-price">${product.prd_price * product.ord_qty }원 </span></td>
+						<td colspan="3"><span class="shipping">3000원</span></td>
 					</tr>
 				</c:forEach> 
 			</tbody>
@@ -102,7 +102,7 @@
 			<tbody>
 				<tr>
 					<td colspan="3">주문금액</td>
-					<td class="price" colspan="3">0원</td>
+					<td class="price" colspan="3" id="ord_total">0원</td>
 					<td class="ico" colspan="1"><img alt="마이너스"
 						src="/resources/images/order/ico_total_minus.png" /></td>
 					<td colspan="3">할인금액</td>

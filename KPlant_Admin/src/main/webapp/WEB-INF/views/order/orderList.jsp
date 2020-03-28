@@ -10,36 +10,48 @@
 <%-- 리스트 조회 --%>
 <link rel="stylesheet" type="text/css" href="/admin/resources/include/css/order/orderList.css" />
 
+<script type="text/javascript" src="/admin/resources/include/js/common.js"></script>
 <script type="text/javascript" src="/admin/resources/include/js/order/order.js"></script>
 <script type="text/javascript" src="/admin/resources/include/js/order/orderList.js"></script>
-
+<script type="text/javascript">
+	$(function(){
+		// 검색 후 검색대상과 검색단어 유지
+		var search = "<c:out value = '${data.search}' />";
+		var word = "<c:out value = '${data.keyword}' />";
+		var sDate = "<c:out value = '${data.start_date}' />";
+		var eDate = "<c:out value = '${data.end_date}' />";
+		
+		pointText(search, word, sDate, eDate);
+	});
+</script>
 
 <div>
 	<h2 class="sub-header">주문 관리</h2>
 	<%-- 검색  --%>
-	<form id="f_search" name="f_search" class="form-inline">
-		<%-- 현재 페이지 번호 (기본값 1)--%>
-		<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum }">
-		<%-- 한 페이지당 보여준 개수 (기본값 10) --%>
-		<input type="hidden" name="amount" value="${pageMaker.cvo.amount }">
-		<div class="order-header">
-			<select class="form-control">
+	<div class="order-header">
+		<form id="f_search" name="f_search" class="form-inline">
+			<%-- 현재 페이지 번호 (기본값 1)--%>
+			<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum }">
+			<%-- 한 페이지당 보여준 개수 (기본값 10) --%>
+			<input type="hidden" name="amount" value="${pageMaker.cvo.amount }">
+			<select id="search" name="search" class="form-control">
 				<option value="all">전체 검색</option>
 				<option value="ord_name">주문자명</option>
 				<option value="m_id">주문자 ID</option>
+				<option value="ord_phone">주문자 연락처</option>
 				<option value="ord_date">주문 날짜</option>
 				<option value="ord_status">주문 상태</option>
 				<option value="ord_trn">운송장 번호</option>
 			</select>
-			<input type="text" id="keyword" name="keyword" class="form-control" placeholder="검색할 키워드를 입력해주세요."/>
-			<span style="display: none;">
-				<input type="date" id="start_date" name="start_date" class="form-control" value="날짜 시작 범위"/>
+			<input type="text" id="keyword" name="keyword" class="form-control" value="전체 데이터를 조회" />
+			<span id="date_input">
+				<input type="date" id="start_date" name="start_date" class="form-control" />
 				<span >~</span>
-				<input type="date" id="end_date" name="end_date" class="form-control" value="날짜 끝 범위"/>
+				<input type="date" id="end_date" name="end_date" class="form-control" />
 			</span>
 			<button type="button" id="searchData" class="btn btn-style">검색</button>
-		</div>
-	</form>
+		</form>
+	</div>
 	
 	<%-- 리스트 --%>
 	<div class="order-body">
@@ -76,12 +88,12 @@
 							<tr class="goDetail" data-num="${order.ord_num }">
 								<td><input type="checkbox" name="sel_prd" class="form-control"/> </td>
 								<td>${order.ord_num}</td>
-								<td>${order.ord_name}</td>
-								<td>${order.m_id}</td>
-								<td>${order.ord_phone}</td>
-								<td>${order.ord_date}</td>
-								<td>${order.ord_status}</td>
-								<td>${order.ord_trn}</td>
+								<td class="name">${order.ord_name}</td>
+								<td class="id">${order.m_id}</td>
+								<td class="phone">${order.ord_phone}</td>
+								<td class="date">${order.ord_date}</td>
+								<td class="status">${order.ord_status}</td>
+								<td class="trn">${order.ord_trn}</td>
 							</tr>
 						</c:forEach>
 					</c:when>

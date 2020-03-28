@@ -27,6 +27,8 @@ function allPrice(){
 		all_price += prdPriceOper(ord_price_list[i]);
 		all_price += prdPriceOper(sh_price_list[i]);
 	}
+    
+    $("#ord_total").html(all_price + "원");
 }
 
 //주문금액 리스트의 관련 객체에 따른 종류별 값 계산
