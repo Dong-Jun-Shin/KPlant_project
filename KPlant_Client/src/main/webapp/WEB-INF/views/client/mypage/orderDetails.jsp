@@ -98,12 +98,16 @@
 						<td>&nbsp;</td>
 					</tr>
 					<tr>
-						<td colspan="5">해당 내역이 없습니다.</td>
+						<td>주문일자/주문번호</td>
+						<td>상품명/옵션</td>
+						<td>주문금액</td>
+						<td>진행현황</td>
+						<td>배송추적</td>
 					</tr>
 				</table>
 			</div>
 			<div class="paging">
-				<a class="prev" href="#">이전</a><a class="active" href="#">1</a> <a
+				<a class="prev" href="#">이전</a><a class="active5" href="#">1</a> <a
 					class="next" href="#">다음</a>
 			</div>
 		</form>
