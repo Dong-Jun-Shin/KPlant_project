@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -13,8 +13,6 @@
 <script type="text/javascript" src="/admin/resources/include/js/common.js"></script>
 <script type="text/javascript" src="/admin/resources/include/js/order/order.js"></script>
 <script type="text/javascript" src="/admin/resources/include/js/order/orderList.js"></script>
-<script type="text/javascript">
-	$(function(){
 		// 검색 후 검색대상과 검색단어 유지
 		var search = "<c:out value = '${data.search}' />";
 		var word = "<c:out value = '${data.keyword}' />";
@@ -22,8 +20,6 @@
 		var eDate = "<c:out value = '${data.end_date}' />";
 		
 		pointText(search, word, sDate, eDate);
-	});
-</script>
 
 <div>
 	<h2 class="sub-header">주문 관리</h2>

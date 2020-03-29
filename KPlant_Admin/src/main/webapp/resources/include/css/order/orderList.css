@@ -6,6 +6,11 @@
 	font-weight: bold;
 }
 
+/* title */
+.sub-header {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eee;
+}
 .point {
 	color: #f556ff;
 }

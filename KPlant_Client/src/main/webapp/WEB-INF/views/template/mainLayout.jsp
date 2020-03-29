@@ -20,15 +20,17 @@
     <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.css" />
 	<link rel="stylesheet" type="text/css" href="/resources/include/css/template/navbar-static-top.css" />
-	
+	<link rel="stylesheet" type="text/css" href="/resources/include/css/template/jquery-ui.css" />
     <script type="text/javascript" src="/resources/include/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/resources/include/js/common.js"></script>
     <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/resources/include/js/jquery-ui.js"></script>
     <script type="text/javascript" src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
 	<script type="text/javascript" src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
   </head>
 
   <body>
-    <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0px;">
+    <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 5px;">
     	<tiles:insertAttribute name="header" />
     </nav>
 

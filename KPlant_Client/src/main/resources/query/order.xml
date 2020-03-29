@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kplant.client.order.dao.ClientOrderDAO">
+	<!-- 할당할 주문번호 가공 -->
+	<select id="getOrderNum" resultType="string">
+		<![CDATA[ 
+		SELECT 
+		    'OR'||TO_CHAR(SYSDATE, 'YYMMDD')||
+		   	LPAD(
+			    (SELECT  NVL(MAX(TO_NUMBER(SUBSTR(ord_num, -4)))+1, '1')
+			     FROM order_list
+			     WHERE SYSDATE < ord_date
+			    ), 4, '0') AS ord_num
+		FROM DUAL
+		]]>
+	</select>
+	
+	<!-- 주문 등록 -->	
+	<insert id="orderListInsert" parameterType="orderList">
+		INSERT INTO order_list (
+		    ord_num, ord_name, ord_phone, ord_email, m_num
+		) VALUES (
+		    #{ord_num}, #{ord_name}, #{ord_phone}, #{ord_email}, #{m_num}
+		)
+	</insert>
+	
+	<!-- 주문 상세 등록 -->	
+	<insert id="orderDetailInsert" parameterType="orderDetail">
+		INSERT INTO order_detail (
+		    ord_num, ord_qty, prd_num
+		) VALUES (
+		    #{ord_num}, #{ord_qty}, #{prd_num}
+		)
+	</insert>
+	
+	<!-- 배송지 등록 -->	
+	<insert id="shippingInsert" parameterType="shipping">
+		INSERT INTO shipping (
+		    ord_num, sh_request, sh_name, sh_residence, sh_phone
+		) VALUES (
+		    #{ord_num}, #{sh_request}, #{sh_name}, #{sh_residence}, #{sh_phone}
+		)
+	</insert>
+	
+	<!-- 결제 등록 -->	
+	<insert id="paymentInsert" parameterType="payment">
+		INSERT INTO payment (
+		    pay_num, pay_method, pay_price, pay_date, pay_status, ord_num
+		) VALUES (
+		    #{pay_num}, #{pay_method}, #{pay_price}, #{pay_date}, #{pay_status}, #{ord_num}
+		)
+	</insert>
+</mapper>
