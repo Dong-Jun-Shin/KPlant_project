@@ -11,21 +11,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- 모바일 웹 페이지 설정 - 이미지 경로 위치는 각자 변경 -->
-	<link rel="shortcut icon" href="/resources/images/template/icon.png" />
-	<link rel="apple-touch-icon" href="/resources/images/template/icon.png" />
+	<link rel="shortcut icon" href="/admin/resources/images/template/icon.png" />
+	<link rel="apple-touch-icon" href="/admin/resources/images/template/icon.png" />
 
     <title><tiles:getAsString name="title" /></title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="/admin/resources/include/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/admin/resources/include/dist/css/bootstrap-theme.css" />
 	<link rel="stylesheet" type="text/css" href="/admin/resources/include/css/template/admin-header-footer-nav.css" />
 	
-	<script type="text/javascript" src="/resources/include/js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
-	<script type="text/javascript" src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
-    <script src="/resources/include/dist/assets/js/docs.min.js"></script>
+	<script type="text/javascript" src="/admin/resources/include/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/admin/resources/include/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/admin/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script type="text/javascript" src="/admin/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="/admin/resources/include/dist/assets/js/docs.min.js"></script>
   </head>
 
   <body>
