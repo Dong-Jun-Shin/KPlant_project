@@ -32,13 +32,13 @@
 		<div class="container">
 			
 			<h1>아이디 찾기</h1>
-			<form action="">
+			<form id="form">
 				<table>
 					<tr>
 						<td colspan="2"><h4>회원 아이디</h4></td>
 					</tr>
 					<tr>
-						<td colspan="2"><p>${m_id}회원 아이디</p></td>
+						<td colspan="2"><p>${memberId}</p></td>
 					</tr>
 					<tr>
 						<td><input type="button" id="findPwdBtn" value="비번찿기"></td>

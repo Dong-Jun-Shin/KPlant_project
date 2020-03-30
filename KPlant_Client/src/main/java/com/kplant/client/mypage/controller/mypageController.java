@@ -2,6 +2,8 @@ package com.kplant.client.mypage.controller;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,10 +30,12 @@ public class mypageController {
 	//회원정보 불러오기
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	//@GetMapping("/mypage")
-	public String memberData(@ModelAttribute("data") MemberVO mvo, Model model) {
+	public String memberData(@ModelAttribute("data") MemberVO mvo, Model model, HttpSession session) {
 		log.info("memberData 호출 성공");
-		log.info("mvo = "+mvo);
 		
+		
+		mvo.setM_num((int)session.getAttribute("m_num"));
+		log.info("mvo.getM_num() = "+mvo.getM_num());
 		MemberVO data = mypageService.memberData(mvo);
 		model.addAttribute("data", data);
 		return "mypage/mypage";

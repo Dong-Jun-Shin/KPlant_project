@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kplant.client.login.dao.LoginDAO">
 	<select id="loginCheck" parameterType="member" resultType="member">
-		SELECT * FROM member
+		SELECT m_num, m_name, m_gender, m_residence, m_phone, m_email, m_birth, m_id FROM member
 		WHERE m_id = #{m_id} AND m_pwd = #{m_pwd}
 	</select>
 	
@@ -16,10 +16,28 @@
 		WHERE m_id = #{m_id} AND m_pwd =#{m_pwd}
 	</select>
 	
-	<!-- 아이디 찾기 -->
-	<select id="lookupId" parameterType="member" resultType="member">
+	<!-- 아이디 찾기(본인 인증) -->
+	<select id="lookupId" parameterType="member" resultType="String">
 		/*join = lookupId*/
-		select m_name,m_birth, m_eMail from member WHERE m_num=#{m_num}
+		select m_id from member WHERE m_name=#{m_name} AND m_birth=#{m_birth} AND m_eMail=#{m_eMail}
 	</select>
+	
+	
+   <!-- 비번 찾기(본인 인증) -->
+	<select id="lookupPwd" parameterType="member" resultType="int">
+		/*join = lookupId*/
+		select nvl((
+					select 1 from member where m_id=#{m_id} AND m_name=#{m_name} AND m_birth=#{m_birth} AND m_eMail=#{m_eMail}
+					), 0)as state 
+		from dual
+	</select>
+	
+	
+	<!-- 비밀번호 변경 -->
+   <update id = "updatePwd" parameterType = "member">
+      update member
+      set m_pwd = #{m_pwd}
+      where m_id = #{m_id}
+   </update>
 
 </mapper>

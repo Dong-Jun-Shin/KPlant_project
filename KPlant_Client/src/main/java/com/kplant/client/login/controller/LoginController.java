@@ -74,27 +74,35 @@ public class LoginController {
 	
 	
 	/**
-	 * 아이디 찾기
+	 * 아이디 찾기(본인인증)
 	 */
 	@RequestMapping(value = "/ldentityId")
 	public String ldentityId(@ModelAttribute("data")MemberVO mvo, Model model) {
 		log.info("ldentityId 호출 성공");
 		return "login/ldentityId";
 	}
-	@ResponseBody
+	
+	//@ResponseBody
 	@RequestMapping(value = "/lookupId", method =RequestMethod.POST)
-	public int lookupId(MemberVO mvo, Model model)  throws Exception{
+	public String lookupId(@ModelAttribute("data") MemberVO mvo, Model model)  throws Exception{
 		log.info("lookupId 호출 성공");
+		String url ="";
+		String result = loginService.lookupId(mvo);
+		if(result != null) {
+			 model.addAttribute("memberId", result);
+			url="login/findId";
+		}else {
+			url="login/ldentityId";
+		}
 		
-		int result = loginService.lookupId(mvo);
-		return result;
+		return url;
 	}
 	
 	
 	
 	/**
 	 * 아이디 찾기 보여주기
-	 */
+	 
 	@RequestMapping(value = "/findId", method = RequestMethod.GET)
 	public String findId(@ModelAttribute("data")MemberVO mvo, Model model) {
 		log.info("findId 호출 성공");
@@ -105,7 +113,7 @@ public class LoginController {
 	     model.addAttribute("data", data);
 		
 		return "login/findId";
-	}
+	}*/
 	
 	/**
 	 * 비밀번호 찾기
@@ -114,6 +122,14 @@ public class LoginController {
 	public String ldentityPwd(@ModelAttribute("data")MemberVO mvo, Model model) {
 		log.info("ldentityPwd 호출 성공");
 		return "login/ldentityPwd";
+	}
+	@ResponseBody
+	@RequestMapping(value = "/lookupPwd", method =RequestMethod.POST)
+	public int lookupPwd(MemberVO mvo, Model model)  throws Exception{
+		log.info("lookupPwd 호출 성공");
+		
+		int result = loginService.lookupPwd(mvo);
+		return result;
 	}
 	
 	/**
@@ -124,6 +140,30 @@ public class LoginController {
 		log.info("resetPwd 호출 성공");
 		return "login/resetPwd";
 	}
+	/**
+	 * 비밀번호 수정
+	 */
+	 @RequestMapping(value = "updatePwd", method = RequestMethod.POST)
+     public String updatePwd(@ModelAttribute MemberVO mvo) {// , RedirectAttributes ras
+        log.info("updatePwd 호출성공");
+        log.info("mvo = "+mvo);
+        int result = 0;
+        String url = "";
+        
+        result = loginService.updatePwd(mvo);
+        // ras.addFlashAttribute("data", bvo);
+
+        if (result == 1) {
+           // 아래 url은 수정후 상세 페이지로 이동
+           url = "/login/login";        //mvo.getM_num();
+        } else {
+           url = "/login/resetPwd";  //mvo.getM_num();
+        }
+
+        return "redirect:" + url;
+
+     }
+
 	
 	
 }
