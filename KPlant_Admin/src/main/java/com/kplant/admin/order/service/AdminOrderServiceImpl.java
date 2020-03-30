@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kplant.admin.order.dao.AdminOrderDAO;
 import com.kplant.admin.order.vo.OrderListVO;
+import com.kplant.admin.order.vo.PaymentVO;
 
 import lombok.Setter;
 
@@ -37,5 +38,27 @@ public class AdminOrderServiceImpl implements AdminOrderService{
 	@Override
 	public int orderListCnt(OrderListVO olvo) {
 		return odao.orderListCnt(olvo);
+	}
+
+	@Override
+	public String orderUpdate(List<OrderListVO> list) {
+		String result = "true";
+		
+		for (OrderListVO olvo : list) {
+			int num = odao.orderUpdate(olvo);
+			if(num == 0) result = "false";
+		}
+		
+		return result;
+	}
+	
+	@Override
+	public String getPayNum(OrderListVO olvo) {
+		return odao.getPayNum(olvo);
+	}
+
+	@Override
+	public int paymentUpdate(PaymentVO pvo) {
+		return odao.paymentUpdate(pvo);
 	}
 }

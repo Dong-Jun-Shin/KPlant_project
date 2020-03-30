@@ -7,6 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.kplant.admin.order.vo.OrderListVO;
+import com.kplant.admin.order.vo.PaymentVO;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -44,6 +45,31 @@ public class OrderMapperTests {
 		log.info(odao.orderListCnt(olvo));
 	}
 	
+	@Test
+	public void testOrderUpdate() {
+		OrderListVO olvo = new OrderListVO();
+		olvo.setOrd_num("OR2003270002");
+		olvo.setOrd_status("배송준비중");
+		olvo.setOrd_trn("629538399290");
+		
+		log.info(odao.orderUpdate(olvo));
+	}
 	
+	@Test
+	public void testGetPayNum() {
+		OrderListVO olvo = new OrderListVO();
+		olvo.setOrd_num("OR2003290002");
+		
+		log.info(odao.getPayNum(olvo));
+	}
 	
+	@Test
+	public void testPaymentUpdate() {
+		PaymentVO pvo = new PaymentVO();
+		pvo.setPay_num("imp_326276410049");
+		pvo.setPay_date("20/03/28");
+		pvo.setPay_status("결제취소");
+		
+		log.info(odao.paymentUpdate(pvo));
+	}
 }

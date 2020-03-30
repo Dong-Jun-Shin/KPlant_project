@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css"
 	href="/admin/resources/include/css/order/orderDetail.css" />
 
+<script type="text/javascript" src="/admin/resources/include/js/common.js"></script>
 <script type="text/javascript" src="/admin/resources/include/js/order/order.js"></script>
 <script type="text/javascript" src="/admin/resources/include/js/order/orderDetail.js"></script>
 
@@ -14,23 +15,28 @@
 <div id="order-detail">
 	<div class="order-info">
 		<div class="body-title">주문자 정보</div>
+		<input type="hidden" id="ord_num" name="ord_num" value="${detail.ord_num }"/>
 		<table>
 			<colgroup>
 				<col width="13%">
 				<col width="87%">
 			</colgroup>
 			<tr>
-				<td>주문자<span class="write-point">*</span></td>
+				<td>주문 상태</td>
+				<td><label id="ord_status">${detail.ord_status }</label></td>
+			</tr>
+			<tr>
+				<td>주문자</td>
 				<td><label>${detail.ord_name }</label></td>
 			</tr>
 			<tr>
-				<td>연락처<span class="write-point">*</span></td>
+				<td>연락처</td>
 				<td class="detail-tel">
 					<label>${detail.ord_phone}</label>
 				</td>
 			</tr>
 			<tr>
-				<td>이메일<span class="write-point">*</span></td>
+				<td>이메일</td>
 				<td><label>${detail.ord_email}</label></td>
 			</tr>
 		</table>
@@ -43,24 +49,30 @@
 				<col width="87%">
 			</colgroup>
 			<tr>
+				<td>운송장 번호</td>
+				<td class="detail-request">
+					<input type="text" id="ord_trn" name="ord_trn" value="${detail.ord_trn}">
+				</td>
+			</tr>
+			<tr>
 				<td>배송지 선택</td>
 				<td class="detail-ship">
 					<div>
-						<strong>받으실 분</strong><span class="write-point">*</span><br /> 
+						<strong>받으실 분</strong><br /> 
 						<label>${detail.sh_name}</label>
 					</div>
 					<div class="detail-address">
-						<strong>주소</strong><span class="write-point">*</span><br /> 
+						<strong>주소</strong><br /> 
 						<label>${detail.sh_residence}</label>
 					</div>
 					<div class="detail-tel">
-						<strong>연락처</strong><span class="write-point">*</span><br /> 
+						<strong>연락처</strong><br /> 
 						<label>${detail.sh_phone}</label>
 					</div>
 				</td>
 			</tr>
 			<tr>
-				<td>배송 요청사항<span class="write-point">*</span></td>
+				<td>배송 요청사항</td>
 				<td class="detail-request"><label>${detail.sh_request}</label></td>
 			</tr>
 		</table>
@@ -106,11 +118,11 @@
 					<td class="ico" colspan="1"><img alt="마이너스"
 						src="/resources/images/order/ico_total_minus.png" /></td>
 					<td colspan="3">할인금액</td>
-					<td class="price" colspan="3">0원</td>
+					<td class="price" colspan="3" id="dis_total">0원</td>
 					<td class="ico" colspan="1"><img alt="합계"
 						src="/resources/images/order/ico_total_sum.png" /></td>
 					<td colspan="3">총 결제금액</td>
-					<td class="price" colspan="3">${detail.pay_price }원</td>
+					<td class="price" colspan="3" id="all_total">${detail.pay_price }원</td>
 				</tr>
 				<tr>
 					<td colspan="14" rowspan="2"></td>
@@ -126,7 +138,7 @@
 	</div>
 </div>
 <div class="detail-footer">
-	<button type="button" class="btn btn-style">주문 취소</button>
-	<button type="button" class="btn btn-style">교환 처리</button>
-	<button type="button" class="btn btn-style">반품 처리</button>
+	<button type="button" class="btn btn-style" value="${detail.ord_status }">운송장 수정</button>
+	<button type="button" class="btn btn-style" value="교환완료">교환완료</button>
+	<button type="button" class="btn btn-style" value="반품완료">반품완료</button>
 </div>

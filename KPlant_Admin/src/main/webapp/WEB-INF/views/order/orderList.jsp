@@ -13,6 +13,8 @@
 <script type="text/javascript" src="/admin/resources/include/js/common.js"></script>
 <script type="text/javascript" src="/admin/resources/include/js/order/order.js"></script>
 <script type="text/javascript" src="/admin/resources/include/js/order/orderList.js"></script>
+<script type="text/javascript">
+	$(function(){
 		// 검색 후 검색대상과 검색단어 유지
 		var search = "<c:out value = '${data.search}' />";
 		var word = "<c:out value = '${data.keyword}' />";
@@ -20,9 +22,13 @@
 		var eDate = "<c:out value = '${data.end_date}' />";
 		
 		pointText(search, word, sDate, eDate);
-
+	});
+</script>
 <div>
-	<h2 class="sub-header">주문 관리</h2>
+	<h2 class="sub-header">
+		주문 관리
+		<button type="button" class="btn btn-style excelBtn">전체 리스트 엑셀 다운</button>
+	</h2>
 	<%-- 검색  --%>
 	<div class="order-header">
 		<form id="f_search" name="f_search" class="form-inline">
@@ -79,19 +85,19 @@
 					<c:when test="${not empty order }">
 						<form id="detailForm">
 							<input type="hidden" id="ord_num" name="ord_num">
+							<c:forEach var="order" items="${order }" varStatus="status">
+								<tr class="goDetail" data-num="${order.ord_num }">
+									<td><input type="checkbox" class="form-control sel_prd"/> </td>
+									<td class="num">${order.ord_num}</td>
+									<td class="name">${order.ord_name}</td>
+									<td class="id">${order.m_id}</td>
+									<td class="phone">${order.ord_phone}</td>
+									<td class="date">${order.ord_date}</td>
+									<td class="status">${order.ord_status}</td>
+									<td class="trn">${order.ord_trn}</td>
+								</tr>
+							</c:forEach>
 						</form>
-						<c:forEach var="order" items="${order }" varStatus="status">
-							<tr class="goDetail" data-num="${order.ord_num }">
-								<td><input type="checkbox" name="sel_prd" class="form-control"/> </td>
-								<td>${order.ord_num}</td>
-								<td class="name">${order.ord_name}</td>
-								<td class="id">${order.m_id}</td>
-								<td class="phone">${order.ord_phone}</td>
-								<td class="date">${order.ord_date}</td>
-								<td class="status">${order.ord_status}</td>
-								<td class="trn">${order.ord_trn}</td>
-							</tr>
-						</c:forEach>
 					</c:when>
 					<c:otherwise>
 						<tr>
@@ -104,13 +110,11 @@
 	</div>
 	<div class="order-footer">
 		<div class="foot-left">
-			<button type="button" class="btn btn-style">마스킹(*) 해제</button>
-			<button type="button" class="btn btn-style">운송장 등록</button>
+			<button type="button" id="trn_write" class="btn btn-style" value="운송장등록">운송장 등록하기</button>
 		</div>
 		<div class="foot-right">
-			<button type="button" class="btn btn-style">주문 취소</button>
-			<button type="button" class="btn btn-style">교환 처리</button>
-			<button type="button" class="btn btn-style">반품 처리</button>
+			<button type="button" class="btn btn-style" value="배송준비중">배송준비</button>
+			<button type="button" class="btn btn-style" value="주문취소">주문취소</button>
 		</div>
 		
 		<%-- 페이징 처리 --%>
@@ -140,4 +144,3 @@
 		</div>
 	</div>
 </div>
-

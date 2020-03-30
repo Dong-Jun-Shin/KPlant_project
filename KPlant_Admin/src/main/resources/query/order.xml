@@ -37,28 +37,32 @@
 	<select id="orderList" parameterType="orderList" resultMap="orderResult">
 		<![CDATA[
 		SELECT 
-		    ord_num, ord_name, ord_phone,
+		    rnum, ord_num, ord_name, ord_phone,
 		    to_char(ord_date, 'YYYY-MM-DD') as ord_date, 
 		    ord_status, ord_trn, m_id
 		FROM (
-		    SELECT
-		        rownum as rnum, ord_num, ord_name, ord_phone, 
-		        ord_date, ord_status, ord_trn, m_id
-		    FROM order_list ol INNER JOIN member m ON ol.m_num = m.m_num
-		    WHERE]]> 
- 				<trim prefix="(" suffix=") AND " prefixOverrides="AND">
- 	    			<include refid="orderSearch"></include>
- 			    </trim>
-			<![CDATA[rownum <= #{cnt} - ((#{pageNum} - 1) * #{amount})
-			ORDER BY rownum DESC
-	    ) orderList
-		WHERE rnum > #{cnt} - (#{pageNum} * #{amount})]]>
+	        SELECT
+	            rownum as rnum, joinList.*
+	        FROM ( 
+	        
+	            SELECT * FROM
+	            	order_list ol INNER JOIN member m ON ol.m_num = m.m_num
+				ORDER BY ord_num ASC 
+				) joinList
+				WHERE]]> 
+	 				<trim prefix="(" suffix=") AND " prefixOverrides="AND">
+	 	    			<include refid="orderSearch"></include>
+	 			    </trim>
+					<![CDATA[rownum <= #{cnt} - ((#{pageNum} - 1) * #{amount})
+	    	) orderList
+		WHERE rnum > #{cnt} - (#{pageNum} * #{amount})
+		ORDER BY rnum DESC]]>
 	</select>
 	
 	<!-- 주문의 상세정보 조회 -->
 	<select id="getOrderInfo" parameterType="orderList" resultType="com.kplant.admin.common.vo.ChangeMap">
 		SELECT 
-		    ord_name, ord_phone, ord_email, sh_name, sh_residence, sh_phone, sh_request,
+		    ol.ord_num, ord_status, ord_name, ord_phone, ord_email, ord_trn, sh_name, sh_residence, sh_phone, sh_request,
 		    pay_method, pay_price
 		FROM order_list ol INNER JOIN shipping sh ON ol.ord_num = sh.ord_num
 		    INNER JOIN payment pay ON ol.ord_num = pay.ord_num
@@ -81,4 +85,25 @@
  			<include refid="orderSearch"></include>
  		</trim>
 	</select>
+	
+	<!-- 주문 상태와 운송장 수정 -->
+	<update id="orderUpdate" parameterType="orderList">
+		UPDATE order_list SET ord_status=#{ord_status}
+			<trim prefix=", " suffix=" ">
+				<if test="ord_trn!=null">
+	 				ord_trn=#{ord_trn}
+	 			</if>
+ 			</trim>
+		WHERE ord_num=#{ord_num}
+	</update>
+	
+	<!-- 주문번호를 통한 결제번호 조회 -->
+	<select id="getPayNum" parameterType="orderList" resultType="string">
+		SELECT pay_num FROM payment WHERE ord_num=#{ord_num}
+	</select>
+	
+	<!-- 결제 취소에 따른 상태 변경 -->
+	<update id="paymentUpdate" parameterType="payment">
+		UPDATE payment SET pay_date=#{pay_date}, pay_status=#{pay_status} WHERE pay_num=#{pay_num}
+	</update>
 </mapper>
