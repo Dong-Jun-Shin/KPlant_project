@@ -181,7 +181,7 @@
 				<div class="pay-method-btn"><img alt="samsung" src="/resources/images/order/ico_samsung.png"><br />삼성페이</div>
 			</div>
 		<div class="pay-btn">
-			<button type="button" id="cancle_btn" class="btn btn-lg">주문취소</button>
+			<button type="button" id="cancel_btn" class="btn btn-lg">주문취소</button>
 			<button type="button" id="order_btn" class="btn btn-lg">결제하기</button>
 		</div>		
 	</div>

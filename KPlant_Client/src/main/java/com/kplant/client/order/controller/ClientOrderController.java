@@ -48,16 +48,16 @@ public class ClientOrderController {
 		/* 테스트 데이터 시작 */
 		ArrayList<ProductVO> arr = new ArrayList<ProductVO>();
 		ProductVO pvo = new ProductVO();
-		pvo.setPrd_num("prd_num_01");
+		pvo.setPrd_num("prd_num 01");
 		pvo.setPrd_name("몽골바위솔 5포트 바위솔 10cm포트묘");
 		pvo.setPrd_price(9800);
-		pvo.setImg_prd("prd_img_01");
+		pvo.setImg_prd("prd_img 01");
 		
 		ProductVO pvo2 = new ProductVO();
-		pvo2.setPrd_num("prd_num_02");
+		pvo2.setPrd_num("prd_num 02");
 		pvo2.setPrd_name("몽골바위솔솔 솔나무");
 		pvo2.setPrd_price(3600);
-		pvo2.setImg_prd("prd_img_02");
+		pvo2.setImg_prd("prd_img 02");
 		
 		arr.add(pvo);
 		arr.add(pvo2);
@@ -77,7 +77,7 @@ public class ClientOrderController {
 		List<OrderDetailVO> ordDetailList = odArr;
 		
 		MemberVO mvo = new MemberVO();
-		mvo.setM_num(3);
+		mvo.setM_num(62);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("member", mvo);

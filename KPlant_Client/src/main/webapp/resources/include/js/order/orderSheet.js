@@ -1,4 +1,4 @@
-$(function(){
+﻿$(function(){
 	// 테스트용 데이터 입력
 	testInit();
 	
@@ -33,7 +33,7 @@ $(function(){
 	});
 	
 	// 주문취소 클릭 시, 확인 후 홈화면으로 이동
-	$("#cancle_btn").click(function(){
+	$("#cancel_btn").click(function(){
 		if(confirm("작성한 주문서가 사라집니다.\n주문을 취소하시겠습니까?"))
 			location.href = "/";
 	});
@@ -52,15 +52,21 @@ $(function(){
 				// 결제API 호출
 				return requestPay();
 			}
-		}).then(function(result){
-			if(result=="success"){
-				console.log($("#pay_num").val());
-				console.log($("#pay_date").val());
-				console.log($("#pay_status").val());
-				
-				// 각 레코드 등록 호출
-				orderInsert();
-			}
+		}).then(function(rsp){
+			var msg = "결제가 완료되었습니다.";
+			var status = rsp.status;
+			
+			// 결과에 따른 상태분류 
+			if(status=="paid") status = "결제완료";
+			if(status=="failed") status = "결제실패";
+			
+			// 결제 정보를 pay_info 폼에 값 설정
+			$("#pay_num").val(rsp.imp_uid);
+			$("#pay_date").val(rsp.paid_at);
+			$("#pay_status").val(status);
+			
+			// 각 레코드 등록 호출
+			orderInsert();
 		});
 	});
 });
@@ -242,7 +248,7 @@ function getOrderNum(){
 	$.get("/order/getOrderNum", function(data){
 		def.resolve("success");
 		$("#ord_num").val(data);
-	}).fail(function(){
+	}, "text").fail(function(){
 		alert("시스템 오류입니다.");
 	});
 	
@@ -258,13 +264,12 @@ function requestPay(){
 	var list_length = $(".prd_name").length;
 	var orderName = prd_name;
 	if(list_length > 1)	orderName += " 외 " + (list_length - 1) + "건";
-
+	
 	// 모듈 호출
 	IMP.request_pay({
 		pg : "html_inicis",
 		pay_method : $("#pay_method").val(),
-//		merchant_uid : 'testMerchant_' + $("#ord_num").val(),
-		merchant_uid : 'testMerchant_04',
+		merchant_uid : 'testMerchant_' + $("#ord_num").val(),
 		name : orderName,
 //		amount : $("#pay_price").val(),
 		amount : 10,
@@ -274,23 +279,12 @@ function requestPay(){
 		buyer_postcode : $("#sh_residence1").val(),
 		buyer_addr : $("#sh_residence2").val()
 	}, function(rsp){
-		if(rsp.success){
-			var msg = "결제가 완료되었습니다.";
-			var status = rsp.status;
-			
-			// 결과에 따른 상태분류 
-			if(status=="paid") status = "결제완료";
-			if(status=="failed") status = "결제실패";
-			
-			// 결제 정보를 pay_info 폼에 값 설정
-			$("#pay_num").val(rsp.imp_uid);
-			$("#pay_date").val(rsp.paid_at);
-			$("#pay_status").val(status);
-
-			def.resolve("success");
-		}else{
+		def.resolve(rsp);
+		if(!rsp.success){
 			var msg = "결제에 실패하였습니다. \n";
 			msg += rsp.error_msg; 
+		}else{
+			msg = "결제가 완료되었습니다.";
 		}
 		alert(msg);
 	});
@@ -306,7 +300,7 @@ function orderInsert(){
 		}else{
 			alert("시스템 오류입니다. 관리자에게 문의해 주세요.");
 		}
-	});
+	}, "text");
 }
 
 //test용 입력
