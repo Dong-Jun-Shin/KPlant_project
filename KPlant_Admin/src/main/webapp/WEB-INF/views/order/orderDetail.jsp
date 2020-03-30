@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -7,34 +7,37 @@
 <link rel="stylesheet" type="text/css"
 	href="/admin/resources/include/css/order/orderDetail.css" />
 
+<script type="text/javascript" src="/admin/resources/include/js/common.js"></script>
 <script type="text/javascript" src="/admin/resources/include/js/order/order.js"></script>
+<script type="text/javascript" src="/admin/resources/include/js/order/orderDetail.js"></script>
 
 <h2 class="sub-header">주문 상세정보</h2>
 <div id="order-detail">
 	<div class="order-info">
 		<div class="body-title">주문자 정보</div>
+		<input type="hidden" id="ord_num" name="ord_num" value="${detail.ord_num }"/>
 		<table>
 			<colgroup>
 				<col width="13%">
 				<col width="87%">
 			</colgroup>
 			<tr>
-				<td>주문자<span class="write-point">*</span></td>
-				<td><label>orderVO항목 - 주문자</label></td>
+				<td>주문 상태</td>
+				<td><label id="ord_status">${detail.ord_status }</label></td>
 			</tr>
 			<tr>
-				<td>연락처<span class="write-point">*</span></td>
+				<td>주문자</td>
+				<td><label>${detail.ord_name }</label></td>
+			</tr>
+			<tr>
+				<td>연락처</td>
 				<td class="detail-tel">
-					<label>orderVO항목 - 연락처1</label>
-					<span>-</span> 
-					<label>orderVO항목 - 연락처2</label>
-					<span>-</span> 
-					<label>orderVO항목 - 연락처3</label>
+					<label>${detail.ord_phone}</label>
 				</td>
 			</tr>
 			<tr>
-				<td>이메일<span class="write-point">*</span></td>
-				<td><label>orderVO항목 - 이메일</label></td>
+				<td>이메일</td>
+				<td><label>${detail.ord_email}</label></td>
 			</tr>
 		</table>
 	</div>
@@ -46,33 +49,31 @@
 				<col width="87%">
 			</colgroup>
 			<tr>
+				<td>운송장 번호</td>
+				<td class="detail-request">
+					<input type="text" id="ord_trn" name="ord_trn" value="${detail.ord_trn}">
+				</td>
+			</tr>
+			<tr>
 				<td>배송지 선택</td>
 				<td class="detail-ship">
 					<div>
-						<span>받으실 분</span><span class="write-point">*</span><br /> 
-						<label>orderVO항목 - 받는 사람</label>
+						<strong>받으실 분</strong><br /> 
+						<label>${detail.sh_name}</label>
 					</div>
 					<div class="detail-address">
-						<span>주소</span><span class="write-point">*</span><br /> 
-						<label>orderVO항목 - 주소1</label>
-						<br /> 
-						<label>orderVO항목 - 주소2</label> 
-						<br /> 
-						<label>orderVO항목 - 주소3</label>
+						<strong>주소</strong><br /> 
+						<label>${detail.sh_residence}</label>
 					</div>
 					<div class="detail-tel">
-						<span>연락처</span><span class="write-point">*</span><br /> 
-						<label>orderVO항목 - 연락처1</label>
-						<span>-</span> 
-						<label>orderVO항목 - 연락처2</label>
-						<span>-</span> 
-						<label>orderVO항목 - 연락처3</label>
+						<strong>연락처</strong><br /> 
+						<label>${detail.sh_phone}</label>
 					</div>
 				</td>
 			</tr>
 			<tr>
-				<td>배송 요청사항<span class="write-point">*</span></td>
-				<td class="detail-request"><label>orderVO항목 - 요청사항</label></td>
+				<td>배송 요청사항</td>
+				<td class="detail-request"><label>${detail.sh_request}</label></td>
 			</tr>
 		</table>
 	</div>
@@ -92,16 +93,19 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td colspan="11" class="prd"><img alt="상품대표사진"
-						src="/resources/images/order/temp1.jpg"> <span>몽골바위솔
-							5포트 바위솔 10cm포트묘</span></td>
-					<td>1개</td>
-					<td colspan="3">9,800원</td>
-					<td colspan="3">9,800원</td>
-					<td colspan="3">3,000원</td>
-				</tr>
+				<c:forEach var="product" items="${prdList }" varStatus="status">
+					<tr class="prd-list">
+						<td>${status.index + 1 }</td>
+						<td colspan="11" class="prd">
+							<img alt="${product.img_prd }" src="">
+							<span class="prd_name">${product.prd_name }</span>
+						</td>
+						<td>${product.ord_qty }</td>
+						<td colspan="3"><span class="prd-price">${product.prd_price }원</span></td>
+						<td colspan="3"><span class="ord-price">${product.prd_price * product.ord_qty }원 </span></td>
+						<td colspan="3"><span class="shipping">3000원</span></td>
+					</tr>
+				</c:forEach> 
 			</tbody>
 		</table>
 	</div>
@@ -110,31 +114,31 @@
 			<tbody>
 				<tr>
 					<td colspan="3">주문금액</td>
-					<td class="price" colspan="3">12800원</td>
+					<td class="price" colspan="3" id="ord_total">0원</td>
 					<td class="ico" colspan="1"><img alt="마이너스"
 						src="/resources/images/order/ico_total_minus.png" /></td>
 					<td colspan="3">할인금액</td>
-					<td class="price" colspan="3">0원</td>
+					<td class="price" colspan="3" id="dis_total">0원</td>
 					<td class="ico" colspan="1"><img alt="합계"
 						src="/resources/images/order/ico_total_sum.png" /></td>
 					<td colspan="3">총 결제금액</td>
-					<td class="price" colspan="3">12800원</td>
+					<td class="price" colspan="3" id="all_total">${detail.pay_price }원</td>
 				</tr>
 				<tr>
 					<td colspan="14" rowspan="2"></td>
 					<td colspan="5">결제 수단</td>
-					<td class="price" colspan="2">신용카드</td>
+					<td class="price" colspan="2">${detail.pay_method }</td>
 				</tr>
 				<tr>
 					<td colspan="5">결제 승인 금액</td>
-					<td class="price" colspan="2">3000원</td>
+					<td class="price" colspan="2">${detail.pay_price }</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 </div>
 <div class="detail-footer">
-	<button type="button" class="btn btn-style">주문 취소</button>
-	<button type="button" class="btn btn-style">교환 처리</button>
-	<button type="button" class="btn btn-style">반품 처리</button>
+	<button type="button" class="btn btn-style" value="${detail.ord_status }">운송장 수정</button>
+	<button type="button" class="btn btn-style" value="교환완료">교환완료</button>
+	<button type="button" class="btn btn-style" value="반품완료">반품완료</button>
 </div>

@@ -6,6 +6,10 @@
 	font-weight: bold;
 }
 
+label{
+	margin-bottom: 0px;
+}
+
 /* order-detail */
 #order-detail label {
 	font-size: 14px;
@@ -42,12 +46,6 @@
 	padding: 10px 30px;
 }
 
-.write-point {
-	color: #FF0000;
-	margin: 5px;
-	font-size: 16px;
-}
-
 .write-control {
 	display: inline-block;
 	margin: 5px 0px;
@@ -61,9 +59,9 @@
 	margin-bottom: 20px;
 }
 
-.detail-ship>div>span {
-	display: inline-block;
-	margin: 5px 0px;
+.detail-ship>div>label {
+    margin-top: 5px;
+	margin-left: 10px;
 }
 
 .detail-tel>span {
@@ -131,6 +129,10 @@ td.price {
 .price-list>tbody>tr:nth-child(1) {
 	font-size: 16px;
 	font-weight: bold;
+}
+
+.price-list>tbody>tr:nth-child(1)>td:nth-child(1) {
+	padding-left: 15px;
 }
 
 .price-list>tbody>tr:nth-child(3)>td {

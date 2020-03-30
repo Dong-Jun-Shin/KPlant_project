@@ -1,11 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kplant.client.join.dao.MemberDAO">
+	
+	<!-- 회원 가입 -->
+	<insert id="memberInsert" parameterType="member">
+		/* join-memberInsert */
+		<selectKey keyProperty="m_num" resultType="int" order="BEFORE">
+			select member_seq.nextval from dual
+		</selectKey>
+		INSERT INTO member ( m_num, m_name, m_gender, m_residence, m_phone, m_eMail, m_birth, m_id, m_pwd ) 
+		VALUES ( #{m_num}, #{m_name}, #{m_gender}, #{m_residence}, #{m_phone}, #{m_eMail}, #{m_birth}, #{m_id}, #{m_pwd})
+	</insert>
 	
 	<!-- 아이디 체크 구현 확인 -->
 	<select id="memberIdCheck" parameterType="member" resultType="int">
 		/*join = memberIdCheck*/
-		select m_id from member where m_id=#{m_id}
+		select COUNT(*) from member where m_id=#{m_id}
+	</select>
+	
+	<!-- 회원정보조회 -->
+   <select id="complete" parameterType="member" resultType="member">
+      select m_name,m_id, m_eMail from member WHERE m_num=#{m_num}
+   </select>
+   
+   <!-- 기존회원여부 구현 확인 -->
+	<select id="lookupMember" parameterType="member" resultType="int">
+		/*join = lookupMember*/
+		select nvl((
+					select 1 from member where m_name=#{m_name} AND m_gender=#{m_gender} AND m_birth=#{m_birth}
+					), 0)as state 
+		from dual
 	</select>
 	
 </mapper>

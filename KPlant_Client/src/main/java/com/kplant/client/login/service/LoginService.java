@@ -1,5 +1,23 @@
-package com.kplant.client.login.service;
+﻿package com.kplant.client.login.service;
+
+import javax.servlet.http.HttpSession;
+
+import com.kplant.client.join.vo.MemberVO;
 
 public interface LoginService {
+	// 로그인 체크
+	public MemberVO loginCheck(MemberVO mvo, HttpSession session);
 
+	// 로그인 정보
+	public MemberVO viewMember(MemberVO vo);
+
+	// 로그아웃
+	public void logout(HttpSession session);
+	
+	//아이디 찾기
+	public int lookupId(MemberVO mvo);
+	
+	//아이디 보여주기
+	public MemberVO findId(MemberVO mvo);
+	
 }
