@@ -163,11 +163,16 @@
  			<version>6</version>
  		</dependency>
  		
- 		<!-- JSON(jackson) -->
+ 		<!-- JSON -->
 		<dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>
 		    <artifactId>jackson-databind</artifactId>
 		    <version>2.9.8</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
 		</dependency>
 		
 		<!-- XML(jackson) -->
@@ -212,6 +217,13 @@
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-jsp</artifactId>
 			<version>${tiles-version}</version>
+		</dependency>
+		
+		<!-- Pay REST API Module -->
+		<dependency>
+		    <groupId>com.github.iamport</groupId>
+		    <artifactId>iamport-rest-client-java</artifactId>
+		    <version>0.2.6</version>
 		</dependency>
 	</dependencies>
     <build>
@@ -271,6 +283,10 @@
 			<id>local-repository</id>
 			<name>local repository</name>
 			<url>file://${project.basedir}/lib</url>
+		</repository>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
 		</repository>
 	</repositories>
 </project>
