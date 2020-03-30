@@ -34,13 +34,13 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
+<!-- 	========================한글처리======================== -->
 	<filter>
-		<filter-name>characterEncoding</filter-name>
-		<filter-class>org.springframework.web.filter.CharacterEncodingFilter
-		</filter-class>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
 		<init-param>
 			<param-name>encoding</param-name>
-			<param-value>UTF-8</param-value>
+			<param-value>utf-8</param-value>
 		</init-param>
 		<init-param>
 			<param-name>forceEncoding</param-name>
@@ -48,7 +48,7 @@
 		</init-param>
 	</filter>
 	<filter-mapping>
-		<filter-name>characterEncoding</filter-name>
+		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 </web-app>
