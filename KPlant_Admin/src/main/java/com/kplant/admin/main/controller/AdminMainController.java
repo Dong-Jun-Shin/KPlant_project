@@ -16,7 +16,7 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/*")
 public class AdminMainController {
 
-	@RequestMapping("")
+	@RequestMapping("/")
 	public String admin(Locale locale, Model model) {
 		log.info("admin/member 호출 성공");
 		

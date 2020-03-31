@@ -5,26 +5,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <link rel="stylesheet" type="text/css" href="/resources/include/css/order/orderSheet.css" />
-<script type="text/javascript">
-	//연락처
-// 	var tel_ary=array('02','031','032','033','041','043','042','044','051','052','053','054','055','061','062','063','064','070');
-	
-	// 핸드폰번호
-// 	var phone_ary=array('010','011','016','017','019');
-	
-	$(function(){
-		$(".pay-method-btn").click(function(){
-			$(".pay-method-btn").removeClass("method");
-			$(".pay-method-btn").children("img[alt='card']").attr({"src":"/resources/images/order/ico_card.png"});
-			$(".pay-method-btn").children("img[alt='acc']").attr({"src":"/resources/images/order/ico_acc.png"});
-			$(".pay-method-btn").children("img[alt='spay']").attr({"src":"/resources/images/order/ico_spay.png"});
-			
-			$(this).addClass("method");
-			$(this).children("img").attr({"src":"/resources/images/order/ico_" + $(this).children("img").attr("alt") + "_sel.png"});
-		});
-	})
-</script>
-
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<script type="text/javascript" src="/resources/include/js/order/orderSheet.js"></script>
 <div>
 	<div class="order-header">
 		<div class="left">
@@ -43,7 +26,6 @@
 			<table class="body-list">
 				<thead>
 					<tr>
-						<th>선택</th>
 						<th colspan="13">상품명/옵션</th>
 						<th>수량</th>
 						<th colspan="2">상품가</th>
@@ -52,125 +34,132 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td><input type="checkbox" name="sel_prd" /></td>
-						<td colspan="13" class="prd">
-							<img alt="상품대표사진" src="/resources/images/order/temp1.jpg">
-							<span>몽골바위솔 5포트 바위솔 10cm포트묘</span>
-						</td>
-						<td>1</td>
-						<td colspan="2">9,800원</td>
-						<td colspan="2">9,800원</td>
-						<td colspan="2">3,000원</td>
-					</tr>
+	 				<c:forEach var="i" begin="0" end="${fn:length(prdList)-1 }">
+						<tr class="prd-list">
+							<td colspan="13" class="prd">
+								<img alt="${prdList[i].img_prd }" src="">
+								<span class="prd_name">${prdList[i].prd_name }</span>
+							</td>
+							<td>${ordDetailList[i].ord_qty }</td>
+							<td colspan="2"><span class="prd-price">${prdList[i].prd_price }원</span></td>
+							<td colspan="2"><span class="ord-price">${prdList[i].prd_price * ordDetailList[i].ord_qty }원 </span></td>
+							<td colspan="2"><span class="shipping">3000원</span></td>
+						</tr>
+ 					</c:forEach> 
 				</tbody>
 			</table>
 		</div>
+		<form id="ordDetail_info" class="info-form">
+			<c:forEach var="i" begin="0" end="${fn:length(prdList)-1 }" varStatus="status">
+				<input name="prd_num" type="hidden" value="${prdList[i].prd_num }"/>
+				<input name="ord_qty" type="hidden" value="${ordDetailList[i].ord_qty }"/>
+			</c:forEach> 
+		</form>
 		<div id="cart_price">
 			<table class="price-list">
 				<tbody>
 					<tr>
 						<td colspan="3">주문금액</td>
-						<td class="price" colspan="3">12800원</td>
+						<td id="all_price" class="price" colspan="3">0원</td>
 						<td class="ico" colspan="1"><img alt="마이너스" src="/resources/images/order/ico_total_minus.png"/></td>
 						<td colspan="3">할인금액</td>
-						<td class="price" colspan="3">0원</td>
+						<!-- TODO 특가 상품의 할인율 가져와서 적용 -->
+						<td id="all_discount" class="price" colspan="3">0원</td>
 						<td class="ico" colspan="1"><img alt="합계" src="/resources/images/order/ico_total_sum.png"/></td>
 						<td colspan="3">총 주문금액</td>
-						<td class="price" colspan="3">12800원</td>
+						<td id="result_price" class="price" colspan="3">0원</td>
 					</tr>
 					<tr>
 						<td colspan="4">주문금액</td>
-						<td class="price" colspan="2">9800원</td>
+						<td id="ord_price" class="price" colspan="2">0원</td>
 						<td colspan="15" rowspan="2"></td>
 					</tr>
 					<tr>
 						<td colspan="4">선결제 배송비</td>
-						<td class="price" colspan="2">3000원</td>
+						<td id="sh_price" class="price" colspan="2">0원</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 		<div id="order-write">
-			<div class="body-title">주문 / 배송정보</div>
-			<div class="order-info">
-				<table>
-					<colgroup>
-						<col width="13%">
-						<col width="87%">
-					</colgroup>
-					<tr>
-						<td>주문자<span class="write-point">*</span></td>
-						<td><input type="text" class="form-control write-control" placeholder="이름 (영문일 경우, 이니셜로 입력)"  maxlength="5"/></td>
-					</tr>
-					<tr>
-						<td>연락처<span class="write-point">*</span></td>
-						<td class="write-tel">
-							<select class="form-control write-control">
-								<option value="010">010</option>
-								<option value="011">011</option>
-							</select>
-							<span>-</span>
-							<input type="tel" class="form-control write-control" maxlength="4"/>
-							<span>-</span>
-							<input type="tel" class="form-control write-control" maxlength="4"/>
-						</td>
-					</tr>
-					<tr>
-						<td>이메일<span class="write-point">*</span></td>
-						<td><input type="text" class="form-control write-control" placeholder="입력하신 이메일로 결제 내역이 전송됩니다." max="50"/></td>
-					</tr>
-				</table>
-			</div>
-			<div class="shipping-info">
-				<table>
-					<colgroup>
-						<col width="13%">
-						<col width="87%">
-					</colgroup>
-					<tr>
-						<td>배송지 선택</td>
-						<td class="write-ship">
-							<div>
-								<span>받으실 분</span><span class="write-point">*</span><br />
-								<input type="text" class="form-control write-control" placeholder="최대 10자까지 입력 가능합니다."  maxlength="10"/>
-							</div>
-							<div class="write-address">
-								<span>주소</span><span class="write-point">*</span><br />
-								<input type="text" class="form-control write-control" readonly="readonly"/>
-								<button class="btn">주소 검색</button><br />
-								<input type="text" class="form-control write-control" readonly="readonly"/>
-								<input type="text" class="form-control write-control" placeholder="나머지 상세주소를 입력해주세요."  maxlength="45"/>
-							</div>
-							<div class="write-tel">
-								<span>연락처</span><span class="write-point">*</span><br />
-								<select class="form-control write-control">
-									<option value="010">010</option>
-									<option value="011">011</option>
+			<form id="ord_info" class="info-form">
+				<input type="hidden" id="ord_num" name="ord_num" />
+				<input type="hidden" name="m_num" value="${member.m_num }" />
+				<div class="body-title">주문 / 배송정보</div>
+				<div class="order-info">
+					<table>
+						<colgroup>
+							<col width="13%">
+							<col width="87%">
+						</colgroup>
+						<tr>
+							<td>주문자<span class="write-point">*</span></td>
+							<td><input type="text" id="ord_name" name="ord_name" class="form-control write-control" placeholder="이름 (영문일 경우, 이니셜로 입력)"  maxlength="5"/></td>
+						</tr>
+						<tr>
+							<td>연락처<span class="write-point">*</span></td>
+							<td class="write-tel">
+								<input type="hidden" id="ord_phone" name="ord_phone"/>
+								<select id="ord_phone1" class="form-control write-control">
 								</select>
 								<span>-</span>
-								<input type="tel" class="form-control write-control"  maxlength="4"/>
+								<input type="tel" id="ord_phone2" class="form-control write-control" maxlength="4"/>
 								<span>-</span>
-								<input type="tel" class="form-control write-control"  maxlength="4"/>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>배송 요청사항<span class="write-point">*</span></td>
-						<td class="write-request">
-							<select class="form-control write-control">
-								<option value="직접입력">메시지 직접 입력</option>
-								<option value="빠른 배송 부탁드립니다.">빠른 배송 부탁드립니다.</option>
-								<option value="배송 전, 연락주세요.">배송 전, 연락주세요.</option>
-								<option value="부재 시, 휴대폰으로 연락주세요.">부재 시, 휴대폰으로 연락주세요.</option>
-								<option value="부재 시, 경비실에 맡겨주세요.">부재 시, 경비실에 맡겨주세요.</option>
-								<option value="선택안함">선택 안함</option>
-							</select>
-							<input type="text" class="form-control write-control" placeholder="배송 요청사항을 입력해주세요. (최대 45자까지 입력 가능)" maxlength="45"/>
-						</td>
-					</tr>
-				</table>
-			</div>
+								<input type="tel" id="ord_phone3" class="form-control write-control" maxlength="4"/>
+							</td>
+						</tr>
+						<tr>
+							<td>이메일<span class="write-point">*</span></td>
+							<td><input type="text" id="ord_email" name="ord_email" class="form-control write-control" placeholder="입력하신 이메일로 결제 내역이 전송됩니다." max="50"/></td>
+						</tr>
+					</table>
+				</div>
+			</form>
+			<form id="sh_info" class="info-form">
+				<div class="shipping-info">
+					<table>
+						<colgroup>
+							<col width="13%">
+							<col width="87%">
+						</colgroup>
+						<tr>
+							<td>배송지 선택</td>
+							<td class="write-ship">
+								<div>
+									<span>받으실 분</span><span class="write-point">*</span><br />
+									<input type="text" id="sh_name" name="sh_name" class="form-control write-control" placeholder="최대 10자까지 입력 가능합니다."  maxlength="10"/>
+								</div>
+								<div class="write-address">
+									<input type="hidden" id="sh_residence" name="sh_residence"/>
+									<span>주소</span><span class="write-point">*</span><br />
+									<input type="text" id="sh_residence1" class="form-control write-control" readonly="readonly" />
+									<button type="button" id="address_btn">주소 검색</button><br />
+									<input type="text" id="sh_residence2" class="form-control write-control" readonly="readonly"  placeholder="(주소 검색을 해주세요.)" />
+									<input type="text" id="sh_residence3" class="form-control write-control" placeholder="나머지 상세주소를 입력해주세요."  maxlength="45"/>
+								</div>
+								<div class="write-tel">
+									<input type="hidden" id="sh_phone" name="sh_phone"/>
+									<span>연락처</span><span class="write-point">*</span><br />
+									<select id="sh_phone1" class="form-control write-control">
+									</select>
+									<span>-</span>
+									<input type="tel" id="sh_phone2" class="form-control write-control"  maxlength="4"/>
+									<span>-</span>
+									<input type="tel" id="sh_phone3" class="form-control write-control"  maxlength="4"/>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>배송 요청사항<span class="write-point">*</span></td>
+							<td class="write-request">
+								<select id="sh_request_sel" class="form-control write-control">
+								</select>
+								<input type="text" id="sh_request" name="sh_request" class="form-control write-control" placeholder="배송 요청사항을 입력해주세요. (최대 45자까지 입력 가능)" maxlength="45"/>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</form>
 		</div>
 	</div>
 	<div class="order-footer">
@@ -178,14 +167,21 @@
 			<div class="body-title">품절 시 환불 방법</div>
 			<div><span><input type="radio" id="refund" checked="checked"/><label for="refund"><span></span></label>결제수단으로 환불 받기</span></div>
 		</div>
-		<div class="pay-method">
-			<span>결제방식</span>
-			<div class="pay-method-btn"><img alt="card" src="/resources/images/order/ico_card.png"><br />신용카드</div>
-			<div class="pay-method-btn"><img alt="acc" src="/resources/images/order/ico_acc.png"><br />계좌이체</div>
-			<div class="pay-method-btn"><img alt="spay" src="/resources/images/order/ico_spay.png"><br />삼성페이</div>
-		</div>
+			<form id="pay_info" class="info-form">
+				<input type="hidden" id="pay_num" name="pay_num" />
+				<input type="hidden" id="pay_method" name="pay_method" />
+				<input type="hidden" id="pay_price" name="pay_price" />
+				<input type="hidden" id="pay_date" name="pay_date" />
+				<input type="hidden" id="pay_status" name="pay_status" />
+			</form>
+			<div class="pay-method">
+				<span>결제방식</span>
+				<div class="pay-method-btn"><img alt="card" src="/resources/images/order/ico_card.png"><br />신용카드</div>
+				<div class="pay-method-btn"><img alt="trans" src="/resources/images/order/ico_trans.png"><br />계좌이체</div>
+				<div class="pay-method-btn"><img alt="samsung" src="/resources/images/order/ico_samsung.png"><br />삼성페이</div>
+			</div>
 		<div class="pay-btn">
-			<button type="button" id="cancle_ord_btn" class="btn btn-lg">주문취소</button>
+			<button type="button" id="cancel_btn" class="btn btn-lg">주문취소</button>
 			<button type="button" id="order_btn" class="btn btn-lg">결제하기</button>
 		</div>		
 	</div>

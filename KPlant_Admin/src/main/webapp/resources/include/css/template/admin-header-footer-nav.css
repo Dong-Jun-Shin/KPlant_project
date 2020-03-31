@@ -1,3 +1,11 @@
+/* title */
+.sub-header {
+	margin-bottom: 50px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eee;
+	font-weight: bold;
+}
+
 /* nav */
 .navbar-brand {
 	padding: 0px;

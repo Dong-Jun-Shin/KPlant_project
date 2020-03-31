@@ -23,8 +23,11 @@
 	<link rel="stylesheet" type="text/css" href="/resources/include/css/template/navbar-static-top.css" />
 	<link rel="stylesheet" type="text/css" href="/resources/include/css/mypage/mypage.css" />
 	
+	<link rel="stylesheet" type="text/css" href="/resources/include/css/template/jquery-ui.css" />
     <script type="text/javascript" src="/resources/include/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/resources/include/js/common.js"></script>
     <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/resources/include/js/jquery-ui.js"></script>
     <script type="text/javascript" src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
 	<script type="text/javascript" src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
 	<script type="text/javascript" src="/resources/include/js/mypage/updateForm.js"></script>

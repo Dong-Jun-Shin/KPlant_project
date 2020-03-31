@@ -1,13 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- DOCTYPE과 DTD, mybatis-3- 뒤의 mapper, Mapper, mapper -> configuration, Config, config로 변경 -->
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
-<!-- <mapper namespace="config.mybatis-config"></mapper> -->
 <configuration>
 	<typeAliases>
+
 		<typeAlias type="com.kplant.admin.faq.vo.FaqVO" alias="faq"/>
 		<typeAlias type="com.kplant.admin.consult.vo.ConsultVO" alias="consult"/>
 		<typeAlias type="com.kplant.admin.event.vo.EventVO" alias="event"/>
 		<typeAlias type="com.kplant.admin.member.vo.MemberVO" alias="member"/>
+
+	
+		<!-- OrderVO -->
+		<typeAlias type="com.kplant.admin.order.vo.OrderListVO" alias="orderList"/>
+		<typeAlias type="com.kplant.admin.order.vo.OrderDetailVO" alias="orderDetail"/>
+		<typeAlias type="com.kplant.admin.order.vo.ShippingVO" alias="shipping"/>
+		<typeAlias type="com.kplant.admin.order.vo.PaymentVO" alias="payment"/>
+		<typeAlias type="com.kplant.admin.order.vo.OrderCancelVO" alias="orderCancel"/>
+
 	</typeAliases>
 </configuration>

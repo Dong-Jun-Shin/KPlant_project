@@ -1,4 +1,4 @@
-package com.kplant.client.join.vo;
+﻿package com.kplant.client.join.vo;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

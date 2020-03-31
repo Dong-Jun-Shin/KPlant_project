@@ -1,4 +1,4 @@
-function checkExp(elem, str){
+﻿function checkExp(elem, str){
 	//var spaceExp = /\s/g;
 	
 	if($(elem).val().replace(/\s/g, "")==""){
