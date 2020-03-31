@@ -6,6 +6,12 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <link rel="stylesheet" type="text/css" href="/resources/include/css/order/cart.css" />
 <script type="text/javascript" src="/resources/include/js/order/cart.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var emptyBool = "${empty prdList}";
+		setBtn((emptyBool=="true"));
+	});
+</script>
 <div>
 	<div class="order-header">
 		<div class="left">
@@ -38,9 +44,12 @@
  					<c:choose>
 						<%-- 상품 요소 --%>
  						<c:when test="${not empty prdList}">
- 							<c:forEach var="i" begin="0" end="${fn:length(prdList)-1 }">
+ 							<c:forEach var="i" begin="0" end="${fn:length(prdList)-1 }" >
 								<tr class="prd-list">
-									<td><input type="checkbox" name="sel_prd"/></td>
+									<td>
+										<input type="checkbox" name="sel_prd"/>
+										<input type="hidden" class="index" value="${i }">
+									</td>
 									<td colspan="7" class="prd">
 										<img alt="${prdList[i].img_prd }" src="">
 										<span>${prdList[i].prd_name }</span>
@@ -67,7 +76,7 @@
 				</tbody>
 			</table>
 			<div class="cart_btn">
-				<button type="button" id="wishListBtn" class="btn btn-lg btn-style" disabled="disabled">찜하기</button>
+<!-- 				<button type="button" id="wishListBtn" class="btn btn-lg btn-style" disabled="disabled">찜하기</button> -->
 				<button type="button" id="allDeleteBtn" class="btn btn-lg btn-style" disabled="disabled">모두 삭제</button>
 			</div>
 		</div>
@@ -99,7 +108,7 @@
 		</div>
 	</div>
 	<div class="order-footer">
-		<button type="button" id="all_ord_btn" class="btn btn-lg btn-style" disabled="disabled">전체 주문</button>
-		<button type="button" id="sel_ord_btn" class="btn btn-lg btn-style" disabled="disabled">선택상품 주문</button>
+		<button type="button" class="btn btn-lg btn-style ord_btn" value="all">전체 주문</button>
+		<button type="button" class="btn btn-lg btn-style ord_btn" value="sel">선택상품 주문</button>
 	</div>
 </div>
