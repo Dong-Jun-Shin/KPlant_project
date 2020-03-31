@@ -34,7 +34,8 @@
 					</tr>
 				</thead>
 				<tbody>
-	 				<c:forEach var="i" begin="0" end="${fn:length(prdList)-1 }">
+<%-- 	 				<c:forEach var="i" begin="0" end="${fn:length(prdList)-1 }"> --%>
+	 				<c:forEach var="i" items="${selList }">
 						<tr class="prd-list">
 							<td colspan="13" class="prd">
 								<img alt="${prdList[i].img_prd }" src="">
@@ -50,7 +51,8 @@
 			</table>
 		</div>
 		<form id="ordDetail_info" class="info-form">
-			<c:forEach var="i" begin="0" end="${fn:length(prdList)-1 }" varStatus="status">
+<%-- 			<c:forEach var="i" begin="0" end="${fn:length(prdList)-1 }" varStatus="status"> --%>
+			<c:forEach var="i" items="${selList }">
 				<input name="prd_num" type="hidden" value="${prdList[i].prd_num }"/>
 				<input name="ord_qty" type="hidden" value="${ordDetailList[i].ord_qty }"/>
 			</c:forEach> 
@@ -181,7 +183,7 @@
 				<div class="pay-method-btn"><img alt="samsung" src="/resources/images/order/ico_samsung.png"><br />삼성페이</div>
 			</div>
 		<div class="pay-btn">
-			<button type="button" id="cancle_btn" class="btn btn-lg">주문취소</button>
+			<button type="button" id="cancel_btn" class="btn btn-lg">주문취소</button>
 			<button type="button" id="order_btn" class="btn btn-lg">결제하기</button>
 		</div>		
 	</div>

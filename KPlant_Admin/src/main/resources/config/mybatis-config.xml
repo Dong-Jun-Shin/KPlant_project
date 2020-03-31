@@ -1,13 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
 <configuration>
 	<typeAliases>
-		<!-- Order VO -->
+		
+		<typeAlias type="com.kplant.admin.join.vo.MemberVO" alias="member"/>
+	
+		<!-- OrderVO -->
 		<typeAlias type="com.kplant.admin.order.vo.OrderListVO" alias="orderList"/>
-<!-- 		<typeAlias type="com.kplant.admin.order.vo.OrderDetailVO" alias="orderDetail"/> -->
-<!-- 		<typeAlias type="com.kplant.admin.order.vo.PaymentVO" alias="payment"/> -->
-<!-- 		<typeAlias type="com.kplant.admin.order.vo.ShippingVO" alias="shipping"/> -->
-<!-- 		<typeAlias type="com.kplant.admin.order.vo.VirtualBankVO" alias="virtualBank"/> -->
-<!-- 		<typeAlias type="com.kplant.admin.order.vo.OrderCancelVO" alias="orderCancel"/> -->
+		<typeAlias type="com.kplant.admin.order.vo.OrderDetailVO" alias="orderDetail"/>
+		<typeAlias type="com.kplant.admin.order.vo.ShippingVO" alias="shipping"/>
+		<typeAlias type="com.kplant.admin.order.vo.PaymentVO" alias="payment"/>
+		<typeAlias type="com.kplant.admin.order.vo.OrderCancelVO" alias="orderCancel"/>
 	</typeAliases>
 </configuration>

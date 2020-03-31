@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+.container {
+	text-align: center;
+}
+
+h1 {
+	margin-top: 101px;
+	font: bold;
+	color: #7F7F7F;
+}
+
+td>img {
+	width: 180px;
+	height: 180px;
+	margin: 20px;
+}
+
+td {
+	padding: 10px;
+}
+
+table {
+	text-align: center;
+	margin: auto;
+	margin-top: 50px;
+	box-shadow: 5px 5px 10px #DDDDDD;
+	padding: 20px;
+	width: 500px;
+}
+
+#ldentityBtn {
+	padding: 8px 60px;
+	background-color: #1E332C;
+	border: 2px solid #1E332C;
+	color: white;
+	border-radius: 3px;
+}
+
+#a {
+	text-align: right;
+}
+
+#d {
+	text-align: left;
+}
+
+.id {
+	padding-right: 30px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+a {
+	color: #7F7F7F;
+	padding: 10px;
+}
+
+a#login {
+	border-right: 1px solid #7F7F7F;
+	padding-right: 30px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+.section {
+	min-height: 689px;
+}

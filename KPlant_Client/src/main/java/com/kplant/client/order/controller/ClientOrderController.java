@@ -2,9 +2,7 @@ package com.kplant.client.order.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.kplant.client.join.vo.MemberVO;
 import com.kplant.client.order.service.ClientOrderService;
 import com.kplant.client.order.vo.OrderDetailVO;
 import com.kplant.client.order.vo.OrderListVO;
@@ -35,66 +32,37 @@ public class ClientOrderController {
 	private ClientOrderService ordService;
 	
 	@RequestMapping("/cart")
-	public String cart(HttpServletRequest request, Model model) {
+	public String cart(Model model) {
 		log.info("client/장바구니 호출 성공");
 		
 		return "order/cart";
 	}
 
 	@RequestMapping("/orderSheet")
-	public String orderSheet(HttpServletRequest request, Model model) {
+	public String orderSheet(Model model) {
 		log.info("client/주문결제 호출 성공");
 
-		/* 테스트 데이터 시작 */
-		ArrayList<ProductVO> arr = new ArrayList<ProductVO>();
-		ProductVO pvo = new ProductVO();
-		pvo.setPrd_num("prd_num_01");
-		pvo.setPrd_name("몽골바위솔 5포트 바위솔 10cm포트묘");
-		pvo.setPrd_price(9800);
-		pvo.setImg_prd("prd_img_01");
-		
-		ProductVO pvo2 = new ProductVO();
-		pvo2.setPrd_num("prd_num_02");
-		pvo2.setPrd_name("몽골바위솔솔 솔나무");
-		pvo2.setPrd_price(3600);
-		pvo2.setImg_prd("prd_img_02");
-		
-		arr.add(pvo);
-		arr.add(pvo2);
-		List<ProductVO> prdList = arr;
-
-		ArrayList<OrderDetailVO> odArr = new ArrayList<OrderDetailVO>();
-		OrderDetailVO odvo = new OrderDetailVO();
-		odvo.setPrd_num(pvo.getPrd_num());
-		odvo.setOrd_qty(2);
-
-		OrderDetailVO odvo2 = new OrderDetailVO();
-		odvo2.setPrd_num(pvo2.getPrd_num());
-		odvo2.setOrd_qty(3);
-		
-		odArr.add(odvo);
-		odArr.add(odvo2);
-		List<OrderDetailVO> ordDetailList = odArr;
-		
-		MemberVO mvo = new MemberVO();
-		mvo.setM_num(3);
-		
-		HttpSession session = request.getSession();
-		session.setAttribute("member", mvo);
-		session.setAttribute("prdList", prdList);
-		session.setAttribute("ordDetailList", ordDetailList);
-		/* 테스트 데이터 끝*/
-		
 		return "order/orderSheet";
 	}
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping("/complete")
-	public String complete(Locale locale, Model model) {
+	public String complete(HttpSession session, Model model) {
 		log.info("client/주문완료 호출 성공");
 		
-		// TODO 이메일 발송
-		
-		// TODO 장바구니의 세션 삭제
+		// 주문이 완료된 장바구니의 세션 삭제
+		List<ProductVO> prdList = (List<ProductVO>)session.getAttribute("prdList");
+		List<OrderDetailVO> ordDetailList = (List<OrderDetailVO>)session.getAttribute("ordDetailList");
+		int[] selList = (int[])session.getAttribute("selList");
+
+		for (int i : selList) {
+			prdList.remove(i);
+			ordDetailList.remove(i);
+		}
+
+		session.setAttribute("prdList", prdList);
+		session.setAttribute("ordDetailList", ordDetailList);
+		session.removeAttribute("selList");
 		
 		return "order/complete";
 	}
@@ -141,5 +109,97 @@ public class ClientOrderController {
 		if(result==1) return "success";
 		
 		return "false";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/sessionSet", method = RequestMethod.POST)
+	public String sessionSet(HttpSession session, int[] num) {
+		log.info("client/세션 변경 호출 성공");
+		String result = "";
+
+		try {
+			session.setAttribute("selList", num);
+			result = "success";
+		} catch (NullPointerException e) {
+			result = "null";
+		} catch (Exception e) {
+			result = "false";
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@ResponseBody
+	@RequestMapping(value="/sessionUpdate", method = RequestMethod.POST)
+	public String sessionUpdate(HttpSession session, int num, int qty) {
+		log.info("client/세션 변경 호출 성공");
+		String result = "";
+
+		try {
+			List<OrderDetailVO> ordDetailList = (List<OrderDetailVO>)session.getAttribute("ordDetailList");
+			OrderDetailVO odvo = ordDetailList.get(num);
+			odvo.setOrd_qty(qty);
+			ordDetailList.set(num, odvo);
+
+			session.setAttribute("ordDetailList", ordDetailList);
+			result = "success";
+		} catch (NullPointerException e) {
+			result = "null";
+		} catch (Exception e) {
+			result = "false";
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@ResponseBody
+	@RequestMapping(value="/sessionDelete", method = RequestMethod.POST)
+	public String sessionDelete(HttpSession session, int num) {
+		log.info("client/세션 삭제 호출 성공");
+		String result = "";
+
+		try {
+			List<ProductVO> prdList = (List<ProductVO>)session.getAttribute("prdList");
+			prdList.remove(num);
+			
+			List<OrderDetailVO> ordDetailList = (List<OrderDetailVO>)session.getAttribute("ordDetailList");
+			ordDetailList.remove(num);
+
+			session.setAttribute("prdList", prdList);
+			session.setAttribute("ordDetailList", ordDetailList);
+			result = "success";
+		} catch (NullPointerException e) {
+			result = "null";
+		} catch (Exception e) {
+			result = "false";
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/sessionAllDelete", method = RequestMethod.POST)
+	public String sessionAllDelete(HttpSession session) {
+		log.info("client/세션 삭제 호출 성공");
+		String result = "";
+		
+		try {
+			session.removeAttribute("prdList");
+			session.removeAttribute("ordDetailList");
+			
+			result = "success";
+		} catch (NullPointerException e) {
+			result = "null";
+		} catch (Exception e) {
+			result = "false";
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 }

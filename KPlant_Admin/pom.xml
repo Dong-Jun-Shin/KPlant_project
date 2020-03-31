@@ -163,11 +163,16 @@
  			<version>6</version>
  		</dependency>
  		
- 		<!-- JSON(jackson) -->
+ 		<!-- JSON -->
 		<dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>
 		    <artifactId>jackson-databind</artifactId>
 		    <version>2.9.8</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
 		</dependency>
 		
 		<!-- XML(jackson) -->
@@ -213,6 +218,35 @@
 			<artifactId>tiles-jsp</artifactId>
 			<version>${tiles-version}</version>
 		</dependency>
+		
+		<!-- Pay REST API Module -->
+		<dependency>
+		    <groupId>com.github.iamport</groupId>
+		    <artifactId>iamport-rest-client-java</artifactId>
+		    <version>0.2.6</version>
+		</dependency>
+		
+		<!-- excel - write -->
+		<dependency>
+	       <groupId>org.apache.poi</groupId>
+	       <artifactId>poi</artifactId>
+	       <version>3.9</version>
+	    </dependency>
+	    <dependency>
+	       <groupId>org.apache.poi</groupId>
+	       <artifactId>poi-ooxml</artifactId>
+	       <version>3.9</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>net.sf.jxls</groupId>
+	        <artifactId>jxls-core</artifactId>
+	        <version>1.0.2</version>
+	    </dependency>
+	    <dependency>
+	       <groupId>net.sf.jxls</groupId>
+	        <artifactId>jxls-reader</artifactId>
+	        <version>1.0.2</version>
+	    </dependency>
 	</dependencies>
     <build>
         <plugins>
@@ -271,6 +305,10 @@
 			<id>local-repository</id>
 			<name>local repository</name>
 			<url>file://${project.basedir}/lib</url>
+		</repository>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
 		</repository>
 	</repositories>
 </project>

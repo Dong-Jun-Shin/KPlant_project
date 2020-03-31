@@ -6,6 +6,22 @@
 	font-weight: bold;
 }
 
+/* title */
+.sub-header {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eee;
+}
+
+.sub-header .excelBtn{
+	float: right;
+    font-size: 15px;
+    margin-top: 0px;
+    height: 35px;
+}
+
+.point {
+	color: #f556ff;
+}
 
 /* order-header */
 .order-header {
@@ -29,11 +45,19 @@
 	width: 250px;
 }
 
+.order-header #date_input {
+	display: none;
+}
+
 .order-header>input[type='date'] {
     width: 150px;
 }
 
 /* order-list */
+.order-body .all-check{
+	cursor: pointer;
+}
+
 .order-body input[type='checkbox'] {
     margin: 0px auto;
     width: 16px;
@@ -64,7 +88,16 @@ table th, table td {
 
 table > tbody > tr:hover{
 	background: #AEC29F30;
+}
+
+table > tbody > tr > .num{
+	color: #337ab7;
+	text-decoration: underline;
 	cursor: pointer;
+}
+
+table > tbody > tr > .trn{
+	padding: 0px 40px;
 }
 
 /* order-footer */
@@ -82,4 +115,8 @@ table > tbody > tr:hover{
 
 .foot-right {
 	float: right;
+}
+
+.order-footer div.text-center{
+	clear: both;
 }

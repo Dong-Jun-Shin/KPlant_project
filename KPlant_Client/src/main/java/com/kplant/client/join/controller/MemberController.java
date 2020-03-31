@@ -1,9 +1,8 @@
-package com.kplant.client.join.controller;
-
-import javax.servlet.http.HttpServletRequest;
+﻿package com.kplant.client.join.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,29 +34,54 @@ public class MemberController {
 	
 	/**
 	 * 본인 인증
-	 */
+	 
 	@RequestMapping(value = "/ldentity")
 	public String ldentity(@ModelAttribute("data")MemberVO mvo, Model model) {
 		log.info("ldentity 호출 성공");
 		return "join/ldentity";
-	}
+	}*/
 	
-	/**
-	 * 기존 회원 여부
-	 */
+	
 	@RequestMapping(value = "/existingMember")
-	public String existingMember(@ModelAttribute("data")MemberVO mvo, Model model) {
+	public String existingMember() {
 		log.info("existingMember 호출 성공");
 		return "join/existingMember";
 	}
+	/**
+	 * 기존 회원 여부
+	 */
+	@ResponseBody
+	@RequestMapping(value = "/lookupMember", method =RequestMethod.POST)
+	public int lookupMember(@ModelAttribute("data")MemberVO mvo, Model model)  throws Exception{
+		log.info("lookupMember 호출 성공");
+		
+		int result = memberService.lookupMember(mvo);
+		return result;
+	}
 	
+	
+	
+	@GetMapping(value = "/memberJoin")
+	public String memberJoin() {
+		log.info("memberJoin 호출 성공");
+		return "join/memberJoin";
+	}
 	/**
 	 * 회원 정보 입력
 	 */
-	@RequestMapping(value = "/memberInsert")
-	public String memberInsert(@ModelAttribute("data")MemberVO mvo, Model model) {
-		log.info("memberInsert 호출 성공");
-		return "join/memberInsert";
+	@RequestMapping(value = "/memberInsert", method =  RequestMethod.POST)
+	public String postMemberInsert(MemberVO mvo, Model model) {
+		log.info("postMemberInsert 호출 성공");
+		
+		int result=0;
+		String url="";
+		
+		result=memberService.memberInsert(mvo);
+		if(result==1) {
+			url="join/complete";
+		}
+		
+		return url;
 	}
 	
 	/**
@@ -65,26 +89,25 @@ public class MemberController {
 	 */
 	@RequestMapping(value = "/memberIdCheck", method =RequestMethod.POST)
 	@ResponseBody
-	public int memberIdCheck(HttpServletRequest req) throws Exception{
+	public int memberIdCheck(MemberVO mvo) throws Exception{
 		log.info("memberIdCheck 호출 성공");
 		
-		String m_id = req.getParameter("m_id");
-		MemberVO memberIdCheck=MemberService.memberIdCheck(m_id);
-		
-		int result=0;
-		
-		if(m_id !=null) {
-			result=1;
-		}
+		int result = memberService.memberIdCheck(mvo);
 		return result;
 	}
 	
 	/**
 	 * 가입 완료
 	 */
-	@RequestMapping(value = "/complete")
+	@RequestMapping(value = "/complete", method = RequestMethod.GET)
 	public String complete(@ModelAttribute("data")MemberVO mvo, Model model) {
 		log.info("complete 호출 성공");
+		
+		log.info("mvo = "+mvo);
+	      
+	     MemberVO data = memberService.complete(mvo);
+	     model.addAttribute("data", data);
+		
 		return "join/complete";
 	}
 }
