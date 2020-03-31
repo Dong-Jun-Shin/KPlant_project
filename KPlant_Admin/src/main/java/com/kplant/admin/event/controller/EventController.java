@@ -21,6 +21,7 @@ import com.kplant.admin.event.vo.EventVO;
 import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
+import oracle.jdbc.proxy.annotation.Methods;
 
 @Controller
 @RequestMapping(value = "/event/*")
@@ -78,24 +79,26 @@ public class EventController {
     /************************
      * 이벤트 정보 입력하기 (Insert)
      */
-    @ResponseBody
     @PostMapping(value = "/eventInsert", produces = "text/plain; charset=UTF-8")
-    public String eventInsert(EventVO evo) {
+    public String eventInsert(@ModelAttribute EventVO evo) {
     	log.info("Admin eventInsert 호출 성공");
-		
-		log.info("file name : " + evo.getFileF().getOriginalFilename());
-		log.info("file name : " + evo.getFileS().getOriginalFilename());
-		log.info("file name : " + evo.getFileT().getOriginalFilename());
+		log.info(evo);
+    	
+//		log.info("file name : " + evo.getFileS().getOriginalFilename());
+//		log.info("file name : " + evo.getFileT().getOriginalFilename());
 		String value = "";
 		int result = 0;
 		
+		log.info("file name : " + evo.getFileF().getOriginalFilename());
 		result = eventService.eventInsert(evo);
+
+		
 		if (result==1) {
-			value = "성공";
+			value = "/event/eventList";
 		}else {
-			value = "실패";
+			value = "/event/writeForm";
 		}
-		return value;
+		return "redirect:"+value;
     }
     
     @ResponseBody
@@ -122,7 +125,7 @@ public class EventController {
 		
 		int result = 0;
 		String value = "";
-		result = eventService.galleryDelete(evo);
+		result = eventService.eventDelete(evo);
 		if (result==1) {
 			value="성공";
 		}else {

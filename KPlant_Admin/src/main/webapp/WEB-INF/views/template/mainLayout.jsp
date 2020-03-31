@@ -28,6 +28,7 @@
 	<script type="text/javascript" src="/admin/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="/admin/resources/include/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/admin/resources/include/js/common.js"></script>
     <script src="/admin/resources/include/dist/assets/js/docs.min.js"></script>
   </head>
 

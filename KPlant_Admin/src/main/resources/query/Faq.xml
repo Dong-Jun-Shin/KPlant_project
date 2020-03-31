@@ -5,4 +5,46 @@
 		SELECT faq_num, to_char(faq_rgstdate,'YYYY-MM-DD') as faq_rgstdate,  to_char(faq_modifydate,'YYYY-MM-DD') as faq_modifydate, faq_content, faq_title
 		FROM faq
 	</select>
+	
+	<!-- 게시물 등록 -->
+	<insert id="faqInsert" parameterType="faq">
+		/*FAQ - faqInsert*/
+		<selectKey keyProperty="faq_num" resultType="int" order="BEFORE">
+			select faq_seq.nextval from dual
+		</selectKey>
+			INSERT INTO faq (
+			    faq_num,
+			    faq_rgstdate,
+			    faq_modifydate,
+			    faq_content,
+			    faq_title
+			) VALUES (
+			    #{faq_num},
+			    #{faq_rgstDate},
+			    #{faq_modifyDate},
+			    #{faq_content},
+			    #{faq_title}
+			);
+		
+	</insert>
+	
+	<!-- 게시물 Update -->
+	<update id="faqUpdate" parameterType="faq">
+		/*faq = faqUpdate*/
+		UPDATE faq
+			set faq_title=#{faq_title}, faq_content=#{faq_content}, faq_modifyDate = sysdate
+		WHERE faq_num = #{faq_num}
+	</update>
+	<!-- 게시물 Delete -->
+	<delete id="faqDelete" parameterType="faq">
+		/*faq = faqDelete*/
+		delete from faq where faq_num = #{faq_num}
+	</delete>
+	<!-- 게시물 Detail -->
+	<select id="faqDetail" parameterType="int" resultType="faq">
+		/*faq = faqDetail*/
+		SELECT faq_num, to_char(faq_rgstdate,'YYYY-MM-DD') as faq_rgstdate,  to_char(faq_modifydate,'YYYY-MM-DD') as faq_modifydate, faq_content, faq_title
+		FROM faq 
+		Where faq_num = #{faq_num}
+	</select>
 </mapper>

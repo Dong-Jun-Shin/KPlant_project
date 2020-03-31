@@ -41,12 +41,23 @@ public class EventServiceImpl implements EventService {
 		
 		try {
 			if (evo.getFileF()!=null) {
-				String fileName = FileUploadUtil.fileUpload(evo.getFileF(), "gallery");
-				evo.setEvnt_fileF(fileName);
+				String fileName_fileF = FileUploadUtil.fileUpload(evo.getFileF(), "event");
+				evo.setEvnt_fileF(fileName_fileF);
 				
-				String thumbName = FileUploadUtil.makeThumbnail(fileName);
+				String thumbName = FileUploadUtil.makeThumbnail(fileName_fileF);
 				evo.setEvnt_thumb(thumbName);
+				
+				if(evo.getFileS().getOriginalFilename() != null && (!evo.getFileS().getOriginalFilename().equals(""))) {
+					String fileName_fileS = FileUploadUtil.fileUpload(evo.getFileS(), "event");
+					evo.setEvnt_fileS(fileName_fileS);
+				}
+				
+				if(evo.getFileT().getOriginalFilename() != null && (!evo.getFileT().getOriginalFilename().equals(""))) {
+					String fileName_fileT = FileUploadUtil.fileUpload(evo.getFileT(), "event");
+					evo.setEvnt_fileT(fileName_fileT);
+				}
 			}
+			System.out.println(evo);
 			result = eventDAO.eventInsert(evo);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -58,14 +69,78 @@ public class EventServiceImpl implements EventService {
 	/*이벤트 수정*/
 	@Override
 	public int eventUpdate(EventVO evo) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = 0;
+		try {
+			
+			/*첫번째 파일 및 썸네일*/
+			if (evo.getFileF()!=null) {
+				if (!evo.getEvnt_fileF().isEmpty()) {
+					FileUploadUtil.fileDelete(evo.getEvnt_fileF());
+					FileUploadUtil.fileDelete(evo.getEvnt_thumb());
+				}
+				String fileName = FileUploadUtil.fileUpload(evo.getFileF(), "event");
+				evo.setEvnt_fileF(fileName);
+
+				String thumName = FileUploadUtil.makeThumbnail(fileName);
+				evo.setEvnt_thumb(thumName);
+				
+			}else {
+				evo.setEvnt_fileF("");
+				evo.setEvnt_thumb("");
+			}
+			
+			/*두번째 파일*/
+			if (evo.getFileS()!=null) {
+				if (!evo.getEvnt_fileS().isEmpty()) {
+					FileUploadUtil.fileDelete(evo.getEvnt_fileS());
+				}
+				String fileNameS = FileUploadUtil.fileUpload(evo.getFileS(), "event");
+				evo.setEvnt_fileS(fileNameS);
+			}else {
+				evo.setEvnt_fileS("");
+			}
+			
+			/*세번째 파일*/
+			if (evo.getFileT()!=null) {
+				if (!evo.getEvnt_fileT().isEmpty()) {
+					FileUploadUtil.fileDelete(evo.getEvnt_fileT());
+				}
+				String fileNameT = FileUploadUtil.fileUpload(evo.getFileT(), "event");
+				evo.setEvnt_fileT(fileNameT);
+			}else {
+				evo.setEvnt_fileT("");
+			}
+			
+			result = eventDAO.eventUpdate(evo);
+		} catch (Exception e) {
+			e.printStackTrace();
+			result = 0;
+		}
+		return result;
 	}
 	
 	/*이벤트 삭제*/
 	@Override
-	public int galleryDelete(EventVO evo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int eventDelete(EventVO evo) {
+		int result = 0;
+		try {
+			EventVO vo = evo;
+			FileUploadUtil.fileDelete(vo.getEvnt_fileF());
+			FileUploadUtil.fileDelete(vo.getEvnt_thumb());
+			System.out.println(vo);
+			
+			if (!vo.getEvnt_fileS().equals("0")) {
+				FileUploadUtil.fileDelete(vo.getEvnt_fileS());
+			}
+			if (!vo.getEvnt_fileT().equals("0")) {
+				FileUploadUtil.fileDelete(vo.getEvnt_fileT());
+			}
+			result = eventDAO.eventDelete(evo.getEvnt_num());
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			result = 0;
+		}
+		return result;
 	}
 }

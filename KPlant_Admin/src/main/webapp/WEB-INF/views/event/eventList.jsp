@@ -21,7 +21,7 @@
 		
 		/*이벤트 생성 버튼 클릭시 입력 폼으로 이동처리*/
 		$("#insertFormBtn").click(function () {
-			location.href="/admin/event/writeForm"
+			location.href="/admin/event/writeForm";
 		});
 	});//최상위 $ 함수 끝 
 </script>

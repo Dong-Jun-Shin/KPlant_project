@@ -10,6 +10,6 @@ public interface EventService {
 	public EventVO eventDetail(EventVO evo);
 	public int eventInsert(EventVO evo);
 	public int eventUpdate(EventVO evo);
-	public int galleryDelete(EventVO evo);
+	public int eventDelete(EventVO evo);
 
 }
