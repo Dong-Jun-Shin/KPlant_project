@@ -21,11 +21,8 @@
 	<link rel="stylesheet" type="text/css" href="/admin/resources/include/dist/css/bootstrap-theme.css" />
 	<link rel="stylesheet" type="text/css" href="/admin/resources/include/css/template/admin-header-footer-nav.css" />
 	
-<<<<<<< HEAD
-=======
 	<link rel="stylesheet" type="text/css" href="/admin/resources/include/css/faq/header.css" />
 	
->>>>>>> origin/client_customer
 	<script type="text/javascript" src="/admin/resources/include/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/admin/resources/include/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/admin/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>

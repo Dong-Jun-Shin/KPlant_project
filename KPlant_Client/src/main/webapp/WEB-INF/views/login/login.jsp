@@ -29,7 +29,7 @@
 					if(!chkData("#m_id","아이디"))return;
 					if(!chkData("#m_pwd","비밀번호"))return;
 					else{
-						$.ajax({
+						/* $.ajax({
 							url:"/login/loginCheck",//전송 url
 							type:"post",//전송시 method 방식
 							data:$("#m_id,#m_pwd").serialize(),//폼전체 데이터 전송
@@ -46,13 +46,13 @@
 								}else if(resultData=='성공'){
 									$("#msg").text("");
 									if(butChk==1){
-										goUrl="/home/home";
+										goUrl="/";
 									}
 									$("#m_data").attr("action",goUrl);
 									$("#m_data").submit();
 								}
 							}
-						});
+						}); */
 						$("#form").attr({
 							"method":"post",
 							"action":"/login/loginCheck"
@@ -76,20 +76,12 @@
 				</tr>
 				<tr>
 					<td colspan="3">
-					<input type="text" class="form-control" id="m_pwd" name="m_pwd" placeholder="비밀번호 입력"></td>
+					<input type="password" class="form-control" id="m_pwd" name="m_pwd" placeholder="비밀번호 입력"></td>
 				</tr>
 				<tr>
 					<td colspan="3" align="center">
 						<button type="button"  id="loginBtn">로그인</button>
 					</td>
-				</tr>
-				<tr>
-					<td colspan="3">
-					<input type="button" id="naverBtn" value="NAVER" class="account__btn account__btn--naver oauth--connect"></td>
-				</tr>
-				<tr>
-					<td colspan="3">
-					<input type="button" id="kakaoBtn" value="kakao"></td>
 				</tr>
 				<tr>
 					<td id="a"><a target="_blank" id="findId" href="/login/ldentityId">아이디 찾기</a></td>

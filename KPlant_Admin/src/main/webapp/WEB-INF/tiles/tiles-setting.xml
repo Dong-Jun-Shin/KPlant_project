@@ -9,8 +9,8 @@
 		<put-attribute name="header" value="/WEB-INF/views/template/header.jsp" />
 		<put-attribute name="body" value="" />
 	</definition>
-	<definition name="*" extends="admin">
-		<put-attribute name="body" value="/WEB-INF/views/member/member.jsp" />
+	<definition name="member/*" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/views/member/{1}.jsp" />
 	</definition>
 	
 	<definition name="order/*" extends="admin">

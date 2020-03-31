@@ -12,7 +12,7 @@
 	</definition>
 	<definition name="mypage/*" extends="template">	
 		<put-attribute name="body" value="/WEB-INF/views/client/mypage/{1}.jsp"/>
-
+	</definition>
 	
 	<definition name="*" extends="template">	
 		<put-attribute name="body" value="/WEB-INF/views/home/home.jsp"/>

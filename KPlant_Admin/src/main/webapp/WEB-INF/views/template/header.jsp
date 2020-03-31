@@ -23,7 +23,7 @@
 
 <div class="col-sm-3 col-md-2 sidebar">
 	<ul class="nav nav-sidebar">
-		<li role="presentation" class="active"><a href="/admin">회원 관리</a></li>
+		<li role="presentation" class="active"><a href="/admin/member/memberList">회원 관리</a></li>
 		<li role="presentation"><a href="#">상품 관리</a></li>
 		<li role="presentation"><a href="/admin/hotdeal/hotdealList">핫딜 관리</a></li>
 		<li role="presentation"><a href="/admin/order/orderList">주문 관리</a></li>
