@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.kplant.admin.order.vo.OrderCancelVO;
 import com.kplant.admin.order.vo.OrderListVO;
 import com.kplant.admin.order.vo.PaymentVO;
 
@@ -23,6 +24,11 @@ public class OrderMapperTests {
 	public void testOrderList() {
 		OrderListVO olvo = new OrderListVO();
 		log.info(odao.orderList(olvo));
+	}
+	
+	@Test
+	public void testOrderExcelList() {
+		log.info(odao.orderExcelList());
 	}
 	
 	@Test
@@ -71,5 +77,14 @@ public class OrderMapperTests {
 		pvo.setPay_status("결제취소");
 		
 		log.info(odao.paymentUpdate(pvo));
+	}
+
+	@Test
+	public void testCancelInsert() {
+		OrderCancelVO ocvo = new OrderCancelVO();
+		ocvo.setOrd_num("OR1912310002");
+		ocvo.setOdc_cause("업체 사정으로 인한 취소");
+
+		log.info(odao.cancelInsert(ocvo));
 	}
 }

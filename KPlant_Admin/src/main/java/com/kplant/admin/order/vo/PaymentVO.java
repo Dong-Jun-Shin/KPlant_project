@@ -22,4 +22,6 @@ public class PaymentVO {
     // 주문번호 
     private String ord_num;
 
+    // 취소사유
+    private String odc_cause;
 }

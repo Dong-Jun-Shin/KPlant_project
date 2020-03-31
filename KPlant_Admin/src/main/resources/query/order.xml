@@ -59,6 +59,18 @@
 		ORDER BY rnum DESC]]>
 	</select>
 	
+	<!-- 게시판 리스트 검색 구문 추가 -->
+	<select id="orderExcelList" resultMap="orderResult">
+		<![CDATA[
+		SELECT
+		    ord_num, ord_name, ord_phone, 
+		    to_char(ord_date, 'YYYY-MM-DD') as ord_date, 
+		    ord_status, ord_trn, m_id
+		FROM order_list ol INNER JOIN member m ON ol.m_num = m.m_num
+		ORDER BY ord_num DESC
+		]]>
+	</select>
+	
 	<!-- 주문의 상세정보 조회 -->
 	<select id="getOrderInfo" parameterType="orderList" resultType="com.kplant.admin.common.vo.ChangeMap">
 		SELECT 
@@ -106,4 +118,13 @@
 	<update id="paymentUpdate" parameterType="payment">
 		UPDATE payment SET pay_date=#{pay_date}, pay_status=#{pay_status} WHERE pay_num=#{pay_num}
 	</update>
+	
+	<!-- 주문 취소에 따른 취소 테이블 등록-->
+	<insert id="cancelInsert" parameterType="orderCancel">
+		INSERT INTO order_cancel (
+		    ord_num, odc_cause
+		) VALUES (
+		    #{ord_num}, #{odc_cause}
+		)
+	</insert>
 </mapper>
