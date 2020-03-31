@@ -9,8 +9,9 @@ import com.kplant.client.join.vo.MemberVO;
 import com.kplant.client.login.dao.LoginDAO;
 
 import lombok.Setter;
+import lombok.extern.log4j.Log4j;
 
-
+@Log4j
 @Service
 public class LoginServiceImpl implements LoginService {
 	
@@ -18,15 +19,18 @@ public class LoginServiceImpl implements LoginService {
 	private LoginDAO loginDAO;
 	
 	//로그인 체크
-	@Override
-	public MemberVO loginCheck(MemberVO mvo, HttpSession session) {
-		MemberVO vo = loginDAO.loginCheck(mvo);
-		if (vo!=null) {
-			session.setAttribute("m_id", mvo.getM_id());
-			session.setAttribute("m_name", mvo.getM_name());
-		}
-		return vo;
-	}
+	   @Override
+	   public MemberVO loginCheck(MemberVO mvo, HttpSession session) {
+	      MemberVO vo = loginDAO.loginCheck(mvo);
+	      if (vo!=null) {
+	         session.setAttribute("m_num", vo.getM_num());
+	         session.setAttribute("m_id", vo.getM_id());
+	         session.setAttribute("m_name", vo.getM_name());
+	      }
+	      log.info((int)session.getAttribute("m_num"));
+	      log.info((String)session.getAttribute("m_id"));
+	      return vo;
+	   }
 
 	// 로그아웃
 	@Override
