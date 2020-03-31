@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kplant.admin.order.service.AdminOrderService;
-import com.kplant.admin.order.service.AdminOrderServiceImpl;
 import com.kplant.admin.order.vo.PaymentVO;
 import com.siot.IamportRestClient.IamportClient;
 import com.siot.IamportRestClient.exception.IamportResponseException;
@@ -26,7 +25,6 @@ import com.siot.IamportRestClient.response.IamportResponse;
 import com.siot.IamportRestClient.response.Payment;
 import com.siot.IamportRestClient.response.PaymentCancelDetail;
 
-import freemarker.template.SimpleDate;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
@@ -50,6 +48,7 @@ public class PaymentController {
 		log.info("admin/결제취소 호출 성공");
 		String result = "false";
 		CancelData cancel_data = new CancelData(pvo.getPay_num(), true);
+		cancel_data.setReason(pvo.getOdc_cause());
 		try {
 			IamportClient client = getKey(request);
 			IamportResponse<Payment> payment_response = client.cancelPaymentByImpUid(cancel_data);

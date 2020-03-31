@@ -1,4 +1,13 @@
 $(function(){
+	// 엑셀 다운로드 버튼 클릭 시 제어
+	$("#excelBtn").click(function(){
+		$("#f_search").attr({
+			"method" : "get",
+			"action" : "/admin/order/orderExcel"
+		});
+		$("#f_search").submit();
+	});
+	
 	// checkbox 전체 선택, 해제
     $(".all-check").click(function(){
     	var checkbox = $("input.sel_prd");
@@ -124,10 +133,16 @@ $(function(){
 	    			// 결제 취소에 대한 요청
 	    			if(bool){
 		    			var ord_num = $(this).children(".num").html();
+		    			var odc_cause = "업체 사정으로 인한 취소";
 		    			getPayNum(ord_num).then(function(pay_num){
 		        			// api 업체로 서버에서 요청
-		        			$.post("/admin/payment/cancel", "pay_num=" + pay_num, function(result){
-		        				alert("결제 취소가 완료되었습니다.");
+		        			$.post("/admin/payment/cancel", "pay_num=" + pay_num + "&odc_cause=" + odc_cause, function(result){
+		        				if(result=="success"){
+			    					alert("결제 취소가 완료되었습니다.");
+			    				}else if(result=="already"){
+			    					alert("이미 취소된 결제건입니다.");
+			    					bool = false;
+			    				}
 		        			}, "text");
 		        		});
 	    			}

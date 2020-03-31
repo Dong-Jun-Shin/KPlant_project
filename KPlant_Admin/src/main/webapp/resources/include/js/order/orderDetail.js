@@ -34,12 +34,12 @@ $(function(){
 	    		getPayNum($("#ord_num").val()).then(function(pay_num){
 	    			// 결제 취소
 	    			$.post("/admin/payment/cancel", "pay_num=" + pay_num, function(result){
-	    				if(result=="success")
+	    				if(result=="success"){
 	    					alert("결제 취소가 완료되었습니다.");
-	    				else if(result=="already")
+	    				}else if(result=="already"){
 	    					alert("이미 취소된 결제건입니다.");
-	    					//싱크 순서에 의한 orderUpdate 알람 해결하기
-		    				bool = false;
+	    					bool = false;
+	    				}
 	    			}, "text");
 	    		}).fail(function(){
 	    			alert()
@@ -94,7 +94,7 @@ function setParam(btn_val){
 	
 	var ord_num = "ord_num=" + $("#ord_num").val();
 	var ord_status = "ord_status=" + btn_val;
-	if(btn_val == "운송장 수정"){
+	if(btn_val == "배송중"){
 		var ord_trn = "ord_trn=" + $("#ord_trn").val();
 		param += ord_trn + "&";
 	}

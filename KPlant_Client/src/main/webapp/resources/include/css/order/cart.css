@@ -168,6 +168,6 @@
     font-size: 16px;
 }
 
-.order-footer > #all_ord_btn{
+.order-footer > button[value="all"]{
 	background: #729775;
 }

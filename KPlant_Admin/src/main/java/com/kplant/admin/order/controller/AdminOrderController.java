@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.kplant.admin.common.excel.ListExcelView;
 import com.kplant.admin.common.vo.PageDTO;
 import com.kplant.admin.order.service.AdminOrderService;
 import com.kplant.admin.order.vo.OrderListVO;
@@ -29,6 +31,13 @@ public class AdminOrderController {
 	@Setter(onMethod_ = @Autowired)
 	private AdminOrderService adminOrderService;
 	
+	/**
+	 * 주문관리 목록 조회
+	 * 
+	 * @param olvo
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/orderList")
 	public String orderList(@ModelAttribute("data")OrderListVO olvo, Model model) {
 		log.info("admin/주문관리 목록 호출 성공");
@@ -45,6 +54,14 @@ public class AdminOrderController {
 		return "order/orderList";
 	}
 
+	/**
+	 * 주문관리 주문상태 변경 (취소, 운송장 등록, 배송준비 등)
+	 * 
+	 * @param ord_num
+	 * @param ord_trn
+	 * @param ord_status
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping(value = "/orderUpdate", method = RequestMethod.POST)
 	public String orderUpdate(@RequestParam(required = false) String[] ord_num 
@@ -69,6 +86,13 @@ public class AdminOrderController {
 		return result;
 	}
 	
+	/**
+	 * 주문관리 상세정보 조회
+	 * 
+	 * @param olvo
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/orderDetail", method = RequestMethod.GET)
 	public String orderDetail(@ModelAttribute OrderListVO olvo, Model model) {
 		log.info("admin/주문관리 상세정보 호출 성공");
@@ -84,6 +108,12 @@ public class AdminOrderController {
 		return "order/orderDetail";
 	}
 	
+	/**
+	 * 주문번호에 따른 결제번호 조회
+	 * 
+	 * @param olvo
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping(value = "/getPayNum", method = RequestMethod.GET)
 	public String getPayNum(OrderListVO olvo) {
@@ -91,5 +121,27 @@ public class AdminOrderController {
 		String paynum = adminOrderService.getPayNum(olvo); 
 		
 		return paynum;
+	}
+
+	/**
+	 * 전체 주문목록을 엑셀로 다운로드
+	 * 
+	 * @param olvo
+	 * @return
+	 */
+	@RequestMapping(value="/orderExcel", method=RequestMethod.GET)
+	public ModelAndView orderExcel(@ModelAttribute OrderListVO olvo) {
+		log.info("orderExcel 호출 성공");
+		
+		List<Map<String, String>> orderList = adminOrderService.orderExcelList();
+		
+		//excel을 가진 view를 생성, List를 활용해서 template으로 전달
+		ModelAndView mv = new ModelAndView(new ListExcelView());
+		mv.addObject("list", orderList);
+		mv.addObject("template", "orderTemplate.xlsx");
+		mv.addObject("file_name", "order");
+		
+		//View를 반환
+		return mv;
 	}
 }

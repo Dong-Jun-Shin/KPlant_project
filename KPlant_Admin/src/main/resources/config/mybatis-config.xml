@@ -11,5 +11,6 @@
 		<typeAlias type="com.kplant.admin.order.vo.OrderDetailVO" alias="orderDetail"/>
 		<typeAlias type="com.kplant.admin.order.vo.ShippingVO" alias="shipping"/>
 		<typeAlias type="com.kplant.admin.order.vo.PaymentVO" alias="payment"/>
+		<typeAlias type="com.kplant.admin.order.vo.OrderCancelVO" alias="orderCancel"/>
 	</typeAliases>
 </configuration>

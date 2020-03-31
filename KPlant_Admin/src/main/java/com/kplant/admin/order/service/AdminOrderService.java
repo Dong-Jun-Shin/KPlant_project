@@ -8,6 +8,7 @@ import com.kplant.admin.order.vo.PaymentVO;
 
 public interface AdminOrderService {
 	public List<Map<String, String>> orderList(OrderListVO olvo);
+	public List<Map<String, String>> orderExcelList();
 	public Map<String, String> getOrderInfo(OrderListVO olvo);
 	public List<Map<String, String>> getOrderPrdInfo(OrderListVO olvo);
 	public int orderListCnt(OrderListVO olvo);

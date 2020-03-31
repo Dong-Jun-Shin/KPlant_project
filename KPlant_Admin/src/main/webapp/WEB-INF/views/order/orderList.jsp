@@ -27,7 +27,7 @@
 <div>
 	<h2 class="sub-header">
 		주문 관리
-		<button type="button" class="btn btn-style excelBtn">전체 리스트 엑셀 다운</button>
+		<button type="button" id="excelBtn" class="btn btn-style excelBtn">전체 리스트 엑셀 다운</button>
 	</h2>
 	<%-- 검색  --%>
 	<div class="order-header">
