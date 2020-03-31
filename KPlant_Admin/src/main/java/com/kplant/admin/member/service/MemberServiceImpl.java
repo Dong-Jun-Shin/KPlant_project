@@ -2,8 +2,6 @@ package com.kplant.admin.member.service;
 
 import java.util.List;
 
-import javax.xml.ws.ServiceMode;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +10,7 @@ import com.kplant.admin.member.vo.MemberVO;
 
 import lombok.Setter;
 
-@ServiceMode
+@Service
 public class MemberServiceImpl implements MemberService{
 
 	@Setter(onMethod_=@Autowired)
