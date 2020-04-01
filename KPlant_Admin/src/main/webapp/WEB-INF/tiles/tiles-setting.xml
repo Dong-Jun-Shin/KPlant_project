@@ -15,6 +15,9 @@
 	<definition name="order/*" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/views/order/{1}.jsp" />
 	</definition>
+	<definition name="product/*" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/views/product/{1}.jsp" />
+	</definition>
 	<definition name="hotdeal/*" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/views/hotdeal/{1}.jsp" />
 	</definition>
