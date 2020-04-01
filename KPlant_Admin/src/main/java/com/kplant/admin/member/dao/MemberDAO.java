@@ -1,6 +1,7 @@
 package com.kplant.admin.member.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.kplant.admin.member.vo.MemberVO;
 
@@ -11,5 +12,9 @@ public interface MemberDAO {
 	int memberListCnt(MemberVO mvo);
 
 	MemberVO memberDetail(MemberVO mvo);
+
+	Map<String, Integer> memberAgeList();
+
+	Map<String, Integer> memberGenderList();
 
 }

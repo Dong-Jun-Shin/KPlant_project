@@ -13,8 +13,12 @@
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav navbar-right">
-			<li><a>관리자님 환영합니다.</a></li>
-			<li ><input type="button" class="btn btn-default navbar-btn" value="로그아웃" id="adminLogout"></li>
+        	<c:if test="${not empty m_id}">
+        		<li><a>관리자님 환영합니다.</a></li>
+        	</c:if>
+        	<c:if test="${not empty m_id}">
+        		<li><a id="adminLogout"href="/admin/*">로그아웃</a></li>
+        	</c:if>
 		</ul>
 	</div>
 	<!-- /.navbar-collapse -->

@@ -4,13 +4,20 @@
   "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
   
 <tiles-definitions>
+	<definition name="login" template="/WEB-INF/views/login/login.jsp">
+	</definition>
+	
 	<definition name="admin" template="/WEB-INF/views/template/mainLayout.jsp">
 		<put-attribute name="title" value="Admin Page" />
 		<put-attribute name="header" value="/WEB-INF/views/template/header.jsp" />
 		<put-attribute name="body" value="" />
 	</definition>
+	
 	<definition name="member/*" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/views/member/{1}.jsp" />
+	</definition>
+	<definition name="login/*" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/views/login/{1}.jsp"/>
 	</definition>
 	
 	<definition name="order/*" extends="admin">

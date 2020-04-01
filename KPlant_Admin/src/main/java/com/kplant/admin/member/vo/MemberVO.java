@@ -20,5 +20,5 @@ public class MemberVO extends CommonVO{
 	private String m_dormancy;//회원 휴면 계정
 	private String m_date;//회원 등록일
 	private String m_update;//회원 수정일
-	
+	private String ord_num;//주문 번호
 }

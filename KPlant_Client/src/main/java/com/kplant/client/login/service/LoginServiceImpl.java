@@ -10,9 +10,9 @@ import com.kplant.client.join.vo.MemberVO;
 import com.kplant.client.login.dao.LoginDAO;
 
 import lombok.Setter;
-import lombok.extern.log4j.Log4j;
+//import lombok.extern.log4j.Log4j;
 
-@Log4j
+//@Log4j
 @Service
 public class LoginServiceImpl implements LoginService {
 	
@@ -27,9 +27,11 @@ public class LoginServiceImpl implements LoginService {
 			session.setAttribute("m_num", vo.getM_num());
 			session.setAttribute("m_id", vo.getM_id());
 			session.setAttribute("m_name", vo.getM_name());
+			
+			/*log.info((int)session.getAttribute("m_num"));
+			log.info((String)session.getAttribute("m_id"));
+			log.info((String)session.getAttribute("m_name"));*/
 		}
-		log.info((int)session.getAttribute("m_num"));
-		log.info((String)session.getAttribute("m_id"));
 		return vo;
 	}
 

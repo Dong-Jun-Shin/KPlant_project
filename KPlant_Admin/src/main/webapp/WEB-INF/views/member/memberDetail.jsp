@@ -21,6 +21,28 @@
 		
 		<link rel="stylesheet" type="text/css" href="/resources/include/css/member/memberDetail.css">
 		
+		<style type="text/css">
+			#btn {
+				padding: 7px 40px;
+				background-color: #1E332C;
+				border: 2px solid #1E332C;
+				color: white;
+				border-radius: 3px;
+				margin-top: 20px;
+			}
+			
+			th {
+				text-align: center;
+				background-color: gray;
+				color: white;
+				
+			}
+			table.table-bordered {
+				margin-top: 30px;
+				height: 400px;
+			}
+		</style>
+		
 		<script type="text/javascript">
 			$(function () {
 				$("#btn").click(function() {
@@ -86,6 +108,10 @@
 								<td class="text-left">${detail.m_phone}</td>
 								<th>이메일</th>
 								<td class="text-left">${detail.m_eMail}</td>
+							</tr>
+							<tr>
+								<th>주문내역</th>
+								<td class="text-left" colspan="3"><textarea rows="4" class="form-control"  style="resize: none;">${detail.ord_num} </textarea></td>
 							</tr>
 						</tbody>
 					</table>

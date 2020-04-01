@@ -48,8 +48,10 @@ public class LoginController {
 		MemberVO vo=loginService.loginCheck(mvo, session);
 		ModelAndView mav=new ModelAndView();
 		if(vo!=null) {
+			log.info("확인");
 			mav.setViewName("redirect:/");
 		}else {
+			log.info("실패");
 			mav.setViewName("redirect:/login/login");
 			
 		}

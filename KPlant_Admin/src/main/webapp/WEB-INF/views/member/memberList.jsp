@@ -73,8 +73,9 @@
 
 <section>
 	<div class="container">
+		<jsp:include page="memberSub.jsp"/>
 		
-		<div class="page-header"><h3 class="text-center">회원 리스트</h3></div>
+		<div><h2 class="sub-header">회원 리스트</h2></div>
 		
 		<form id="detailForm">
 			<input type="hidden" id="m_num" name="m_num"/>

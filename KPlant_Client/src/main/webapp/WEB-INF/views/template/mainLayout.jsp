@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.css" />
 	<link rel="stylesheet" type="text/css" href="/resources/include/css/template/navbar-static-top.css" />
+	
 	<link rel="stylesheet" type="text/css" href="/resources/include/css/mypage/mypage.css" />
 	
 	<link rel="stylesheet" type="text/css" href="/resources/include/css/template/jquery-ui.css" />

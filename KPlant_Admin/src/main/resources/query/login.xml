@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kplant.admin.login.dao.LoginDAO">
+	
+	<select id="loginCheck" parameterType="member" resultType="member">
+		SELECT m_num, m_name, m_gender, m_residence, m_phone, m_email, m_birth, m_id FROM member
+		WHERE m_id = #{m_id} AND m_pwd = #{m_pwd}
+	</select>
+	
+	<select id="viewMember" resultType="member">
+		SELECT
+			m_name as m_name,
+			m_id as m_id,
+			m_email as m_email,
+			m_date as m_date
+		FROM member
+		WHERE m_id = #{m_id} AND m_pwd =#{m_pwd}
+	</select>
+</mapper>

@@ -1,8 +1,7 @@
 package com.kplant.admin.member.service;
 
 import java.util.List;
-
-import javax.xml.ws.ServiceMode;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +11,7 @@ import com.kplant.admin.member.vo.MemberVO;
 
 import lombok.Setter;
 
-@ServiceMode
+@Service
 public class MemberServiceImpl implements MemberService{
 
 	@Setter(onMethod_=@Autowired)
@@ -42,5 +41,21 @@ public class MemberServiceImpl implements MemberService{
 		}
 		return detail;
 	}
+	
+
+	@Override
+	public Map<String, Integer> memberAgeList() {
+		Map<String, Integer> ageList = null;
+		ageList = memberDAO.memberAgeList();
+		return ageList;
+	}
+
+	@Override
+	public Map<String, Integer> memberGenderList() {
+		Map<String, Integer> genderList = null;
+		genderList = memberDAO.memberGenderList();
+		return genderList;
+	}
+
 
 }
