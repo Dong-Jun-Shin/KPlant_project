@@ -52,6 +52,13 @@
 	color: #ffffff
 }
 
+.rightLine{
+	text-align:right;
+	
+    width: 316px;
+	
+}
+
 .title {
 	height: 15px;
 	width: 200px;
@@ -289,6 +296,22 @@ select {
 	width: 145.979166px;
 	height: 43.979166px;
 }
+
+#pwdConfBtn2{
+	margin-top: 0px;
+	margin-left: 10px;
+	width: 145.979166px;
+	height: 43.979166px;
+}
+
+
+#pwdConfBtn3{
+	margin-top: 0px;
+	margin-left: 10px;
+	width: 145.979166px;
+	height: 43.979166px;
+}
+
 
 #pwdReset {
 	height: 43.99074px;

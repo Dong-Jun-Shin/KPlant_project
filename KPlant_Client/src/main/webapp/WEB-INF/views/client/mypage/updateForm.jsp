@@ -23,10 +23,10 @@
 						정보</a>
 					<hr class="hr" />
 					<ul class="point">
-						<li><a href="/mypage/updateForm" class="menusub">회원정보 수정</a></li>
-						<li><a href="/mypage/passwordUpdateForm" class="menusub">비밀번호
+						<li><a href="/mypage/passwordConfirm" class="menusub">회원정보 수정</a></li>
+						<li><a href="/mypage/passwordConfirm3" class="menusub">비밀번호
 								수정</a></li>
-						<li><a href="/mypage/withdrawal" class="menusub">회원 탈퇴</a>
+						<li><a href="/mypage/passwordConfirm2" class="menusub">회원 탈퇴</a>
 							<hr class="hr" /></li>
 					</ul></li>
 				<li class="liTitle"><a class="menutitle"
@@ -37,19 +37,19 @@
 						<li><a href="/mypage/cancel" class="menusub">취소/반품/환불내역</a>
 							<hr class="hr" /></li>
 					</ul></li>
-				<li class="liTitle"><a class="menutitle"
+				<!-- <li class="liTitle"><a class="menutitle"
 					href="/mypage/wishList">위시리스트</a>
 					<hr class="hr" />
 					<ul class="point">
 						<li><a href="/mypage/wishList" class="menusub">찜한 목록</a></li>
-					</ul></li>
+					</ul></li> -->
 			</ul>
 		</div>
 	</div>
 
 
 	<div id="memberDiv">
-		<form id="member" class="form-inline">
+		<form id="member" class="form-inline member2">
 			<input type="hidden" id="m_num" name="m_num" value = "${updateData.m_num}" />
 			<input type = "hidden" id = "m_residence" name = "m_residence" value = "${updateData.m_residence}" />
 			<input type = "hidden" id ="m_eMail" name = "m_eMail" value = "${updateData.m_eMail}"/>

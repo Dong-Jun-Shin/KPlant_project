@@ -3,6 +3,9 @@ package com.kplant.admin.common.file;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 import javax.imageio.ImageIO;
 
@@ -17,9 +20,10 @@ public class FileUploadUtil {
 	/*파일 업로드할 폴더 생성
 	 * 외부 접근할수 있도록 public 으로 코딩
 	 * */
+	//파일 업로드할 폴더 생성
 	public static void makeDir(String docRoot) {
 		File fileDir = new File(docRoot);
-		if (fileDir.exists()) {
+		if(fileDir.exists()) {
 			return;
 		}
 		fileDir.mkdirs();
@@ -50,7 +54,7 @@ public class FileUploadUtil {
 			makeDir(docRoot);
 			
 			File fileAdd = new File(docRoot+"/"+real_name); //파일 생성후
-			log.info("업로드할 파일(fileAdd) : " + fileAdd);
+			log.info("업로드할 파일(fileAdd) : "+fileAdd);
 			
 			file.transferTo(fileAdd);
 		}
@@ -79,31 +83,53 @@ public class FileUploadUtil {
 		log.info("업로드할 파일(newFile) : " + newFile);
 		
 		String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
-		log.info("확장자(formatName) : " +formatName);
+		log.info("확장자(formatName) : "+formatName);
 		
 		ImageIO.write(destImg, formatName, newFile);
-		
 		return thumbnailName;
 	}
 	
-	/*파일 삭제 메서드*/
+	/* 다중 파일 업로드 메서드 */
+	public static List<String> MultipleFileUpload(List<MultipartFile> file, String fileName) throws IOException{
+		log.info("fileUpload 호출 성공 ");
+		
+		List<String> real_name = new ArrayList<String>();
+		String name = "";
+		// 파일명 변경(중복되지 않게) 
+		if(!file.isEmpty()){
+			
+			String docRoot = "C://uploadStorage//"+fileName;
+			makeDir(docRoot);
+			File fileAdd = null;
+			for(MultipartFile MultiFile : file) {
+				name = fileName +"_"+ UUID.randomUUID().toString().replaceAll("-", "") +"_"+ MultiFile.getOriginalFilename(); // 저장할 파일 이름
+				
+				fileAdd = new File(docRoot+"/"+name);	//파일 생성후 
+				log.info("업로드할 파일(fileAdd) : " + fileAdd);
+			
+				MultiFile.transferTo(fileAdd); // 파일 저장
+				real_name.add(name);
+			}
+		}
+		return real_name;
+	}
+	
+	//파일 삭제 메서드
 	public static void fileDelete(String fileName) throws IOException{
 		log.info("fileDelete 호출 성공");
-		
 		boolean result = false;
-		String startDirName = "", docRoot="";
+		String startDirName = "", docRoot = "";
 		String dirName = fileName.substring(0, fileName.indexOf("_"));
 		
-		if (dirName.equals("thumbnail")) {
-			startDirName = fileName.substring(dirName.length()+1, fileName.indexOf("_", dirName.length()+1));
+		if(dirName.equals("thumbnail")) {
+			startDirName = fileName.substring(dirName.length()+1, fileName.indexOf("_",dirName.length()+1));
 			docRoot = "C://uploadStorage//"+startDirName+"//"+dirName;
 		}else {
 			docRoot = "C://uploadStorage//"+dirName;
 		}
-		
-		File fileDelete = new File(docRoot+"/"+fileName);
-		log.info("삭제할 파일(fileDelete) : " + fileDelete);
-		if (fileDelete.exists() && fileDelete.isFile()) {
+		File fileDelete = new File(docRoot+"/"+fileName); //파일 생성후
+		log.info("삭제할 파일(fileDelete) : "+fileDelete);
+		if(fileDelete.exists() && fileDelete.isFile()) {
 			result = fileDelete.delete();
 		}
 		log.info("파일 삭제 여부(true/false) : " + result);

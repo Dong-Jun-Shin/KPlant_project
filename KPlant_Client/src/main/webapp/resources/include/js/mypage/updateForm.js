@@ -14,7 +14,7 @@ $(function(){
 			var m_email = $("#rows1").val()+"@"+$("#emailSelect option:selected").val();
 			$("#m_eMail").val(m_email);
 			
-			var m_residence = $("#postcode").val()+$("#address").val()+$("#extraAddress").val();
+			var m_residence = $("#postcode").val()+" "+$("#address").val()+" "+$("#detailAddress").val();
 			$("#m_residence").val(m_residence);
 			
 			console.log($("#m_eMail").val()+"/"+$("#m_residence").val());
@@ -31,12 +31,7 @@ $(function(){
 	});
 	
 	$("#withd").click(function(){
-			var butChk = 2;
-			$("#member").attr({
-				"method":"post",
-				"action":"/mypage/passwordConfirm"
-			});
-			$("#member").submit();
+		location.href = "/mypage/passwordConfirm2";
 		});
 		
 	

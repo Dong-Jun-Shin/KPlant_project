@@ -35,7 +35,7 @@
 						<li><a  href="/mypage/cancel" class="menusub">취소/반품/환불내역</a>
 							<hr class="hr" /></li>
 					</ul></li>
-			<!-- 	<li class="liTitle"><a class="menutitle" href="/mypage/wishList">위시리스트</a>
+				<!-- <li class="liTitle"><a class="menutitle" href="/mypage/wishList">위시리스트</a>
 					<hr class="hr" />
 					<ul class="point">
 						<li><a href = "/mypage/wishList" class="menusub">찜한 목록</a></li>
@@ -46,7 +46,7 @@
 
 
 	<div id="passwordDiv">
-		<form id="passwordConf" class="form-inline">
+		<form id="passwordConf3" class="form-inline">
 		<input type="hidden" id="m_num" name="m_num" value = "${updateData.m_num}" />
 			<p class="passwordTitle">비밀번호 확인</p>
 			<div id="instruction">
@@ -62,14 +62,14 @@
 					<td class="tr1" id="pwdBefo"><label class="text2">기존
 							비밀번호</label></td>
 					<td class="tr2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input
-						type="password" class="form-control" id = "m_pwd" name = "m_pwd" placeholder="기존 비밀번호를 입력" />
+						type="password" class="form-control" id = "m_pwd3" name = "m_pwd" placeholder="기존 비밀번호를 입력" />
 					</td>
 			</table>
 
 		</form>
 		<div id="pwdBtnAll">
 			<div id="pwdBtn">
-				<input type="button" id="pwdConfBtn" name="updateBtn" value="확인"
+				<input type="button" id="pwdConfBtn3" name="updateBtn" value="확인"
 					class="btn btn-success" />
 			</div>
 		</div>

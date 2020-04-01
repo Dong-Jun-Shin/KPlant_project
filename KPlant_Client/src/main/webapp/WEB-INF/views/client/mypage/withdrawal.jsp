@@ -21,9 +21,9 @@
 				<li class="liTitle"><a class="menutitle" href="/mypage/">회원 정보</a>
 					<hr class="hr" />
 					<ul class="point">
-						<li><a href = "/mypage/updateForm" class="menusub">회원정보 수정</a></li>
-						<li><a href = "/mypage/passwordUpdateForm" class="menusub">비밀번호 수정</a></li>
-						<li><a href = "/mypage/withdrawal" class="menusub">회원 탈퇴</a>
+						<li><a href = "/mypage/passwordConfirm" class="menusub">회원정보 수정</a></li>
+						<li><a href = "/mypage/passwordConfirm3" class="menusub">비밀번호 수정</a></li>
+						<li><a href = "/mypage/passwordConfirm2" class="menusub">회원 탈퇴</a>
 							<hr class="hr" /></li>
 					</ul></li>
 				<li class="liTitle"><a  class="menutitle" href="/mypage/orderDetails">나의 쇼핑정보</a>
@@ -33,11 +33,11 @@
 						<li><a  href="/mypage/cancel" class="menusub">취소/반품/환불내역</a>
 							<hr class="hr" /></li>
 					</ul></li>
-				<li class="liTitle"><a class="menutitle" href="/mypage/wishList">위시리스트</a>
+			<!-- 	<li class="liTitle"><a class="menutitle" href="/mypage/wishList">위시리스트</a>
 					<hr class="hr" />
 					<ul class="point">
 						<li><a href = "/mypage/wishList" class="menusub">찜한 목록</a></li>
-					</ul></li>
+					</ul></li> -->
 			</ul>
 		</div>
 	</div>

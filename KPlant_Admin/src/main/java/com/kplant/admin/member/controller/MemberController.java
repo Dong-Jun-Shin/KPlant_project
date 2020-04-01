@@ -61,6 +61,13 @@ public class MemberController {
 		MemberVO detail=memberService.memberDetail(mvo);
 		model.addAttribute("detail",detail);
 		
+		//Map<String, String> memberOrderList = memberService.memberOrderList(mvo);
+		//model.addAttribute("memberOrderList", memberOrderList);
+		
+		
+		/*for(Map.Entry<String, String> entry : memberOrderList.entrySet()) {
+			log.info(entry.getKey() + " / " + entry.getValue());
+		}*/
 		return "member/memberDetail";
 	}
 	

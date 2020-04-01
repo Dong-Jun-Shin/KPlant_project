@@ -17,5 +17,9 @@
 		<typeAlias type="com.kplant.admin.order.vo.PaymentVO" alias="payment"/>
 		<typeAlias type="com.kplant.admin.order.vo.OrderCancelVO" alias="orderCancel"/>
 
+		<!-- 타입에 대한 별칭부여. BoardVO 타입을 가진 '별칭 board'라는 객체 -->
+		<!-- <typeAlias type="com.spring.client.board.vo.BoardVO" alias="board"/> -->
+		<typeAlias type="com.kplant.admin.product.vo.ProductVO" alias = "product"/>
+		<typeAlias type= "com.kplant.admin.product.vo.ProductImageVO" alias = "image"/>
 	</typeAliases>
 </configuration>

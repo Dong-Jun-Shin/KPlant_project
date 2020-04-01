@@ -19,6 +19,9 @@
 
 	</definition>
 	
+	<definition name="product/*" extends="template">	
+		<put-attribute name="body" value="/WEB-INF/views/product/{1}.jsp"/>
+	</definition>
 	<definition name="order/*" extends="template">	
 		<put-attribute name="body" value="/WEB-INF/views/order/{1}.jsp"/>
 	</definition>

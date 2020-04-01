@@ -36,6 +36,8 @@
 	<script type="text/javascript" src="/resources/include/js/mypage/withdrawal.js"></script>
 	<script type="text/javascript" src="/resources/include/js/mypage/mypage.js"></script>
 	<script type="text/javascript" src="/resources/include/js/mypage/passwordConfirm.js"></script>
+	<script type="text/javascript" src="/resources/include/js/mypage/passwordConfirm2.js"></script>
+	<script type="text/javascript" src="/resources/include/js/mypage/passwordConfirm3.js"></script>
 	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
     function sample6_execDaumPostcode() {

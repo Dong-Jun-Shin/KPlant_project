@@ -28,32 +28,35 @@ public class mypageController {
 	private mypageService mypageService;
 	
 	//회원정보 불러오기
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	//@GetMapping("/mypage")
-	public String memberData(@ModelAttribute("data") MemberVO mvo, Model model, HttpSession session) {
-		log.info("memberData 호출 성공");
-		
-		
-		mvo.setM_num((int)session.getAttribute("m_num"));
-		log.info("mvo.getM_num() = "+mvo.getM_num());
-		MemberVO data = mypageService.memberData(mvo);
-		model.addAttribute("data", data);
-		return "mypage/mypage";
-	}
+	   @RequestMapping(value = "/", method = RequestMethod.GET)
+	   //@GetMapping("/mypage")
+	   public String memberData(@ModelAttribute("data") MemberVO mvo, Model model, HttpSession session) {
+	      log.info("memberData 호출 성공");
+	      
+	      
+	      mvo.setM_num((int)session.getAttribute("m_num"));
+	      log.info("mvo.getM_num() = "+mvo.getM_num());
+	      MemberVO data = mypageService.memberData(mvo);
+	      model.addAttribute("data", data);
+	      return "mypage/mypage";
+	   }
 	
 	//회원정보 수정폼
 	@RequestMapping(value = "/updateForm", method = RequestMethod.GET)
 	//@GetMapping("/updateForm")
-	public String updateForm(@ModelAttribute("data") MemberVO mvo, Model model) {
+	public String updateForm(@ModelAttribute("data") MemberVO mvo, Model model, HttpSession session) {
+		 mvo.setM_num((int)session.getAttribute("m_num"));
 		log.info("updateForm 호출 성공");
 		MemberVO updateData = mypageService.updateForm(mvo);
 		model.addAttribute("updateData", updateData);
 		return "mypage/updateForm";
 	}
 	
+	
 	//회원정보 수정하기
 	@RequestMapping(value = "memberUpdate", method = RequestMethod.POST)
-	public String memberUpdate(@ModelAttribute MemberVO mvo) {// , RedirectAttributes ras
+	public String memberUpdate(@ModelAttribute MemberVO mvo, HttpSession session) {// , RedirectAttributes ras
+		mvo.setM_num((int)session.getAttribute("m_num"));
 		log.info("memberUpdate 호출성공");
 
 		int result = 0;
@@ -76,7 +79,8 @@ public class mypageController {
 
 	//비밀번호 수정 폼
 	@GetMapping("/passwordUpdateForm")
-	public String passwordUpdateForm(Locale locale, MemberVO mvo, Model model) {
+	public String passwordUpdateForm(Locale locale, MemberVO mvo, Model model, HttpSession session) {
+		mvo.setM_num((int)session.getAttribute("m_num"));
 		log.info("passwordUpdateForm 호출 성공");
 		MemberVO updateData = mypageService.updateForm(mvo);
 		model.addAttribute("updateData", updateData);
@@ -85,7 +89,8 @@ public class mypageController {
 	
 	//비밀번호 수정하기
 		@RequestMapping(value = "passwordUpdate", method = RequestMethod.POST)
-		public String passwordUpdate(@ModelAttribute MemberVO mvo) {// , RedirectAttributes ras
+		public String passwordUpdate(@ModelAttribute MemberVO mvo, HttpSession session) {// , RedirectAttributes ras
+			mvo.setM_num((int)session.getAttribute("m_num"));
 			log.info("passwordUpdate 호출성공");
 			//log.info("mvo = "+mvo);
 			int result = 0;
@@ -107,25 +112,50 @@ public class mypageController {
 		}
 	
 	@GetMapping("/orderDetails")
-	public String orderDetails(Locale locale, Model model) {
+	public String orderDetails(MemberVO mvo, Locale locale, Model model, HttpSession session) {
+		mvo.setM_num((int)session.getAttribute("m_num"));
 		log.info("orderDetails 호출 성공");
 		
 		return "mypage/orderDetails";
 	}
 	
 	//비밀번호 확인페이지
-	@RequestMapping(value = "/passwordConfirm", method = RequestMethod.POST)
-	public String passwordConfirm(Locale locale, Model model, MemberVO mvo) {
+	@RequestMapping(value = "/passwordConfirm", method = RequestMethod.GET)
+	public String passwordConfirm(Locale locale, Model model, MemberVO mvo, HttpSession session) {
+		mvo.setM_num((int)session.getAttribute("m_num"));
 		log.info("passwordConfirm 호출 성공");
 		MemberVO updateData = mypageService.updateForm(mvo);
 		model.addAttribute("updateData", updateData);
 		return "mypage/passwordConfirm";
 	}
 	
+	//비밀번호 확인페이지2
+		@RequestMapping(value = "/passwordConfirm2", method = RequestMethod.GET)
+		public String passwordConfirm2(Locale locale, Model model, MemberVO mvo, HttpSession session) {
+			mvo.setM_num((int)session.getAttribute("m_num"));
+			log.info("passwordConfirm2호출 성공");
+			MemberVO updateData = mypageService.updateForm(mvo);
+			model.addAttribute("updateData", updateData);
+			return "mypage/passwordConfirm2";
+		}
+		//비밀번호 확인페이지3
+				@RequestMapping(value = "/passwordConfirm3", method = RequestMethod.GET)
+				public String passwordConfirm3(Locale locale, Model model, MemberVO mvo, HttpSession session) {
+					mvo.setM_num((int)session.getAttribute("m_num"));
+					log.info("passwordConfirm3호출 성공");
+					MemberVO updateData = mypageService.updateForm(mvo);
+					model.addAttribute("updateData", updateData);
+					return "mypage/passwordConfirm3";
+				}
+	
+
+
+	
 	//비밀번호 확인
 	@ResponseBody
 	@RequestMapping(value = "/confirm", method = RequestMethod.POST, produces = "text/plain; charset=UTF-8")
-	public String confirm(MemberVO mvo) {
+	public String confirm(MemberVO mvo, HttpSession session) {
+		mvo.setM_num((int)session.getAttribute("m_num"));
 		log.info("confirm 호출 성공");
 		String value = "";
 
@@ -141,11 +171,15 @@ public class mypageController {
 		return value;
 	}
 	
+
+
+	
 	
 	
 	
 	@GetMapping("/wishList")
-	public String wishList(Locale locale, Model model) {
+	public String wishList(MemberVO mvo, Locale locale, Model model, HttpSession session) {
+		mvo.setM_num((int)session.getAttribute("m_num"));
 		log.info("wishList 호출 성공");
 		
 		return "mypage/wishList";
@@ -153,7 +187,8 @@ public class mypageController {
 	
 	//회원 탈퇴화면
 	@GetMapping("/withdrawal")
-	public String withdrawal(Locale locale, Model model, MemberVO mvo) {
+	public String withdrawal(Locale locale, Model model, MemberVO mvo, HttpSession session) {
+		mvo.setM_num((int)session.getAttribute("m_num"));
 		log.info("withdrawal 호출 성공");
 		MemberVO updateData = mypageService.updateForm(mvo);
 		model.addAttribute("updateData", updateData);
@@ -162,7 +197,8 @@ public class mypageController {
 	
 	//회원 탈퇴기능
 	@RequestMapping(value = "/memberWithdrawal", method = RequestMethod.POST)
-	public String memberWithdrawal(@ModelAttribute MemberVO mvo) {// , RedirectAttributes ras
+	public String memberWithdrawal(@ModelAttribute MemberVO mvo, HttpSession session) {// , RedirectAttributes ras
+		mvo.setM_num((int)session.getAttribute("m_num"));
 		log.info("memberWithdrawal 호출성공");
 		//log.info("mvo = "+mvo);
 		int result = 0;
@@ -183,7 +219,8 @@ public class mypageController {
 	
 	
 	@GetMapping("/cancel")
-	public String cancelList(Locale locale, Model model) {
+	public String cancelList(MemberVO mvo, Model model, HttpSession session) {
+		mvo.setM_num((int)session.getAttribute("m_num"));
 		
 		return "mypage/cancel";
 	}

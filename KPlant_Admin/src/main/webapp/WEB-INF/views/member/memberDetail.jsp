@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
 <!DOCTYPE html>
 <html>
 	<head>
@@ -109,13 +111,36 @@
 								<th>이메일</th>
 								<td class="text-left">${detail.m_eMail}</td>
 							</tr>
-							<tr>
+							<%-- <tr>
 								<th>주문내역</th>
 								<td class="text-left" colspan="3"><textarea rows="4" class="form-control"  style="resize: none;">${detail.ord_num} </textarea></td>
-							</tr>
+							</tr> --%>
 						</tbody>
 					</table>
-				</div>
+					
+					<%-- <table class="table table-bordered">
+						<tr>
+							<th>번호</th>
+							<th>휴면 여부</th>
+						</tr>
+						<tr>
+							<c:choose>
+							<c:when test="${not empty memberOrderList}">
+								<c:forEach var="member" items="${memberOrderList}" varStatus="status">
+									<tr class="text-center" data-num="${member.m_num}">
+										<td>${member.m_num}</td>
+										<td>${member.ord_num}</td>
+									</tr>
+								</c:forEach>
+							</c:when>
+							<c:otherwise>
+								<tr>
+									<td colspan="2" class="tac text-center">주문 내역이 존재하지 않습니다</td>
+								</tr>
+							</c:otherwise>
+						</c:choose>
+					</table>
+				</div> --%>
 				<%--===================== 상세 정보 보여주기 종료 ================= --%>
 				
 				<%--================== 확인 버튼 시작 ============ --%>

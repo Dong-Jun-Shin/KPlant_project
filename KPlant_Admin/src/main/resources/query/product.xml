@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kplant.admin.product.dao.ProductDao">
+
+	<resultMap id="multiple" type="product"> 
+		<id property="prd_num" column="prd_num" />
+		<result property="prd_name" column="prd_name" />
+		<result property="prd_price" column="prd_price" />
+		<result property="prd_type" column="prd_type"  />
+		<result property="prd_qty" column="prd_qty" />		
+		<result property="prd_date" column="prd_date" />		
+		<collection property="images" column="prd_num" ofType="image" javaType="java.util.ArrayList" 
+		select="com.kplant.admin.product.dao.ImageDao.imageList"></collection>
+	</resultMap> 
+	
+	<sql id="multipleBoardSearch">
+		<if test="search=='m_title'">
+			<![CDATA[ m_title LIKE '%'|| #{keyword} ||'%' ]]>
+		</if>
+		<if test="search=='m_content'">
+			<![CDATA[ m_content LIKE '%'|| #{keyword} ||'%' ]]>	
+		</if>
+		<if test="search=='m_name'">
+			<![CDATA[ m_name LIKE '%'|| #{keyword} ||'%' ]]>
+		</if>
+	</sql>
+
+
+<!-- 게시판 리스트 조회(페이징 처리와 검색 처리)  -->
+	<select id="productList" parameterType="product" resultType="product">
+		<![CDATA[ 
+		SELECT 
+        	prd_num, prd_name, prd_price, prd_type, prd_qty, to_char(prd_date,'YYYY-MM-DD') as prd_date
+   		FROM (
+            	SELECT /*+ INDEX_DESC(product product_pk) */ 
+                	rownum as rnum, prd_num, prd_name, prd_price, prd_type,prd_qty,  prd_date 
+            	FROM product 
+            	WHERE ]]>
+            	<trim prefix="(" suffix=") AND " prefixOverrides="AND">
+            		<include refid="multipleBoardSearch"></include>
+            	</trim> 
+            <![CDATA[	rownum <= #{pageNum} * #{amount} 
+        	   ) boardlist
+    	 WHERE rnum > (#{pageNum} - 1) * #{amount} 
+    	 ]]>
+	</select> 
+	
+	<!-- 전체 레코드 수 조회-->
+	<select id="productListCnt" parameterType="product" resultType="int">
+		SELECT count(*) FROM  product 
+        <trim prefix=" where (" suffix=")" >
+            <include refid="multipleBoardSearch"></include>
+		</trim>
+	</select>
+	
+	 <!-- 제품의 번호 구하기(시퀀스값) -->
+	<!-- <select id="productNumber" resultType="int">
+		select spring_multipleBoard_seq.nextval from dual
+	</select> -->
+	
+	<!--  제품  등록 - 2 -->
+	 <insert id="productInsert" parameterType="product">
+		INSERT INTO product(prd_num, prd_name, prd_price, prd_type, prd_qty)
+		VALUES(#{prd_num}, #{prd_name}, #{prd_price}, #{prd_type}, #{prd_qty})
+	 </insert>
+	 
+	<!-- 제품 상세 페이지를 위한 게시물 조회  -->
+	<select id="productDetail" parameterType="int" resultMap="multiple">
+		/* Board - multipleBoardDetail */
+		SELECT
+			      prd_num, prd_name, prd_price, prd_type, prd_qty,
+			      TO_CHAR(prd_date,'YYYY-MM-DD HH24:MI:SS') AS prd_date
+		FROM product
+		WHERE prd_num = #{prd_num}
+	</select>
+
+	 
+	
+
+	<!-- 제품  수정 -->
+	<!-- <update id="productUpdate" parameterType="product" >
+		/* Board - multipleBoardUpdate */
+		UPDATE spring_multipleboard
+			   SET m_title = #{m_title}
+			     , m_content = #{m_content}
+			     , m_date = sysdate
+			     <if test="m_pwd != ''">
+			     , m_pwd = #{m_pwd}
+			     </if>
+		WHERE m_num = #{m_num}	
+	</update> -->
+	
+	<!-- 제품  삭제 -->
+	<!-- <delete id="productDelete" parameterType="product" >
+		/* Board - multipleBoardDelete */
+		DELETE FROM spring_multipleboard WHERE m_num = #{m_num}
+	</delete> -->
+
+</mapper>
