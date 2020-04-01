@@ -60,33 +60,6 @@
         		 <li><a href = "/mypage/">마이페이지</a></li>
         	</c:if>
         </li>
-
-			<li class="menu navbar-left"><a class="menu-left-font" href="#">HOT
-					DEAL</a></li>
-			<li class="menu navbar-left dropdown"><a href="#"
-				class="dropdown-toggle menu-left-font" data-toggle="dropdown"
-				data-hover="dropdown" role="button">EVENT <span class="caret"></span></a>
-				<ul class="dropdown-menu dropdown-sub" role="menu">
-					<li><a href="#">진행중인 이벤트</a></li>
-					<li><a href="#">지난 이벤트</a></li>
-				</ul></li>
-			<li class="menu navbar-left"><a class="menu-left-font"
-				href="#contact">CUSTOMER</a></li>
-		</ul>
-		<ul class="nav navbar-nav navbar-right">
-			<li><a class="menu menu-right-font" href="/join/memberAgree">회원가입</a></li>
-
-			<li><c:if test="${empty m_id}">
-					<a class="menu menu-right-font" href="/login/login">로그인</a>
-				</c:if> <c:if test="${not empty m_id}">
-					<a class="menu menu-right-font" href="/login/logout">로그아웃</a>
-					<li><a href="/mypage/">마이페이지</a></li>
-				</c:if></li>
-
-			<%-- <c:if test=""></c:if> --%>
-			<%-- 로그인
-        <li><a class="menu menu-right-icon" href="#"><span class="glyphicon glyphicon-user icon-margin" aria-hidden="true" ></span></a></li>
-         --%>
 			<li><a class="menu menu-right-icon" href="/order/cart"><span
 					class="glyphicon glyphicon-shopping-cart icon-margin"
 					aria-hidden="true"></span><span class="basket">0</span></a></li>
