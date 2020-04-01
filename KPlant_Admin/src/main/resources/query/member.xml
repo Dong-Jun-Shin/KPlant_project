@@ -100,7 +100,7 @@
      		 inner join ORDER_DETAIL det on ord.ORD_NUM = det.ORD_NUM 
      		 inner join PRODUCT pro on pro.PRD_NUM = det.PRD_NUM 
 		where mem.m_num = #{m_num}
-	</select> -->
+	</select>  -->
 	
 	
 	<!-- 회원 연령대 조회 -->
