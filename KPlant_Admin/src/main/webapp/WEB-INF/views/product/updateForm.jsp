@@ -1,37 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-		<title>글수정 화면</title>
-		
-		<!-- 모바일 웹 페이지 설정 -->
-		<link rel="shortcut icon" href="/resources/images/icon.png" />
-		<link rel="apple-touch-icon" href="/resources/images/icon.png" />
-		<!-- 모바일 웹 페이지 설정 끝 -->
-		
-		<!--[if lt IE 9]>
+<title>글수정 화면</title>
+
+<!-- 모바일 웹 페이지 설정 -->
+<link rel="shortcut icon" href="/resources/images/icon.png" />
+<link rel="apple-touch-icon" href="/resources/images/icon.png" />
+<!-- 모바일 웹 페이지 설정 끝 -->
+
+<!--[if lt IE 9]>
 		<script src="/resources/include/js/html5shiv.js"></script>
-		<![endif]-->		
-		
-		<!-- <link rel="stylesheet" type="text/css" href="/resources/include/css/common.css" />
+		<![endif]-->
+
+<!-- <link rel="stylesheet" type="text/css" href="/resources/include/css/common.css" />
 		<link rel="stylesheet" type="text/css" href="/resources/include/css/board.css" /> -->
-		
-		<link rel="stylesheet" type="text/css" href="/resources/include/css/default.css" />
-		
-		<!-- <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
+
+<link rel="stylesheet" type="text/css"
+	href="/resources/include/css/default.css" />
+
+<!-- <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" /> -->
-		
-		<script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
-		<script type="text/javascript" src="/resources/include/js/common.js"></script>
-		<script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
-		<script type="text/javascript">
+
+<script type="text/javascript"
+	src="/resources/include/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="/resources/include/js/common.js"></script>
+<script type="text/javascript"
+	src="/resources/include/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript">
 			$(function(){
 						
 				/* 첨부파일추가 버튼 클릭 시 처리 이벤트 */
@@ -97,7 +101,7 @@
 						$("#f_updateForm").attr({
 							"method":"post",
 							"enctype":"multipart/form-data",
-							"action":"/product/productUpdate"
+							"action":"/admin/product/productUpdate"
 						});
 						
 						$("#f_updateForm").submit();
@@ -121,85 +125,93 @@
 				//var queryString = "?pageNum="+$("#pageNum").val()+"&amount="+$("#amount").val();
 					location.href="/admin/product/productList"; //+queryString;
 				});
+				
+				var prd_type = $("#typeSelect2 option:selected").val();
+				$("#prd_type").val(prd_type);
 			});
 		</script>
-	</head>
-	<body>
-		<div class="contentContainer container">
-			<!-- <div class="contentTit page-header"><h3 class="text-center">게시판 글수정</h3></div> -->
-				
-			<div class="contentTB text-center">
-				<form id="f_updateForm" name="f_updateForm">
-					<input type="hidden" id="m_num" name="m_num" value="${updateData.m_num}" />
-					<input type="hidden" name="pageNum" id="pageNum" value="${data.pageNum}">
-					<input type="hidden" name="amount" id="amount" value="${data.amount}">
-					
-					<table class="table table-bordered">
-						<colgroup>
-							<col width="17%" />
-							<col width="33%" />
-							<col width="17%" />
-							<col width="33%" />
-						</colgroup>
-						<tbody>
+</head>
+<body>
+	<div class="contentContainer container">
+		<!-- <div class="contentTit page-header"><h3 class="text-center">게시판 글수정</h3></div> -->
+
+		<div class="contentTB text-center">
+			<form id="f_updateForm" name="f_updateForm">
+				<input type="hidden" name="prd_type" id="prd_type" /> <input
+					type="hidden" id="prd_num" name="prd_num"
+					value="${updateData.prd_num}" /> <input type="hidden"
+					name="pageNum" id="pageNum" value="${data.pageNum}"> <input
+					type="hidden" name="amount" id="amount" value="${data.amount}">
+
+				<table class="table table-bordered">
+					<colgroup>
+						<col width="17%" />
+						<col width="33%" />
+						<col width="17%" />
+						<col width="33%" />
+					</colgroup>
+					<tbody>
+						<tr>
+							<td>상품번호</td>
+							<td class="text-left">${updateData.prd_num}</td>
+							<td>상품명</td>
+							<td class="text-left">${updateData.prd_name}</td>
+						</tr>
+						<tr>
+							<td>상품단가</td>
+							<td colspan="3" class="text-left">${updateData.prd_price}</td>
+						</tr>
+						<tr>
+							<td>상품종류</td>
+							<td class="text-left"><select id="typeSelect2">
+									<option value="관엽/공기정화/분채">관엽/공기정화/분채</option>
+									<option value="다육/선인장">다육/선인장</option>
+									<option value="선인장">선인장</option>
+							</select></td>
+						</tr>
+						<tr class="table-height">
+							<td>재고수량</td>
+							<td colspan="3" class="text-left">
+							<td class="text-left"><input type="number" name="prd_qty"
+								id="prd_qty" class="form-control" value="${updateData.prd_qty}" />
+							</td>
+
+						</tr>
+						<c:if test="${not empty updateData.images}">
 							<tr>
-								<td>글번호</td> 
-								<td class="text-left">${updateData.m_num}</td>
-								<td>작성일</td> 
-								<td class="text-left">${updateData.m_date}</td> 
+								<td class="text-center">첨부파일 이미지</td>
+								<td colspan="3" id="multipleImage" class="text-left"><c:forEach
+										var="image" items="${updateData.images}" varStatus="status">
+										<input type="hidden" name="images[${status.index}].m_num"
+											value="${updateData.m_num}" />
+										<input type="file" name="images[${status.index}].files[0]"
+											class="file existing_file">
+										<span class="clearBtn" title="checkbox와 file 값 초기화">&times;</span>
+										<input type="checkbox" name="images[${status.index}].i_num"
+											class="choice" value="${image.i_num}" />
+										<img src="/uploadStorage/multiple/${image.i_file}" />
+										<input type="hidden" name="images[${status.index}].i_file"
+											value="${image.i_file}" />
+									</c:forEach></td>
 							</tr>
-							<tr>
-								<td>작성자</td>
-								<td colspan="3" class="text-left">${updateData.m_name}</td>
-							</tr>
-							<tr>
-								<td>글제목</td>
-								<td colspan="3" class="text-left">
-									<input type="text" name="m_title" id="m_title" value="${updateData.m_title}" class="form-control" />
-								</td>
-							</tr>
-							<tr class="table-height">
-								<td>내용</td>
-								<td colspan="3" class="text-left">
-									<textarea name="m_content" id="m_content" class="form-control" rows="8">${updateData.m_content}</textarea>
-								</td>
-							</tr>
-							<tr class="form-inline">
-								<td>비밀번호</td>
-								<td colspan="3" class="text-left">
-									<input type="password" name="m_pwd" id="m_pwd" class="form-control" maxlength="18"/>
-									<label>수정할 비밀번호를 입력해 주세요.</label>
-								</td>
-							</tr>
-							<c:if test="${not empty updateData.images}">
-								<tr>
-									<td class="text-center">첨부파일 이미지</td>
-									<td colspan="3" id="multipleImage" class="text-left">
-										<c:forEach var="image" items="${updateData.images}" varStatus="status">
-											<input type="hidden" name="images[${status.index}].m_num" value="${updateData.m_num}" />
-											<input type="file" name="images[${status.index}].files[0]" class="file existing_file">
-											<span class="clearBtn" title="checkbox와 file 값 초기화">&times;</span>
-											<input type="checkbox" name="images[${status.index}].i_num" class="choice" value="${image.i_num}" />
-											<img src="/uploadStorage/multiple/${image.i_file}" />
-											<input type="hidden" name="images[${status.index}].i_file" value="${image.i_file}" />
-										</c:forEach>
-									</td>
-								</tr>
-							</c:if>
-							<tr>
-								<td><button type="button" id="addFile" class="btn btn-default btn-block">첨부파일추가</button></td>
-								<td colspan="3" class="text-left"></td>
-							</tr> 	
-						</tbody>	
-					</table>
-				</form>
-			</div>	
-			
-			<div class="contentBtn text-right">
-				<input type="button" value="수정" id="multipleBoardUpdateBtn" class="btn btn-primary" />
-				<input type="button" value="취소" id="multipleBoardCancelBtn" class="btn btn-primary" />				
-				<input type="button" value="목록" id="multipleBoardListBtn" class="btn btn-primary" />
-			</div>
+						</c:if>
+						<tr>
+							<td><button type="button" id="addFile"
+									class="btn btn-default btn-block">첨부파일추가</button></td>
+							<td colspan="3" class="text-left"></td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
 		</div>
-	</body>
+
+		<div class="contentBtn text-right">
+			<input type="button" value="수정" id="multipleBoardUpdateBtn"
+				class="btn btn-primary" /> <input type="button" value="취소"
+				id="multipleBoardCancelBtn" class="btn btn-primary" /> <input
+				type="button" value="목록" id="multipleBoardListBtn"
+				class="btn btn-primary" />
+		</div>
+	</div>
+</body>
 </html>

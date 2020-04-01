@@ -65,7 +65,7 @@
 	 </insert>
 	 
 	<!-- 제품 상세 페이지를 위한 게시물 조회  -->
-	<select id="productDetail" parameterType="int" resultMap="multiple">
+	<select id="productDetail" parameterType="java.lang.String" resultMap="multiple">
 		/* Board - multipleBoardDetail */
 		SELECT
 			      prd_num, prd_name, prd_price, prd_type, prd_qty,
@@ -78,22 +78,22 @@
 	
 
 	<!-- 제품  수정 -->
-	<!-- <update id="productUpdate" parameterType="product" >
+	<update id="productUpdate" parameterType="product" >
 		/* Board - multipleBoardUpdate */
-		UPDATE spring_multipleboard
-			   SET m_title = #{m_title}
-			     , m_content = #{m_content}
-			     , m_date = sysdate
-			     <if test="m_pwd != ''">
-			     , m_pwd = #{m_pwd}
-			     </if>
-		WHERE m_num = #{m_num}	
-	</update> -->
+		UPDATE product
+			   SET prd_num = #{prd_num}
+			     , prd_name = #{prd_name}
+			     , prd_price = #{prd_price}
+			     , prd_type = #{prd_type}
+			     , prd_qty = #{prd+qty}
+			     , prd_date = sysdate
+		WHERE prd_num = #{prd_num}	
+	</update>
 	
 	<!-- 제품  삭제 -->
-	<!-- <delete id="productDelete" parameterType="product" >
+	<delete id="productDelete" parameterType="product" >
 		/* Board - multipleBoardDelete */
-		DELETE FROM spring_multipleboard WHERE m_num = #{m_num}
-	</delete> -->
+		DELETE FROM product WHERE prd_num = #{prd_num}
+	</delete>
 
 </mapper>
