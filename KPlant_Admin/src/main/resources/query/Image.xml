@@ -2,41 +2,41 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kplant.admin.product.dao.ImageDao">
 	<resultMap id="image" type="image"> 
-		<result property="m_num" column="m_num" />
+		<result property="prd_num" column="prd_num" />
 		<result property="i_num" column="i_num" />
 		<result property="i_file" column="i_file" />
 		<result property="i_date" column="i_date" />
 	</resultMap>
 	
 	<select id="imageList" resultMap="image">
-		select m_num, i_num, i_file, i_date from spring_image
-		where m_num = #{m_num}
+		select prd_num, i_num, i_file, i_date from product_image
+		where prd_num = #{prd_num}
 	</select>
 	
 	<insert id="imageInsert" parameterType="image">
 		/* Image - imageInsert */
 		<selectKey keyProperty="i_num" resultType="int" order="BEFORE">
-			select spring_image_seq.nextval from dual
+			select product_image_seq.nextval from dual
 		</selectKey>
-			INSERT INTO spring_image(i_num, i_file, m_num)
-			VALUES(#{i_num},  #{i_file, jdbcType=VARCHAR}, #{m_num})
+			INSERT INTO product_image(i_num, i_file, prd_num)
+			VALUES(#{prd_num},  #{i_file, jdbcType=VARCHAR}, #{prd_num})
 	</insert>
 	
 	<insert id="multipleImageInsert">
 		<foreach collection="images" item="item" index="index" open="insert all " separator=" " close="select * from dual ">
-			INTO spring_image(i_num, i_file, m_num)  
-			VALUES(get_image_number(), #{item.i_file}, #{item.m_num})
+			INTO product_image(i_num, i_file, prd_num)  
+			VALUES(get_image_number(), #{item.i_file}, #{item.prd_num})
 		</foreach>
 	</insert>
 	
 	<update id="imageUpdate" parameterType="image">
-		UPDATE spring_image
+		UPDATE product_image
 		SET i_file = #{i_file, jdbcType=VARCHAR}
 		WHERE i_num = #{i_num} 
 	</update>	
 	
 	<delete id="imageDelete" parameterType="image">
-		DELETE FROM spring_image WHERE i_num = #{i_num} 
+		DELETE FROM product_image WHERE i_num = #{i_num} 
 	</delete>
 	
 
