@@ -1,20 +1,23 @@
 @charset "UTF-8";
 
-/*
- * Placeholder dashboard ideas
- */
+.row{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 50px;
+}
 
-.placeholders {
-  margin-bottom: 30px;
-  text-align: center;
+.graph{
+	display: inline-block;
+	text-align: center;
 }
-.placeholders h4 {
-  margin-bottom: 0;
+
+.graph_title{
+    display: flex;
+	height: 110px;
+    align-content: space-around;
+    flex-direction: column;
 }
-.placeholder {
-  margin-bottom: 20px;
-}
-.placeholder img {
-  display: inline-block;
-  border-radius: 50%;
+
+.graph_title > h4{
+	font-weight: bold;
 }
