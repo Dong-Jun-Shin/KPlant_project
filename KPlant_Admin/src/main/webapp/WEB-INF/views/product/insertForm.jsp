@@ -105,8 +105,7 @@
 					location.href="/admin/product/productList";
 				});
 				
-				var prd_type = $("#typeSelect option:selected").val();
-				$("#prd_type").val(prd_type);
+			
 			});
 		</script>
 	</head>
@@ -116,7 +115,6 @@
 	
 			<div class="contentTB text-center">
 				<form id="f_writeForm" name="f_writeForm">
-					<input type = "hidden" id = "prd_type" name = "prd_type" />
 					<table class="table table-bordered">
 						<colgroup>
 							<col width="20%" />
@@ -137,11 +135,13 @@
 						<tr>
 							<td>상품종류</td>
 							<td class="text-left">
-								<select id = "typeSelect">
+								<select id = "typeSelect"  name="prd_type">
 									<option value = "관엽/공기정화/분채">관엽/공기정화/분채</option>
 									<option value = "다육/선인장">다육/선인장</option>
-									<option value = "선인장">선인장</option>
-								</select>
+									<option value = "동양란/서양란">동양란/서양란</option>
+									<option value = "꽃바구니/꽃상장">꽃바구니/꽃상장</option>
+									<option value = "꽃다발">꽃다발</option>
+								</select>>
 							</td>
 							
 						</tr>

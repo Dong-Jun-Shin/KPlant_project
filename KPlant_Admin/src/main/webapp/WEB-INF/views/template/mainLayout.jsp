@@ -21,7 +21,6 @@
 	<link rel="stylesheet" type="text/css" href="/admin/resources/include/dist/css/bootstrap-theme.css" />
 	<link rel="stylesheet" type="text/css" href="/admin/resources/include/css/template/admin-header-footer-nav.css" />
 	
-
 	<link rel="stylesheet" type="text/css" href="/admin/resources/include/css/faq/header.css" />
 	
 	<script type="text/javascript" src="/admin/resources/include/js/jquery-3.3.1.min.js"></script>
@@ -33,7 +32,8 @@
     <script src="/admin/resources/include/dist/js/bootstrap.min.js"></script>
 
     <script src="/admin/resources/include/dist/assets/js/docs.min.js"></script>
-	
+    
+    <script src="/resources/include/dist/assets/js/docs.min.js"></script>
   </head>
 
   <body>

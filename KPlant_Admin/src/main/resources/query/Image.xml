@@ -9,7 +9,6 @@
 	</resultMap>
 	
 	<select id="imageList" resultMap="image">
-
 		select prd_num, i_num, i_file, i_date from product_image
 		where prd_num = #{prd_num}
 	</select>
