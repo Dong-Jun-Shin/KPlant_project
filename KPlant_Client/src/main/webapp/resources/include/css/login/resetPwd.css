@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+.container {
+	text-align: center;
+}
+
+h1 {
+	margin-top: 125px;
+	font: bold;
+	color: #7F7F7F;
+}
+
+table {
+	text-align: center;
+	margin: auto;
+	margin-top: 60px;
+	box-shadow: 5px 5px 10px #DDDDDD;
+	width: 500px;
+}
+
+td {
+	padding: 10px 60px;
+}
+
+#confirmBtn {
+	padding: 8px 60px;
+	background-color: #1E332C;
+	border: 2px solid #1E332C;
+	color: white;
+	border-radius: 3px;
+}
+
+p{
+	margin-top: 5px;
+}
+
+.section {
+	min-height: 689px;
+}
+
+#alert-success{
+	margin-top: 10px;
+}
+#alert-danger{
+	margin-top: 10px;
+}

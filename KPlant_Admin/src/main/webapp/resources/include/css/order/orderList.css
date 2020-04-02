@@ -12,6 +12,17 @@
 	border-bottom: 1px solid #eee;
 }
 
+.sub-header .excelBtn{
+	float: right;
+    font-size: 15px;
+    margin-top: 0px;
+    height: 35px;
+}
+
+.point {
+	color: #f556ff;
+}
+
 /* order-header */
 .order-header {
 	margin: 0px 10px;
@@ -23,6 +34,7 @@
 .order-header>select, .order-header>input, .order-header>button {
 	display: inline-block;
 	height: 35px;
+	vertical-align: middle;
 }
 
 .order-header>select {
@@ -33,7 +45,25 @@
 	width: 250px;
 }
 
+.order-header #date_input {
+	display: none;
+}
+
+.order-header>input[type='date'] {
+    width: 150px;
+}
+
 /* order-list */
+.order-body .all-check{
+	cursor: pointer;
+}
+
+.order-body input[type='checkbox'] {
+    margin: 0px auto;
+    width: 16px;
+    height: 16px;
+}
+
 table {
 	width: 100%;
 }
@@ -56,6 +86,25 @@ table th, table td {
 	text-align: center;
 }
 
+table > tbody > tr:hover{
+	background: #AEC29F30;
+}
+
+table > tbody > tr > .num{
+	color: #337ab7;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+table > tbody > tr > .trn{
+	padding: 0px 40px;
+}
+
+/* order-footer */
+.order-footer{
+	margin-top: 25px;
+}
+
 .foot-left, .foot-right {
 	display: inline-block;
 }
@@ -66,4 +115,8 @@ table th, table td {
 
 .foot-right {
 	float: right;
+}
+
+.order-footer div.text-center{
+	clear: both;
 }

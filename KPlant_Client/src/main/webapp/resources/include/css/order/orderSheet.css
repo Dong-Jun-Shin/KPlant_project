@@ -144,7 +144,7 @@ td.price {
 	margin: 50px 0px;
 }
 
-#order-write>.shipping-info {
+#order-write .shipping-info {
 	margin: 50px 0px;
 }
 
@@ -202,7 +202,7 @@ td.price {
 	border: 2px solid #A3A4A5;
 }
 
-.write-tel>select, .write-tel>input, .write-address>input:nth-child(4) {
+.write-tel>select, .write-tel>input, .write-address>#sh_residence1 {
 	width: 150px;
 }
 
@@ -228,10 +228,10 @@ td.price {
 	margin: 0px 20px;
 }
 
-div.radio-wrap {
-	display: inline-flex;
-	align-items: center;
-}
+/* div.radio-wrap { */
+/* 	display: inline-flex; */
+/* 	align-items: center; */
+/* } */
 
 .pay-method {
 	margin: 50px 0px;
@@ -272,7 +272,7 @@ div.radio-wrap {
 	margin-bottom: 5px;
 }
 
-.pay-method-btn:nth-child(4)>img {
+.pay-method-btn > div > img[alt='samsung'] {
 	margin-top: 14px;
 	margin-bottom: 3px;
 }
@@ -298,7 +298,7 @@ div.radio-wrap {
 	border: 2px solid #0099EE;
 }
 
-.pay-btn>#cancle_ord_btn {
+.pay-btn>#cancel_btn {
 	background: #707070;
 }
 

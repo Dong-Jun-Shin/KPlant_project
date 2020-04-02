@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+.starter-template {
+	padding: 10px 15px;
+	text-align: center;
+}
+
+.col-sm-offset-2 {
+	padding: outo;
+	margin-left: 10%;
+}
+
+.section {
+	min-height: 687px;
+}
+
+h1 {
+	margin-top: 130px;
+	font: bold;
+	color: #7F7F7F;
+}
+p{
+	font: bold;
+	color: #7F7F7F;
+}
+textarea {
+	resize: none;
+}
+
+#msg{
+	margin: 10px;
+	margin-left: 25%;
+}
+
+div.starter-template{
+	margin-top: 10px;
+}
+
+#cancelBtn {
+	padding: 7px 40px;
+	background-color: white;
+	color: #1E332C;
+	border-radius: 3px;
+	border: 2px solid #1E332C;
+}
+
+#agreeBtn {
+	padding: 7px 40px;
+	background-color: #1E332C;
+	border: 2px solid #1E332C;
+	color: white;
+	border-radius: 3px;
+	margin-left: 80px;
+}

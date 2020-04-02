@@ -5,6 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <link rel="stylesheet" type="text/css" href="/resources/include/css/order/cart.css" />
+<script type="text/javascript" src="/resources/include/js/order/cart.js"></script>
 <div>
 	<div class="order-header">
 		<div class="left">
@@ -23,7 +24,7 @@
 			<table class="body-list">
 				<thead>
 					<tr>
-						<th>선택</th>
+						<th class="all-check">선택</th>
 						<th colspan="7">상품명/옵션</th>
 						<th>수량</th>
 						<th colspan="2">상품가</th>
@@ -34,23 +35,23 @@
 				</thead>
 				<tbody>
 					<%-- 데이터 출력 --%>
-					<c:choose>
+ 					<c:choose>
 						<%-- 상품 요소 --%>
-						<c:when test="${not empty orderList}">
-							<c:forEach var="board" items="${boardList }" varStatus="status">
-								<tr>
-									<td><input type="checkbox" name="sel_prd" /></td>
+ 						<c:when test="${not empty prdList}">
+ 							<c:forEach var="i" begin="0" end="${fn:length(prdList)-1 }">
+								<tr class="prd-list">
+									<td><input type="checkbox" name="sel_prd"/></td>
 									<td colspan="7" class="prd">
-										<img alt="상품대표사진" src="/resources/images/order/temp1.jpg">
-										<span>몽골바위솔 5포트 바위솔 10cm포트묘</span>
+										<img alt="${prdList[i].img_prd }" src="">
+										<span>${prdList[i].prd_name }</span>
 									</td>
-									<td>수량</td>
-									<td colspan="2">9,800원</td>
-									<td colspan="2">9,800원</td>
-									<td colspan="2">3,000원</td>
+									<td><input class="spinner" type="text" value="${ordDetailList[i].ord_qty }"/></td>
+									<td colspan="2"><span class="prd-price">${prdList[i].prd_price }원</span></td>
+									<td colspan="2"><span class="ord-price">${prdList[i].prd_price * ordDetailList[i].ord_qty }원 </span></td>
+									<td colspan="2"><span class="shipping">3000원</span></td>
 									<td colspan="6">
-										<button type="button" class="btn btn-success">수정</button>
-										<button type="button" class="btn btn-success">삭제</button>
+										<button type="button" class="btn btn-success updateBtn">수정</button>
+										<button type="button" class="btn btn-success deleteBtn">삭제</button>
 									</td>
 								</tr>
 							</c:forEach>
@@ -61,14 +62,13 @@
 							<tr>
 								<td colspan="21">장바구니에 추가된 상품이 없습니다.</td>
 							</tr>
-						</c:otherwise>
-					</c:choose>
+ 						</c:otherwise>
+ 					</c:choose>
 				</tbody>
 			</table>
-			
 			<div class="cart_btn">
-				<button type="button" class="btn btn-lg" disabled="disabled">찜하기</button>
-				<button type="button" class="btn btn-lg" disabled="disabled">모두 삭제</button>
+				<button type="button" id="wishListBtn" class="btn btn-lg btn-style" disabled="disabled">찜하기</button>
+				<button type="button" id="allDeleteBtn" class="btn btn-lg btn-style" disabled="disabled">모두 삭제</button>
 			</div>
 		</div>
 		<div id="cart_price">
@@ -76,29 +76,30 @@
 				<tbody>
 					<tr>
 						<td colspan="3">주문금액</td>
-						<td class="price" colspan="3">0원</td>
+						<td id="all_price" class="price" colspan="3">0원</td>
 						<td class="ico" colspan="1"><img alt="마이너스" src="/resources/images/order/ico_total_minus.png"/></td>
 						<td colspan="3">할인금액</td>
-						<td class="price" colspan="3">0원</td>
+						<!-- TODO 특가 상품의 할인율 가져와서 적용 -->
+						<td id="all_discount" class="price" colspan="3">0원</td>
 						<td class="ico" colspan="1"><img alt="합계" src="/resources/images/order/ico_total_sum.png"/></td>
 						<td colspan="3">총 주문금액</td>
-						<td class="price" colspan="3">0원</td>
+						<td id="result_price" class="price" colspan="3">0원</td>
 					</tr>
 					<tr>
 						<td colspan="4">주문금액</td>
-						<td class="price" colspan="2">0원</td>
+						<td id="ord_price" class="price" colspan="2">0원</td>
 						<td colspan="15" rowspan="2"></td>
 					</tr>
 					<tr>
 						<td colspan="4">선결제 배송비</td>
-						<td class="price" colspan="2">0원</td>
+						<td id="sh_price" class="price" colspan="2">0원</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
 	<div class="order-footer">
-		<button type="button" id="all_ord_btn" class="btn btn-lg" disabled="disabled">전체 주문</button>
-		<button type="button" id="sel_ord_btn" class="btn btn-lg" disabled="disabled">선택상품 주문</button>
+		<button type="button" id="all_ord_btn" class="btn btn-lg btn-style" disabled="disabled">전체 주문</button>
+		<button type="button" id="sel_ord_btn" class="btn btn-lg btn-style" disabled="disabled">선택상품 주문</button>
 	</div>
 </div>
