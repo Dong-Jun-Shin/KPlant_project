@@ -2,7 +2,6 @@ package com.kplant.admin.faq.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -10,18 +9,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.kplant.admin.common.vo.PageDTO;
 import com.kplant.admin.faq.service.FaqService;
 import com.kplant.admin.faq.vo.FaqVO;
 
-import lombok.Setter;
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
 @Controller
 @RequestMapping(value = "/faq/*")
 @Log4j
+@AllArgsConstructor
 public class FaqController {
 	
-	@Setter(onMethod_=@Autowired)
 	private FaqService faqService;
 	
 	/**********************************
@@ -34,9 +34,16 @@ public class FaqController {
 	public String faqList(@ModelAttribute("data") FaqVO fvo, Model model) {
 		log.info("Admin FAQList 호출 성공");
 		
+		//전체 레코드 조회
 		List<FaqVO> faqList=faqService.faqList(fvo);
 		model.addAttribute("faqList", faqList);
 		
+		// 전체 레코드 수 조회
+	    int total = faqService.faqListCnt(fvo);
+	      
+		// 페이징 처리 (CommonVO 자리에 하위 클래스를 전달)
+	    model.addAttribute("pageMaker", new PageDTO(total, fvo));
+	      
 		return "faq/faqList";
 	}
 	
@@ -48,8 +55,11 @@ public class FaqController {
 		String url = "";
 		
 		result = faqService.faqInsert(fvo);
+		
 		if (result == 1) {
-			url = "/faq/faqInsert";
+			url = "/faq/faqList";
+		}else {
+			url = "/faq/writeForm";
 		}
 		return "redirect:"+url;
 	}
@@ -80,12 +90,12 @@ public class FaqController {
 		result = faqService.faqUpdate(fvo);
 		
 		if (result == 1) {
-			url="/admin/faq/faqDetail?faq_num="+fvo.getFaq_num();
+			url="/faq/faqDetail?faq_num="+fvo.getFaq_num();
 		}else {
-			url="/admin/faq/updateForm?faq_num="+fvo.getFaq_num();
+			url="/faq/updateForm?faq_num="+fvo.getFaq_num();
 		}
 		
-		return "redirect"+url;
+		return "redirect:"+url;
 	}
 	
 	@RequestMapping(value = "/updateForm")

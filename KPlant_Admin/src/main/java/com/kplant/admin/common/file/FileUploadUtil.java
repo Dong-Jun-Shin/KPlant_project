@@ -67,7 +67,10 @@ public class FileUploadUtil {
 		log.info("원본 이미지 파일(fileAdd) : " + fileAdd);
 		
 		BufferedImage sourceImg = ImageIO.read(fileAdd);
-		BufferedImage destImg = Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 133);
+		
+		
+		
+		BufferedImage destImg = Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 200);
 		
 		//resize(대상[BufferedImage 타입], 원본비율, 높이 또는 너비, 크기)
 		
@@ -85,6 +88,34 @@ public class FileUploadUtil {
 		
 		return thumbnailName;
 	}
+	
+	/*파일 Thumbnail 생성 메서드*/
+	/*public static String makeFileF(String fileName) throws Exception{
+		String dirName = fileName.substring(0, fileName.indexOf("_"));
+		
+		String imgPath = "C://KplantUploadStorage//"+dirName;
+		
+		File fileAdd = new File(imgPath, fileName);
+		log.info("원본 이미지 파일(fileAdd) : " + fileAdd);
+		
+		BufferedImage sourceImg = ImageIO.read(fileAdd);
+		BufferedImage destImg = Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 200);
+		
+		String fileFName = "fileFName_"+fileName;
+		String docRoot = imgPath+"/fileFName";
+		
+		makeDir(docRoot);
+		
+		File newFile = new File(docRoot, fileFName);
+		log.info("업로드할 파일(newFile) : " + newFile);
+		
+		String formatName = fileName.substring(fileName.lastIndexOf(".")+1);
+		log.info("확장자(formatName) : " +formatName);
+		
+		ImageIO.write(destImg, formatName, newFile);
+		
+		return fileFName;
+	}*/
 	
 	/*파일 삭제 메서드*/
 	public static void fileDelete(String fileName) throws IOException{

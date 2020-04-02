@@ -9,5 +9,7 @@ public interface FaqDAO {
 	public List<FaqVO> faqList(FaqVO fvo);
 
 	public FaqVO faqGet(FaqVO fvo);
+
+	public int faqListCnt(FaqVO fvo);
 	
 }

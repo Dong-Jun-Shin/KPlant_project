@@ -18,9 +18,9 @@ public class EventVO extends CommonVO{
 	private int evnt_views;
 	private String evnt_startDate;
 	private String evnt_modifyDate;
-	private String evnt_fileF;
-	private String evnt_fileS;
-	private String evnt_fileT;
+	private String evnt_fileF="";
+	private String evnt_fileS="";
+	private String evnt_fileT="";
 	private String evnt_thumb;
 	private MultipartFile fileF;
 	private MultipartFile fileS;

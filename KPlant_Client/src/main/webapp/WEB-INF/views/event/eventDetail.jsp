@@ -27,24 +27,36 @@
 	<%--이벤트 제목출력 --%>
 	<hr id="top-line">
 	<div class="row">
-	  <div class="col-md-6 text-left">이벤트 제목입니다.${detail.evnt_title}</div>
+	  <div class="col-md-6 text-left">${detail.evnt_title}</div>
 	  <div class="col-md-6 text-right">등록일 [${detail.evnt_rgstDate}]</div>
 	</div>
 	<hr id="botton-line">	
 	
 	<%--이벤트 상세 정보 보여주기 --%>
-	<div> 
-		<div class="event_img" data-num="${detail.evnt_num}">
-			<img src="/uploadStorage/event/thumbnail/${detail.evnt_thumb}">
-			<img src="/uploadStorage/event/fileF/${detail.evnt_fileF}">
-			<img src="/uploadStorage/event/fileS/${detail.evnt_fileS}">
-			<img src="/uploadStorage/evnet/fileT/${detail.evnt_fileT}">
-		</div>
+	<div class="showImageEvent"> 
+		<ul style="list-style:none;">
+			<li>
+				<c:if test="${detail.evnt_fileF != null}">
+					<img src="/KplantUploadStorage/event/${detail.evnt_fileF}">
+				</c:if>
+			</li>
+			<li>
+				<c:if test="${detail.evnt_fileS != null}">
+					<img src="/KplantUploadStorage/event/${detail.evnt_fileS}">
+				</c:if>
+			</li>
+			<li>
+				<c:if test="${detail.evnt_fileT != null}">
+					<img src="/KplantUploadStorage/event/${detail.evnt_fileT}">
+				</c:if>
+			</li>
+		</ul>
 		
-		<div class="event_content">
-			${detail.evnt_content}
-			글내용이 추가 되어야 합니다.
-		</div>
+		<c:if test="${detail.evnt_content != null}">
+			<div class="event_content">
+				${detail.evnt_content}
+			</div>
+		</c:if>
 		
 		<div class="panel panel-success" style="text-align: left;">
 			<div class="panel-heading">

@@ -26,11 +26,11 @@
 			
 			// 입력값 체크
 			if (!chkData("#faq_title", "질문 사항을")) return;
-			else if(!chkData("#faq_content", "대답을")) return;
+			else if(!chkData($("#faq_content"), "대답을")) return;
 			else{
 				$("#f_writeForm").attr({
 					"method" : "post",
-					"action" : "/faq/faqInsert"
+					"action" : "/admin/faq/faqInsert"
 				});
 				$("#f_writeForm").submit();
 			}
@@ -67,7 +67,7 @@
 						<tr>
 							<th>A.대답 사항</th>
 							<td>
-								<textarea class="form-control" rows="3" id="evnt_content"></textarea>
+								<textarea class="form-control" rows="3" id="faq_content" name="faq_content"></textarea>
 							</td>
 						</tr>
 					</tbody>
@@ -83,7 +83,7 @@
 		</div>
 		<%-- 저장 --%>
 		<div style="text-align: center;">
-			<button type="button" class="event-mainPage" id="faqInsertBtn">저장</button>
+			<button type="button" class="event-mainPage" id="faqInsertBtn" name="faqInsertBtn">저장</button>
 		</div>
 	</div>
 </div>

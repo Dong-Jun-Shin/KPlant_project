@@ -8,9 +8,11 @@ import org.springframework.stereotype.Service;
 import com.kplant.admin.common.file.FileUploadUtil;
 import com.kplant.admin.event.dao.EventDAO;
 import com.kplant.admin.event.vo.EventVO;
-
+  
 import lombok.Setter;
+import lombok.extern.log4j.Log4j;
 
+@Log4j
 @Service
 public class EventServiceImpl implements EventService {
 	
@@ -27,10 +29,9 @@ public class EventServiceImpl implements EventService {
 	public EventVO eventDetail(EventVO evo) {
 		EventVO detail = null;
 		detail = eventDAO.eventDetail(evo);
-		if (detail!=null) {
-			detail.setEvnt_content(
-			detail.getEvnt_content().toString().replace("\n", "<br>"));
-		}
+		if(detail.getEvnt_content()!=null) {
+	    	detail.setEvnt_content(detail.getEvnt_content().replaceAll("\n", "<br />"));
+	    }
 		return detail;
 	}
 	
@@ -73,7 +74,7 @@ public class EventServiceImpl implements EventService {
 		try {
 			
 			/*첫번째 파일 및 썸네일*/
-			if (evo.getFileF()!=null) {
+			if (evo.getFileF().getSize()>0) {
 				if (!evo.getEvnt_fileF().isEmpty()) {
 					FileUploadUtil.fileDelete(evo.getEvnt_fileF());
 					FileUploadUtil.fileDelete(evo.getEvnt_thumb());
@@ -90,7 +91,7 @@ public class EventServiceImpl implements EventService {
 			}
 			
 			/*두번째 파일*/
-			if (evo.getFileS()!=null) {
+			if (evo.getFileS().getSize()>0) {
 				if (!evo.getEvnt_fileS().isEmpty()) {
 					FileUploadUtil.fileDelete(evo.getEvnt_fileS());
 				}
@@ -101,7 +102,7 @@ public class EventServiceImpl implements EventService {
 			}
 			
 			/*세번째 파일*/
-			if (evo.getFileT()!=null) {
+			if (evo.getFileT().getSize()>0) {
 				if (!evo.getEvnt_fileT().isEmpty()) {
 					FileUploadUtil.fileDelete(evo.getEvnt_fileT());
 				}
@@ -110,7 +111,7 @@ public class EventServiceImpl implements EventService {
 			}else {
 				evo.setEvnt_fileT("");
 			}
-			
+			log.info(evo);
 			result = eventDAO.eventUpdate(evo);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -124,16 +125,15 @@ public class EventServiceImpl implements EventService {
 	public int eventDelete(EventVO evo) {
 		int result = 0;
 		try {
-			EventVO vo = evo;
-			FileUploadUtil.fileDelete(vo.getEvnt_fileF());
-			FileUploadUtil.fileDelete(vo.getEvnt_thumb());
-			System.out.println(vo);
-			
-			if (!vo.getEvnt_fileS().equals("0")) {
-				FileUploadUtil.fileDelete(vo.getEvnt_fileS());
+			if (evo.getEvnt_fileF()!="") {
+				FileUploadUtil.fileDelete(evo.getEvnt_fileF());
+				FileUploadUtil.fileDelete(evo.getEvnt_thumb());
 			}
-			if (!vo.getEvnt_fileT().equals("0")) {
-				FileUploadUtil.fileDelete(vo.getEvnt_fileT());
+			if (evo.getEvnt_fileS()!="") {
+				FileUploadUtil.fileDelete(evo.getEvnt_fileS());
+			}
+			if (evo.getEvnt_fileT()!="") {
+				FileUploadUtil.fileDelete(evo.getEvnt_fileT());
 			}
 			result = eventDAO.eventDelete(evo.getEvnt_num());
 			
@@ -142,5 +142,15 @@ public class EventServiceImpl implements EventService {
 			result = 0;
 		}
 		return result;
+	}
+	@Override
+	public int eventListCnt(EventVO evo) {
+		return eventDAO.eventListCnt(evo);
+	}
+	@Override
+	public EventVO updateForm(EventVO evo) {
+		EventVO detail = null;
+		detail = eventDAO.eventDetail(evo);
+		return detail;
 	}
 }

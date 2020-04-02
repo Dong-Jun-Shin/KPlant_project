@@ -11,4 +11,5 @@ public interface EventDAO {
 	public int eventInsert(EventVO evo);
 	public int eventDelete(int evnt_num);
 	public int eventUpdate(EventVO evo);
+	public int eventListCnt(EventVO evo);
 }

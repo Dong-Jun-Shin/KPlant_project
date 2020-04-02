@@ -12,16 +12,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.kplant.admin.common.vo.PageDTO;
 import com.kplant.admin.event.service.EventService;
 import com.kplant.admin.event.vo.EventVO;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
-import oracle.jdbc.proxy.annotation.Methods;
 
 @Controller
 @RequestMapping(value = "/event/*")
@@ -36,7 +35,9 @@ public class EventController {
 	 * 사진 파일을 수정할때 새로 값을 넣지 않았을때 처리할 수 있도록 처리할수 있게 해주는 메서드*/
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
-		binder.registerCustomEditor(MultipartFile.class, "file", new StringTrimmerEditor(true));
+		binder.registerCustomEditor(MultipartFile.class, "fileF", new StringTrimmerEditor(true));
+		binder.registerCustomEditor(MultipartFile.class, "fileS", new StringTrimmerEditor(true));
+		binder.registerCustomEditor(MultipartFile.class, "fileT", new StringTrimmerEditor(true));
 	}
 	
 	/*********************************
@@ -46,9 +47,16 @@ public class EventController {
 	public String eventList(@ModelAttribute("data") EventVO evo, Model model) {
 		log.info("Admin eventList 호출 성공");
 		
+		//전체 레코드 조회
 		List<EventVO> eventList = eventService.eventList(evo);
 		model.addAttribute("eventList", eventList);
 		
+		//전체 레코드 수 조회
+		int total = eventService.eventListCnt(evo);
+		
+		// 페이징 처리 (CommonVO 자리에 하위 클래스를 전달)
+		model.addAttribute("pageMaker", new PageDTO(total, evo));
+
 		return "event/eventList";
 	}
 	
@@ -101,25 +109,23 @@ public class EventController {
 		return "redirect:"+value;
     }
     
-    @ResponseBody
-    @PostMapping(value = "/eventUpdate", produces = "text/plain; charset=UTF-8")
+    @PostMapping(value = "/eventUpdate")
     public String eventUpdate(@ModelAttribute EventVO evo) {
     	log.info("Admin eventUpdate 호출 성공");
-    	
+    	log.info("evo" + evo);
     	String value="";
     	int result = 0;
     	
     	result = eventService.eventUpdate(evo);
     	if (result==1) {
-			value="성공";
+			value="/event/eventDetail?evnt_num="+evo.getEvnt_num();
 		}else {
-			value="실패";
+			value="/event/updateForm?evnt_num="+evo.getEvnt_num();
 		}
-    	return value;
+    	return "redirect:"+value;
     }
     
-    @ResponseBody
-   	@RequestMapping(value = "/eventDelete", method=RequestMethod.POST, produces = "text/plain; charset=UTF-8")
+   	@RequestMapping(value = "/eventDelete")
     public String eventDelete(@ModelAttribute EventVO evo) {
     	log.info("eventDelete 호출 성공");
 		
@@ -127,10 +133,21 @@ public class EventController {
 		String value = "";
 		result = eventService.eventDelete(evo);
 		if (result==1) {
-			value="성공";
+			value="/event/eventList";
 		}else {
-			value="실패";
+			value="/event/eventDe tail?evnt_num="+evo.getEvnt_num();
 		}
-		return value;
+		return "redirect:"+value;
     }
+    
+    @RequestMapping(value = "/updateForm")
+	public String updateForm(@ModelAttribute("data") EventVO evo, Model model) {
+		log.info("updateForm 호출성공");
+		log.info("evnt_num = " + evo.getEvnt_num());
+		
+		EventVO updateData = eventService.updateForm(evo);
+		model.addAttribute("updateData", updateData);
+		
+		return "event/updateForm";
+	}
 }

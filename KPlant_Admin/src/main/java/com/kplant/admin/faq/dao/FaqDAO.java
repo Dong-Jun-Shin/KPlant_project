@@ -11,5 +11,6 @@ public interface FaqDAO {
 	public int faqDelete(int faq_num);
 	public int faqUpdate(FaqVO fvo);
 	public FaqVO faqDetail(FaqVO fvo);
+	public int faqListCnt(FaqVO fvo);
 	
 }

@@ -7,10 +7,28 @@
 <%-- script 작성 --%>
 <script type="text/javascript">
 	$(function () {
+		//목록 버튼
 		$("#goEventList").click(function () {
 			location.href="/admin/event/eventList";
 		});
 		
+		//수정 버튼
+		$("#updateFormBtn").click(function () {
+			$("#f_data").attr({
+				"method" : "post",
+				"action" : "/admin/event/updateForm"
+			});
+			$("#f_data").submit();
+		});
+		
+		//삭제 버튼
+		$("#DeleteFormBtn").click(function () {
+			$("#f_data").attr({
+				"method" : "post",
+				"action" : "/admin/event/eventDelete"
+			});
+			$("#f_data").submit();
+		})
 		
 	});//최상위 $종료
 </script>
@@ -33,18 +51,30 @@
 	<hr id="botton-line">	
 	
 	<%--이벤트 상세 정보 보여주기 --%>
-	<div> 
-		<div class="event_img" data-num="${detail.evnt_num}">
-			<img src="/uploadStorage/event/thumbnail/${detail.evnt_thumb}">
-			<img src="/uploadStorage/event/fileF/${detail.evnt_fileF}">
-			<img src="/uploadStorage/event/fileS/${detail.evnt_fileS}">
-			<img src="/uploadStorage/evnet/fileT/${detail.evnt_fileT}">
-		</div>
+	<div data-num="${detail.evnt_num}"> 
+		<ul style="list-style:none;">
+			<li>
+				<c:if test="${detail.evnt_fileF != ''}">
+					<img src="/KplantUploadStorage/event/${detail.evnt_fileF}">
+				</c:if>
+			</li>
+			<li>
+				<c:if test="${detail.evnt_fileS != ''}">
+					<img src="/KplantUploadStorage/event/${detail.evnt_fileS}">
+				</c:if>
+			</li>
+			<li>
+				<c:if test="${detail.evnt_fileT != ''}">
+					<img src="/KplantUploadStorage/event/${detail.evnt_fileT}">
+				</c:if>
+			</li>
+		</ul>
 		
-		<div class="event_content">
-			${detail.evnt_content}
-			글내용이 추가 되어야 합니다.
-		</div>
+		<c:if test="${detail.evnt_content != null}">
+			<div class="event_content">
+				${detail.evnt_content}
+			</div>
+		</c:if>
 		
 		<div class="panel panel-success" style="text-align: left;">
 			<div class="panel-heading">

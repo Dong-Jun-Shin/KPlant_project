@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<link rel="stylesheet" type="text/css" href="/resources/include/css/event/eventMain.css">
+<link rel="stylesheet" type="text/css" href="/resources/include/css/event/eventDetail.css">
+<link rel="stylesheet" type="text/css" href="/resources/include/css/event/writeForm.css">
 <%-- script --%>
 <script type="text/javascript">
 	$(function () {
@@ -12,15 +15,12 @@
 			if (!checkForm("#faq_title","질문을")) return;
 			else if(!checkForm("#faq_content","대답을")) return;
 			else{
-				console.log($("#f_updateForm").serialize());
-				
-// 				$("#f_updateForm").attr({
-// 					"method" : "post",
-// 					"action" : "/admin/faq/faqUpdate"
-// 				});
-// 				$("#f_updateForm").submit();
+				$("#f_updateForm").attr({
+					"method" : "post",
+					"action" : "/admin/faq/faqUpdate"
+				});
+				$("#f_updateForm").submit();
 			}
-			
 		});
 		//취소 버튼
 		$("#faqCancelBtn").click(function () {
@@ -45,7 +45,7 @@
 	<%-- 폼 작성 시작 --%>
 	<div class="faq-body">
 		<form id="f_updateForm">
-			<input type="hidden" id="faq_num" name="faq_num" value="${updateData.faq_num}"/>
+			<input type="hidden" id="faq_num" name="faq_num" value="${updataData.faq_num}"/>
 			
 			<div id="faq-dataForm">
 				<div class="table-header">
@@ -71,7 +71,7 @@
 						<tr>
 							<th>*대답 사항</th>
 							<td>
-								<textarea class="form-control" rows="3" id="faq_content">${updataData.faq_content}</textarea>
+								<textarea class="form-control" rows="3" id="faq_content" name="faq_content">${updataData.faq_content}</textarea>
 							</td>
 						</tr>
 					</tbody>
@@ -87,7 +87,7 @@
 		</div>
 		<%-- 저장 --%>
 		<div style="text-align: center;">
-			<input type="button" value="수정 완료" id="faqUpdateBtn" name="faqUpdateBtn" class="event=mainPage" />
+			<input type="button" value="수정 완료" id="faqUpdateBtn" name="faqUpdateBtn" class="event-mainPage" />
 		</div>
 	</div>
 </div>

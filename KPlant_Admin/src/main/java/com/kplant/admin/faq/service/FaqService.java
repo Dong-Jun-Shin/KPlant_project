@@ -13,5 +13,6 @@ public interface FaqService {
 	int faqUpdate(FaqVO fvo);
 	FaqVO updateForm(FaqVO fvo);
 	FaqVO faqDetail(FaqVO fvo);
+	int faqListCnt(FaqVO fvo);
 	
 }

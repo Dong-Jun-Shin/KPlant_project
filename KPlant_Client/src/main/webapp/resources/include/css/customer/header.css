@@ -1,0 +1,43 @@
+@charset "UTF-8";
+/* title */
+.sub-header {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eee;
+}
+
+/*button*/
+.btn-style{
+	background: rgb(57,96,77);
+	color: #FFFFFF;
+}
+/* header-css */
+.search-header {
+	margin: 0px 10px;
+	margin-bottom: 10px; text-align : right;
+	letter-spacing: 5px;
+	text-align: right;
+}
+.search-header>select, .search-header>input, .search-header>button {
+	display: inline-block;
+	height: 35px;
+}
+.search-header>select {
+	width: 150px;
+}
+.search-header>input {
+	width: 250px;
+}
+
+/*body-css*/
+
+
+/*footer-css*/
+.foot-left, .foot-right {
+	display: inline-block;
+}
+.foot-left {
+	float: left;
+}
+.foot-right {
+	float: right;
+}

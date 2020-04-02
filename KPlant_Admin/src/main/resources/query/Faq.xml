@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kplant.admin.faq.dao.FaqDAO">
+	<sql id="faqSearch">
+		<if test="search=='faq_title'">
+			<![CDATA[faq_title LIKE '%'|| #{keyword} || '%']]>
+		</if>
+		<if test="search=='faq_content'">
+			<![CDATA[faq_content LIKE '%'|| #{keyword} || '%']]>
+		</if>
+	</sql>
+	
+	
+	<!-- 기본 게시판리스트 조회 -->
+<!-- 	<select id="faqList" parameterType="faq" resultType="faq"> -->
+<!-- 		SELECT faq_num, to_char(faq_rgstdate,'YYYY-MM-DD') as faq_rgstdate,  to_char(faq_modifydate,'YYYY-MM-DD') as faq_modifydate, faq_content, faq_title -->
+<!-- 		FROM faq -->
+<!-- 	</select> -->
+	<!-- 게시판리스트 조회(페이 징 처리와 검색 처리) -->
+	<!-- 힌트(hint) : 개발자가 데이터 베이스에 어떤 방식으로 실행해 줘야 하는 지를 명심하기 때문에 강제성을 부여한다. -->
 	<select id="faqList" parameterType="faq" resultType="faq">
-		SELECT faq_num, to_char(faq_rgstdate,'YYYY-MM-DD') as faq_rgstdate,  to_char(faq_modifydate,'YYYY-MM-DD') as faq_modifydate, faq_content, faq_title
-		FROM faq
+		<![CDATA[
+			SELECT
+				faq_num, to_char(faq_rgstdate,'YYYY-MM-DD') as faq_rgstdate,  to_char(faq_modifydate,'YYYY-MM-DD') as faq_modifydate, faq_content, faq_title
+			FROM (
+				SELECT /*+INDEX_DESC(faq faq_pk)*/
+					rownum as rnum, faq_num, faq_rgstdate, faq_modifydate, faq_content, faq_title
+				FROM faq
+			WHERE ]]>
+			<trim prefix="(" suffix=") AND " prefixOverrides="AND">
+				<include refid="faqSearch"></include>
+			</trim>
+		<![CDATA[ rownum <= #{pageNum} * #{amount}
+			) faqList
+		WHERE rnum > (#{pageNum} - 1) * #{amount}
+		]]>
+	</select>
+	
+	<!-- 전체 레코드 수 조회 -->
+	<select id="faqListCnt" parameterType="faq" resultType="int">
+		SELECT count(*) FROM faq
+		<trim prefix=" where (" suffix=")">
+			<include refid="faqSearch"></include>
+		</trim>
 	</select>
 	
 	<!-- 게시물 등록 -->
@@ -14,17 +52,13 @@
 		</selectKey>
 			INSERT INTO faq (
 			    faq_num,
-			    faq_rgstdate,
-			    faq_modifydate,
 			    faq_content,
 			    faq_title
 			) VALUES (
 			    #{faq_num},
-			    #{faq_rgstDate},
-			    #{faq_modifyDate},
 			    #{faq_content},
 			    #{faq_title}
-			);
+			)
 		
 	</insert>
 	
@@ -35,11 +69,13 @@
 			set faq_title=#{faq_title}, faq_content=#{faq_content}, faq_modifyDate = sysdate
 		WHERE faq_num = #{faq_num}
 	</update>
+	
 	<!-- 게시물 Delete -->
 	<delete id="faqDelete" parameterType="faq">
 		/*faq = faqDelete*/
 		delete from faq where faq_num = #{faq_num}
 	</delete>
+	
 	<!-- 게시물 Detail -->
 	<select id="faqDetail" parameterType="int" resultType="faq">
 		/*faq = faqDetail*/
