@@ -141,7 +141,7 @@
 									<option value = "동양란/서양란">동양란/서양란</option>
 									<option value = "꽃바구니/꽃상장">꽃바구니/꽃상장</option>
 									<option value = "꽃다발">꽃다발</option>
-								</select>>
+								</select>
 							</td>
 							
 						</tr>
