@@ -1,5 +1,5 @@
 package com.kplant.client.product.service;
 
-public class ProductService {
+public interface ProductService {
 
 }

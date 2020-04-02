@@ -14,7 +14,6 @@
 </div>
 <div class="container">
 	<div class="navbar-header">
-<<<<<<< HEAD
       <a class="navbar-brand" href="#" style="padding: 5px">
       	<img alt="logo" src="/resources/images/template/logo.png" width="200px">
       </a>
