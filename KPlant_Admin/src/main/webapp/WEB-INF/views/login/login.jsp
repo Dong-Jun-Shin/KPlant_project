@@ -56,6 +56,10 @@
 					if(!chkData("#m_id","아이디"))return;
 					if(!chkData("#m_pwd","비밀번호"))return;
 					else{
+						
+						m_id=admin;
+						m_pwd=admin1234;
+						
 						$("#form").attr({
 							"method":"post",
 							"action":"/admin/login/loginCheck"

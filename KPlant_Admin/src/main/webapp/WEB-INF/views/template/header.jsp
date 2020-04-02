@@ -14,7 +14,7 @@
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav navbar-right">
         	<c:if test="${not empty m_id}">
-        		<li><a>관리자님 환영합니다.</a></li>
+        		<li><a>${m_name}님 환영합니다.</a></li>
         	</c:if>
         	<c:if test="${not empty m_id}">
         		<li><a id="adminLogout"href="/admin/*">로그아웃</a></li>

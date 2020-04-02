@@ -162,10 +162,11 @@
 					</colgroup>
 					<thead>
 						<tr>
-							<th data-value="m_num" class="text-center">글번호</th>
-							<th class="text-center">글제목</th>
-							<th data-value="m_date" class="text-center">작성일</th>
-							<th class="text-center">작성자</th>
+							<th data-value="prd_num" class="text-center">제품번호</th>
+							<th class="text-center">제품명</th>
+							<th data-value="m_date" class="text-center">제품종류</th>
+							<th class="text-center">재고수량</th>
+							<th class="text-center">등록일</th>
 						</tr>
 					</thead>
 					<tbody id="list" class="table-striped">

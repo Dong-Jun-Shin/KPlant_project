@@ -33,6 +33,7 @@
     <script src="/admin/resources/include/dist/js/bootstrap.min.js"></script>
 
     <script src="/admin/resources/include/dist/assets/js/docs.min.js"></script>
+	
   </head>
 
   <body>

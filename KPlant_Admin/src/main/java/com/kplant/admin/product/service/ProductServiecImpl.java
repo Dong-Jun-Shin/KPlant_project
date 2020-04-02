@@ -14,7 +14,9 @@ import com.kplant.admin.product.vo.ProductVO;
 
 import lombok.AllArgsConstructor;
 import lombok.Setter;
+import lombok.extern.log4j.Log4j;
 
+@Log4j
 @Service
 public class ProductServiecImpl implements ProductService{
 
@@ -86,7 +88,7 @@ public class ProductServiecImpl implements ProductService{
 		public int productUpdate(ProductVO pvo) throws Exception {
 			int result = 0;
 			List<ProductImageVO> multiple =  pvo.getImages();
-			
+			log.info("pvo" + pvo);
 			result = productDao.productUpdate(pvo);
 			
 			if(!multiple.isEmpty()) {
@@ -95,12 +97,12 @@ public class ProductServiecImpl implements ProductService{
 		        	if(ivo.getFiles().get(0).getSize() > 0 && ivo.getI_num()!=0) {
 		        		FileUploadUtil.fileDelete(ivo.getI_file());
 		        		
-		        		ivo.setI_file(FileUploadUtil.fileUpload(ivo.getFiles().get(0), "multiple"));
+		        		ivo.setI_file(FileUploadUtil.fileUpload(ivo.getFiles().get(0), "product"));
 		        		result = imageDao.imageUpdate(ivo);
 		        	}
 		        	// 추가 입력 작업
 		        	if(ivo.getPrd_num() == "" && ivo.getI_file()=="") {
-		        		ivo.setI_file(FileUploadUtil.fileUpload(ivo.getFiles().get(0), "multiple"));
+		        		ivo.setI_file(FileUploadUtil.fileUpload(ivo.getFiles().get(0), "product"));
 		        		ivo.setPrd_num(pvo.getPrd_num());
 		        		result = imageDao.imageInsert(ivo);
 		        	}

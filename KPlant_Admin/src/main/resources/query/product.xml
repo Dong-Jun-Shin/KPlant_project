@@ -85,7 +85,7 @@
 			     , prd_name = #{prd_name}
 			     , prd_price = #{prd_price}
 			     , prd_type = #{prd_type}
-			     , prd_qty = #{prd+qty}
+			     , prd_qty = #{prd_qty}
 			     , prd_date = sysdate
 		WHERE prd_num = #{prd_num}	
 	</update>
