@@ -25,7 +25,7 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/*")
 public class ClientMainController {
 
-	@RequestMapping("")
+	@RequestMapping("/")
 	public String client(HttpServletRequest request, Model model) {
 		log.info("client/index 호출 성공");
 		
