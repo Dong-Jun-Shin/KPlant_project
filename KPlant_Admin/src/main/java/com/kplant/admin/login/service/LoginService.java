@@ -2,13 +2,14 @@ package com.kplant.admin.login.service;
 
 import javax.servlet.http.HttpSession;
 
-import com.kplant.admin.member.vo.MemberVO;
+import com.kplant.admin.login.vo.AdminVO;
+
 
 public interface LoginService {
 
-	MemberVO loginCheck(MemberVO mvo, HttpSession session);
+	AdminVO loginCheck(AdminVO avo, HttpSession session);
 
-	MemberVO viewMember(MemberVO mvo);
+	AdminVO viewMember(AdminVO avo);
 
 	void logout(HttpSession session);
 

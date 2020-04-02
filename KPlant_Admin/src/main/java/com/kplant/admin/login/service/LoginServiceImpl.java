@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kplant.admin.login.dao.LoginDAO;
-import com.kplant.admin.member.vo.MemberVO;
+import com.kplant.admin.login.vo.AdminVO;
 
 import lombok.Setter;
 //import lombok.extern.log4j.Log4j;
@@ -19,12 +19,12 @@ public class LoginServiceImpl implements LoginService{
 	private LoginDAO loginDAO;
 	
 	@Override
-	public MemberVO loginCheck(MemberVO mvo, HttpSession session) {
-		MemberVO vo = loginDAO.loginCheck(mvo);
+	public AdminVO loginCheck(AdminVO avo, HttpSession session) {
+		AdminVO vo = loginDAO.loginCheck(avo);
 		if (vo!=null) {
-			session.setAttribute("m_num", vo.getM_num());
-			session.setAttribute("m_id", vo.getM_id());
-			session.setAttribute("m_name", vo.getM_name());
+			session.setAttribute("a_num", vo.getA_num());
+			session.setAttribute("a_id", vo.getA_id());
+			session.setAttribute("a_name", vo.getA_name());
 			
 			/*
 			 * log.info((int)session.getAttribute("m_num"));
@@ -48,8 +48,8 @@ public class LoginServiceImpl implements LoginService{
 
 	/* 로그인 정보*/
 	@Override
-	public MemberVO viewMember(MemberVO mvo) {
-		return loginDAO.viewMember(mvo);
+	public AdminVO viewMember(AdminVO avo) {
+		return loginDAO.viewMember(avo);
 	}
 
 }

@@ -8,6 +8,7 @@
 		<typeAlias type="com.kplant.admin.consult.vo.ConsultVO" alias="consult"/>
 		<typeAlias type="com.kplant.admin.event.vo.EventVO" alias="event"/>
 		<typeAlias type="com.kplant.admin.member.vo.MemberVO" alias="member"/>
+		<typeAlias type="com.kplant.admin.login.vo.AdminVO" alias="admin"/>
 
 	
 		<!-- OrderVO -->

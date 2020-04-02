@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kplant.admin.login.service.LoginService;
-import com.kplant.admin.member.vo.MemberVO;
+import com.kplant.admin.login.vo.AdminVO;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -27,7 +27,7 @@ public class LoginController {
 	 * 로그인
 	 */
 	@RequestMapping(value = "/login")
-	public String login(@ModelAttribute("data")MemberVO mvo, Model model) {
+	public String login(@ModelAttribute("data")AdminVO avo, Model model) {
 		log.info("login 호출 성공");
 		return "login/login";
 	}
@@ -36,11 +36,12 @@ public class LoginController {
 	 * 로그인 처리
 	 */
 	@RequestMapping(value = "/loginCheck")
-	public ModelAndView loginCheck(@ModelAttribute MemberVO mvo, HttpSession session) {
+	public ModelAndView loginCheck(@ModelAttribute AdminVO avo, HttpSession session) {
 		log.info("loginCheck 호출 성공");
 		
-		MemberVO vo=loginService.loginCheck(mvo, session);
+		AdminVO vo=loginService.loginCheck(avo, session);
 		ModelAndView mav=new ModelAndView();
+		log.info("avo="+ avo);
 		if(vo!=null) {
 			mav.setViewName("redirect:/member/memberList");
 		}else {

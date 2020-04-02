@@ -26,7 +26,7 @@
 				font: bold;
 				color: #7F7F7F;
 			}
-			#m_id {
+			#a_id {
 			    width: 310px;
 			    margin-left: 7px;
 			    margin-top: 10px;
@@ -35,7 +35,7 @@
 			    border-radius: 5px;
 			    border: 1px solid gray;
 			}
-			#m_pwd {
+			#a_pwd {
 			    width: 310px;
 			    margin-left: 7px;
 			    margin-top: 10px;
@@ -50,11 +50,11 @@
 			$(function () {
 				
 				$("#loginBtn").click(function () {
-					var m_id=$("#m_id").val();
-					var m_pwd=$("#m_pwd").val();
+					var m_id=$("#a_id").val();
+					var m_pwd=$("#a_pwd").val();
 						
-					if(!chkData("#m_id","아이디"))return;
-					if(!chkData("#m_pwd","비밀번호"))return;
+					if(!chkData("#a_id","아이디"))return;
+					if(!chkData("#a_pwd","비밀번호"))return;
 					else{
 						
 						$("#form").attr({
@@ -76,11 +76,11 @@
 			<table>
 				<tr>
 					<td colspan="3">
-					<input type="text" id="m_id" name="m_id" placeholder="아이디 입력"></td>
+					<input type="text" id="a_id" name="a_id" placeholder="아이디 입력"></td>
 				</tr>
 				<tr>
 					<td colspan="3">
-					<input type="password" id="m_pwd" name="m_pwd" placeholder="비밀번호 입력"></td>
+					<input type="password" id="a_pwd" name="a_pwd" placeholder="비밀번호 입력"></td>
 				</tr>
 				<tr>
 					<td colspan="3" align="center">

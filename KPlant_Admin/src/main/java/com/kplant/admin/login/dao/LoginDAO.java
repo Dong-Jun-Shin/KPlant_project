@@ -1,11 +1,11 @@
 package com.kplant.admin.login.dao;
 
-import com.kplant.admin.member.vo.MemberVO;
+import com.kplant.admin.login.vo.AdminVO;
 
 public interface LoginDAO {
 
-	MemberVO loginCheck(MemberVO mvo);
+	AdminVO loginCheck(AdminVO avo);
 
-	MemberVO viewMember(MemberVO mvo);
+	AdminVO viewMember(AdminVO avo);
 
 }

@@ -27,6 +27,20 @@
 		
 	</head>
 	<body>
-	
+		<div class="container">
+			<form id="p_form" name="p_form">
+				<div id="p_img" name="p_img">
+					<img src="/resources/images/join/lock.png">
+				</div>
+				<div>
+					<table>
+						<tr><th><h1>식물이름</h1></th></tr>
+						<tr><th><h3>식물 가격</h3></th></tr>
+						<tr><td>상품 종류</td></tr>
+						<tr><td>재고 수량</td></tr>
+					</table>
+				</div>
+			</form>
+		</div>
 	</body>
 </html>
