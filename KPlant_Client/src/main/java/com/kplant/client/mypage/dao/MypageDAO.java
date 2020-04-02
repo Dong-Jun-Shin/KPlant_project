@@ -2,7 +2,7 @@ package com.kplant.client.mypage.dao;
 
 import com.kplant.client.join.vo.MemberVO;
 
-public interface mypageDAO {
+public interface MypageDAO {
 
 	// 회원정보 불러오기
 	public MemberVO memberData(MemberVO mvo);

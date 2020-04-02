@@ -4,15 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kplant.client.join.vo.MemberVO;
-import com.kplant.client.mypage.dao.mypageDAO;
+import com.kplant.client.mypage.dao.MypageDAO;
 
 import lombok.Setter;
 
 @Service
-public class mypageServiceImpl implements mypageService {
+public class MypageServiceImpl implements MypageService {
 
 	@Setter(onMethod_ = @Autowired)
-	private mypageDAO mypageDao;
+	private MypageDAO mypageDao;
 
 	// 회원정보 불러오기
 	public MemberVO memberData(MemberVO mvo) {

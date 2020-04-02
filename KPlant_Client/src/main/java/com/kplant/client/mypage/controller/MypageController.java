@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kplant.client.join.vo.MemberVO;
-import com.kplant.client.mypage.service.mypageService;
+import com.kplant.client.mypage.service.MypageService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -23,9 +23,9 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping(value="/mypage/*")
 @Log4j
 @AllArgsConstructor
-public class mypageController {
+public class MypageController {
 	
-	private mypageService mypageService;
+	private MypageService mypageService;
 	
 	//회원정보 불러오기
 	   @RequestMapping(value = "/", method = RequestMethod.GET)

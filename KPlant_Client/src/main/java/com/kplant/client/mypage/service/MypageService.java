@@ -4,7 +4,7 @@ package com.kplant.client.mypage.service;
 
 import com.kplant.client.join.vo.MemberVO;
 
-public interface mypageService {
+public interface MypageService {
 	
 	 // 회원정보 불러오기 
 	public MemberVO memberData(MemberVO mvo);

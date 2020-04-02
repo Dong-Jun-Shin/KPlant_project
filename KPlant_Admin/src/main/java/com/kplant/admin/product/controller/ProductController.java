@@ -118,14 +118,14 @@ public class ProductController {
 	@RequestMapping(value = "/productUpdate", method = RequestMethod.POST)
 	public String productUpdate(@ModelAttribute ProductVO pvo, RedirectAttributes ras) throws Exception {
 		log.info("productUpdate 호출 성공");
-
+		
 		int result = 0;
 		String url = "";
 		log.info("pvo" + pvo);
-
+		
 		result = productService.productUpdate(pvo);
 		ras.addFlashAttribute("data", pvo);
-
+		log.info(result);
 		if (result == 1) {
 			url = "/product/productDetail";
 		} else {
@@ -133,6 +133,7 @@ public class ProductController {
 		}
 
 		return "redirect:" + url;
+		
 	}
 
 	/**************************************************************

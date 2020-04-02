@@ -29,13 +29,17 @@
 
 	<div id="navbar" class="navbar-collapse collapse">
 		<ul class="nav navbar-nav">
-			<li class="menu navbar-left dropdown"><a href="/product/productList"
-				class="dropdown-toggle menu-left-font" data-toggle="dropdown"
-				data-hover="dropdown" role="button">FLOWER <span class="caret"></span></a>
+			<li class="menu navbar-left dropdown"><a
+				href="/product/productList" class="dropdown-toggle menu-left-font"
+				data-toggle="dropdown" data-hover="dropdown" role="button">FLOWER
+					<span class="caret"></span>
+			</a>
 				<ul class="dropdown-menu dropdown-sub" role="menu">
 					<li><a href="#">관엽/공기정화/분재</a></li>
 					<li><a href="#">다육/선인장</a></li>
-					<li><a href="#">선인장</a></li>
+					<li><a href="#">동양란/서양란</a></li>
+					<li><a href="#">꽃바구니/꽃상장</a></li>
+					<li><a href="#">꽃다발</a></li>
 				</ul></li>
 
 			<li class="menu navbar-left"><a class="menu-left-font" href="#">HOT

@@ -24,19 +24,16 @@
 <!-- <link rel="stylesheet" type="text/css" href="/resources/include/css/common.css" />
 		<link rel="stylesheet" type="text/css" href="/resources/include/css/board.css" /> -->
 
-<link rel="stylesheet" type="text/css"
-	href="/resources/include/css/default.css" />
-
-<!-- <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" /> -->
-
-<script type="text/javascript"
-	src="/resources/include/js/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="/resources/include/js/common.js"></script>
-<script type="text/javascript"
-	src="/resources/include/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-			$(function(){
+		<link rel="stylesheet" type="text/css" href="/resources/include/css/default.css" />
+		
+		<!-- <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
+				<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" /> -->
+		
+		<script type="text/javascript"src="/resources/include/js/jquery-1.12.4.min.js"></script>
+		<script type="text/javascript" src="/resources/include/js/common.js"></script>
+		<script type="text/javascript"src="/resources/include/dist/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+				$(function(){
 						
 				/* 첨부파일추가 버튼 클릭 시 처리 이벤트 */
 				$("#addFile").click(function(){ 
@@ -68,8 +65,9 @@
 				/* 수정 버튼 클릭 시 처리 이벤트 */
 				$("#multipleBoardUpdateBtn").click(function(){
 					//입력값 체크
-					if (!chkSubmit($('#m_title'),"제목을"))	 return;
-					else if (!chkSubmit($('#m_content'),"작성할 내용을"))	return;
+					if (!chkData('#prd_name',"상품명을"))	return;
+					else if (!chkData('#prd_price',"상품 단가를"))	return;
+					else if (!chkData('#prd_qty',"재고 수량을"))	return;
 					else{
 						// 첨부파일 체크
 						$('.file').each(function(index){
@@ -126,7 +124,7 @@
 					location.href="/admin/product/productList"; //+queryString;
 				});
 				
-				var prd_type = $("#typeSelect2 option:selected").val();
+				var prd_type = $("#typeSelect option:selected").val();
 				$("#prd_type").val(prd_type);
 			});
 		</script>
@@ -137,11 +135,10 @@
 
 		<div class="contentTB text-center">
 			<form id="f_updateForm" name="f_updateForm">
-				<input type="hidden" name="prd_type" id="prd_type" /> <input
-					type="hidden" id="prd_num" name="prd_num"
-					value="${updateData.prd_num}" /> <input type="hidden"
-					name="pageNum" id="pageNum" value="${data.pageNum}"> <input
-					type="hidden" name="amount" id="amount" value="${data.amount}">
+				<%-- <input type="hidden" name="prd_type" id="prd_type2" value = "${updateData.prd_type }"/> --%>
+				<input type="hidden" id="prd_num" name="prd_num" value="${updateData.prd_num}" /> 
+				<input type="hidden" name="pageNum" id="pageNum" value="${data.pageNum}"> 
+				<input type="hidden" name="amount" id="amount" value="${data.amount}">
 
 				<table class="table table-bordered">
 					<colgroup>
@@ -155,15 +152,16 @@
 							<td>상품번호</td>
 							<td class="text-left">${updateData.prd_num}</td>
 							<td>상품명</td>
-							<td class="text-left">${updateData.prd_name}</td>
+							<td class="text-left"><input type = "text" class="form-control" id = "prd_name" name = "prd_name" value = "${updateData.prd_name}" /></td>
 						</tr>
 						<tr>
 							<td>상품단가</td>
-							<td colspan="3" class="text-left">${updateData.prd_price}</td>
+							<td colspan="3" class="text-left"><input type = "number" class="form-control"   id = "prd_price" name = "prd_price" value = "${updateData.prd_price}" /></td>
 						</tr>
 						<tr>
 							<td>상품종류</td>
-							<td class="text-left"><select id="typeSelect2">
+							<td colspan="3" class="text-left">
+							<select id="typeSelect" name="prd_type">
 									<option value="관엽/공기정화/분채">관엽/공기정화/분채</option>
 									<option value="다육/선인장">다육/선인장</option>
 									<option value="선인장">선인장</option>
@@ -172,8 +170,7 @@
 						<tr class="table-height">
 							<td>재고수량</td>
 							<td colspan="3" class="text-left">
-							<td class="text-left"><input type="number" name="prd_qty"
-								id="prd_qty" class="form-control" value="${updateData.prd_qty}" />
+								<input type="number" class="form-control" name="prd_qty" id="prd_qty" class="form-control" value="${updateData.prd_qty}" />
 							</td>
 
 						</tr>
@@ -182,14 +179,14 @@
 								<td class="text-center">첨부파일 이미지</td>
 								<td colspan="3" id="multipleImage" class="text-left"><c:forEach
 										var="image" items="${updateData.images}" varStatus="status">
-										<input type="hidden" name="images[${status.index}].m_num"
-											value="${updateData.m_num}" />
+										<input type="hidden" name="images[${status.index}].prd_num"
+											value="${updateData.prd_num}" />
 										<input type="file" name="images[${status.index}].files[0]"
 											class="file existing_file">
 										<span class="clearBtn" title="checkbox와 file 값 초기화">&times;</span>
 										<input type="checkbox" name="images[${status.index}].i_num"
 											class="choice" value="${image.i_num}" />
-										<img src="/uploadStorage/multiple/${image.i_file}" />
+										<img src="/uploadStorage/product/${image.i_file}" />
 										<input type="hidden" name="images[${status.index}].i_file"
 											value="${image.i_file}" />
 									</c:forEach></td>
@@ -206,11 +203,9 @@
 		</div>
 
 		<div class="contentBtn text-right">
-			<input type="button" value="수정" id="multipleBoardUpdateBtn"
-				class="btn btn-primary" /> <input type="button" value="취소"
-				id="multipleBoardCancelBtn" class="btn btn-primary" /> <input
-				type="button" value="목록" id="multipleBoardListBtn"
-				class="btn btn-primary" />
+			<input type="button" value="수정" id="multipleBoardUpdateBtn" class="btn btn-primary" /> 
+			<input type="button" value="취소" id="multipleBoardCancelBtn" class="btn btn-primary" /> 
+			<input type="button" value="목록" id="multipleBoardListBtn" class="btn btn-primary" />
 		</div>
 	</div>
 </body>
