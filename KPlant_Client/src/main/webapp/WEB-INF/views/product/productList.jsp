@@ -30,7 +30,7 @@
 	<div class="row">
 		<div class="col-sm-6 col-md-4">
 			<div class="thumbnail">
-				<img src="..." alt="...">
+				<a href = "/product/productDetail"><img src="..." alt="..."></a>
 				<div class="caption">
 					<h3>Thumbnail label</h3>
 					<p>...</p>
@@ -42,5 +42,6 @@
 			</div>
 		</div>
 	</div>
+	
 </body>
 </html>

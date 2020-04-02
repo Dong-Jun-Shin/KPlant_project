@@ -33,7 +33,7 @@
                <span class="caret"></span>
          </a>
             <ul class="dropdown-menu dropdown-sub" role="menu">
-               <li><a href="/product/" >관엽/공기정화/분재</a></li>
+               <li><a href="/product/productList" >관엽/공기정화/분재</a></li>
                <li><a href="#">다육/선인장</a></li>
                <li><a href="#">동양란/서양란</a></li>
                <li><a href="#">꽃바구니/꽃상자</a></li>
