@@ -17,7 +17,6 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class ProductController {
 	
-	private ProductService productService;
 	
 	/**
 	 * 상품 리스트
