@@ -14,6 +14,7 @@
 </div>
 <div class="container">
 	<div class="navbar-header">
+<<<<<<< HEAD
       <a class="navbar-brand" href="#" style="padding: 5px">
       	<img alt="logo" src="/resources/images/template/logo.png" width="200px">
       </a>
@@ -36,7 +37,7 @@
                <li><a href="/product/" >관엽/공기정화/분재</a></li>
                <li><a href="#">다육/선인장</a></li>
                <li><a href="#">동양란/서양란</a></li>
-               <li><a href="#">꽃바구니/꽃상장</a></li>
+               <li><a href="#">꽃바구니/꽃상자</a></li>
                <li><a href="#">꽃다발</a></li>
             </ul></li>
         <li class="menu navbar-left"><a class="menu-left-font" href="#">HOT DEAL</a></li>
@@ -71,6 +72,7 @@
         		 <li><a href = "/mypage/">마이페이지</a></li>
         	</c:if>
         </li>
+
 			<li><a class="menu menu-right-icon" href="/order/cart"><span
 					class="glyphicon glyphicon-shopping-cart icon-margin"
 					aria-hidden="true"></span><span class="basket">0</span></a></li>

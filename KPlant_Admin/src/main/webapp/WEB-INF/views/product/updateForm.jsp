@@ -162,9 +162,11 @@
 							<td>상품종류</td>
 							<td colspan="3" class="text-left">
 							<select id="typeSelect" name="prd_type">
-									<option value="관엽/공기정화/분채">관엽/공기정화/분채</option>
-									<option value="다육/선인장">다육/선인장</option>
-									<option value="선인장">선인장</option>
+										<option value = "관엽/공기정화/분채">관엽/공기정화/분채</option>
+									<option value = "다육/선인장">다육/선인장</option>
+									<option value = "동양란/서양란">동양란/서양란</option>
+									<option value = "꽃바구니/꽃상자">꽃바구니/꽃상자</option>
+										<option value = "꽃다발">꽃다발</option>
 							</select></td>
 						</tr>
 						<tr class="table-height">
