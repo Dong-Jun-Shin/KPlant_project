@@ -165,7 +165,7 @@
 										<option value = "관엽/공기정화/분채">관엽/공기정화/분채</option>
 									<option value = "다육/선인장">다육/선인장</option>
 									<option value = "동양란/서양란">동양란/서양란</option>
-									<option value = "꽃바구니/꽃상장">꽃바구니/꽃상장</option>
+									<option value = "꽃바구니/꽃상자">꽃바구니/꽃상자</option>
 										<option value = "꽃다발">꽃다발</option>
 							</select></td>
 						</tr>

@@ -38,7 +38,7 @@
 					<li><a href="/product/" >관엽/공기정화/분재</a></li>
 					<li><a href="#">다육/선인장</a></li>
 					<li><a href="#">동양란/서양란</a></li>
-					<li><a href="#">꽃바구니/꽃상장</a></li>
+					<li><a href="#">꽃바구니/꽃상자</a></li>
 					<li><a href="#">꽃다발</a></li>
 				</ul></li>
 
