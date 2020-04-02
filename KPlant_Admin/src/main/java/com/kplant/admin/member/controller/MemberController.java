@@ -61,13 +61,14 @@ public class MemberController {
 		MemberVO detail=memberService.memberDetail(mvo);
 		model.addAttribute("detail",detail);
 		
-		//Map<String, String> memberOrderList = memberService.memberOrderList(mvo);
-		//model.addAttribute("memberOrderList", memberOrderList);
+		List<Map<String, String>> memberOrderList = memberService.memberOrderList(mvo);
+		model.addAttribute("memberOrderList", memberOrderList);
 		
 		
-		/*for(Map.Entry<String, String> entry : memberOrderList.entrySet()) {
-			log.info(entry.getKey() + " / " + entry.getValue());
-		}*/
+		for(Map<String, String> entry : memberOrderList) {
+			for(Map.Entry<String, String> entryData : entry.entrySet())
+				log.info(entryData.getKey() + " / " + String.valueOf(entryData.getValue()));
+		}
 		return "member/memberDetail";
 	}
 	

@@ -3,18 +3,14 @@
 <mapper namespace="com.kplant.admin.member.dao.MemberDAO">
 	<resultMap type="java.util.TreeMap" id="graph" />
 	
-	<!-- <resultMap id="orderList" type="java.util.HashMap">
+	<resultMap id="orderList" type="java.util.LinkedHashMap">
 	 	<result property="m_num" column="m_num" javaType="java.lang.String" />
 	    <result property="ord_num" column="ord_num" javaType="java.lang.String" />
 	    <result property="ord_qty" column="ord_qty" javaType="java.lang.String" />
 	    <result property="prd_name" column="prd_name" javaType="java.lang.String" />
 	    <result property="prd_price" column="prd_price"  javaType="java.lang.String"/>   
-	</resultMap>  -->
+	</resultMap> 
 
-	<!-- <resultMap id="orderList" type="java.util.ArrayList">
-	 	<result property="orderList" column="m_num" />
-	</resultMap> --> 
-	
 
 	<sql id="memberSearch">
 		<if test="search=='m_name'">
@@ -83,7 +79,7 @@
 		FROM member where m_num = #{m_num}
 	</select>
 	
-	<!-- 상세 페이지를 위한 제시물 조회 
+	<!-- 상세 페이지를 위한 제시물 조회 -->
 	<select id="memberOrderList" parameterType="member" resultMap="orderList">
 		/* memberOrderList */
 		SELECT mem.m_num m_num, det.ord_num ord_num, det.ORD_QTY ord_qty, pro.PRD_NAME prd_name, pro.PRD_PRICE prd_price
@@ -91,16 +87,7 @@
      		 inner join ORDER_DETAIL det on ord.ORD_NUM = det.ORD_NUM 
      		 inner join PRODUCT pro on pro.PRD_NUM = det.PRD_NUM 
 		where mem.m_num = #{m_num}
-	</select>-->
-	
-	<!-- <select id="memberOrderList" parameterType="member" resultMap="orderList">
-		/* memberOrderList */
-		SELECT mem.m_num m_num, det.ord_num ord_num, det.ORD_QTY ord_qty, pro.PRD_NAME prd_name, pro.PRD_PRICE prd_price
-		FROM member mem INNER JOIN order_list ord on mem.m_num=ord.m_num 
-     		 inner join ORDER_DETAIL det on ord.ORD_NUM = det.ORD_NUM 
-     		 inner join PRODUCT pro on pro.PRD_NUM = det.PRD_NUM 
-		where mem.m_num = #{m_num}
-	</select>  -->
+	</select>
 	
 	
 	<!-- 회원 연령대 조회 -->

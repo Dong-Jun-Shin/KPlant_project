@@ -39,9 +39,13 @@
 				color: white;
 				
 			}
-			table.table-bordered {
+			#memberList {
 				margin-top: 30px;
 				height: 400px;
+			}
+			#orderList{
+				margin-top: 40px;
+				height: 70px;
 			}
 		</style>
 		
@@ -64,7 +68,7 @@
 			
 			<%--===================== 상세 정보 보여주기 시작 ================= --%>
 				<div class="contentTB text-cent">
-					<table class="table table-bordered">
+					<table id="memberList" class="table table-bordered">
 						<colgroup>
 							<col width="5%"/>
 							<col width="9%"/>
@@ -118,29 +122,35 @@
 						</tbody>
 					</table>
 					
-					<%-- <table class="table table-bordered">
+					<table id="orderList" class="table table-bordered">
 						<tr>
-							<th>번호</th>
-							<th>휴면 여부</th>
+							<th>회원 번호</th>
+							<th>주문 번호</th>
+							<th>상품 수량</th>
+							<th>상품 이름</th>
+							<th>상품 단가</th>
 						</tr>
 						<tr>
 							<c:choose>
 							<c:when test="${not empty memberOrderList}">
-								<c:forEach var="member" items="${memberOrderList}" varStatus="status">
-									<tr class="text-center" data-num="${member.m_num}">
-										<td>${member.m_num}</td>
-										<td>${member.ord_num}</td>
+								<c:forEach var="orderList" items="${memberOrderList}" varStatus="status">
+									<tr class="text-center" data-num="${orderList.m_num}">
+										<td>${orderList.m_num}</td>
+										<td>${orderList.ord_num}</td>
+										<td>${orderList.ord_qty}</td>
+										<td>${orderList.prd_name}</td>
+										<td>${orderList.prd_price}</td>
 									</tr>
 								</c:forEach>
 							</c:when>
 							<c:otherwise>
 								<tr>
-									<td colspan="2" class="tac text-center">주문 내역이 존재하지 않습니다</td>
+									<td colspan="5" class="tac text-center">주문 내역이 존재하지 않습니다</td>
 								</tr>
 							</c:otherwise>
 						</c:choose>
 					</table>
-				</div> --%>
+				</div> 
 				<%--===================== 상세 정보 보여주기 종료 ================= --%>
 				
 				<%--================== 확인 버튼 시작 ============ --%>

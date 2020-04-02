@@ -57,12 +57,12 @@ public class MemberServiceImpl implements MemberService{
 		return genderList;
 	}
 
-	/*@Override
-	public Map<String, String> memberOrderList(MemberVO mvo) {
-		Map<String, String> memberOrderList = null;
+	@Override
+	public List<Map<String, String>> memberOrderList(MemberVO mvo) {
+		List<Map<String, String>> memberOrderList = null;
 		memberOrderList = memberDAO.memberOrderList(mvo);
 		return memberOrderList;
-	}*/
+	}
 
 
 }
