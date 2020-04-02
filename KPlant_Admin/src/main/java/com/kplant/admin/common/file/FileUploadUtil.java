@@ -50,7 +50,7 @@ public class FileUploadUtil {
 			//저장할 파일이름
 			real_name = fileName +"_"+System.currentTimeMillis()+"_"+org_name;
 			
-			String docRoot = "C://uploadStorage//"+fileName;
+			String docRoot = "C://KplantUploadStorage//"+fileName;
 			makeDir(docRoot);
 			
 			File fileAdd = new File(docRoot+"/"+real_name); //파일 생성후
@@ -65,13 +65,13 @@ public class FileUploadUtil {
 	public static String makeThumbnail(String fileName) throws Exception{
 		String dirName = fileName.substring(0, fileName.indexOf("_"));
 		//이미지가 존재하는 폴더 추출
-		String imgPath = "C://uploadStorage//"+dirName;
+		String imgPath = "C://KplantUploadStorage//"+dirName;
 		//추출된 폴더의 실제 경로(물리적 위치: C:\...)
 		File fileAdd = new File(imgPath, fileName);
 		log.info("원본 이미지 파일(fileAdd) : " + fileAdd);
 		
 		BufferedImage sourceImg = ImageIO.read(fileAdd);
-		BufferedImage destImg = Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 133);
+		BufferedImage destImg = Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 200);
 		
 		//resize(대상[BufferedImage 타입], 원본비율, 높이 또는 너비, 크기)
 		
@@ -121,12 +121,20 @@ public class FileUploadUtil {
 		String startDirName = "", docRoot = "";
 		String dirName = fileName.substring(0, fileName.indexOf("_"));
 		
+		if (dirName.equals("thumbnail")) {
+			startDirName = fileName.substring(dirName.length()+1, fileName.indexOf("_", dirName.length()+1));
+			docRoot = "C://KplantUploadStorage//"+startDirName+"//"+dirName;
+		}else {
+			docRoot = "C://KplantUploadStorage//"+dirName;
+		}
+
 		if(dirName.equals("thumbnail")) {
 			startDirName = fileName.substring(dirName.length()+1, fileName.indexOf("_",dirName.length()+1));
 			docRoot = "C://uploadStorage//"+startDirName+"//"+dirName;
 		}else {
 			docRoot = "C://uploadStorage//"+dirName;
 		}
+		
 		File fileDelete = new File(docRoot+"/"+fileName); //파일 생성후
 		log.info("삭제할 파일(fileDelete) : "+fileDelete);
 		if(fileDelete.exists() && fileDelete.isFile()) {

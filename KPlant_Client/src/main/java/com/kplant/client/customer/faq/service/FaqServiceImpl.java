@@ -30,4 +30,9 @@ public class FaqServiceImpl implements FaqService {
 		return detail;
 	}
 
+	@Override
+	public int faqListCnt(FaqVO fvo) {
+		return faqDAO.faqListCnt(fvo);
+	}
+
 }

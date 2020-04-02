@@ -49,10 +49,9 @@
 				<c:forEach var="event" items="${eventList}">
 					  <div class="col-sm-6 col-md-4">
 					    <div class="thumbnail goDetail" data-num="${event.evnt_num}">
-					      <img src="/KplantUploadStorage/event/thumbnail/${event.evnt_thumb}">
+					      <img src="/KplantUploadStorage/event/thumbnail/${event.evnt_thumb}" style="width: 600px; height: 300px;">
 					      <div class="caption">
 					        <h3>${event.evnt_title}</h3>
-					        <p>${event.evnt_content}</p>
 							<p>${event.evnt_startDate}부터  - ${event.evnt_endDate}까지</p>
 							<p>${event.evnt_rgstDate}</p>
 					      </div>
@@ -73,20 +72,6 @@
 				  </div>
 			</c:otherwise>
 		</c:choose>
-		
-	  
-	  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail goDetail" data-num="${event.evnt_num}">
-	      <img src="/resources/images/event/eventDefault.jpg">
-	      <div class="caption">
-	        <h3>이벤트 제목</h3>
-	        <p>이벤트 부제목이 들어갈 자리 입니다3.</p>
-			<p>이벤트 시작일 + 이벤트 종료일</p>
-			<p>글 등록일 </p>
-	      </div>
-	    </div>
-	  </div>
-	  
 	</div>
 	<%--====================이벤트 thumbnail 출력종료=================== --%>
 </div>

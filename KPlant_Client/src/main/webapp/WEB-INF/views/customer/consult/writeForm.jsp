@@ -11,7 +11,6 @@
 	
 	$(function () {
 		$("#goToConsult").click(function () {
-			alert("")
 			location.href="/customer/consult/consultMain"
 		})
 	});//최상위 $ 종료
@@ -102,7 +101,7 @@
 									<label class="radio-inline">
 									  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 아니오
 									</label>
-									<span style="margin-left: 75px;">회신을 원하지 않으시면 아니오를 선택해 주세요</span>
+									<span>회신을 원하지 않으시면 아니오를 선택해 주세요</span>
 								</td>
 							</tr>
 							<tr>

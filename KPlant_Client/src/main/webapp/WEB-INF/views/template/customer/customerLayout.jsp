@@ -23,6 +23,7 @@
 	<link rel="stylesheet" type="text/css" href="/resources/include/css/customer/customer.css" />
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 	
+	<script type="text/javascript" src="/resources/include/js/common.js"></script>
     <script type="text/javascript" src="/resources/include/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
