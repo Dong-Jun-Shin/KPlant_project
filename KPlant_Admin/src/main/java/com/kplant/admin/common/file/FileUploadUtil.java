@@ -98,7 +98,7 @@ public class FileUploadUtil {
 		// 파일명 변경(중복되지 않게) 
 		if(!file.isEmpty()){
 			
-			String docRoot = "C://uploadStorage//"+fileName;
+			String docRoot = "C://KplantUploadStorage//"+fileName;
 			makeDir(docRoot);
 			File fileAdd = null;
 			for(MultipartFile MultiFile : file) {
@@ -130,9 +130,9 @@ public class FileUploadUtil {
 
 		if(dirName.equals("thumbnail")) {
 			startDirName = fileName.substring(dirName.length()+1, fileName.indexOf("_",dirName.length()+1));
-			docRoot = "C://uploadStorage//"+startDirName+"//"+dirName;
+			docRoot = "C://KplantUploadStorage//"+startDirName+"//"+dirName;
 		}else {
-			docRoot = "C://uploadStorage//"+dirName;
+			docRoot = "C://KplantUploadStorage//"+dirName;
 		}
 		
 		File fileDelete = new File(docRoot+"/"+fileName); //파일 생성후
