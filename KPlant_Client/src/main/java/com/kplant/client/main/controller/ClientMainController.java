@@ -71,4 +71,5 @@ public class ClientMainController {
 		
 		return "index";
 	}
+	
 }

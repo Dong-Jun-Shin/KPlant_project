@@ -10,13 +10,12 @@ h1 {
 	color: #7F7F7F;
 }
 
-td>img {
-	width: 180px;
-	height: 180px;
-	margin: 20px;
+td {
+	padding: 10px;
 }
 
-td {
+th{
+	text-align: right;
 	padding: 10px;
 }
 
@@ -26,7 +25,8 @@ table {
 	margin-top: 50px;
 	box-shadow: 5px 5px 10px #DDDDDD;
 	padding: 20px;
-	width: 500px;
+	width: 550px;
+	height: 400px;
 }
 
 #ldentityBtn {
@@ -35,20 +35,11 @@ table {
 	border: 2px solid #1E332C;
 	color: white;
 	border-radius: 3px;
+	margin-top: 5px;
 }
 
-#a {
-	text-align: right;
-}
-
-#d {
-	text-align: left;
-}
-
-.id {
-	padding-right: 30px;
-	padding-bottom: 5px;
-	padding-top: 5px;
+#m_eMail2{
+	margin-top: 0px;
 }
 
 a {
@@ -56,11 +47,18 @@ a {
 	padding: 10px;
 }
 
+#a{
+	padding-top: 25px;
+}
+
 a#login {
 	border-right: 1px solid #7F7F7F;
 	padding-right: 30px;
 	padding-bottom: 5px;
 	padding-top: 5px;
+}
+a#agree{
+	padding-left: 30px;
 }
 
 .section {

@@ -20,9 +20,10 @@
     <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.css" />
 	<link rel="stylesheet" type="text/css" href="/resources/include/css/template/navbar-static-top.css" />
-	<link rel="stylesheet" type="text/css" href="/resources/include/css/customer.css" />
+	<link rel="stylesheet" type="text/css" href="/resources/include/css/customer/customer.css" />
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 	
+	<script type="text/javascript" src="/resources/include/js/common.js"></script>
     <script type="text/javascript" src="/resources/include/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
@@ -30,16 +31,22 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0px;">
-    	<tiles:insertAttribute name="header" />
-    </nav>
-	
-	
+  	<div>
+	    <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 5px;">
+	    	<tiles:insertAttribute name="header" />
+	    </nav>
+	</div>
     <div class="section container">
-		<nav class="col-md-2 d-none d-md-block bg-light sidebar">
-			<tiles:insertAttribute name="left"/>
-		</nav>
-    	<tiles:insertAttribute name="body" />
+    	<div class="customer-body">
+			<div>
+				<nav class="d-none d-md-block bg-light sidebar">
+					<tiles:insertAttribute name="left"/>
+				</nav>
+			</div>
+			<div>
+	    		<tiles:insertAttribute name="body" />
+	    	</div>
+    	</div>
     </div>
 
     <footer>

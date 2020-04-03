@@ -21,12 +21,24 @@
 	<link rel="stylesheet" type="text/css" href="/admin/resources/include/dist/css/bootstrap-theme.css" />
 	<link rel="stylesheet" type="text/css" href="/admin/resources/include/css/template/admin-header-footer-nav.css" />
 	
+	<link rel="stylesheet" type="text/css" href="/admin/resources/include/css/customer/header.css" />
+	
 	<script type="text/javascript" src="/admin/resources/include/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/admin/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
 	<script type="text/javascript" src="/admin/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
+<<<<<<< HEAD
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="/admin/resources/include/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/admin/resources/include/js/common.js"></script>
+=======
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="/admin/resources/include/dist/js/bootstrap.min.js"></script>
+
+>>>>>>> origin/client_member
     <script src="/admin/resources/include/dist/assets/js/docs.min.js"></script>
+    
+    <script src="/resources/include/dist/assets/js/docs.min.js"></script>
   </head>
 
   <body>

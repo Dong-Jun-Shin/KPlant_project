@@ -23,4 +23,16 @@ public class FaqServiceImpl implements FaqService {
 		return clist;
 	}
 
+	@Override
+	public FaqVO faqGet(FaqVO fvo) {
+		FaqVO detail = null;
+		detail = faqDAO.faqGet(fvo);
+		return detail;
+	}
+
+	@Override
+	public int faqListCnt(FaqVO fvo) {
+		return faqDAO.faqListCnt(fvo);
+	}
+
 }

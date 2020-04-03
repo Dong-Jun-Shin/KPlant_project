@@ -1,20 +1,24 @@
 package com.kplant.admin.common.vo;
 
+//import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+//@Data
 @ToString
 @Setter
 @Getter
 public class CommonVO {
-	//조건 검색 시 사용할 필드(검색대상, 검색단어)
-	private String search = "";
-	private String keyword = "";
+	
+	//조건검색시 사용할 필드(검색대상, 검색단어)
+	private String search="";
+	private String keyword="";
 	
 	//날짜 검색시 사용할 필드(시작일, 종료일)
     private String start_date = "";
     private String end_date = "";
+	
     
     //페이지 처리시 사용할 필드(페이지 번호, 단위 데이터 양, 총 데이터 수) 
     private int pageNum = 0;
