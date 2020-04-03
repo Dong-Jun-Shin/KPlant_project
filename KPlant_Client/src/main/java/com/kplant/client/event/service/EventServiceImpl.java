@@ -25,10 +25,9 @@ public class EventServiceImpl implements EventService {
 	public EventVO eventDetail(EventVO evo) {
 		EventVO detail = null;
 		detail = eventDAO.eventDetail(evo);
-		if (detail!=null) {
-			detail.setEvnt_content(
-			detail.getEvnt_content().toString().replace("\n", "<br>"));
-		}
+	    if(detail.getEvnt_content()!=null) {
+	    	detail.setEvnt_content(detail.getEvnt_content().replaceAll("\n", "<br />"));
+	    }
 		return detail;
 	}
 }

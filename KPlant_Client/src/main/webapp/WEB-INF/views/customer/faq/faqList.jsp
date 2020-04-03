@@ -2,8 +2,46 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<link rel="stylesheet" type="text/css" href="/resources/include/css/customer/header.css">
 <script type="text/javascript">
 	$(function () {
+		/*검색 후 검색 대상과 검색 단어 출력*/
+		var word="<c:out value='${data.keyword}' />";
+		var value="";
+		if (word!="") {
+			$("#keyword").val("<c:out value='${data.keyword}' />");
+			$("#search").val("<c:out value='${data.search}' />");
+			
+			if ($("#search").val()!='faq_content') {
+				if ($("#search").val()=='faq_title') value = "#list tr .goDetail";
+				console.log($(value+":contains('"+word+"')").html());
+				
+				//:contains()는 특정 텍스트를 포함한 요소 반환
+				$(value+":contains('"+word+"')").each(function () {
+					var regex = new RegExp(word,'gi');
+					$(this).html($(this).html().replace(regex, "<span class='required'>" + word+"</span>"));
+				});
+			}
+		}
+		
+		//검색 대상이 변경될 때마다 처리 이벤트
+		$("#search").change(function() {
+			if($("#search").val()=="all"){
+				$("#keyword").val("전체 데이터 조회합니다.");
+			}else if($("#search").val()!="all"){
+				$("#keyword").val("");
+				$("#keyword").focus();
+			}
+		});
+		
+		//조회 검색버튼
+		$("#searchData").click(function() {
+			if($("search").val()!="all"){
+				if(!chkData("#keyword","검색어를")) return;
+			}
+			goPage();
+		});
+		
 		/*modal창에 값 전달하기*/
 		$(".goADetail").click(function () {
 			var faq_num=$(this).parents("tr").attr("data-num");
@@ -32,6 +70,16 @@
 		$("#check-btn").click(function () {
 			location.href="/customer/faq/faqList";
 		})
+		
+		/* 페이지 번호 클릭 시, 처리 */
+        $(".paginate_button a").click(function(e){
+           // 기본 속성 해지 함수(ex) a의 href 속성을 해제)
+           e.preventDefault();
+           $("#f_search").find("input[name='pageNum']").val($(this).attr("href"));
+           // 페이지 번호에 따른 검색으로 페이징 구현 (실질적인 요청)
+           goPage();
+        });
+	
 	});//최상위 $ 함수 종료
 	
 	/* 팝오버(popover)에 대한 옵션 설정 */
@@ -51,7 +99,17 @@
 		$("#faq_num").val("");
 	}
 	
-	
+	//검색을 위한 실질적인 처리 함수
+	function goPage() {
+		if($("#search").val()=="all"){
+			$("#keyword").val("");
+		}
+		$("#f_search").attr({
+			"method":"get",
+			"action":"/customer/faq/faqList"
+		});
+		$("#f_search").submit();
+	}
 </script>
 <%-- 내용 구현하기 --%>
 <div class="customer-content">
@@ -65,6 +123,24 @@
 		<h2 class="customer-subTitle">FAQ</h2>
 	</div>
 	<%-- Sub title 출력 종료--%>
+	
+	<%--========== 검색 기능 시작 ============ --%>
+	<div id="faqSearch" class="search-header">
+		<form id="f_search" name="f_search" class="form-inline">
+			<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum }">
+	        <input type="hidden" name="amount" value="${pageMaker.cvo.amount }">
+			<div class="form-group">
+				<select id="search" name="search" class="form-control">
+					<option value="all">전체 검색</option>
+					<option value="faq_title">질문</option>
+					<option value="faq_content">답변</option>
+				</select>
+				<input type="text" name="keyword" id="keyword" class="form-control" placeholder="검색할 키워드를 입력해주세요."/>
+				<button type="button" id="searchData" class="btn btn-style">검색</button>
+			</div>
+		</form>
+	</div>
+	<%--=========== 검색 기능 종료 =========== --%>
 	
 	<%-- =========FAQ 데이터 테이블 출력============ --%>
 	<div class="table-reponsive customer-table">
@@ -94,6 +170,28 @@
 		</table>
 	</div>
 	<%-- =========FAQ 데이터 테이블 출력 종료============ --%>
+	
+	<%--======================페이징 출력 시작====================== --%>
+	<div class="text-center">
+		<ul class="pagination">
+			<c:if test="${pageMaker.prev}">
+				<li class="paginate_button previous">
+					<a href="${pageMaker.startPage -1}">previous</a>
+				</li>
+			</c:if>
+			<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+				<li class="paginate_button ${pageMaker.cvo.pageNum == num ? 'active':''}">
+					<a href="${num}">${num}</a>
+				</li>
+			</c:forEach>
+			<c:if test="${pageMaker.next}">
+				<li class="paginate_button next">
+					<a href="${pageMaker.endPage +1 }">Next</a>
+				</li>
+			</c:if>
+		</ul>
+	</div>
+	<%--======================페이징 출력 끝====================== --%>
 	
 	<%-- ===================FAQ Modal 페이지 제작 ===================--%>
 	<div class="modal fade" id="faqModal" tabindex="-1" role="dialog" aria-labelledby="faqModalLabel" aria-hidden="true">

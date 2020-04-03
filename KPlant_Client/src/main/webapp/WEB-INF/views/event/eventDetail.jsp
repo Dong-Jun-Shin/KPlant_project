@@ -27,24 +27,36 @@
 	<%--이벤트 제목출력 --%>
 	<hr id="top-line">
 	<div class="row">
-	  <div class="col-md-6 text-left">이벤트 제목입니다.${detail.evnt_title}</div>
+	  <div class="col-md-6 text-left">${detail.evnt_title}</div>
 	  <div class="col-md-6 text-right">등록일 [${detail.evnt_rgstDate}]</div>
 	</div>
 	<hr id="botton-line">	
 	
 	<%--이벤트 상세 정보 보여주기 --%>
-	<div> 
-		<div class="event_img" data-num="${detail.evnt_num}">
-			<img src="/uploadStorage/event/thumbnail/${detail.evnt_thumb}">
-			<img src="/uploadStorage/event/fileF/${detail.evnt_fileF}">
-			<img src="/uploadStorage/event/fileS/${detail.evnt_fileS}">
-			<img src="/uploadStorage/evnet/fileT/${detail.evnt_fileT}">
-		</div>
+	<div class="showImageEvent"> 
+		<ul style="list-style:none;">
+			<li>
+				<c:if test="${detail.evnt_fileF != null}">
+					<img src="/KplantUploadStorage/event/${detail.evnt_fileF}">
+				</c:if>
+			</li>
+			<li>
+				<c:if test="${detail.evnt_fileS != null}">
+					<img src="/KplantUploadStorage/event/${detail.evnt_fileS}">
+				</c:if>
+			</li>
+			<li>
+				<c:if test="${detail.evnt_fileT != null}">
+					<img src="/KplantUploadStorage/event/${detail.evnt_fileT}">
+				</c:if>
+			</li>
+		</ul>
 		
-		<div class="event_content">
-			${detail.evnt_content}
-			글내용이 추가 되어야 합니다.
-		</div>
+		<c:if test="${detail.evnt_content != null}">
+			<div class="event_content">
+				${detail.evnt_content}
+			</div>
+		</c:if>
 		
 		<div class="panel panel-success" style="text-align: left;">
 			<div class="panel-heading">
@@ -55,8 +67,8 @@
 				<li>킹텐리의 회원정보에 입력해둔 휴대전화 번호로 연락을 드립니다. 회원정보에 정확한 정보를 입력해주시길 바랍니다. <br/>부정확한 연락처 기입으로 인해 연락이 불가할 경우 이벤트 당첨이 취소됩니다.</li>
 				<li>이하의 사항이 확인될 경우 당첨이 취소됩니다.</li>
 				<li>동일인의 중복 ID 사용을 통한 반복 응모, 스팸성 이벤트 응모, 타인의 댓글 도용</li>
-				<li>허위, 혹은 국내법과 무신사 회원약관에 위배되는 정보를 무신사와 무신사 스토어 회원정보에 기입했을 경우</li>
-				<li>통화 이후 제품 발송 일정과 배송 방법 등 진행 전반은 무신사가 직접 운영합니다.</li>
+				<li>허위, 혹은 국내법과 킹텐리 회원약관에 위배되는 정보를 킹텐리와 킹텐리 스토어 회원정보에 기입했을 경우</li>
+				<li>통화 이후 제품 발송 일정과 배송 방법 등 진행 전반은 킹텐리가 직접 운영합니다.</li>
 				<li>본 이벤트는 당사의 사정에 따라 사전 예고 없이 변경될 수 있습니다</li>
 			</ul>				
 		</div>

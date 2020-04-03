@@ -14,7 +14,7 @@
 </div>
 <div class="container">
 	<div class="navbar-header">
-      <a class="navbar-brand" href="#" style="padding: 5px">
+      <a class="navbar-brand" href="/" style="padding: 5px">
       	<img alt="logo" src="/resources/images/template/logo.png" width="200px">
       </a>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">

@@ -9,5 +9,7 @@ public interface FaqService {
 	List<FaqVO> faqList(FaqVO fvo);
 
 	FaqVO faqGet(FaqVO fvo);
+
+	int faqListCnt(FaqVO fvo);
 	
 }

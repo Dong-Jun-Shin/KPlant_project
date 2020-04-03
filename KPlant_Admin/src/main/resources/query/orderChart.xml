@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kplant.admin.order.dao.OrderChartDAO">
+	<resultMap id="chartResult" type="HashMap">
+		<result column="chartDate" property="chartDate" />
+		<result column="data" property="data" />
+	</resultMap>
+	
+	<select id="getMonthSales" resultMap="chartResult">
+		/* 주차별 월 매출액 그래프 */
+		<![CDATA[
+		SELECT TO_CHAR(pay_date, 'W') as chartDate, SUM(pay_price) as data 
+		FROM payment 
+	    WHERE TO_CHAR(pay_date, 'YY/MM') = TO_CHAR(SYSDATE, 'YY/MM')
+	        AND pay_status = '결제완료'
+		GROUP BY TO_CHAR(pay_date, 'W')
+		ORDER BY TO_CHAR(pay_date, 'W')
+		]]>
+	</select>
+	<select id="getYearSales" resultMap="chartResult">
+		/* 월별 연 매출액 그래프 */
+		<![CDATA[
+		SELECT TO_CHAR(pay_date, 'MM') as chartDate, SUM(pay_price) as data 
+		FROM payment 
+		WHERE TO_CHAR(pay_date, 'YYYY') = TO_CHAR(SYSDATE, 'YYYY')
+		    AND pay_status = '결제완료'
+		GROUP BY TO_CHAR(pay_date, 'MM')
+		ORDER BY TO_CHAR(pay_date, 'MM')
+		]]>
+	</select>
+	<select id="getYearOrder" resultMap="chartResult">
+		/* 월별 연 주문건 그래프 */
+		<![CDATA[
+		SELECT TO_CHAR(pay_date, 'MM') as chartDate, COUNT(ol.ord_num) as data
+		FROM order_list ol INNER JOIN payment p ON ol.ord_num = p.ord_num
+		WHERE TO_CHAR(pay_date, 'YYYY') = TO_CHAR(SYSDATE, 'YYYY')
+		        AND pay_status = '결제완료'
+		GROUP BY pay_status, TO_CHAR(pay_date, 'MM')
+		ORDER BY TO_CHAR(pay_date, 'MM')
+		]]>
+	</select>
+	<select id="getYearCancel" resultMap="chartResult">
+		/* 월별 연 주문 취소건 그래프 */
+		<![CDATA[
+		SELECT TO_CHAR(pay_date, 'MM') as chartDate, COUNT(ol.ord_num) as data
+		FROM order_list ol INNER JOIN payment p ON ol.ord_num = p.ord_num
+		WHERE TO_CHAR(pay_date, 'YYYY') = TO_CHAR(SYSDATE, 'YYYY')
+		        AND pay_status = '결제취소'
+		GROUP BY pay_status, TO_CHAR(pay_date, 'MM')
+		ORDER BY TO_CHAR(pay_date, 'MM')
+		]]>
+	</select>
+	<select id="getAllMonthSales" resultType="int">
+		/* 월 총 주문액 */
+		<![CDATA[
+		SELECT SUM(pay_price) 
+		FROM payment 
+		WHERE TO_CHAR(pay_date, 'YY/MM') = TO_CHAR(SYSDATE, 'YY/MM')
+		    AND pay_status = '결제완료'
+		]]>
+	</select>
+	<select id="getAllYearSales" resultType="int">
+		/* 연 총 주문액 */
+		<![CDATA[
+		SELECT SUM(pay_price)
+		FROM payment 
+		WHERE TO_CHAR(pay_date, 'YYYY') = TO_CHAR(SYSDATE, 'YYYY')
+		    AND pay_status = '결제완료'
+		]]>
+	</select>
+	<select id="getAllYearOrder" resultType="int">
+		/* 연 총 주문건 */
+		<![CDATA[
+		SELECT COUNT(ol.ord_num)
+		FROM order_list ol INNER JOIN payment p ON ol.ord_num = p.ord_num
+		WHERE TO_CHAR(pay_date, 'YYYY') = TO_CHAR(SYSDATE, 'YYYY')
+		        AND pay_status = '결제완료'
+		]]>
+	</select>
+	<select id="getAllYearCancel" resultType="int">
+		/* 연 총 취소건 */
+		<![CDATA[
+		SELECT COUNT(ol.ord_num)
+		FROM order_list ol INNER JOIN payment p ON ol.ord_num = p.ord_num
+		WHERE TO_CHAR(pay_date, 'YYYY') = TO_CHAR(SYSDATE, 'YYYY')
+		        AND pay_status = '결제취소'
+		]]>
+	</select>
+</mapper>
