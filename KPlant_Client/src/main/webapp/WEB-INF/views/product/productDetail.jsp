@@ -30,21 +30,28 @@
 			$(function () {
 				
 				//- 가격 빼기
-				$("#subtract").click{
+				$("#subtract").click(function() {
+					var su = $("#su").val();
+					var sum = Number(su)-Number(1);
+					$("#su").val(sum);
+				})
 					
-				}
 				//+ 가격 더하기
-				$("#plus").click{
-					
-				}
+				$("#plus").click(function() {
+					var su = $("#su").val();
+					var sum = Number(su)+Number(1);
+					$("#su").val(sum);
+				});
+				
 				//장바구니 버튼
-				$("#basket").click{
-					
-				}
+				$("#basket").click(function() {
+					location.href="/order/cart";
+				})
+				
 				//구매하기 버튼
-				$("#purchasev").click{
-					
-				}
+				$("#purchasev").click(function() {
+					location.href="/order/cart";
+				})
 				
 			});
 		</script>
@@ -76,14 +83,14 @@
 							</div>
 							
 							<div id = "right">
-								<label>6000원 </label>
+								<label>6000원 ${prd_price}</label>
 								<div class="row">
 									<div>
 										<div class="input-group">
 										  <span class="input-group-btn">
 										     <input class="btn btn-default" type="button" id="subtract" value="-" min="1"></input>
 										   </span>
-										   <input type="text" class="form-control" width="50px;"  value="1" min="1">
+										   <input type="text" id="su" class="form-control" width="50px;"  value="1" min="1">
 										     <span class="input-group-btn">
 										       <input class="btn btn-default" type="button" id="plus" value="+" min="1"></input>
 										     </span>
@@ -95,7 +102,7 @@
 						
 						<div class="text-right">
 							<label>총 상품금액: </label>
-							<label>6000원</label>
+							<label>6000원${prd_price}</label>
 						</div>
 						<hr>
 						

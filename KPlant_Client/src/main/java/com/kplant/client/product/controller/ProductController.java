@@ -17,6 +17,8 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class ProductController {
 	
+	private ProductService productService;
+	
 	/**
 	 * 상품 리스트
 	 */
@@ -32,6 +34,9 @@ public class ProductController {
 	@RequestMapping(value = "/productDetail")
 	public String productDetail(@ModelAttribute("data")ProductVO mvo, Model model) {
 		log.info("productDetail 호출 성공");
+		
+		//int result = productService.productDetail(mvo);
+		
 		return "product/productDetail";
 	}
 	
