@@ -1,6 +1,10 @@
 package com.kplant.client.product.dao;
 
 
-public interface ProductDao {
+import java.util.List;
 
+import com.kplant.client.product.vo.ProductVO;
+
+public interface ProductDao {
+	public List<ProductVO> productList(ProductVO pvo);
 }
