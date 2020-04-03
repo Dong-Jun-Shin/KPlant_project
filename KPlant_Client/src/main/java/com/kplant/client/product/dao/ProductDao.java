@@ -7,4 +7,6 @@ import com.kplant.client.product.vo.ProductVO;
 
 public interface ProductDao {
 	public List<ProductVO> productList(ProductVO pvo);
+
+	public ProductVO productDetail(ProductVO pvo);
 }

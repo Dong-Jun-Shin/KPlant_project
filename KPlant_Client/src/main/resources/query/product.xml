@@ -11,6 +11,12 @@
 	   group by prd_num
 	   order by prd_num
 	</select>
-
+	
+	<!-- 상품 디테일 -->
+	<select id="productDetail" parameterType="product" resultType="product">
+		SELECT prd_num, prd_name, prd_price, prd_type, prd_qty
+		FROM product
+		WHERE prd_num=#{prd_num}
+	</select>
 	
 </mapper>

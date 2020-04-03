@@ -59,31 +59,34 @@
 	<body>
 		<div class="container">
 			<form id="p_form" name="p_form" class="form_horizontal form-inline">
+				
+				<input type="hidden" name="prd_num">
+			
 				<div id="div">
 					<div id="p_div">
-						<img id="p_img" name="p_img" src="/resources/images/join/air_0001_2.jpg">
+						<img id="p_img" name="p_img" src="/KplantUploadStorage/product/${detail.img_prd}">
 					</div>
 					<div id="p_table">
-						<h1>선인장${prd_name}</h1>
-						<h3>60000원${prd_price}</h3>
+						<h1>${prd_name}</h1>
+						<h3>${prd_price}</h3>
 						<hr>
 						<div>
 							<label>상품 종류: </label>
-							<label>선인장${prd_type}</label>
+							<label>${prd_type}</label>
 						</div>
 						<div>
 							<label>재고 수량: </label>
-							<label>30${prd_qty}</label>
+							<label>${prd_qty}</label>
 						</div>
 						<hr>
 						<div id="money-div">
 							<div id = "left">
 								<label>상품명:</label>
-								<label>선인장${prd_name}</label>
+								<label>${prd_name}</label>
 							</div>
 							
 							<div id = "right">
-								<label>6000원 ${prd_price}</label>
+								<label> ${prd_price}</label>
 								<div class="row">
 									<div>
 										<div class="input-group">
@@ -102,7 +105,7 @@
 						
 						<div class="text-right">
 							<label>총 상품금액: </label>
-							<label>6000원${prd_price}</label>
+							<label>${prd_price}</label>
 						</div>
 						<hr>
 						

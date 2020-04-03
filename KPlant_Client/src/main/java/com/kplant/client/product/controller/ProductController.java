@@ -30,7 +30,7 @@ public class ProductController {
 	public String productList(@ModelAttribute("data") ProductVO pvo, Model model, HttpSession session) {
 		
 		log.info("productList 호출 성공"); 
-		List<ProductVO> productList = productService.productList(pvo);
+		List<ProductVO> productList = productService.productList(pvo, session);
 		model.addAttribute("productList", productList);
 		log.info(productList.size());
 		return "product/productList";
@@ -40,10 +40,14 @@ public class ProductController {
 	 * 상품 상세페이지
 	 */
 	@RequestMapping(value = "/productDetail")
-	public String productDetail(@ModelAttribute("data")ProductVO mvo, Model model) {
+	public String productDetail(@ModelAttribute("data")ProductVO pvo, Model model, HttpSession session) {
 		log.info("productDetail 호출 성공");
+		log.info("pvo.getPrd_num() = "+pvo.getPrd_num());
 		
-		//int result = productService.productDetail(mvo);
+		pvo.setPrd_num((String) session.getAttribute("prd_num"));
+		
+		ProductVO detail=productService.productDetail(pvo);
+		model.addAttribute("detail",detail);
 		
 		return "product/productDetail";
 	}
