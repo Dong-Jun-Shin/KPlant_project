@@ -27,7 +27,7 @@ public class ProductController {
 	public String productList(@ModelAttribute("data") ProductVO pvo, Model model, HttpSession session) {
 		
 		log.info("productList 호출 성공"); 
-		List<ProductVO> productList = productService.productList(pvo);
+		List<ProductVO> productList = productService.productList(pvo,session);
 		model.addAttribute("productList", productList);
 		log.info(productList.size());
 		return "product/productList";

@@ -2,6 +2,8 @@ package com.kplant.client.product.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +19,10 @@ public class ProductServiceImpl implements ProductService {
 	
 	
 	@Override
-	public List<ProductVO> productList(ProductVO pvo){
+	public List<ProductVO> productList(ProductVO pvo, HttpSession session){
 		List<ProductVO> list = null;
 		list = productDao.productList(pvo);
+		session.setAttribute("prd_num", pvo.getPrd_num());
 		return list;
 	}
 	
