@@ -3,9 +3,9 @@ package com.kplant.client.customer.consult.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kplant.client.common.file.FileUploadUtil;
 import com.kplant.client.customer.consult.dao.ConsultDAO;
 import com.kplant.client.customer.consult.vo.ConsultVO;
-import com.kplant.common.file.FileUploadUtil;
 
 import lombok.Setter;
 

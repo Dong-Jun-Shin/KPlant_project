@@ -38,7 +38,7 @@
 	 				<c:forEach var="i" items="${selList }">
 						<tr class="prd-list">
 							<td colspan="13" class="prd">
-								<img alt="${prdList[i].img_prd }" src="">
+								<img alt="${prdList[i].prd_num }" src="/KplantUploadStorage/product/${prdList[0].images[i].i_file }">
 								<span class="prd_name">${prdList[i].prd_name }</span>
 							</td>
 							<td>${ordDetailList[i].ord_qty }</td>
@@ -86,7 +86,7 @@
 		<div id="order-write">
 			<form id="ord_info" class="info-form">
 				<input type="hidden" id="ord_num" name="ord_num" />
-				<input type="hidden" name="m_num" value="${member.m_num }" />
+				<input type="hidden" name="m_num" value="${m_num }" />
 				<div class="body-title">주문 / 배송정보</div>
 				<div class="order-info">
 					<table>

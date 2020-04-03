@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.kplant.client.common.vo.PageDTO;
 import com.kplant.client.customer.faq.service.FaqService;
 import com.kplant.client.customer.faq.vo.FaqVO;
-import com.kplant.common.vo.PageDTO;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;

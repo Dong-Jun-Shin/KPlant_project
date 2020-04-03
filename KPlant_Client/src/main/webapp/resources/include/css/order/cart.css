@@ -90,6 +90,11 @@
 	height: 100px;
 }
 
+.body-list > tbody input[type="checkbox"]{
+	margin: 0px auto;
+    width: 16px;
+    height: 16px;
+}
 .body-list > tbody .prd{
 	text-align: left;
     width: 430px;
