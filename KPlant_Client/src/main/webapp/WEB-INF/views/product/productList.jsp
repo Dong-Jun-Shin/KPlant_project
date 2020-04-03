@@ -34,7 +34,7 @@
 				<div class="col-sm-6 col-md-4">
 					<div class="thumbnail goDetail" data-num="${product.prd_num}">
 						<a href = "/product/productDetail"><img src="/KplantUploadStorage/product/${product.img_prd}"
-                     style="width: 600px; height: 300px;"></a>
+							style="width: 600px; height: 300px;"></a>
 						<div class="caption">
 							<h3>${product.prd_name}</h3>
 							<p>${product.prd_price}원</p>
