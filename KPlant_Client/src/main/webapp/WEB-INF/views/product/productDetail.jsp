@@ -34,8 +34,9 @@
 				//- 가격 빼기
 				$("#subtract").click(function() {
 					var su = $("#su").val();
-					var subtractSu = Number(su)-Number(1);
-					$("#su").val(sum);
+					var subtractSu = Number(su)-1;
+
+					if(subtractSu > = ${})
 				})
 					
 				//+ 가격 더하기
