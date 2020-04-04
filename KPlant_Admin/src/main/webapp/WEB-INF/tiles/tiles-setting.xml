@@ -31,6 +31,7 @@
 	</definition>
 	<definition name="error/*" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/views/error/{1}.jsp" />
+	</definition>
 	
 	<definition name="faq/*" extends="admin">
 		<put-attribute name="title" value="Admin faq Page" />

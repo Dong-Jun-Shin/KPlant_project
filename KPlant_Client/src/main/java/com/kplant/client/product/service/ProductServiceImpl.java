@@ -10,9 +10,13 @@ import org.springframework.stereotype.Service;
 import com.kplant.client.product.dao.ProductDao;
 import com.kplant.client.product.vo.ProductVO;
 
+import lombok.Setter;
+import lombok.extern.log4j.Log4j;
+@Log4j
 @Service
 public class ProductServiceImpl implements ProductService {
 	
+	@Setter(onMethod_ =@Autowired )
 	private ProductDao productDao;
 	
 
@@ -27,7 +31,7 @@ public class ProductServiceImpl implements ProductService {
 	public List<ProductVO> productList(ProductVO pvo, HttpSession session){
 		List<ProductVO> list = null;
 		list = productDao.productList(pvo);
-		session.setAttribute("prd_num", pvo.getPrd_num());
+		log.info(list.size());
 		return list;
 	}
 	

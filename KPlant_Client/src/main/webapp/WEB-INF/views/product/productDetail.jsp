@@ -24,6 +24,8 @@
 		<script src="../js/html5shiv.js"></script>
 		<![endif]-->
 		
+		<script type = "text/javascript" src ="/resources/include/js/jquery-3.3.1.min.js"></script>
+		
 		<link rel="stylesheet" type="text/css" href="/resources/include/css/product/productDetail.css">
 		
 		<script type="text/javascript">
@@ -32,14 +34,14 @@
 				//- 가격 빼기
 				$("#subtract").click(function() {
 					var su = $("#su").val();
-					var sum = Number(su)-Number(1);
+					var subtractSu = Number(su)-Number(1);
 					$("#su").val(sum);
 				})
 					
 				//+ 가격 더하기
 				$("#plus").click(function() {
 					var su = $("#su").val();
-					var sum = Number(su)+Number(1);
+					var plusSu = Number(su)+Number(1);
 					$("#su").val(sum);
 				});
 				
@@ -67,26 +69,26 @@
 						<img id="p_img" name="p_img" src="/KplantUploadStorage/product/${detail.img_prd}">
 					</div>
 					<div id="p_table">
-						<h1>${prd_name}</h1>
-						<h3>${prd_price}</h3>
+						<h1>${detail.prd_name}</h1>
+						<h3>${detail.prd_price}</h3>
 						<hr>
 						<div>
 							<label>상품 종류: </label>
-							<label>${prd_type}</label>
+							<label>${detail.prd_type}</label>
 						</div>
 						<div>
 							<label>재고 수량: </label>
-							<label>${prd_qty}</label>
+							<label>${detail.prd_qty}</label>
 						</div>
 						<hr>
 						<div id="money-div">
 							<div id = "left">
 								<label>상품명:</label>
-								<label>${prd_name}</label>
+								<label>${detail.prd_name}</label>
 							</div>
 							
 							<div id = "right">
-								<label> ${prd_price}</label>
+								<label> ${detail.prd_price}</label>
 								<div class="row">
 									<div>
 										<div class="input-group">
@@ -105,7 +107,7 @@
 						
 						<div class="text-right">
 							<label>총 상품금액: </label>
-							<label>${prd_price}</label>
+							<label>${detail.prd_price}</label>
 						</div>
 						<hr>
 						
@@ -135,7 +137,7 @@
 					</div>
 					<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
 
-						<img id="notice" src="/resources/images/join/notice.png">
+						<img id="notice" src="/KplantUploadStorage/product/${detail.img_prd}">
 						
 					</div>
 				</div>

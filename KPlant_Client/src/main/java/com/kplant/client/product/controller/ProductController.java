@@ -44,8 +44,6 @@ public class ProductController {
 		log.info("productDetail 호출 성공");
 		log.info("pvo.getPrd_num() = "+pvo.getPrd_num());
 		
-		pvo.setPrd_num((String) session.getAttribute("prd_num"));
-		
 		ProductVO detail=productService.productDetail(pvo);
 		model.addAttribute("detail",detail);
 		
