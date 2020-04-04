@@ -29,7 +29,7 @@
    </div>
    <%-- 상세페이지로 이동하기 위한 hidden form --%>
    <form id="detailForm">
-      <input type="hidden" id="prd_num" name="prd_num"/>
+      <input type="hidden" id="prd_num" name="prd_num" value="${detail.prd_num}"/>
    </form>
 
 	<%-- product 썸네일 출력 --%>
@@ -38,7 +38,7 @@
 			<c:forEach var="product" items="${productList}">
 				<div class="col-sm-6 col-md-4">
 					<div class="thumbnail goDetail" data-num="${product.prd_num}">
-						<a href = "/product/productDetail"><img src="/KplantUploadStorage/product/${product.img_prd}"
+						<a href = "/product/productDetail?prd_num=${product.prd_num}"><img src="/KplantUploadStorage/product/${product.img_prd}"
 							style="width: 600px; height: 300px;"></a>
 						<div class="caption">
 							<h3>${product.prd_name}</h3>

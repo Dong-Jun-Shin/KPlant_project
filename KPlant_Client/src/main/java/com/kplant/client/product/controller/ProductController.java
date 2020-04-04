@@ -17,7 +17,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
 @Controller
-@RequestMapping(value="/product/*")
+@RequestMapping(value ="/product/*" )
 @Log4j
 @AllArgsConstructor
 public class ProductController {
@@ -82,12 +82,18 @@ public class ProductController {
 	
 	
 	/**
-	    * 상품 상세페이지
-	    */
-	   @RequestMapping(value = "/productDetail")
-	   public String productDetail(@ModelAttribute("data")ProductVO mvo, Model model) {
-	      log.info("productDetail 호출 성공");
-	      return "product/productDetail";
-	   }
-
+	 * 상품 상세페이지
+	 */
+	@RequestMapping(value = "/productDetail")
+	public String productDetail(@ModelAttribute("data")ProductVO pvo, Model model, HttpSession session) {
+		log.info("productDetail 호출 성공");
+		log.info("pvo.getPrd_num() = "+pvo.getPrd_num());
+		
+		ProductVO detail=productService.productDetail(pvo);
+		model.addAttribute("detail",detail);
+		
+		return "product/productDetail";
+	}
+	
+	
 }

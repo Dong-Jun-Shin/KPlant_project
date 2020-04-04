@@ -5,7 +5,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%-- 그래프 조회 --%>
-<%-- <jsp:include page="orderGraph.jsp"></jsp:include> --%>
+<c:if test="${pageMaker.cvo.pageNum == 1}">
+	<jsp:include page="orderChart.jsp"></jsp:include>
+</c:if>
 
 <%-- 리스트 조회 --%>
 <link rel="stylesheet" type="text/css" href="/admin/resources/include/css/order/orderList.css" />
