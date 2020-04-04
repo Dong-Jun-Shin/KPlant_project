@@ -29,7 +29,7 @@
    </div>
    <%-- 상세페이지로 이동하기 위한 hidden form --%>
    <form id="detailForm">
-      <input type="hidden" id="prd_num" name="prd_num"/>
+      <input type="hidden" id="prd_num" name="prd_num" value="${detail.prd_num}"/>
    </form>
 
 	<%-- product 썸네일 출력 --%>

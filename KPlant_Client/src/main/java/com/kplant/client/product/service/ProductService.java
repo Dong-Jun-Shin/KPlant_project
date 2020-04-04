@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSession;
 import com.kplant.client.product.vo.ProductVO;
 
 public interface ProductService {
+
+	public ProductVO productDetail(ProductVO pvo);
 	public List<ProductVO> productList(ProductVO pvo, HttpSession session);
 	public List<ProductVO> productList2(ProductVO pvo, HttpSession session);
 	public List<ProductVO> productList3(ProductVO pvo, HttpSession session);

@@ -10,13 +10,18 @@ import org.springframework.stereotype.Service;
 import com.kplant.client.product.dao.ProductDao;
 import com.kplant.client.product.vo.ProductVO;
 
-import lombok.Setter;
 @Service
 public class ProductServiceImpl implements ProductService {
 	
-	@Setter(onMethod_=@Autowired)
 	private ProductDao productDao;
 	
+
+	@Override
+	public ProductVO productDetail(ProductVO pvo) {
+		ProductVO data = new ProductVO();
+		data = productDao.productDetail(pvo);
+		return data;
+	}
 	
 	@Override
 	public List<ProductVO> productList(ProductVO pvo, HttpSession session){
@@ -61,5 +66,4 @@ public class ProductServiceImpl implements ProductService {
 	
 	
 	
-
 }

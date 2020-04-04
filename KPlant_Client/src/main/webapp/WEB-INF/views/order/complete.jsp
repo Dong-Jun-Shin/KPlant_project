@@ -21,7 +21,7 @@
 	<div class="order-body">
 		<div class="order-alert">
 			<div>"결제가 완료 되었습니다"</div>
-			<div>감사합니다. 결제내역에 대한 메일이 입력해주신 이메일로 전송되었습니다.</div>
+			<div>감사합니다. 결제내역에 대한 메일이 결제 시, 입력해주신 이메일로 전송되었습니다.</div>
 		</div>
 		<div class="cart_list">
 			<div class="body-title">결제내역</div>
