@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+#searchData {
+	padding: 5px 33px;
+	background-color: #1E332C;
+	border: 2px solid #1E332C;
+	color: white;
+	border-radius: 3px;
+	margin-top: 20px;
+}

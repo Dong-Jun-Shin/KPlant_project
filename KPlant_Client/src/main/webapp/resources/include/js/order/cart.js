@@ -148,13 +148,13 @@ function setBtn(bool){
 	if(bool){
 //    	$("#wishListBtn").attr("disabled", "disabled");
 		$("#allDeleteBtn").attr("disabled", "disabled");
-		$("#all_ord_btn").attr("disabled", "disabled");
-		$("#sel_ord_btn").attr("disabled", "disabled");
+		$("button[value='all']").attr("disabled", "disabled");
+		$("button[value='sel']").attr("disabled", "disabled");
 	}else{
 //    	$("#wishListBtn").removeAttr("disabled");
 		$("#allDeleteBtn").removeAttr("disabled");
-		$("#all_ord_btn").removeAttr("disabled");
-		$("#sel_ord_btn").removeAttr("disabled");
+		$("button[value='all']").removeAttr("disabled");
+		$("button[value='sel']").removeAttr("disabled");
 	}
 };
 

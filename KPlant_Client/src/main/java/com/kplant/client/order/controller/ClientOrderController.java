@@ -54,12 +54,30 @@ public class ClientOrderController {
 		List<ProductVO> prdList = (List<ProductVO>)session.getAttribute("prdList");
 		List<OrderDetailVO> ordDetailList = (List<OrderDetailVO>)session.getAttribute("ordDetailList");
 		int[] selList = (int[])session.getAttribute("selList");
-
+		
+		// 주문한 목록
+		List<ProductVO> orderPrdList = new ArrayList<ProductVO>();
+		List<OrderDetailVO> orderDetList = new ArrayList<OrderDetailVO>();
+		
+		int arrSize = 0;
 		for (int i : selList) {
-			prdList.remove(i);
-			ordDetailList.remove(i);
+			// 결제완료에 보여줄 리스트
+			orderPrdList.add(prdList.get(i - arrSize));
+			orderDetList.add(ordDetailList.get(i - arrSize));
+			
+			// 장바구니 세션에서 결제된 목록 삭제
+			prdList.remove(i - arrSize);
+			ordDetailList.remove(i - arrSize);
+			arrSize++;
 		}
-
+		
+		for (ProductVO productVO : orderPrdList) {
+			log.info(productVO);
+		}
+		
+		model.addAttribute("orderPrdList", orderPrdList);
+		model.addAttribute("orderDetList", orderDetList);
+		
 		session.setAttribute("prdList", prdList);
 		session.setAttribute("ordDetailList", ordDetailList);
 		session.removeAttribute("selList");
@@ -102,9 +120,15 @@ public class ClientOrderController {
 			
 			odvo.add(vo);
 		}
-		
+
 		// 주문 정보 등록
 		OrderVO ovo = new OrderVO(olvo, odvo, shvo, pvo);
+		
+		log.info(ovo.getOdvo());
+		log.info(ovo.getOlvo());
+		log.info(ovo.getPvo());
+		log.info(ovo.getShvo());
+		
 		int result = ordService.orderInsert(ovo);
 		if(result==1) return "success";
 		

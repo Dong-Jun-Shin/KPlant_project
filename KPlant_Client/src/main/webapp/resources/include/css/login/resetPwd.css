@@ -19,7 +19,7 @@ table {
 }
 
 td {
-	padding: 15px 60px;
+	padding: 10px 60px;
 }
 
 #confirmBtn {
@@ -30,6 +30,17 @@ td {
 	border-radius: 3px;
 }
 
+p{
+	margin-top: 5px;
+}
+
 .section {
 	min-height: 689px;
+}
+
+#alert-success{
+	margin-top: 10px;
+}
+#alert-danger{
+	margin-top: 10px;
 }

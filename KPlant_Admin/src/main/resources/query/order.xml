@@ -91,10 +91,14 @@
 		/* 주문의 구매상품내역 조회 */
 		<![CDATA[
 		SELECT 
-		    img_prd, prd_name, prd_price, ord_qty
-		FROM order_detail od INNER JOIN product prd ON od.prd_num = prd.prd_num
-		    INNER JOIN product_image pimg ON prd.prd_num = pimg.prd_num
-		WHERE ord_num = #{ord_num}		
+		    rnum, i_file, prd_num, prd_name, prd_price, ord_qty
+		FROM(
+		    SELECT 
+		        rownum as rnum, i_file, prd.prd_num, prd_name, prd_price, ord_qty
+		    FROM order_detail od INNER JOIN product prd ON od.prd_num = prd.prd_num
+		        INNER JOIN product_image pimg ON prd.prd_num = pimg.prd_num
+		    WHERE ord_num = #{ord_num}) orderDetail
+		WHERE i_file LIKE '%#_2.png' ESCAPE '#'
 		]]>
 	</select>
 	

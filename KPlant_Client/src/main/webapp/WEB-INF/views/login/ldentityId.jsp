@@ -24,8 +24,12 @@
 
 <script type="text/javascript">
 	$(function() {
-
+		
+		//이메일 본인인증
 		$("#validationBtn").click(function() {
+			
+			 var m_eMail = /^[a-zA-Z0-9]{2,20}$/;  
+			
 			if (!chkData("#m_name", "이름")) return;
 			else if (!chkData("#m_birth", "생년월일")) return;
 			else if(!chkData("#m_eMail1","이메일 앞자리"))return;
@@ -35,10 +39,10 @@
 				var m_eMail = $("#m_eMail1").val()+"@"+$("#m_eMail2 option:selected").val();
 				$("#m_eMail").val(m_eMail);
 				
-				$.ajax({
+				/* $.ajax({
 					url : "/login/lookupId",//전송 url
 					type : "post",//전송시 method
-					dataType : "json",
+					dataType : "text",
 					data : $("#f_writeForm").serialize(),
 					error : function() {//실행시 오류가 발생하였을 경우
 						alert("시스템 오류 입니다. 관리자에게 문의 하세요");
@@ -53,11 +57,18 @@
 						}
 
 					}
+				}); */
+				$("#f_writeForm").attr({
+					"method":"post",
+					"action":"/login/lookupId"
 				});
+				$("#f_writeForm").submit();
 
 			} 
 		});
-
+		
+		
+		//휴대폰 본인인증
 		$("#ldentityBtn").click(function() {
 			location.href = "/login/login";
 		});
@@ -72,20 +83,17 @@
 		
 			<input type="hidden" id="m_eMail" name="m_eMail">
 		
-			<div class="bs-example bs-example-tabs" role="tabpanel"
-				data-example-id="togglable-tabs">
+			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 				<ul id="myTab" class="nav nav-tabs nav-justified" role="tablist">
 					<li role="presentation" class="active"><a href="#home"
 						id="home-tab" role="tab" data-toggle="tab" aria-controls="home"
 						aria-expanded="true">이메일 인증</a></li>
-					<li role="presentation" class=""><a href="#profile" role="tab"
-						id="profile-tab" data-toggle="tab" aria-controls="profile"
+					<li role="presentation" class=""><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile"
 						aria-expanded="false">본인 인증</a></li>
 				</ul>
 
 				<div id="myTabContent" class="tab-content">
-					<div role="tabpanel" class="tab-pane fade active in" id="home"
-						aria-labelledby="home-tab">
+					<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
 
 
 						<p class="text_type2 gray">회원가입 시 등록한 이메일 주소를 입력해주시기 바랍니다.</p>
