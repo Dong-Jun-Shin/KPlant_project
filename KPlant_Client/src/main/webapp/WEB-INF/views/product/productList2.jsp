@@ -24,12 +24,12 @@
  
  <div class="product-banner">
       <div class="banner-style">
-         <h1>관엽/공기정화/분재</h1>
+         <h1>다육/선인장</h1>
       </div>
    </div>
    <%-- 상세페이지로 이동하기 위한 hidden form --%>
    <form id="detailForm">
-      <input type="hidden" id="prd_num" name="prd_num" value="${detail.prd_num}"/>
+      <input type="hidden" id="prd_num" name="prd_num"/>
    </form>
 
 	<%-- product 썸네일 출력 --%>

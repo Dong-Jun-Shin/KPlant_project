@@ -35,5 +35,39 @@ public class ProductServiceImpl implements ProductService {
 		return list;
 	}
 	
+	@Override
+	public List<ProductVO> productList2(ProductVO pvo, HttpSession session){
+		List<ProductVO> list = null;
+		list = productDao.productList2(pvo);
+		session.setAttribute("prd_num", pvo.getPrd_num());
+		return list;
+	}
+	
+	@Override
+	public List<ProductVO> productList3(ProductVO pvo, HttpSession session){
+		List<ProductVO> list = null;
+		list = productDao.productList3(pvo);
+		session.setAttribute("prd_num", pvo.getPrd_num());
+		return list;
+	}
+	
+	@Override
+	public List<ProductVO> productList4(ProductVO pvo, HttpSession session){
+		List<ProductVO> list = null;
+		list = productDao.productList4(pvo);
+		session.setAttribute("prd_num", pvo.getPrd_num());
+		return list;
+	}
+	
+	@Override
+	public List<ProductVO> productList5(ProductVO pvo, HttpSession session){
+		List<ProductVO> list = null;
+		list = productDao.productList5(pvo);
+		session.setAttribute("prd_num", pvo.getPrd_num());
+		return list;
+	}
+	
+	
+	
 	
 }
