@@ -23,6 +23,10 @@ public class OrderMapperTests {
 	@Test
 	public void testOrderList() {
 		OrderListVO olvo = new OrderListVO();
+		olvo.setAmount(50);
+		olvo.setCnt(37);
+		olvo.setPageNum(1);
+		
 		log.info(odao.orderList(olvo));
 	}
 	

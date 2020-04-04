@@ -112,7 +112,7 @@ public class PaymentController {
 		log.info("admin/결제취소내역 조회 호출 성공");
 		try {
 			IamportClient client = getKey(request);
-			IamportResponse<Payment> cancelled_response = client.paymentByImpUid("imp_138841716839");
+			IamportResponse<Payment> cancelled_response = client.paymentByImpUid(pvo.getPay_num());
 			
 			Payment cancelled = cancelled_response.getResponse();
 			PaymentCancelDetail[] cancelDetail = cancelled.getCancelHistory();
