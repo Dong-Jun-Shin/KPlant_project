@@ -40,7 +40,6 @@
 	or (a.prd_num like '%cac%'))
 	
 	</select>
-	
 	<select id="productList3" parameterType="product" resultType="product">
 	SELECT
 	a.prd_num,
