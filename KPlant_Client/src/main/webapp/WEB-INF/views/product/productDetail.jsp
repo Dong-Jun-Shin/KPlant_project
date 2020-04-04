@@ -132,12 +132,11 @@
 				<div id="myTabContent" class="tab-content">
 					<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
 						
-						<img id="detail" src="/resources/images/join/air_0001.png">
-
+						<img id="detail" src="/KplantUploadStorage/product/${detail.img_prd2}">
 					</div>
 					<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
 
-						<img id="notice" src="/KplantUploadStorage/product/${detail.img_prd}">
+						<img id="notice" src="/resources/images/join/notice.png">
 						
 					</div>
 				</div>

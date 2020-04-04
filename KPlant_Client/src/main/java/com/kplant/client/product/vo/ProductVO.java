@@ -27,6 +27,9 @@ public class ProductVO {
 
     // 상품 이미지 
     private String img_prd;
+    
+    // 상품 상세 이미지 
+    private String img_prd2;
 
     // 상세 이미지 
     private String img_spec;
