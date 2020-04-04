@@ -43,5 +43,4 @@
 		<put-attribute name="body" value="/WEB-INF/views/event/{1}.jsp" />
 	</definition>
 	
-	
 </tiles-definitions>

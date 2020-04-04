@@ -24,7 +24,7 @@
  
  <div class="product-banner">
       <div class="banner-style">
-         <h1>관엽/공기정화/분재</h1>
+         <h1>동양란/서양랸</h1>
       </div>
    </div>
    <%-- 상세페이지로 이동하기 위한 hidden form --%>

@@ -2,15 +2,101 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kplant.client.product.dao.ProductDao">
 	<select id="productList" parameterType="product" resultType="product">
-		select prd_num , 
-		<![CDATA[min(case when instr(i_file, '_2.') >0 then  i_file end) as img_prd]]>
-	   from product_image
-	   where (prd_num like '%air%')
-	     or (prd_num like '%fol%')
-	      or (prd_num like '%pot%')
-	   group by prd_num
-	   order by prd_num
+	SELECT
+	a.prd_num,
+	a.prd_name,
+	a.prd_price,
+	b.img_prd
+		<![CDATA[FROM product a, (select prd_num ,
+	min(case when instr(i_file, '_2.') >0 then i_file end) as img_prd
+	from product_image
+	where (prd_num like '%air%')
+	or (prd_num like '%fol%')
+	or (prd_num like '%pot%')
+	group by prd_num
+	order by prd_num) b
+	WHERE a.prd_num =b.prd_num(+)
+	and ((a.prd_num like '%air%')
+	or (a.prd_num like '%fol%')]]>
+	or (a.prd_num like '%pot%'))
+	
 	</select>
+	
+	<select id="productList2" parameterType="product" resultType="product">
+	SELECT
+	a.prd_num,
+	a.prd_name,
+	a.prd_price,
+	b.img_prd
+		<![CDATA[FROM product a, (select prd_num ,
+	min(case when instr(i_file, '_2.') >0 then i_file end) as img_prd
+	from product_image
+	where(prd_num like '%suc%')
+	or (prd_num like '%cac%')
+	group by prd_num
+	order by prd_num) b
+	WHERE a.prd_num =b.prd_num(+)
+	and ((a.prd_num like '%suc%')]]>
+	or (a.prd_num like '%cac%'))
+	
+	</select>
+	
+	<select id="productList3" parameterType="product" resultType="product">
+	SELECT
+	a.prd_num,
+	a.prd_name,
+	a.prd_price,
+	b.img_prd
+		<![CDATA[FROM product a, (select prd_num ,
+	min(case when instr(i_file, '_2.') >0 then i_file end) as img_prd
+	from product_image
+	where(prd_num like '%ori%')
+	or (prd_num like '%%occ%')
+	group by prd_num
+	order by prd_num) b
+	WHERE a.prd_num =b.prd_num(+)
+	and ((a.prd_num like '%ori%')]]>
+	or (a.prd_num like '%occ%'))
+	
+	</select>
+	
+	<select id="productList4" parameterType="product" resultType="product">
+	SELECT
+	a.prd_num,
+	a.prd_name,
+	a.prd_price,
+	b.img_prd
+		<![CDATA[FROM product a, (select prd_num ,
+	min(case when instr(i_file, '_2.') >0 then i_file end) as img_prd
+	from product_image
+	where(prd_num like '%bas%')
+	or (prd_num like '%%bax%')
+	group by prd_num
+	order by prd_num) b
+	WHERE a.prd_num =b.prd_num(+)
+	and ((a.prd_num like '%bas%')]]>
+	or (a.prd_num like '%bax%'))
+	
+	</select>
+	
+	<select id="productList5" parameterType="product" resultType="product">
+	SELECT
+	a.prd_num,
+	a.prd_name,
+	a.prd_price,
+	b.img_prd
+		<![CDATA[FROM product a, (select prd_num ,
+	min(case when instr(i_file, '_2.') >0 then i_file end) as img_prd
+	from product_image
+	where(prd_num like '%bqt%')
+	group by prd_num
+	order by prd_num) b
+	WHERE a.prd_num =b.prd_num(+)
+	and ((a.prd_num like '%bqt%'))]]>
+	
+	</select>
+	
+	
 
 	
 </mapper>
