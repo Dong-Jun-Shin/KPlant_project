@@ -36,8 +36,8 @@
 					var su = $("#su").val();
 					var subtractSu = Number(su)-1;
 
-					if(subtractSu > = ${})
-				})
+					
+				});
 					
 				//+ 가격 더하기
 				$("#plus").click(function() {
@@ -107,8 +107,10 @@
 						</div>
 						
 						<div class="text-right">
-							<label>총 상품금액: </label>
-							<label>${detail.prd_price}</label>
+							<label class="sum">총 상품금액: <fmt:formatNumber pattern="###,###,###" value="${sum}" />원</label>
+							<label>
+								<c:set var="sum" value="${sum + (detail.prd_price * detail.prd_price)}" />
+							</label>
 						</div>
 						<hr>
 						
@@ -133,12 +135,12 @@
 				<div id="myTabContent" class="tab-content">
 					<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
 						
-						<img id="detail" src="/resources/images/join/air_0001.png">
+						<img id="detail" src="/KplantUploadStorage/product/${detail.img_prd}">
 
 					</div>
 					<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
 
-						<img id="notice" src="/KplantUploadStorage/product/${detail.img_prd}">
+						<img id="notice" src="/resources/images/join/notice.png">
 						
 					</div>
 				</div>
@@ -176,7 +178,7 @@
 					</div>
 					<div role="tabpanel" class="tab-pane fade" id="seller-notice" aria-labelledby="seller-tab">
 
-						<img id="notice" src="/resources/images/join/notice.png">
+						<img id="notice" src="/resources/images/join/information.png">
 						
 					</div>
 				</div>
