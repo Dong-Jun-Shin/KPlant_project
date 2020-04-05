@@ -99,9 +99,22 @@
 
 	<!-- 상품 디테일 -->
 	<select id="productDetail" parameterType="product" resultType="product">
-		SELECT prd_num, prd_name, prd_price, prd_type, prd_qty
-		FROM product
-		WHERE prd_num=#{prd_num}
+	SELECT
+	a.prd_num,
+	a.prd_name,
+	a.prd_price,
+	a.prd_qty,
+	a.prd_type,
+	b.img_prd,
+	b.img_prd2
+   <![CDATA[ FROM product a, (select prd_num ,
+	min(case when instr(i_file, '_2.') >0 then i_file end) as img_prd,
+	min(case when instr(i_file, '_1.') >0 then i_file end) as img_prd2]]>
+	from product_image
+	where prd_num =#{prd_num}
+	group by prd_num
+	order by prd_num) b
+	WHERE a.prd_num =#{prd_num}
 	</select>
 	
 </mapper>
