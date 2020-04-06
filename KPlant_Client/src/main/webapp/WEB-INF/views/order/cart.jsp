@@ -8,11 +8,18 @@
 <script type="text/javascript" src="/resources/include/js/order/cart.js"></script>
 <script type="text/javascript">
 	$(function(){
+		// 로그인 여부 체크
+		var loginBool = "${empty m_num}";
+		if(loginBool=="true"){
+			alert("로그인 후, 구매가 가능합니다.");
+			location.href="/login/login";
+		}
+		
 		var emptyBool = "${empty prdList}";
 		setBtn((emptyBool=="true"));
 	});
 </script>
-<div>
+ <div>
 	<div class="order-header">
 		<div class="left">
 			<img alt="장바구니" src="/resources/images/order/ico_order_cart.png" />
@@ -51,7 +58,7 @@
 										<input type="hidden" class="index" value="${i }">
 									</td>
 									<td colspan="7" class="prd">
-										<img alt="${prdList[i].img_prd }" src="">
+										<img alt="${prdList[i].prd_num }" src="/KplantUploadStorage/product/${prdList[0].images[i].i_file }">
 										<span>${prdList[i].prd_name }</span>
 									</td>
 									<td><input class="spinner" type="text" value="${ordDetailList[i].ord_qty }"/></td>

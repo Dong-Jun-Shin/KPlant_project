@@ -2,7 +2,7 @@ package com.kplant.client.customer.consult.vo;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.kplant.common.vo.CommonVO;
+import com.kplant.client.common.vo.CommonVO;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

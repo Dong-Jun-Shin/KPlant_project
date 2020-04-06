@@ -97,7 +97,7 @@
 					<tr class="prd-list">
 						<td>${status.index + 1 }</td>
 						<td colspan="11" class="prd">
-							<img alt="${product.img_prd }" src="">
+							<img alt="${product.prd_num }" src="/KplantUploadStorage/product/${product.i_file }">
 							<span class="prd_name">${product.prd_name }</span>
 						</td>
 						<td>${product.ord_qty }</td>

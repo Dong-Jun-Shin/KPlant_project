@@ -8,7 +8,7 @@ $(function(){
     	var qty = $(this).parents(".prd-list").find(".spinner");
     	
     	if(checkExp(qty, "수량")) return;
-    	if(qty.val() == 0) {
+    	if(qty.val() <= 0) {
     		alert("0개로 수정할 수 없습니다.");
     		return;
     	}

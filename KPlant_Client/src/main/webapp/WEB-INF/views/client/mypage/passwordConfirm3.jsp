@@ -9,7 +9,6 @@
 	<script type="text/javascript" src="/resources/include/js/mypage/passwordConfirm.js"></script>
 	<script type="text/javascript" src="/resources/include/js/mypage/passwordConfirm2.js"></script>
 	<script type="text/javascript" src="/resources/include/js/mypage/passwordConfirm3.js"></script>
-
 <%-------------------------------------------------------------------------------- --%>
 <div id="location">
 	<a>홈</a> > 마이페이지 > 회원정보 > <select>

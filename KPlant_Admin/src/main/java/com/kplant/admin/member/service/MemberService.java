@@ -18,4 +18,5 @@ public interface MemberService{
 	Map<String, Integer> memberAgeList();
 	
 	List<Map<String, String>> memberOrderList(MemberVO mvo);
+
 }

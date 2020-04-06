@@ -56,10 +56,11 @@ $(function(){
 	
 	// 검색 버튼 클릭 시 처리 이벤트
 	$("#searchData").click(function(){
-		
 		if($("#search").val() != "all" && $("#search").val() != "ord_date"){
 			if(checkExp("#keyword", "검색어")) return;
 		}else if($("#search").val() == "ord_date"){
+			console.log(checkExp("#start_date", "시작날짜"));
+			console.log(checkExp("#end_date", "종료날짜"));
 			if(checkExp("#start_date", "시작날짜")) return;
 			if(checkExp("#end_date", "종료날짜")) return;
 		}
@@ -261,7 +262,9 @@ function setButton(elem){
 		$("<input>").attr({
 			"type" : "text",
 			"name" : "ord_trn",
-			"class" : "form-control trn-form"
+			"class" : "form-control trn-form",
+			"style" : "text-align : center"
+				
 		})
 	);
 

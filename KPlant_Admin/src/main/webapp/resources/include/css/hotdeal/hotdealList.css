@@ -33,30 +33,46 @@
 	width: 250px;
 }
 
+.hotdeal-header>input[type='date'] {
+    width: 150px;
+}
+
 /* hotdeal-list */
-table {
+.hotdeal-body input[type='checkbox'] {
+    margin: 0px auto;
+    width: 16px;
+    height: 16px;
+}
+
+.hotdeal-body > table {
 	width: 100%;
 }
 
-table tr {
+.hotdeal-body > table tr {
 	height: 50px;
 	border-bottom: 1px solid #33333330;
 }
 
-table > thead > tr:nth-child(1) {
+.hotdeal-body > table > thead > tr:nth-child(1) {
 	height: 40px;
 }
 
-table th {
+.hotdeal-body > table th {
 	background: #DDDDDD;
 	font-size: 16px;
 }
 
-table th, table td {
+.hotdeal-body > table th, table td {
 	text-align: center;
 }
 
+.hotdeal-body > table > tbody > tr:hover{
+	background: #AEC29F30;
+	cursor: pointer;
+}
 
+/* hotdeal-footer */
 .hotdeal-footer {
 	text-align: right;
+	margin-top: 25px;
 }

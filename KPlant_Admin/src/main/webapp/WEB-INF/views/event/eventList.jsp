@@ -4,6 +4,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<link rel="stylesheet" type="text/css" href="/admin/resources/include/css/customer/header.css" />
+
 <%-- script --%>
 <script type="text/javascript">
 	$(function () {

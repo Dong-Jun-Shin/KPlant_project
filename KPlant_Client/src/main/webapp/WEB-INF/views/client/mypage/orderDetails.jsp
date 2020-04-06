@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
 <link rel="stylesheet" type="text/css" href="/resources/include/css/mypage/mypage.css" />
-
 <script type="text/javascript" src="/resources/include/js/mypage/updateForm.js"></script>
 	<script type="text/javascript" src="/resources/include/js/mypage/updatePassword.js"></script>
 	<script type="text/javascript" src="/resources/include/js/mypage/withdrawal.js"></script>
@@ -11,6 +10,7 @@
 	<script type="text/javascript" src="/resources/include/js/mypage/passwordConfirm.js"></script>
 	<script type="text/javascript" src="/resources/include/js/mypage/passwordConfirm2.js"></script>
 	<script type="text/javascript" src="/resources/include/js/mypage/passwordConfirm3.js"></script>
+
 <%-------------------------------------------------------------------------------- --%>
 <div id="location">
 	<a>홈</a> > 마이페이지 > 회원정보 > <select>

@@ -269,7 +269,7 @@ function requestPay(){
 	IMP.request_pay({
 		pg : "html_inicis",
 		pay_method : $("#pay_method").val(),
-		merchant_uid : 'testMerchant_' + $("#ord_num").val(),
+		merchant_uid : 'testMerchant_' + new Date().getTime() + $("#ord_num").val(),
 		name : orderName,
 //		amount : $("#pay_price").val(),
 		amount : 10,
@@ -279,11 +279,11 @@ function requestPay(){
 		buyer_postcode : $("#sh_residence1").val(),
 		buyer_addr : $("#sh_residence2").val()
 	}, function(rsp){
-		def.resolve(rsp);
 		if(!rsp.success){
 			var msg = "결제에 실패하였습니다. \n";
 			msg += rsp.error_msg; 
 		}else{
+			def.resolve(rsp);
 			msg = "결제가 완료되었습니다.";
 		}
 		alert(msg);

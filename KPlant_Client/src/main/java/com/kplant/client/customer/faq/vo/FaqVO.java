@@ -1,6 +1,6 @@
 package com.kplant.client.customer.faq.vo;
 
-import com.kplant.common.vo.CommonVO;
+import com.kplant.client.common.vo.CommonVO;
 
 import lombok.Data;
 

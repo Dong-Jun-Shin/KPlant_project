@@ -1,4 +1,4 @@
-package com.kplant.common.vo;
+package com.kplant.client.common.vo;
 
 import lombok.Getter;
 import lombok.ToString;

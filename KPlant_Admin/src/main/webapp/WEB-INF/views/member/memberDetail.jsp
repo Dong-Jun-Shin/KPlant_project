@@ -21,7 +21,7 @@
 		<script type="text/javascript" src="/resources/include/js/common.js"></script>
 		<script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
 		
-		<link rel="stylesheet" type="text/css" href="/resources/include/css/member/memberDetail.css">
+		<link type="text/css" href="/resources/include/css/member/memberDetail.css">
 		
 		<style type="text/css">
 			#btn {
@@ -40,7 +40,7 @@
 				
 			}
 			#memberList {
-				margin-top: 30px;
+				margin-top: 10px;
 				height: 400px;
 			}
 			#orderList{
