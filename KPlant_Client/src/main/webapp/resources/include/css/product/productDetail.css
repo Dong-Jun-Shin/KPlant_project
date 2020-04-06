@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+#div {
+	overflow: auto;
+	margin-top: 30px;
+}
+
+#p_div {
+	float: left;
+	width: 55%;
+	text-align: center;
+}
+
+#p_img {
+	width: 300px;
+	height: 300px;
+}
+
+div#p_table {
+	float: left;
+	width: 45%;
+}
+
+h1 {
+	font-size: 40pt;
+}
+
+h3 {
+	margin-top: 30px;
+	font-size: 20pt;
+}
+
+hr {
+	border-color: gray;
+}
+
+label {
+	font-size: 14pt;
+}
+
+div.text-right {
+	text-align: right;
+	margin-top: 30px;
+}
+
+#money-div {
+	width: 505px;
+	box-shadow: 0px 0px 5px 3px #DDDDDD;
+	padding: 10px;
+	margin: 0px;
+	overflow: auto;
+}
+
+#left {
+	float: left;
+	width: 388px;
+	margin-top: 21px;
+}
+
+#right {
+	float: left;
+	width: 80px;
+	text-align: right;
+}
+
+#a {
+	width: 85px;
+}
+
+#basket {
+	PADDING: 15PX 97PX;
+	BACKGROUND-COLOR: WHITE;
+	COLOR: #1E332C;
+	BORDER-RADIUS: 3PX;
+	BORDER: 2PX SOLID #1E332C;
+}
+
+#purchasev {
+	PADDING: 15PX 97PX;
+	BACKGROUND-COLOR: #1E332C;
+	BORDER: 2PX SOLID #1E332C;
+	COLOR: WHITE;
+	BORDER-RADIUS: 3PX;
+}
+
+.nav-tabs.nav-justified {
+	background-color: #6D6E71;
+	margin-top: 50px;
+}
+
+a {
+	color: white;
+}
+
+#detail {
+	width: 1160px;
+}
+
+#seller {
+	width: 1128px;
+	padding: 20px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 8px;
+	border: 1px solid black;
+}
+
+#seller th {
+	text-align: center;
+	background-color: gray;
+	color: white;
+	border: 1px solid black;
+}
+
+#seller td {
+	border: 1px solid black;
+	padding: 20px;
+}

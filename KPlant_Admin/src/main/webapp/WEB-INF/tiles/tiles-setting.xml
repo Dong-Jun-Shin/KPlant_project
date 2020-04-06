@@ -29,6 +29,9 @@
 	<definition name="hotdeal/*" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/views/hotdeal/{1}.jsp" />
 	</definition>
+	<definition name="error/*" extends="admin">
+		<put-attribute name="body" value="/WEB-INF/views/error/{1}.jsp" />
+	</definition>
 	
 	<definition name="faq/*" extends="admin">
 		<put-attribute name="title" value="Admin faq Page" />
@@ -42,6 +45,5 @@
 		<put-attribute name="title" value="Admin event Page" />
 		<put-attribute name="body" value="/WEB-INF/views/event/{1}.jsp" />
 	</definition>
-	
 	
 </tiles-definitions>

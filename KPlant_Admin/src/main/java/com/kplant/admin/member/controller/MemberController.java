@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -71,6 +73,7 @@ public class MemberController {
 		}
 		return "member/memberDetail";
 	}
+	
 	
 	/* 에러: java.math.BigDecimal cannot be cast to java.lang.Integer 
 	 * 해결: Integer.parseInt(String.valueOf(entry.getValue()))

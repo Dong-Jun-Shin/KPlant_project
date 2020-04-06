@@ -113,5 +113,5 @@
 		, COUNT(CASE WHEN m_gender='여자' THEN 1 END) "여성" 
 		FROM member
 	</select>
-
+	
 </mapper>

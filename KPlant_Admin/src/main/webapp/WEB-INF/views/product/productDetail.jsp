@@ -125,7 +125,7 @@
 						<td>첨부파일 이미지</td>
 						<td colspan="3" id="multipleImage" class="text-left">
 							<c:forEach var="image" items="${detail.images}">
-								<img src="/uploadStorage/product/${image.i_file}" />
+								<img src="/KplantUploadStorage/product/${image.i_file}" />
 							</c:forEach>
 						</td>
 					</c:if>

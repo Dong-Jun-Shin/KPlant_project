@@ -2,6 +2,7 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+
 <div class="status-login status-background">
 	<%-- <c:if test=""></c:if> --%>
 	<%-- 로그인
@@ -14,7 +15,11 @@
 </div>
 <div class="container">
 	<div class="navbar-header">
+<<<<<<< HEAD
       <a class="navbar-brand" href="/*" style="padding: 5px">
+=======
+      <a class="navbar-brand" href="/" style="padding: 5px">
+>>>>>>> 957d780bd284de45d3cd7690291bc0280a295a7d
       	<img alt="logo" src="/resources/images/template/logo.png" width="200px">
       </a>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -34,10 +39,10 @@
          </a>
             <ul class="dropdown-menu dropdown-sub" role="menu">
                <li><a href="/product/productList" >관엽/공기정화/분재</a></li>
-               <li><a href="#">다육/선인장</a></li>
-               <li><a href="#">동양란/서양란</a></li>
-               <li><a href="#">꽃바구니/꽃상자</a></li>
-               <li><a href="#">꽃다발</a></li>
+               <li><a href="/product/productList2">다육/선인장</a></li>
+               <li><a href="/product/productList3">동양란/서양란</a></li>
+               <li><a href="/product/productList4">꽃바구니/꽃상자</a></li>
+               <li><a href="/product/productList5">꽃다발</a></li>
             </ul></li>
         <li class="menu navbar-left"><a class="menu-left-font" href="#">HOT DEAL</a></li>
         <li class="menu navbar-left dropdown">
