@@ -1,5 +1,8 @@
 package com.kplant.client.mypage.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import com.kplant.client.join.vo.MemberVO;
 
 public interface MypageDAO {
@@ -21,5 +24,13 @@ public interface MypageDAO {
 	
 	// 비밀번호 인증
 	public int confirm(MemberVO mvo);
+
+	// 주문내역 조회
+	//public MemberVO orderDetails(MemberVO mvo);
+	List<Map<String, String>> orderDetails(MemberVO mvo);
+
+	
+	// 취소내역 조회
+	//List<Map<String, String>> cancelList(MemberVO mvo);
 
 }
