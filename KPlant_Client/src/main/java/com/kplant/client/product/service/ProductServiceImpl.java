@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kplant.client.join.vo.MemberVO;
 import com.kplant.client.product.dao.ProductDao;
 import com.kplant.client.product.vo.ProductVO;
 
@@ -65,6 +66,16 @@ public class ProductServiceImpl implements ProductService {
 		list = productDao.productList5(pvo);
 		session.setAttribute("prd_num", pvo.getPrd_num());
 		return list;
+	}
+
+	@Override
+	public ProductVO cartCheck(ProductVO pvo, HttpSession session) {
+		ProductVO vo = productDao.cartCheck(pvo);
+		if (vo!=null) {
+			session.setAttribute("prd_num", vo.getPrd_num());
+			session.setAttribute("prd_price", vo.getPrd_price());
+		}
+		return vo;
 	}
 	
 	

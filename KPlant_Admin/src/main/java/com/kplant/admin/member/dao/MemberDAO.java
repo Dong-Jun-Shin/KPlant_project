@@ -17,6 +17,7 @@ public interface MemberDAO {
 
 	Map<String, Integer> memberGenderList();
 	
-	List<Map<String, String>> memberOrderList(MemberVO mvo); 
+	List<Map<String, String>> memberOrderList(MemberVO mvo);
+
 
 }

@@ -117,4 +117,8 @@
 	WHERE a.prd_num =#{prd_num}
 	</select>
 	
+	<select id="cartCheck" parameterType="product" resultType="product">
+		SELECT prd_num, prd_name, prd_price, prd_type, prd_qty FROM product
+	</select>
+	
 </mapper>
