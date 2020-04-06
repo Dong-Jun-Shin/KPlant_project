@@ -22,7 +22,7 @@
 	<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.css" />
 	<link rel="stylesheet" type="text/css" href="/resources/include/css/template/navbar-static-top.css" />
 	
-	<link rel="stylesheet" type="text/css" href="/resources/include/css/mypage/mypage.css" />
+
 	
 	<link rel="stylesheet" type="text/css" href="/resources/include/css/template/jquery-ui.css" />
     <script type="text/javascript" src="/resources/include/js/jquery-3.3.1.min.js"></script>
@@ -31,13 +31,7 @@
 	<script type="text/javascript" src="/resources/include/js/jquery-ui.js"></script>
     <script type="text/javascript" src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
 	<script type="text/javascript" src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
-	<script type="text/javascript" src="/resources/include/js/mypage/updateForm.js"></script>
-	<script type="text/javascript" src="/resources/include/js/mypage/updatePassword.js"></script>
-	<script type="text/javascript" src="/resources/include/js/mypage/withdrawal.js"></script>
-	<script type="text/javascript" src="/resources/include/js/mypage/mypage.js"></script>
-	<script type="text/javascript" src="/resources/include/js/mypage/passwordConfirm.js"></script>
-	<script type="text/javascript" src="/resources/include/js/mypage/passwordConfirm2.js"></script>
-	<script type="text/javascript" src="/resources/include/js/mypage/passwordConfirm3.js"></script>
+	
 	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
     function sample6_execDaumPostcode() {
