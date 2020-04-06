@@ -177,6 +177,31 @@
 						
 					</div>
 				</div>
+				</div>
+		
+		
+			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+				<ul id="myTab" class="nav nav-tabs nav-justified" role="tablist">
+					<li role="presentation" class="active"><a href="#home"
+						id="home-tab" role="tab" data-toggle="tab" aria-controls="home"
+						aria-expanded="true">상세 정보</a></li>
+					<li role="presentation" class=""><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile"
+						aria-expanded="false">상품 문의</a></li>
+				</ul>
+
+				<div id="myTabContent" class="tab-content">
+					<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+						
+>>>>>>> origin/HomePage
+						<img id="detail" src="/KplantUploadStorage/product/${detail.img_prd2}">
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+
+						<img id="notice" src="/resources/images/join/notice.png">
+						
+					</div>
+				</div>
+>>>>>>> origin/feature/mypage
 			</div>
 			
 			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
@@ -212,6 +237,7 @@
 					<div role="tabpanel" class="tab-pane fade" id="seller-notice" aria-labelledby="seller-tab">
 
 						<img id="notice" src="/resources/images/join/information.png">
+						<img id="notice" src="/resources/images/join/notice.png">
 						
 					</div>
 				</div>
