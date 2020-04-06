@@ -19,30 +19,16 @@ public class ProductVO extends CommonVO {
 	private int prd_qty = 0; // 재고수량
 	private String prd_date = ""; // 등록날짜
 
-	/*
-	 * private ImageVO image;
-	 * 
-	 * public MultipleBoardVO() { image = new ImageVO(); }
-	 */
-
+	 // 상품 이미지 
+    private String img_prd;
+    
+    // 상품 상세 이미지 
+    private String img_prd2;
+	
 	private List<ProductImageVO> images;
 
 	public ProductVO() {
 		images = new ArrayList<ProductImageVO>();
 	}
 
-    // 등록날짜 
-    private String prd_date;
-    
-    // 이미지 번호 
-    private String img_num;
-
-    // 상품 이미지 
-    private String img_prd;
-    
-    // 상품 상세 이미지 
-    private String img_prd2;
-
-    // 상세 이미지 
-    private String img_spec;
 }

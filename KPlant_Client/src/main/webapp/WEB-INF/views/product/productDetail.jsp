@@ -61,18 +61,18 @@
 					$("#sum").html(Number(price)*plusSu);
 				});
 				
-				//장바구니 버튼
-				$("#basket").click(function() {
-					var qty=$("#su").val();
-					$("#prd_qty").val(qty);
+// 				//장바구니 버튼
+// 				$("#basket").click(function() {
+// 					var qty=$("#su").val();
+// 					$("#prd_qty").val(qty);
 					
-					$("#p_form").attr({
-						"method":"get",
-						"action":"/order/cart"
-					});
-					$("#p_form").submit();
+// 					$("#p_form").attr({
+// 						"method":"get",
+// 						"action":"/order/cart"
+// 					});
+// 					$("#p_form").submit();
 					
-				})
+// 				})
 				
 				//구매하기 버튼
 	            $("#purchasev").click(function() {
@@ -82,14 +82,11 @@
 	               
 	               $("#p_form").attr({
 	                  "method":"get",
-	                  "action":"/order/orderSheet"
+	                  "action":"/order/cart"
 	               });
 	               
 	               $("#p_form").submit();
 	            });
-				
-				
-				
 			});
 		</script>
 	</head>
@@ -177,31 +174,6 @@
 						
 					</div>
 				</div>
-				</div>
-		
-		
-			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-				<ul id="myTab" class="nav nav-tabs nav-justified" role="tablist">
-					<li role="presentation" class="active"><a href="#home"
-						id="home-tab" role="tab" data-toggle="tab" aria-controls="home"
-						aria-expanded="true">상세 정보</a></li>
-					<li role="presentation" class=""><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile"
-						aria-expanded="false">상품 문의</a></li>
-				</ul>
-
-				<div id="myTabContent" class="tab-content">
-					<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
-						
->>>>>>> origin/HomePage
-						<img id="detail" src="/KplantUploadStorage/product/${detail.img_prd2}">
-					</div>
-					<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
-
-						<img id="notice" src="/resources/images/join/notice.png">
-						
-					</div>
-				</div>
->>>>>>> origin/feature/mypage
 			</div>
 			
 			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">

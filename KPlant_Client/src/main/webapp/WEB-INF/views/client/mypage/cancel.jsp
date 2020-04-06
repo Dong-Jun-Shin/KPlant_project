@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<link rel="stylesheet" type="text/css" href="/resources/include/css/mypage/mypage.css" />
 <%-------------------------------------------------------------------------------- --%>
 <div id="location">
 	<a>홈</a> > 마이페이지 > 회원정보 > <select>

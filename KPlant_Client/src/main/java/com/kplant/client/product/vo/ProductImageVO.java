@@ -18,4 +18,6 @@ public class ProductImageVO {
 	public ProductImageVO() {
 		files = new ArrayList<MultipartFile>();
 	}
+	
+	
 }
