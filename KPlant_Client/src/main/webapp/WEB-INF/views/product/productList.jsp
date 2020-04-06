@@ -1,39 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-	<head>
-		<!-- html5 : 파일의 인코딩 방식 지정 - 한국어 처리를 위한 euc-kr과 다국어 처리를 위한 utf-8로 설정. -->
-		<meta charset="UTF-8" />
-		<!-- html4 : 파일의 인코딩 방식 지정 -->
-		<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<style type = "text/css">
+	.caption{
+		border-top: 1px solid lightgray;
+		    margin-top: 20px;
+	}
+</style>
 
-		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-		<!-- 브라우저의 호환성 보기 모드를 막고, 해당 브라우저에서 지원하는 가장 최신 버전의 방식으로 HTML 보여주도록 설정.-->
-		<title></title>
-		
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-		<!--viewport : 화면에 보이는 영역을 제어하는 기술. width는 device-width로 설정(브라우저 너비를 장치 너비에 맞추어 표시). initial-scale는 초기비율(보이는 영역과 웹 페이지를 맞춤). user-scalable는 사용자가 화면축소를 하지 못하도록 설정.-->
-      	
-		<!-- 모바일 웹 페이지 설정 - 이미지 경로 위치는 각자 변경 -->
-		<link rel="shortcut icon" href="../image/icon.png" />
-		<link rel="apple-touch-icon" href="../image/icon.png" />
-		<!-- 모바일 웹 페이지 설정 끝 -->
-		
-		<!--[if lt IE 9]>
-		<script src="../js/html5shiv.js"></script>
-		<![endif]-->
-		<script type = "text/javascript">
-			
-		
-		</script>
-		
-	</head>
-	<body>
-	<div class="row" id="rowArea">
+<script type="text/javascript">
 	
-	
-	</div>
-	
-</body>
-</html>
+</script>
+
+
+
+<%-- 화면구성 --%>
+<div>
+   <div class="page-header product-title">
+      <h1>FLOWER</h1>
+      <p >판매중인 제품 입니디.</p>
+ </div>
+ 
+ <div class="product-banner">
+      <div class="banner-style">
+         <h1>관엽/공기정화/분재</h1>
+      </div>
+   </div>
+   <%-- 상세페이지로 이동하기 위한 hidden form --%>
+   <form id="detailForm">
+      <input type="hidden" id="prd_num" name="prd_num" value="${detail.prd_num}"/>
+   </form>
+
+	<%-- product 썸네일 출력 --%>
+	<c:choose>
+		<c:when test="${not empty productList}">
+			<c:forEach var="product" items="${productList}">
+				<div class="col-sm-6 col-md-4">
+					<div class="thumbnail goDetail" data-num="${product.prd_num}">
+						<a href = "/product/productDetail?prd_num=${product.prd_num}"><img src="/KplantUploadStorage/product/${product.img_prd}"
+							style="width: 600px; height: 300px;"></a>
+						<div class="caption">
+							<h3>${product.prd_name}</h3>
+							<p>${product.prd_price}원</p>
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+		</c:when>
+	</c:choose>
+</div> 

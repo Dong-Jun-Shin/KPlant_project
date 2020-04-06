@@ -13,15 +13,15 @@
 		select="com.kplant.admin.product.dao.ImageDao.imageList"></collection>
 	</resultMap> 
 	
-	<sql id="multipleBoardSearch">
-		<if test="search=='m_title'">
-			<![CDATA[ m_title LIKE '%'|| #{keyword} ||'%' ]]>
+	<sql id="productSearch">
+		<if test="search=='prd_name'">
+			<![CDATA[ prd_name LIKE '%'|| #{keyword} ||'%' ]]>
 		</if>
-		<if test="search=='m_content'">
-			<![CDATA[ m_content LIKE '%'|| #{keyword} ||'%' ]]>	
+		<if test="search=='prd_type'">
+			<![CDATA[ prd_type LIKE '%'|| #{keyword} ||'%' ]]>	
 		</if>
-		<if test="search=='m_name'">
-			<![CDATA[ m_name LIKE '%'|| #{keyword} ||'%' ]]>
+		<if test="search=='prd_num'">
+			<![CDATA[ prd_num LIKE '%'|| #{keyword} ||'%' ]]>
 		</if>
 	</sql>
 
@@ -37,7 +37,7 @@
             	FROM product 
             	WHERE ]]>
             	<trim prefix="(" suffix=") AND " prefixOverrides="AND">
-            		<include refid="multipleBoardSearch"></include>
+            		<include refid="productSearch"></include>
             	</trim> 
             <![CDATA[	rownum <= #{pageNum} * #{amount} 
         	   ) boardlist
@@ -49,7 +49,7 @@
 	<select id="productListCnt" parameterType="product" resultType="int">
 		SELECT count(*) FROM  product 
         <trim prefix=" where (" suffix=")" >
-            <include refid="multipleBoardSearch"></include>
+            <include refid="productSearch"></include>
 		</trim>
 	</select>
 	

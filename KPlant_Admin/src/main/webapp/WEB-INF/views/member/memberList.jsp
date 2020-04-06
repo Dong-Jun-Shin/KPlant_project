@@ -11,6 +11,17 @@
 
 <link rel="stylesheet" type="text/css" href="/resources/include/css/member/memberList.css">
 
+<style type="text/css">
+#searchData {
+	padding: 5px 33px;
+	background-color: #1E332C;
+	border: 2px solid #1E332C;
+	color: white;
+	border-radius: 3px;
+	margin-top: 20px;
+}
+</style>
+
 <script type="text/javascript">
 	$(function() {
 		
@@ -57,6 +68,7 @@
 			});
 			$("#detailForm").submit();
 		});
+		
 		
 		 /* 페이지 번호 클릭 시, 처리 */
         $(".paginate_button a").click(function(e){
