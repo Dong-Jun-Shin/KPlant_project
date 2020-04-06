@@ -2,6 +2,9 @@ package com.kplant.client.mypage.service;
 
 
 
+import java.util.List;
+import java.util.Map;
+
 import com.kplant.client.join.vo.MemberVO;
 
 public interface MypageService {
@@ -22,9 +25,14 @@ public interface MypageService {
 	public int memberWithdrawal(int m_num);
 	
 	//비밀번호 확인
-	public int confirm(MemberVO mvo);;
+	public int confirm(MemberVO mvo);
 	
+	//주문내역 조회
+	//public MemberVO orderDetails(MemberVO mvo);
+	List<Map<String, String>> orderDetails(MemberVO mvo);
 
+	//취소내역 조회
+	 //List<Map<String, String>> cancelList(MemberVO mvo);
 	
 	 
 	
