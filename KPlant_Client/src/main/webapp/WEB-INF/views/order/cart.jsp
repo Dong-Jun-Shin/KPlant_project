@@ -51,7 +51,7 @@
 										<input type="hidden" class="index" value="${i }">
 									</td>
 									<td colspan="7" class="prd">
-										<img alt="${prdList[i].img_prd }" src="">
+										<img alt="${prdList[i].prd_num }" src="/KplantUploadStorage/product/${prdList[0].images[i].i_file }">
 										<span>${prdList[i].prd_name }</span>
 									</td>
 									<td><input class="spinner" type="text" value="${ordDetailList[i].ord_qty }"/></td>

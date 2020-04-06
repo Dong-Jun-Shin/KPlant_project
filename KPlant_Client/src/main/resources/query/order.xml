@@ -6,11 +6,11 @@
 		<![CDATA[ 
 		SELECT 
 		    'OR'||TO_CHAR(SYSDATE, 'YYMMDD')||
-		   	LPAD(
-			    (SELECT  NVL(MAX(TO_NUMBER(SUBSTR(ord_num, -4)))+1, '1')
-			     FROM order_list
-			     WHERE SYSDATE < ord_date
-			    ), 4, '0') AS ord_num
+		   LPAD(
+		    (SELECT  NVL(MAX(TO_NUMBER(SUBSTR(ord_num, -4)))+1, '1')
+		     FROM order_list
+		     WHERE TO_CHAR(ord_date) = TO_CHAR(SYSDATE)
+		    ), 4, '0') AS ord_num
 		FROM DUAL
 		]]>
 	</select>

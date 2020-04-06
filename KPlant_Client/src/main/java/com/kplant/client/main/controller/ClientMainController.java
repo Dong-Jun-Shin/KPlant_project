@@ -1,16 +1,24 @@
-package com.kplant.client.main.controller;
+﻿package com.kplant.client.main.controller;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
+//import java.util.Locale;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.kplant.client.event.vo.EventVO;
+import com.kplant.client.main.service.MainService;
+
+import lombok.Setter;
 import com.kplant.client.join.vo.MemberVO;
 import com.kplant.client.order.vo.OrderDetailVO;
 import com.kplant.client.product.vo.ProductVO;
@@ -24,6 +32,10 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @RequestMapping("/*")
 public class ClientMainController {
+	
+	@Setter(onMethod_ =@Autowired)
+	private MainService mainService;
+	
 
 	@RequestMapping("/")
 	public String client(HttpServletRequest request, Model model) {
@@ -31,20 +43,33 @@ public class ClientMainController {
 		
 		/* 테스트 데이터 시작 */
 		ArrayList<ProductVO> arr = new ArrayList<ProductVO>();
+		
 		ProductVO pvo = new ProductVO();
-		pvo.setPrd_num("prd_num 01");
-		pvo.setPrd_name("몽골바위솔 5포트 바위솔 10cm포트묘");
-		pvo.setPrd_price(9800);
-		pvo.setImg_prd("prd_img 01");
+		pvo.setPrd_num("air_0001");
+		pvo.setPrd_name("고무나무");
+		pvo.setPrd_price(15000);
+		
+		List<ProductImageVO> piList = new ArrayList<ProductImageVO>();
+		ProductImageVO pivo = new ProductImageVO();
+		pivo.setI_file("product_b0667d6ad2b04900b33a0aa71ca62063_air_0001_2.png");
+		piList.add(pivo);
+		
+		pvo.setImages(piList);
+		arr.add(pvo);
 		
 		ProductVO pvo2 = new ProductVO();
-		pvo2.setPrd_num("prd_num 02");
-		pvo2.setPrd_name("몽골바위솔솔 솔나무");
-		pvo2.setPrd_price(3600);
-		pvo2.setImg_prd("prd_img 02");
+		pvo2.setPrd_num("air_0003");
+		pvo2.setPrd_name("몬스테라 화분");
+		pvo2.setPrd_price(18500);
 		
-		arr.add(pvo);
+		List<ProductImageVO> piList2 = new ArrayList<ProductImageVO>(); 
+		ProductImageVO pivo2 = new ProductImageVO();
+		pivo2.setI_file("product_abaa565d0ff64e6ab7cc8e678687cc50_air_0003_2.png");
+		piList.add(pivo2);
+		
+		pvo2.setImages(piList2);
 		arr.add(pvo2);
+		
 		List<ProductVO> prdList = arr;
 
 		ArrayList<OrderDetailVO> odArr = new ArrayList<OrderDetailVO>();
@@ -60,16 +85,24 @@ public class ClientMainController {
 		odArr.add(odvo2);
 		List<OrderDetailVO> ordDetailList = odArr;
 		
-		MemberVO mvo = new MemberVO();
-		mvo.setM_num(62);
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("member", mvo);
+		session.setAttribute("m_num", 62);
 		session.setAttribute("prdList", prdList);
 		session.setAttribute("ordDetailList", ordDetailList);
 		/* 테스트 데이터 끝*/
 		
 		return "index";
+	}
+	
+	@RequestMapping(value = "/eventList", method=RequestMethod.GET)
+	public String eventList(@ModelAttribute("data") EventVO evo, Model model) {
+		log.info("Main eventList 호출 성공");
+		
+		List<EventVO> eventList = mainService.eventList(evo);
+		model.addAttribute("MainEventList", eventList);
+		
+		return "event/eventList";
 	}
 	
 }

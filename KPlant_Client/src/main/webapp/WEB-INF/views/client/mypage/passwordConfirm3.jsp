@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<script type="text/javascript" src="/resources/include/js/mypage/passwordConfirm3.js"></script>
 
 <%-------------------------------------------------------------------------------- --%>
 <div id="location">

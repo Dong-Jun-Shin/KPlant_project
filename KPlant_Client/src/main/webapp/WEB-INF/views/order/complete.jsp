@@ -36,15 +36,15 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="i" begin="0" end="${fn:length(prdList)-1 }">
+					<c:forEach var="i" begin="0" end="${fn:length(orderPrdList)-1 }">
 						<tr class="prd-list">
 							<td colspan="13" class="prd">
-								<img alt="${prdList[i].img_prd }" src="">
-								<span class="prd_name">${prdList[i].prd_name }</span>
+								<img alt="${orderPrdList[i].prd_num }" src="/KplantUploadStorage/product/${orderPrdList[0].images[i].i_file }">
+								<span class="prd_name">${orderPrdList[i].prd_name }</span>
 							</td>
-							<td>${ordDetailList[i].ord_qty }</td>
-							<td colspan="2"><span class="prd-price">${prdList[i].prd_price }원</span></td>
-							<td colspan="2"><span class="ord-price">${prdList[i].prd_price * ordDetailList[i].ord_qty }원 </span></td>
+							<td>${orderDetList[i].ord_qty }</td>
+							<td colspan="2"><span class="prd-price">${orderPrdList[i].prd_price }원</span></td>
+							<td colspan="2"><span class="ord-price">${orderPrdList[i].prd_price * orderDetList[i].ord_qty }원 </span></td>
 							<td colspan="2"><span class="shipping">3000원</span></td>
 						</tr>
  					</c:forEach> 

@@ -1,23 +1,35 @@
-package com.kplant.client.product.vo;
+﻿package com.kplant.client.product.vo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.kplant.client.common.vo.CommonVO;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
-public class ProductVO {
-	// 상품번호 
-    private String prd_num;
+@EqualsAndHashCode(callSuper = false)
+public class ProductVO extends CommonVO {
 
-    // 상품명 
-    private String prd_name;
+	private String prd_num = ""; // 상품번호
+	private String prd_name = ""; // 상품명
+	private int prd_price = 0; // 상품단가
+	private String prd_type = ""; // 상품종류
+	private int prd_qty = 0; // 재고수량
+	private String prd_date = ""; // 등록날짜
 
-    // 상품단가 
-    private int prd_price;
+	/*
+	 * private ImageVO image;
+	 * 
+	 * public MultipleBoardVO() { image = new ImageVO(); }
+	 */
 
-    // 상품종류 
-    private String prd_type;
+	private List<ProductImageVO> images;
 
-    // 재고수량 
-    private int prd_qty;
+	public ProductVO() {
+		images = new ArrayList<ProductImageVO>();
+	}
 
     // 등록날짜 
     private String prd_date;

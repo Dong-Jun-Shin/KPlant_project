@@ -81,27 +81,3 @@ function chkFile(item) {
 		return true;
 	}
 }
-
-/*********
- * 함수명:chkData(유효성 체크 대상, 메시지 내용)
- * 출력영역: alert
- * 예시:if(!chkData($('#keyword'),"검색어를")) return;
- */
-function chkData(elem, str) {
-	var spaceExp = /\s/g;
-
-	if ($(elem).val().replace(spaceExp, "") == "") {
-		alert(str + "을(를) 입력해주세요.");
-		$(elem).focus();
-		$(elem).val("");
-
-		return false;
-	}
-
-	return true;
-}
-
-
-
-
-
