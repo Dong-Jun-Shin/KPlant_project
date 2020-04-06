@@ -39,7 +39,7 @@
       	//검색버튼
 		$("#searchData").click(function() {
 			if($("#search").val()!="all"){
-				if(!chkData("#keyword","검색어를")) return;
+				if(!chkData("#keyword","검색어")) return;
 			}
 			goPage();
 		});

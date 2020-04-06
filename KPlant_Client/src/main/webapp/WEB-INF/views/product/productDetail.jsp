@@ -33,22 +33,42 @@
 				
 				//- 가격 빼기
 				$("#subtract").click(function() {
+					console.log("호출 여부");
+					//$("#sum").html("");
 					var su = $("#su").val();
-					var subtractSu = Number(su)-1;
-
-					
+					var plusSu = Number(su)-Number(1);
+					if(plusSu < 1){
+						//alert();
+						return;
+					}
+					var price = $("#price").html();
+					console.log("su : " + su - "price : " + price);
+					$("#su").val(plusSu);
+					$("#sum").html(Number(price)*plusSu);
 				});
 					
 				//+ 가격 더하기
 				$("#plus").click(function() {
+					console.log("호출 여부");
+					//$("#sum").html("");
 					var su = $("#su").val();
+					var price = $("#price").html();
+					
+					console.log("su : " + su + "price : " + price);
 					var plusSu = Number(su)+Number(1);
-					$("#su").val(sum);
+					$("#su").val(plusSu);
+					
+					$("#sum").html(Number(price)*plusSu);
 				});
 				
 				//장바구니 버튼
 				$("#basket").click(function() {
-					location.href="/order/cart";
+					var butChk = 1;
+					$("#p_form").attr({
+						"method":"post",
+						"action":"/order/cartCheck"
+					});
+					$("#p_form").submit();
 				})
 				
 				//구매하기 버튼
@@ -71,7 +91,7 @@
 					</div>
 					<div id="p_table">
 						<h1>${detail.prd_name}</h1>
-						<h3>${detail.prd_price}</h3>
+						<h3 id="price">${detail.prd_price}</h3>
 						<hr>
 						<div>
 							<label>상품 종류: </label>
@@ -89,7 +109,6 @@
 							</div>
 							
 							<div id = "right">
-								<label> ${detail.prd_price}</label>
 								<div class="row">
 									<div>
 										<div class="input-group">
@@ -105,14 +124,14 @@
 								</div>
 							</div>
 						</div>
+					
+						<hr>
 						
 						<div class="text-right">
-							<label class="sum">총 상품금액: <fmt:formatNumber pattern="###,###,###" value="${sum}" />원</label>
-							<label>
-								<c:set var="sum" value="${sum + (detail.prd_price * detail.prd_price)}" />
-							</label>
+							<label id="label">총 금액: </label>
+							<label id="sum"> ${detail.prd_price}</label>
+							<label id="label">원</label>
 						</div>
-						<hr>
 						
 						<div>
 							<input type="button" id="basket" value="장바구니">

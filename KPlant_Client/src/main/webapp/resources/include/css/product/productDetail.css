@@ -12,8 +12,9 @@
 }
 
 #p_img {
-	width: 300px;
-	height: 300px;
+	width: 400px;
+    height: 400px;
+    margin-top: 30px;
 }
 
 div#p_table {
@@ -40,7 +41,23 @@ label {
 
 div.text-right {
 	text-align: right;
-	margin-top: 30px;
+}
+
+label#sum{
+	font-size: 25pt;
+	text-align: right;
+	margin-bottom: 20px;
+}
+
+#label{
+	font-size: 25pt;
+}
+
+.input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    margin-top: 5px;
 }
 
 #money-div {
@@ -54,7 +71,7 @@ div.text-right {
 #left {
 	float: left;
 	width: 388px;
-	margin-top: 21px;
+	margin-top: 10px;
 }
 
 #right {
