@@ -33,28 +33,62 @@
 				
 				//- 가격 빼기
 				$("#subtract").click(function() {
+					console.log("호출 여부");
+					//$("#sum").html("");
 					var su = $("#su").val();
-					var subtractSu = Number(su)-1;
-
-					
+					var plusSu = Number(su)-Number(1);
+					if(plusSu < 1){
+						//alert();
+						return;
+					}
+					var price = $("#price").html();
+					console.log("su : " + su - "price : " + price);
+					$("#su").val(plusSu);
+					$("#sum").html(Number(price)*plusSu);
 				});
 					
 				//+ 가격 더하기
 				$("#plus").click(function() {
+					console.log("호출 여부");
+					//$("#sum").html("");
 					var su = $("#su").val();
+					var price = $("#price").html();
+					
+					console.log("su : " + su + "price : " + price);
 					var plusSu = Number(su)+Number(1);
-					$("#su").val(sum);
+					$("#su").val(plusSu);
+					
+					$("#sum").html(Number(price)*plusSu);
 				});
 				
 				//장바구니 버튼
 				$("#basket").click(function() {
-					location.href="/order/cart";
+					var qty=$("#su").val();
+					$("#prd_qty").val(qty);
+					
+					$("#p_form").attr({
+						"method":"get",
+						"action":"/order/cart"
+					});
+					$("#p_form").submit();
+					
 				})
 				
 				//구매하기 버튼
-				$("#purchasev").click(function() {
-					location.href="/order/cart";
-				})
+	            $("#purchasev").click(function() {
+	               /* location.href="/order/cart"; */
+	               var qty=$("#su").val();
+	               $("#prd_qty").val(qty);
+	               
+	               $("#p_form").attr({
+	                  "method":"get",
+	                  "action":"/order/orderSheet"
+	               });
+	               
+	               $("#p_form").submit();
+	            });
+				
+				
 				
 			});
 		</script>
@@ -62,8 +96,10 @@
 	<body>
 		<div class="container">
 			<form id="p_form" name="p_form" class="form_horizontal form-inline">
-				
-				<input type="hidden" name="prd_num">
+			
+				<input type="hidden" name="prd_num" value = "${detail.prd_num}">
+           		<input type="hidden" name="prd_qty" id="prd_qty" >
+            	<input type="hidden" name="prd_price" value = "${detail.prd_price}">
 			
 				<div id="div">
 					<div id="p_div">
@@ -71,7 +107,7 @@
 					</div>
 					<div id="p_table">
 						<h1>${detail.prd_name}</h1>
-						<h3>${detail.prd_price}</h3>
+						<h3 id="price">${detail.prd_price}</h3>
 						<hr>
 						<div>
 							<label>상품 종류: </label>
@@ -89,7 +125,6 @@
 							</div>
 							
 							<div id = "right">
-								<label> ${detail.prd_price}</label>
 								<div class="row">
 									<div>
 										<div class="input-group">
@@ -105,14 +140,14 @@
 								</div>
 							</div>
 						</div>
+					
+						<hr>
 						
 						<div class="text-right">
-							<label class="sum">총 상품금액: <fmt:formatNumber pattern="###,###,###" value="${sum}" />원</label>
-							<label>
-								<c:set var="sum" value="${sum + (detail.prd_price * detail.prd_price)}" />
-							</label>
+							<label id="label">총 금액: </label>
+							<label id="sum"> ${detail.prd_price}</label>
+							<label id="label">원</label>
 						</div>
-						<hr>
 						
 						<div>
 							<input type="button" id="basket" value="장바구니">
@@ -142,6 +177,31 @@
 						
 					</div>
 				</div>
+				</div>
+		
+		
+			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+				<ul id="myTab" class="nav nav-tabs nav-justified" role="tablist">
+					<li role="presentation" class="active"><a href="#home"
+						id="home-tab" role="tab" data-toggle="tab" aria-controls="home"
+						aria-expanded="true">상세 정보</a></li>
+					<li role="presentation" class=""><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile"
+						aria-expanded="false">상품 문의</a></li>
+				</ul>
+
+				<div id="myTabContent" class="tab-content">
+					<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
+						
+>>>>>>> origin/HomePage
+						<img id="detail" src="/KplantUploadStorage/product/${detail.img_prd2}">
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+
+						<img id="notice" src="/resources/images/join/notice.png">
+						
+					</div>
+				</div>
+>>>>>>> origin/feature/mypage
 			</div>
 			
 			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
@@ -177,6 +237,7 @@
 					<div role="tabpanel" class="tab-pane fade" id="seller-notice" aria-labelledby="seller-tab">
 
 						<img id="notice" src="/resources/images/join/information.png">
+						<img id="notice" src="/resources/images/join/notice.png">
 						
 					</div>
 				</div>

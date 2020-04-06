@@ -9,7 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.kplant.client.join.vo.MemberVO;
 import com.kplant.client.product.service.ProductService;
 import com.kplant.client.product.vo.ProductVO;
 
@@ -94,6 +96,8 @@ public class ProductController {
 		
 		return "product/productDetail";
 	}
+	
+	
 	
 	
 }

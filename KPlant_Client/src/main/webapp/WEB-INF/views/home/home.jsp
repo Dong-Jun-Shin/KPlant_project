@@ -12,7 +12,9 @@
 <link rel="stylesheet" type="text/css" href="/resources/include/css/main/custom.css">
 <!-- Slide CSS -->
 <link rel="stylesheet" type="text/css" href="/resources/include/css/main/mainHome.css">
-
+<!-- event CSS -->
+<link rel="stylesheet" type="text/css" href="/resources/include/css/event/eventMain.css">
+	
 	<!-- ALL JS FILES -->
     <script type="text/javascript" src="/resources/include/js/popper.min.js"></script>
     <!-- ALL PLUGINS -->
@@ -29,7 +31,19 @@
     <script type="text/javascript" src="/resources/include/js/custom.js"></script>
 <%-- script --%>
 	<script type="text/javascript">
-		
+		$(function () {
+			/*이벤트 단락 클릭시 상세 페이지로 이동하기 위한 처리 이벤트*/
+			$(".goDetail").click(function () {
+				var evnt_num=$(this).attr("data-num");
+				$("#evnt_num").val(evnt_num);
+				$("#detailForm").attr({
+					"method" : "get",
+					"action" : "/event/eventDetail"
+				});
+				$("#detailForm").submit();
+				
+			});
+		});//상위 $ 함수 끝
 	</script>
 <%-- script end --%>
 
@@ -95,6 +109,11 @@
         </div>
     </div>
     <div class="row">
+<%--     	<c:forEach> --%>
+<%--     		<c:when test=""> --%>
+    			
+<%--     		</c:when> --%>
+<%--     	</c:forEach> --%>
         <div class="col-md-3 col-sm-6">
             <div class="product-grid5">
                 <div class="product-image5">
@@ -109,6 +128,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="col-md-3 col-sm-6">
             <div class="product-grid5">
                 <div class="product-image5">
@@ -181,14 +201,14 @@
 			</form>
 			
             <div class="row">
-            	<c:choose>
-            		<c:when test="${not empty MainEventList}">
-            			<c:forEach var="event" items="${MainEventList}">
+            	<!--<c:choose>
+            		<c:when test="${not empty mainEventList}">
+            			<c:forEach var="event" items="${mainEventList}">
 			                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 			                    <div class="shop-cat-box">
 			                    	<div class="caption">
-				                        <img src="/KplantUploadStorage/event/thumbnail/${MainEventList.evnt_thumb}" style="width: auto;">
-				                        <a class="btn hvr-hover" href="#">${MainEventList.title}</a>
+				                        <img src="/KplantUploadStorage/event/thumbnail/${event.evnt_thumb}" style="width: 100%;">
+				                        <a class="btn hvr-hover" href="#">${event.evnt_title}</a>
 			                        </div>
 			                    </div>
 			                </div>
@@ -204,23 +224,29 @@
 			                    </div>
 			                </div>
 	                </c:otherwise>
-                </c:choose>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                </c:choose>-->
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="/resources/images/event/eventDefault.jpg" alt="" />
-                        <a class="btn hvr-hover" href="#">관엽/공기정화/분채</a>
+                        <img class="img-fluid" src="/resources/images/main/plan/관엽식물.jpg" alt="" style="height: 200px;"/>
+                        <a class="btn hvr-hover" href="/product/productList">관엽/공기정화/분채</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="/resources/images/event/eventDefault.jpg" alt="" />
-                        <a class="btn hvr-hover" href="#">식물 분류 출력</a>
+                        <img class="img-fluid" src="/resources/images/main/plan/다육식물.jpg" alt="" style="height: 200px;"/>
+                        <a class="btn hvr-hover" href="/product/productList2">다육식물</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="/resources/images/event/eventDefault.jpg" alt="" />
-                        <a class="btn hvr-hover" href="#">식물 분류 출력</a>
+                        <img class="img-fluid" src="/resources/images/main/plan/꽃다발1.jpg" alt="" style="height: 200px;"/>
+                        <a class="btn hvr-hover" href="/product/productList5">꽃다발</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="shop-cat-box">
+                        <img class="img-fluid" src="/resources/images/main/plan/동서양란.jpg" alt="" style="height: 200px;"/>
+                        <a class="btn hvr-hover" href="/product/productList3">동서양란</a>
                     </div>
                 </div>
                 
@@ -230,6 +256,7 @@
     <!-- End Categories -->
 </section>
 
+<%--
 <section>
 	<div class="box-add-products">
 		<div class="intobox">
@@ -242,20 +269,48 @@
 			</div>
 			<div class="row">
 				<h2 class="text-center"> KTENRI EVENT</h2>
-				<div class="col-lg-6 col-sm-12">
-					<div class="offer-box-products">
-						<img class="img-fluid home-eventImg" src="/resources/images/event/eventDefault.jpg"/>
-					</div>
-				</div>
-				<div class="col-lg-6 col-sm-12">
-					<div class="offer-box-products">
-						<img class="img-fluid home-eventImg" src="/resources/images/event/eventDefault.jpg"/>
-					</div>
-				</div>
+				<c:choose>
+					<c:when test="${not empty mainEventList}">
+            			<c:forEach var="event" items="${mainEventList}">
+							<div class="col-lg-4 col-sm-12">
+								<div class="thumbnail goDetail" data-num="${event.evnt_num}">
+									<img class="img-fluid home-eventImg" src="/KplantUploadStorage/event/thumbnail/${event.evnt_thumb}" style="width: auto; height: 200px;"/>
+									<div class="caption">
+								        <h3>${event.evnt_title}</h3>
+										<p>${event.evnt_startDate}부터  - ${event.evnt_endDate}까지</p>
+										<p>${event.evnt_rgstDate}</p>
+								    </div>
+								</div>
+							</div>
+            			</c:forEach>
+            		</c:when>
+            		<c:otherwise>
+            			<div class="col-lg-4 col-sm-12">
+								<div class="thumbnail goDetail" data-num="${event.evnt_num}">
+									<img class="img-fluid home-eventImg" src="/KplantUploadStorage/event/thumbnail/${event.evnt_thumb}" style="width: auto; height: 200px;"/>
+									<div class="caption">
+								        <h3>${event.evnt_title}</h3>
+										<p>${event.evnt_startDate}부터  - ${event.evnt_endDate}까지</p>
+										<p>${event.evnt_rgstDate}</p>
+								    </div>
+								</div>
+							</div>
+            		</c:otherwise>
+				</c:choose>
+<!-- 				<div class="col-lg-6 col-sm-12"> -->
+<!-- 					<div class="offer-box-products"> -->
+<!-- 						<img class="img-fluid home-eventImg" src="/resources/images/event/eventDefault.jpg"/> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-lg-6 col-sm-12"> -->
+<!-- 					<div class="offer-box-products"> -->
+<!-- 						<img class="img-fluid home-eventImg" src="/resources/images/event/eventDefault.jpg"/> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 			</div>
 		</div>
 	</div>
-
+ --%>
     <!-- Start Products  -->
     <div class="products-box">
         <div class="container">
@@ -268,6 +323,36 @@
                     </div>
                 </div>
             </div>
+            
+            <%-- 상세페이지로 이동하기 위한 hidden form --%>
+<!-- 		   <form id="detailForm"> -->
+<%-- 		      <input type="hidden" id="prd_num" name="prd_num" value="${detail.prd_num}"/> --%>
+<!-- 		   </form> -->
+		   
+            <%--<c:choose>
+            	<c:when test="${not empty productList}">
+            		<c:forEach var="product" items="${productList}">
+            			<div class="col-sm-6 col-md-4 special-grid best-seller">
+            				<div class="products-single fix">
+            					<div class="box-img-hover">
+            						<div class="type-lb">
+		                                <p class="sale">Sale</p>
+		                            </div>
+									<a href = "/product/productDetail?prd_num=${product.prd_num}"><img src="/KplantUploadStorage/product/${product.img_prd}"
+										style="width: 600px; height: 300px;"></a>
+            					</div>
+								<div class="thumbnail" data-num="${product.prd_num}">
+									<div class="why-text">
+										<h3>${product.prd_name}</h3>
+										<p>${product.prd_price}원</p>
+									</div>
+								</div>
+							</div>
+						</div>
+            		</c:forEach>
+            	</c:when>
+            </c:choose>  --%>
+            
             <div class="row">
                 <div class="col-lg-12">
                     <div class="special-menu text-center">
@@ -279,7 +364,7 @@
                     </div>
                 </div>
             </div>
-
+			
             <div class="row special-list">
                 <div class="col-lg-3 col-md-6 special-grid best-seller">
                     <div class="products-single fix">

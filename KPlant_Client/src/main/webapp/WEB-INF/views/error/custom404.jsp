@@ -22,7 +22,7 @@
 <%-- 	</c:forEach> --%>
 <!-- </ul> -->
 
-<%-- 이 부분은 개발 완료 후 사용 --%>
+<%-- 이 부분은 개발 완료 후 사용 
 <div class="alert alert-warning alert-dismissible fade in" role="alert" id="errorAlert">
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 		<span aria-hidden="true">&times;</span>
@@ -35,4 +35,4 @@
 	<p>
 		<button type="button" class="btn btn-warning" id="main">홈으로</button>
 	</p>
-</div>
+</div>--%>

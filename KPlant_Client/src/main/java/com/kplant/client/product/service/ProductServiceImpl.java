@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kplant.client.join.vo.MemberVO;
 import com.kplant.client.product.dao.ProductDao;
 import com.kplant.client.product.vo.ProductVO;
 
@@ -66,8 +67,4 @@ public class ProductServiceImpl implements ProductService {
 		session.setAttribute("prd_num", pvo.getPrd_num());
 		return list;
 	}
-	
-	
-	
-	
 }
