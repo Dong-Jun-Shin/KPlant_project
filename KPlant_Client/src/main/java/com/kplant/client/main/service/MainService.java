@@ -8,4 +8,6 @@ public interface MainService {
 
 	List<EventVO> eventList(EventVO evo);
 
+	EventVO eventDetail(EventVO evo);
+
 }

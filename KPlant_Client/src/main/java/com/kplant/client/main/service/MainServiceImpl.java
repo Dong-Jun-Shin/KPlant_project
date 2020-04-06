@@ -23,4 +23,14 @@ public class MainServiceImpl implements MainService {
 		return list;
 	}
 
+	@Override
+	public EventVO eventDetail(EventVO evo) {
+		EventVO detail = null;
+		detail = eventDAO.eventDetail(evo);
+	    if(detail.getEvnt_content()!=null) {
+	    	detail.setEvnt_content(detail.getEvnt_content().replaceAll("\n", "<br />"));
+	    }
+		return detail;
+	}
+
 }

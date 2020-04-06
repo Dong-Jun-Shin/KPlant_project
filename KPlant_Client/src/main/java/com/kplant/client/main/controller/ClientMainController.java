@@ -29,20 +29,28 @@ public class ClientMainController {
 	
 	
 	@RequestMapping("")
-	public String client(Locale locale, Model model) {
+	public String client(Locale locale, Model model, EventVO evo) {
 		log.info("client/index 호출 성공");
+		
+		
+	 	List<EventVO> eventList = mainService.eventList(evo);
+		model.addAttribute("mainEventList", eventList);
+		
 		
 		return "index";
 	}
 	
-	@RequestMapping(value = "/eventList", method=RequestMethod.GET)
+	
+	/*@RequestMapping(value = "/eventList", method=RequestMethod.GET)
 	public String eventList(@ModelAttribute("data") EventVO evo, Model model) {
 		log.info("Main eventList 호출 성공");
 		
 		List<EventVO> eventList = mainService.eventList(evo);
 		model.addAttribute("MainEventList", eventList);
 		
-		return "event/eventList";
-	}
+		return "home/home";
+	}*/
+	
+	
 	
 }
