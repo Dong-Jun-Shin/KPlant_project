@@ -55,7 +55,7 @@ function drawMonthSales() {
 	    		min: 0
 	    	}
 	    },
-	    series: {0: {color: '#70ad47'}},
+	    series: {0: {color: '#337ab7'}},
 	    chartArea: {right: 40, left: 60},
 	    width: 350,
         height: 300
@@ -97,7 +97,7 @@ function drawYearSales() {
 				}
 			},
 			seriesType: 'line',
-	        series: {0: {color: '#70ad47'}},
+	        series: {0: {color: '#337ab7'}},
 	        chartArea: {right: 40, left: 60},
 			width: 350,
 			height: 300

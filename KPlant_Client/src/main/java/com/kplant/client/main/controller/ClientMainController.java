@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.kplant.client.join.vo.MemberVO;
 import com.kplant.client.order.vo.OrderDetailVO;
 import com.kplant.client.product.vo.ProductImageVO;
 import com.kplant.client.product.vo.ProductVO;

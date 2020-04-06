@@ -2,9 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<link rel="stylesheet" type="text/css" href="/resources/include/css/event/eventMain.css">
-<link rel="stylesheet" type="text/css" href="/resources/include/css/event/eventDetail.css">
-<link rel="stylesheet" type="text/css" href="/resources/include/css/event/writeForm.css">
+<link rel="stylesheet" type="text/css" href="/admin/resources/include/css/event/eventMain.css">
+<link rel="stylesheet" type="text/css" href="/admin/resources/include/css/event/eventDetail.css">
+<link rel="stylesheet" type="text/css" href="/admin/resources/include/css/event/writeForm.css">
+<link rel="stylesheet" type="text/css" href="/admin/resources/include/css/customer/header.css" />
 <%--script --%>
 <script type="text/javascript">
 	$(function () {

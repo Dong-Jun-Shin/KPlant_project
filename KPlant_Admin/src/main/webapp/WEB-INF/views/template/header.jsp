@@ -29,10 +29,8 @@
 	<ul class="nav nav-sidebar">
 		<li role="presentation" class="active"><a href="/admin/member/memberList">회원 관리</a></li>
 		<li role="presentation"><a href="/admin/product/productList">상품 관리</a></li>
-		<li role="presentation"><a href="/admin/hotdeal/hotdealList">핫딜 관리</a></li>
 		<li role="presentation"><a href="/admin/order/orderList">주문 관리</a></li>
 		<li role="presentation"><a href="/admin/event/eventList">이벤트 관리</a></li>
 		<li role="presentation"><a href="/admin/faq/faqList">FAQ 관리</a></li>
-		<li role="presentation"><a href="/admin/consult/consultList">1:1상담 관리</a></li>
 	</ul>
 </div>

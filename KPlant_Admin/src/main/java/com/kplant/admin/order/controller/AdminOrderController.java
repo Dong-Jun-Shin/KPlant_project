@@ -98,7 +98,19 @@ public class AdminOrderController {
 		log.info("admin/주문관리 상세정보 호출 성공");
 
 		// 주문의 상세정보
-		Map<String, String> detailInfo = adminOrderService.getOrderInfo(olvo);		
+		Map<String, String> detailInfo = adminOrderService.getOrderInfo(olvo);
+		switch (detailInfo.get("pay_method")) {
+		case "card":
+			detailInfo.put("pay_method", "신용카드");
+			break;
+		case "trans":
+			detailInfo.put("pay_method", "실시간 계좌이체");
+			break;
+		case "samsung":
+			detailInfo.put("pay_method", "삼성페이");
+			break;
+		}
+		
 		model.addAttribute("detail", detailInfo);
 		
 		// 주문의 상품리스트 정보

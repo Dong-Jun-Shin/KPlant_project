@@ -3,16 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
-<div class="status-login status-background">
-	<%-- <c:if test=""></c:if> --%>
-	<%-- 로그인
-   	<div class="container text-right myinfo">
-	   	<!-- 로그인 했을 때 헤더와 라이트메뉴-->
-		<span class="member">홍길동</span>님, 환영합니다!
-		<button class="btn logout" type="button">로그아웃</button>
-   	</div>
-   	--%>
-</div>
 <div class="container">
 	<div class="navbar-header">
       <a class="navbar-brand" href="/" style="padding: 5px">
@@ -40,7 +30,6 @@
                <li><a href="#">꽃바구니/꽃상자</a></li>
                <li><a href="#">꽃다발</a></li>
             </ul></li>
-        <li class="menu navbar-left"><a class="menu-left-font" href="#">HOT DEAL</a></li>
         <li class="menu navbar-left dropdown">
           <a href="#" class="dropdown-toggle menu-left-font" data-toggle="dropdown" data-hover="dropdown" role="button">EVENT <span class="caret"></span></a>
           <ul class="dropdown-menu dropdown-sub" role="menu">
@@ -73,9 +62,14 @@
         	</c:if>
         </li>
 
-			<li><a class="menu menu-right-icon" href="/order/cart"><span
-					class="glyphicon glyphicon-shopping-cart icon-margin"
-					aria-hidden="true"></span><span class="basket">${fn:length(prdList) }</span></a></li>
+		<li>
+			<a class="menu menu-right-icon" href="/order/cart">
+				<span class="glyphicon glyphicon-shopping-cart icon-margin"	aria-hidden="true"></span>
+				<span class="basket">
+					${fn:length(prdList) }
+				</span>
+			</a>
+		</li>
 		</ul>
 	</div>
 </div>
