@@ -41,21 +41,23 @@
 		    <div class="item active">
 		      <img src="/resources/images/main/slider/1.jpg" alt="...">
 		      <div class="carousel-caption">
-		       		서울 식물원과 함께하는 이벤트!
-		       		많은 참여 부탁드립니다.
-		      </div>
+			    <h1>서울 식물원과 함께하는 초대권 이벤트</h1>
+			    <p>...</p>
+			  </div>
 		    </div>
 		    <div class="item">
 		      <img src="/resources/images/main/slider/2.jpg" alt="...">
 		      <div class="carousel-caption">
-		        	봄맞이 KPLANT만의 이벤트! 
-		      </div>
+			    <h1>KINGTENRI와 여름을 준비해보세요</h1>
+			    <p>...</p>
+			  </div>
 		    </div>
 		    <div class="item">
 		      <img src="/resources/images/main/slider/3.jpg" alt="...">
 		      <div class="carousel-caption">
-		        	봄맞이 KPLANT만의 이벤트! 
-		      </div>
+			    <h1>편안함을 주는 내곁의 식물</h1>
+			    <p></p>
+			  </div>
 		    </div>
 		  </div>
 		  
@@ -100,12 +102,6 @@
                         <img class="pic-1" src="/resources/images/main/mainProduct/main1.jpg">
                         <img class="pic-2" src="/resources/images/main/mainProduct/main2.jpg">
                     </a>
-                    <ul class="social">
-                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                    </ul>
-                    <a href="#" class="select-options"><i class="fa fa-arrow-right"></i> Select Options</a>
                 </div>
                 <div class="product-content">
                     <h3 class="title"><a href="#">미니다육A-B세트</a></h3>
@@ -116,16 +112,10 @@
         <div class="col-md-3 col-sm-6">
             <div class="product-grid5">
                 <div class="product-image5">
-                    <a href="#">4
+                    <a href="#">
                         <img class="pic-1" src="/resources/images/main/mainProduct/main3.jpg">
                         <img class="pic-2" src="/resources/images/main/mainProduct/main4.jpg">
                     </a>
-                    <ul class="social">
-                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                    </ul>
-                    <a href="#" class="select-options"><i class="fa fa-arrow-right"></i> Select Options</a>
                 </div>
                 <div class="product-content">
                     <h3 class="title"><a href="#">미니다육B-C세트</a></h3>
@@ -140,12 +130,6 @@
                         <img class="pic-1" src="/resources/images/main/mainProduct/main5.jpg">
                         <img class="pic-2" src="/resources/images/main/mainProduct/main6.jpg">
                     </a>
-                    <ul class="social">
-                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                    </ul>
-                    <a href="#" class="select-options"><i class="fa fa-arrow-right"></i> Select Options</a>
                 </div>
                 <div class="product-content">
                     <h3 class="title"><a href="#">제품명/식물명</a></h3>
@@ -160,12 +144,12 @@
                         <img class="pic-1" src="/resources/images/main/mainProduct/main7.jpg">
                         <img class="pic-2" src="/resources/images/main/mainProduct/main9.jpg">
                     </a>
-                    <ul class="social">
-                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
-                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
-                    </ul>
-                    <a href="#" class="select-options"><i class="fa fa-arrow-right"></i> Select Options</a>
+<!--                     <ul class="social"> -->
+<!--                         <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li> -->
+<!--                         <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li> -->
+<!--                         <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li> -->
+<!--                     </ul> -->
+<!--                     <a href="#" class="select-options"><i class="fa fa-arrow-right"></i> Select Options</a> -->
                 </div>
                 <div class="product-content">
                     <h3 class="title"><a href="#">제품명 /식물명</a></h3>
@@ -304,14 +288,6 @@
                                 <p class="sale">Sale</p>
                             </div>
                             <img src="/resources/images/event/eventDefault.jpg" class="img-fluid" alt="Image" style="width: 100%">
-                            <div class="mask-icon">
-                                <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                                </ul>
-                                <a class="cart" href="#">Add to Cart</a>
-                            </div>
                         </div>
                         <div class="why-text">
                             <h4>Lorem ipsum dolor sit amet</h4>
@@ -327,14 +303,6 @@
                                 <p class="new">New</p>
                             </div>
                             <img src="/resources/images/event/eventDefault.jpg" class="img-fluid" alt="Image" style="width: 100%">
-                            <div class="mask-icon">
-                                <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                                </ul>
-                                <a class="cart" href="#">Add to Cart</a>
-                            </div>
                         </div>
                         <div class="why-text">
                             <h4>Lorem ipsum dolor sit amet</h4>
@@ -350,14 +318,6 @@
                                 <p class="sale">Sale</p>
                             </div>
                             <img src="/resources/images/event/eventDefault.jpg" class="img-fluid" alt="Image" style="width: 100%">
-                            <div class="mask-icon">
-                                <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                                </ul>
-                                <a class="cart" href="#">Add to Cart</a>
-                            </div>
                         </div>
                         <div class="why-text">
                             <h4>Lorem ipsum dolor sit amet</h4>
@@ -373,14 +333,14 @@
                                 <p class="sale">Sale</p>
                             </div>
                             <img src="/resources/images/event/eventDefault.jpg" class="img-fluid" alt="Image" style="width: 100%">
-                            <div class="mask-icon">
-                                <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                                </ul>
-                                <a class="cart" href="#">Add to Cart</a>
-                            </div>
+<!--                             <div class="mask-icon"> -->
+<!--                                 <ul> -->
+<!--                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li> -->
+<!--                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li> -->
+<!--                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> -->
+<!--                                 </ul> -->
+<!--                                 <a class="cart" href="#">Add to Cart</a> -->
+<!--                             </div> -->
                         </div>
                         <div class="why-text">
                             <h4>Lorem ipsum dolor sit amet</h4>
