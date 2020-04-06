@@ -166,7 +166,7 @@
 							<th class="text-center">제품명</th>
 							<th data-value="m_date" class="text-center">제품종류</th>
 							<th class="text-center">재고수량</th>
-							<th class="text-center">등록일</th>
+							<th class="text-center">등록</th>
 						</tr>
 					</thead>
 					<tbody id="list" class="table-striped">
@@ -221,7 +221,7 @@
 				
 			<%-- ================== 글쓰기 버튼 출력 시작 ============= --%>
 			<div class="contentBtn  text-right">
-				<input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-primary">
+				<input type="button" value="제품등록" id="insertFormBtn" class="btn btn-primary">
 			</div>
 			<%-- ================== 글쓰기 버튼 출력 종료 ============= --%>
 			

@@ -21,6 +21,7 @@ import com.kplant.client.main.service.MainService;
 import lombok.Setter;
 import com.kplant.client.join.vo.MemberVO;
 import com.kplant.client.order.vo.OrderDetailVO;
+import com.kplant.client.product.vo.ProductImageVO;
 import com.kplant.client.product.vo.ProductVO;
 
 import lombok.extern.log4j.Log4j;

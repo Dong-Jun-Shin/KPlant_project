@@ -69,12 +69,23 @@
 						"action":"/order/cartCheck"
 					});
 					$("#p_form").submit();
-				})
+				});
+				
+				
 				
 				//구매하기 버튼
 				$("#purchasev").click(function() {
-					location.href="/order/cart";
-				})
+					/* location.href="/order/cart"; */
+					var qty=$("#su").val();
+	            $("#prd_qty").val(qty);
+	          
+					$("#p_form").attr({
+						"method":"get",
+						"action":"/order/orderSheet"
+					});
+					
+					$("#p_form").submit();
+				});
 				
 			});
 		</script>
@@ -83,7 +94,10 @@
 		<div class="container">
 			<form id="p_form" name="p_form" class="form_horizontal form-inline">
 				
-				<input type="hidden" name="prd_num">
+				<input type="hidden" name="prd_num" value = "${detail.prd_num}">
+				<input type="hidden" name="prd_qty" id="prd_qty" >
+            
+            <input type="hidden" name="prd_price" id = "prd_price" value = "${detail.prd_price}">
 			
 				<div id="div">
 					<div id="p_div">

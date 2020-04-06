@@ -31,8 +31,7 @@ public class ProductVO extends CommonVO {
 		images = new ArrayList<ProductImageVO>();
 	}
 
-    // 등록날짜 
-    private String prd_date;
+    
     
     // 이미지 번호 
     private String img_num;
