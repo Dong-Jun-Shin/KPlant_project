@@ -85,9 +85,9 @@
 		
 		<%-- ========= 비밀번호 확인 버튼 및 버튼 추가 시작 ====== --%>
 		<div class="text-right">
-				<input type="button" value="글수정" id="updateFormBtn" class="btn btn-success" />
-				<input type="button" value="글삭제" id="multipleBoardDeleteBtn" class="btn btn-success" />
-				<input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-success" />
+				<input type="button" value="제품수정" id="updateFormBtn" class="btn btn-success" />
+				<input type="button" value="제품삭제" id="multipleBoardDeleteBtn" class="btn btn-success" />
+				<input type="button" value="제품등록" id="insertFormBtn" class="btn btn-success" />
 				<input type="button" value="목록" id="multipleBoardListBtn" class="btn btn-success" />
 		</div>
 		<%--========= 비밀번호 확인 버튼 및 버튼 추가 종료 ========= --%>

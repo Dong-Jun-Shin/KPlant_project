@@ -15,11 +15,7 @@
 </div>
 <div class="container">
 	<div class="navbar-header">
-<<<<<<< HEAD
       <a class="navbar-brand" href="/*" style="padding: 5px">
-=======
-      <a class="navbar-brand" href="/" style="padding: 5px">
->>>>>>> 957d780bd284de45d3cd7690291bc0280a295a7d
       	<img alt="logo" src="/resources/images/template/logo.png" width="200px">
       </a>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">

@@ -2,6 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kplant.client.mypage.dao.MypageDAO">
 
+
+	<resultMap id="orderList" type="java.util.LinkedHashMap">
+	 	<result property="m_num" column="m_num" javaType="java.lang.String" />
+	    <result property="ord_num" column="ord_num" javaType="java.lang.String" />
+	    <result property="ord_qty" column="ord_qty" javaType="java.lang.String" />
+	    <result property="pay_price" column="pay_price" javaType="java.lang.String" />
+	    <result property="prd_name" column="prd_name" javaType="java.lang.String" />
+	    <result property="ord_date" column="ord_date"  javaType="java.lang.String"/>   
+	     <result property="ord_status" column="ord_status"  javaType="java.lang.String"/>   
+	</resultMap> 
+	
+
+
 	<!-- 회원정보조회 -->
 	<select id="memberData" parameterType="member"
 		resultType="member">
@@ -41,4 +54,25 @@
 			), 0)as state
 		from dual	
 	</select>
+	
+	<!-- 주문내역 조회 -->
+	<!-- <select id="orderDetails" parameterType="member"
+		resultType="member">
+				Select * from
+		Payment a, order_List b
+		Where a.ord_num = b.ord_num(+)
+		And m_num = #{m_num}
+		</select> -->
+		
+		<select id="orderDetails" parameterType="member" resultMap="orderList">
+		/* memberOrderList */
+		SELECT mem.m_num m_num, det.ord_num ord_num, det.ORD_QTY ord_qty, pro.PRD_NAME prd_name,pay.pay_price,ord.ord_date, ord.ord_status
+		FROM member mem INNER JOIN order_list ord on mem.m_num=ord.m_num 
+     		 inner join ORDER_DETAIL det on ord.ORD_NUM = det.ORD_NUM 
+     		 inner join PRODUCT pro on pro.PRD_NUM = det.PRD_NUM 
+              inner join Payment pay on pay.ord_NUM = ord.ord_NUM 
+		where mem.m_num = #{m_num}
+	</select>
+	
+		
 </mapper>

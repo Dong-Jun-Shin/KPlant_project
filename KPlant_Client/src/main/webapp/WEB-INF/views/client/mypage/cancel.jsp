@@ -62,7 +62,7 @@
 				</div>
 			</div>
 			<div class="orderDate">
-				<div class="dateTitle">
+				<!-- <div class="dateTitle">
 					조회<br /> 기간
 				</div>
 				<div class="dateSelect">
@@ -84,21 +84,27 @@
 						</div>
 						<button type="button" class="btn btn-success" id="searchBtn">검색</button>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			<div></div>
-			<p class = "title">주문내역</p>
+			<p class = "title">취소내역</p>
 			<div class = "orderTable">
 				<table class="wishTable table table-striped ">
 				<tr class="info">
-					<td>주문일자/번호</td>
-					<td>상품명/옵션</td>
-					<td>주문금액</td>
-					<td>진행현황</td>
-					<td>&nbsp;</td>
+					<td>주문번호</td>
+					<td>취소사유</td>
+					<!-- <td>&nbsp;</td> -->
 				</tr>
 				<tr>
-					<td colspan = "5">해당 내역이 없습니다.</td>
+					<td>OR1906200001</td>
+						<td>단순변심</td>
+						<!-- <td class = "rightLine">
+						<input type = "button" class = "btn btn-success" value = "배송추적" />
+						<input type = "button" class = "btn btn-danger btn-sm" value = "주문취소" />
+						<input type = "button" class = "btn btn-primary btn-sm" value = "구매확정" />
+						<input type = "button" class = "btn btn-info btn-sm" value = "반품신청" />
+						<input type = "button" class = "btn btn-warning btn-sm" value = "교환신청" />
+						</td> -->
 				</tr>	
 			</table>
 			</div>

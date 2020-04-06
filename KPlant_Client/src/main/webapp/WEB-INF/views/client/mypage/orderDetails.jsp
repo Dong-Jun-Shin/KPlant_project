@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
 <%-------------------------------------------------------------------------------- --%>
 <div id="location">
 	<a>홈</a> > 마이페이지 > 회원정보 > <select>
@@ -51,6 +52,7 @@
 
 	<div id="orderDiv">
 		<form id="orderForm" class="form-inline">
+		<input type="hidden" id="m_num" name="m_num" value = "${updateData.m_num}" />
 			<p class="title">주문/배송내역</p>
 			<div class="guide">
 				<div class="orderImg">
@@ -62,7 +64,7 @@
 				</div>
 			</div>
 			<div class="orderDate">
-				<div class="dateTitle">
+				<!-- <div class="dateTitle">
 					조회<br /> 기간
 				</div>
 				<div class="dateSelect">
@@ -85,23 +87,25 @@
 						<button type="button" class="btn btn-success" id="searchBtn">검색</button>
 					</div>
 				</div>
+			</div> -->
 			</div>
 			<div></div>
 			<p class="title">주문내역</p>
 			<div class="orderTable">
 				<table class="wishTable table table-striped ">
 					<tr class="info">
-						<td>주문일자/번호</td>
-						<td>상품명/옵션</td>
+						<td>주문일자</td>
+						<td>주문번호</td>
 						<td>주문금액</td>
+						<td>주문수량</td>
 						<td>진행현황</td>
-						<td>&nbsp;</td>
+						<!-- <td>&nbsp;</td> -->
 					</tr>
-					<tr>
-						<td>주문일자/주문번호</td>
-						<td>상품명/옵션</td>
-						<td>주문금액</td>
-						<td>진행현황</td>
+					<%-- <tr>
+						<td>${updateData.ord_date}</td>
+						<td>${updateData.ord_num}</td>
+						<td>${updateData.pay_price}</td>
+						<td>${updateData.ord_status}</td>
 						<td class = "rightLine">
 						<!-- <input type = "button" class = "btn btn-success" value = "배송추적" /> -->
 						<input type = "button" class = "btn btn-danger btn-sm" value = "주문취소" />
@@ -109,7 +113,26 @@
 						<input type = "button" class = "btn btn-info btn-sm" value = "반품신청" />
 						<input type = "button" class = "btn btn-warning btn-sm" value = "교환신청" />
 						</td>
-					</tr>
+					</tr> --%>
+					<c:choose>
+							<c:when test="${not empty memberOrderList}">
+								<c:forEach var="orderList" items="${memberOrderList}" varStatus="status">
+									<tr class="text-center" data-num="${orderList.m_num}">
+										<td>${orderList.ord_date}</td>
+										<td>${orderList.ord_num}</td>
+										<td>${orderList.pay_price}</td>
+										<td>${orderList.ord_qty}</td>
+										<td>${orderList.ord_status}</td>
+										
+									</tr>
+								</c:forEach>
+							</c:when>
+							<c:otherwise>
+								<tr>
+									<td colspan="5" class="tac text-center">주문 내역이 존재하지 않습니다</td>
+								</tr>
+							</c:otherwise>
+						</c:choose>
 				</table>
 			</div>
 			<div class="paging">

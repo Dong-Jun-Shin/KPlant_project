@@ -1,6 +1,8 @@
 package com.kplant.client.mypage.controller;
 
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -111,12 +113,16 @@ public class MypageController {
 
 		}
 	
+	//주문내역
 	@GetMapping("/orderDetails")
 	public String orderDetails(MemberVO mvo, Locale locale, Model model, HttpSession session) {
 		mvo.setM_num((int)session.getAttribute("m_num"));
 		log.info("orderDetails 호출 성공");
 		
-		return "mypage/orderDetails";
+		List<Map<String, String>> memberOrderList = mypageService.orderDetails(mvo);
+		model.addAttribute("memberOrderList", memberOrderList);
+		
+		 		return "mypage/orderDetails";
 	}
 	
 	//비밀번호 확인페이지
