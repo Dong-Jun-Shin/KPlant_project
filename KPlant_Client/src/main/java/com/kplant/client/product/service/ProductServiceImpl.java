@@ -67,18 +67,4 @@ public class ProductServiceImpl implements ProductService {
 		session.setAttribute("prd_num", pvo.getPrd_num());
 		return list;
 	}
-
-	@Override
-	public ProductVO cartCheck(ProductVO pvo, HttpSession session) {
-		ProductVO vo = productDao.cartCheck(pvo);
-		if (vo!=null) {
-			session.setAttribute("prd_num", vo.getPrd_num());
-			session.setAttribute("prd_price", vo.getPrd_price());
-		}
-		return vo;
-	}
-	
-	
-	
-	
 }

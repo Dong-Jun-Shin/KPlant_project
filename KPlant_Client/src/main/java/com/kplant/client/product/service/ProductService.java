@@ -14,5 +14,4 @@ public interface ProductService {
 	public List<ProductVO> productList3(ProductVO pvo, HttpSession session);
 	public List<ProductVO> productList4(ProductVO pvo, HttpSession session);
 	public List<ProductVO> productList5(ProductVO pvo, HttpSession session);
-	public ProductVO cartCheck(ProductVO pvo, HttpSession session);
 }

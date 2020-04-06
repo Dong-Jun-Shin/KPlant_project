@@ -97,27 +97,7 @@ public class ProductController {
 		return "product/productDetail";
 	}
 	
-	/**
-	 * 장바구니
-	 */
-	@RequestMapping(value = "/cartCheck")
-	public ModelAndView cartCheck(@ModelAttribute ProductVO pvo, HttpSession session, Model model) {
-		log.info("cartCheck 호출 성공");
-		
-		ProductVO vo=productService.cartCheck(pvo, session);
-		ModelAndView mav=new ModelAndView();
-		if(vo!=null) {
-			log.info("확인");
-			model.addAttribute("msg", "장바구니에 상품을 넣었습니다."); 
-			mav.setViewName("redirect:/product/productDetail");
-		}else {
-			log.info("실패");
-			mav.setViewName("redirect:/product/productDetail");
-			
-		}
-		
-		return mav;
-	}
+	
 	
 	
 }
