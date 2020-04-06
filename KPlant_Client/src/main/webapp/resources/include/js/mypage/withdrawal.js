@@ -6,12 +6,14 @@ $(function(){
 		    return false;
 		 }
 		else{
+			
 			$("#withdrawalForm").attr({
 				"method":"post",
 				"action":"/mypage/memberWithdrawal"
 			});
 			$("#withdrawalForm").submit();
 		}
+		
 	});
 	
 	$("#withReset").click(function(){

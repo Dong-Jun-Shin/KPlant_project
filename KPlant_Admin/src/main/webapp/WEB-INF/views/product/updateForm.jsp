@@ -188,7 +188,7 @@
 										<span class="clearBtn" title="checkbox와 file 값 초기화">&times;</span>
 										<input type="checkbox" name="images[${status.index}].i_num"
 											class="choice" value="${image.i_num}" />
-										<img src="/uploadStorage/product/${image.i_file}" />
+										<img src="/KplantUploadStorage/product/${image.i_file}" />
 										<input type="hidden" name="images[${status.index}].i_file"
 											value="${image.i_file}" />
 									</c:forEach></td>

@@ -1,17 +1,26 @@
-package com.kplant.client.main.controller;
+﻿package com.kplant.client.main.controller;
 
-import java.util.ArrayList;
 import java.util.List;
+//import java.util.Locale;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.kplant.client.event.vo.EventVO;
+import com.kplant.client.main.service.MainService;
+
+import lombok.Setter;
+import com.kplant.client.join.vo.MemberVO;
 import com.kplant.client.order.vo.OrderDetailVO;
-import com.kplant.client.product.vo.ProductImageVO;
 import com.kplant.client.product.vo.ProductVO;
 
 import lombok.extern.log4j.Log4j;
@@ -23,6 +32,10 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @RequestMapping("/*")
 public class ClientMainController {
+	
+	@Setter(onMethod_ =@Autowired)
+	private MainService mainService;
+	
 
 	@RequestMapping("/")
 	public String client(HttpServletRequest request, Model model) {
@@ -72,6 +85,7 @@ public class ClientMainController {
 		odArr.add(odvo2);
 		List<OrderDetailVO> ordDetailList = odArr;
 		
+		
 		HttpSession session = request.getSession();
 		session.setAttribute("m_num", 62);
 		session.setAttribute("prdList", prdList);
@@ -79,6 +93,16 @@ public class ClientMainController {
 		/* 테스트 데이터 끝*/
 		
 		return "index";
+	}
+	
+	@RequestMapping(value = "/eventList", method=RequestMethod.GET)
+	public String eventList(@ModelAttribute("data") EventVO evo, Model model) {
+		log.info("Main eventList 호출 성공");
+		
+		List<EventVO> eventList = mainService.eventList(evo);
+		model.addAttribute("MainEventList", eventList);
+		
+		return "event/eventList";
 	}
 	
 }

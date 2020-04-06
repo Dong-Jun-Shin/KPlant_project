@@ -15,14 +15,14 @@
 </script>
 
 <%-- 이 부분은 개발 당시에는 사용 --%>
-<%-- <h4><c:out value="${exception.getMessage() }"></c:out></h4> --%>
-<!-- <ul> -->
-<%-- 	<c:forEach  var="stack" items="${exception.getStackTrace() }"> --%>
-<%-- 		<li><c:out value="${stack }"></c:out></li> --%>
-<%-- 	</c:forEach> --%>
-<!-- </ul> -->
+<h4><c:out value="${exception.getMessage() }"></c:out></h4> 
+<ul> 
+ 	<c:forEach  var="stack" items="${exception.getStackTrace() }"> 
+ 		<li><c:out value="${stack }"></c:out></li> 
+	</c:forEach> 
+ </ul> 
 
-<%-- 이 부분은 개발 완료 후 사용 --%>
+<%-- 이 부분은 개발 완료 후 사용 
 <div class="alert alert-danger alert-dismissible fade in" role="alert" id="errorAlert">
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 		<span aria-hidden="true">&times;</span>
@@ -36,4 +36,4 @@
 	<p>
 		<button type="button" class="btn btn-danger" id="main">홈으로</button>
 	</p>
-</div>
+</div>--%>

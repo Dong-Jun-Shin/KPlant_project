@@ -1,4 +1,4 @@
-package com.kplant.client.product.vo;
+﻿package com.kplant.client.product.vo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,4 +31,18 @@ public class ProductVO extends CommonVO {
 		images = new ArrayList<ProductImageVO>();
 	}
 
+    // 등록날짜 
+    private String prd_date;
+    
+    // 이미지 번호 
+    private String img_num;
+
+    // 상품 이미지 
+    private String img_prd;
+    
+    // 상품 상세 이미지 
+    private String img_prd2;
+
+    // 상세 이미지 
+    private String img_spec;
 }

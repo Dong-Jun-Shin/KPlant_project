@@ -35,8 +35,8 @@
 		<script type="text/javascript">
 			$(function(){
 				
-				/* 검색 후 검색 대상과 검색 단어 출력 */
-				var word="<c:out value='${data.keyword}' />";
+			 	/* 검색 후 검색 대상과 검색 단어 출력 */
+				/*var word="<c:out value='${data.keyword}' />";
 				var value="";
 				if(word!=""){
 					$("#keyword").val("<c:out value='${data.keyword}' />");
@@ -44,8 +44,8 @@
 				
 					if($("#search").val()!='b_content'){
 						//:contains()는 특정 텍스트를 포함한 요소반환 	
-						if($("#search").val()=='b_title') value = "#list tr td.goDetail";
-						else if($("#search").val()=='b_name') value="#list tr td.name";
+						if($("#search").val()=='prd_name') value = "#list tr td.goDetail";
+						else if($("#search").val()=='prd_type') value="#list tr td.name";
 						console.log($(value+":contains('"+word+"')").html());
 						
 				    	$(value+":contains('"+word+"')").each(function () {
@@ -53,7 +53,7 @@
 						$(this).html($(this).html().replace(regex, "<span class='required'>"+word+"</span>"));
 				    	});
 					}
-				}
+				} */
 				
 				/* 입력 양식 enter 제거 */
 				$("#keyword").bind("keydown", function(event){
@@ -124,7 +124,7 @@
 	<body>
 		<div class="contentContainer container">
 			<!-- <div class="contentTit page-header"><h3 class="text-center">게시판 리스트</h3></div> -->
-			
+			<div><h2 class="sub-header">제품 리스트</h2></div>
 			<form id="detailForm">
 				<input type="hidden" id="prd_num" name="prd_num" />
 				<input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cvo.pageNum}">
@@ -140,9 +140,9 @@
 						<label>검색조건</label>
 						<select id="search" name="search"  class="form-control">
 							<option value="all">전체</option>
-							<option value="m_title">제목</option>
-							<option value="m_content">내용</option>
-							<option value="m_name">작성자</option>
+							<option value="prd_name">제품명</option>
+							<option value="prd_type">제품유형</option>
+							<option value="prd_num">제품번호</option>
 						</select>
 						<input type="text" name="keyword" id="keyword" value="검색어를 입력하세요" class="form-control" />
 						<button type="button" id="searchData" class="btn btn-primary">검색</button>

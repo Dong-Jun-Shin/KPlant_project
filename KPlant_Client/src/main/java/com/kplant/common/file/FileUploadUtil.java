@@ -1,11 +1,8 @@
-﻿package com.kplant.client.common.file;
+﻿package com.kplant.common.file;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 
 import javax.imageio.ImageIO;
 
@@ -69,7 +66,7 @@ public class FileUploadUtil {
 		log.info("원본 이미지 파일(fileAdd) : " + fileAdd);
 		
 		BufferedImage sourceImg = ImageIO.read(fileAdd);
-		BufferedImage destImg = Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 133);
+		BufferedImage destImg = Scalr.resize(sourceImg, Scalr.Method.AUTOMATIC, Scalr.Mode.FIT_TO_HEIGHT, 200);
 		
 		//resize(대상[BufferedImage 타입], 원본비율, 높이 또는 너비, 크기)
 		
@@ -88,31 +85,6 @@ public class FileUploadUtil {
 		return thumbnailName;
 	}
 	
-	/* 다중 파일 업로드 메서드 */
-	public static List<String> MultipleFileUpload(List<MultipartFile> file, String fileName) throws IOException{
-		log.info("fileUpload 호출 성공 ");
-		
-		List<String> real_name = new ArrayList<String>();
-		String name = "";
-		// 파일명 변경(중복되지 않게) 
-		if(!file.isEmpty()){
-			
-			String docRoot = "C://KplantUploadStorage//"+fileName;
-			makeDir(docRoot);
-			File fileAdd = null;
-			for(MultipartFile MultiFile : file) {
-				name = fileName +"_"+ UUID.randomUUID().toString().replaceAll("-", "") +"_"+ MultiFile.getOriginalFilename(); // 저장할 파일 이름
-				
-				fileAdd = new File(docRoot+"/"+name);	//파일 생성후 
-				log.info("업로드할 파일(fileAdd) : " + fileAdd);
-			
-				MultiFile.transferTo(fileAdd); // 파일 저장
-				real_name.add(name);
-			}
-		}
-		return real_name;
-	}
-	
 	/*파일 삭제 메서드*/
 	public static void fileDelete(String fileName) throws IOException{
 		log.info("fileDelete 호출 성공");
@@ -121,8 +93,8 @@ public class FileUploadUtil {
 		String startDirName = "", docRoot="";
 		String dirName = fileName.substring(0, fileName.indexOf("_"));
 		
-		if(dirName.equals("thumbnail")) {
-			startDirName = fileName.substring(dirName.length()+1, fileName.indexOf("_",dirName.length()+1));
+		if (dirName.equals("thumbnail")) {
+			startDirName = fileName.substring(dirName.length()+1, fileName.indexOf("_", dirName.length()+1));
 			docRoot = "C://KplantUploadStorage//"+startDirName+"//"+dirName;
 		}else {
 			docRoot = "C://KplantUploadStorage//"+dirName;

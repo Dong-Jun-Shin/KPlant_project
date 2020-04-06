@@ -12,12 +12,14 @@
 		<put-attribute name="header" value="/WEB-INF/views/template/header.jsp" />
 		<put-attribute name="body" value="" />
 	</definition>
+
 	<definition name="member/*" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/views/member/{1}.jsp" />
 	</definition>
 	<definition name="login/*" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/views/login/{1}.jsp"/>
 	</definition>
+
 	<definition name="order/*" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/views/order/{1}.jsp" />
 	</definition>
@@ -30,6 +32,7 @@
 	<definition name="error/*" extends="admin">
 		<put-attribute name="body" value="/WEB-INF/views/error/{1}.jsp" />
 	</definition>
+
 	<definition name="faq/*" extends="admin">
 		<put-attribute name="title" value="Admin faq Page" />
 		<put-attribute name="body" value="/WEB-INF/views/faq/{1}.jsp" />
