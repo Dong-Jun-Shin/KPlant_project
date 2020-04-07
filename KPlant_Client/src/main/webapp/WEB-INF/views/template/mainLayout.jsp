@@ -21,12 +21,6 @@
     <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.css" />
 	<link rel="stylesheet" type="text/css" href="/resources/include/css/template/navbar-static-top.css" />
-	
-<<<<<<< HEAD
-
-	
-=======
->>>>>>> origin/develop
 	<link rel="stylesheet" type="text/css" href="/resources/include/css/template/jquery-ui.css" />
     <script type="text/javascript" src="/resources/include/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/resources/include/js/common.js"></script>
@@ -34,10 +28,8 @@
 	<script type="text/javascript" src="/resources/include/js/jquery-ui.js"></script>
     <script type="text/javascript" src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
 	<script type="text/javascript" src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
-<<<<<<< HEAD
-	
 	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script>
+	<script type = "text/javascript">
     function sample6_execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
@@ -54,10 +46,8 @@
                 } else { // 사용자가 지번 주소를 선택했을 경우(J)
                     addr = data.jibunAddress;
                 }
-=======
->>>>>>> origin/develop
+    </script>            
 
-	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   </head>
 
   <body>
