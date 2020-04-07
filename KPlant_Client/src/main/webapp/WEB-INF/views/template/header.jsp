@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
 <div class="status-login status-background">
@@ -15,7 +16,7 @@
 </div>
 <div class="container">
 	<div class="navbar-header">
-      <a class="navbar-brand" href="/*" style="padding: 5px">
+      <a class="navbar-brand" href="/" style="padding: 5px">
       	<img alt="logo" src="/resources/images/template/logo.png" width="200px">
       </a>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -40,12 +41,10 @@
                <li><a href="/product/productList4">꽃바구니/꽃상자</a></li>
                <li><a href="/product/productList5">꽃다발</a></li>
             </ul></li>
-        <li class="menu navbar-left"><a class="menu-left-font" href="#">HOT DEAL</a></li>
         <li class="menu navbar-left dropdown">
           <a href="#" class="dropdown-toggle menu-left-font" data-toggle="dropdown" data-hover="dropdown" role="button">EVENT <span class="caret"></span></a>
           <ul class="dropdown-menu dropdown-sub" role="menu">
             <li><a href="/event/eventList">진행중인 이벤트</a></li>
-            <li><a href="/event/eventList">지난 이벤트</a></li>
           </ul>
         </li>
         <li class="menu navbar-left dropdown">
@@ -73,9 +72,14 @@
         	</c:if>
         </li>
 
-			<li><a class="menu menu-right-icon" href="/order/cart"><span
-					class="glyphicon glyphicon-shopping-cart icon-margin"
-					aria-hidden="true"></span><span class="basket">0</span></a></li>
+		<li>
+			<a class="menu menu-right-icon" href="/order/cart">
+				<span class="glyphicon glyphicon-shopping-cart icon-margin"	aria-hidden="true"></span>
+				<span class="basket">
+					${fn:length(prdList) }
+				</span>
+			</a>
+		</li>
 		</ul>
 	</div>
 </div>

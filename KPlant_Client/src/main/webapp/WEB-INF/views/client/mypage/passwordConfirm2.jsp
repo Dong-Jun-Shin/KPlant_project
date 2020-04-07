@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<link rel="stylesheet" type="text/css" href="/resources/include/css/mypage/mypage.css" />
+<script type="text/javascript" src="/resources/include/js/mypage/passwordConfirm2.js"></script>
 
 <%-------------------------------------------------------------------------------- --%>
 <div id="location">

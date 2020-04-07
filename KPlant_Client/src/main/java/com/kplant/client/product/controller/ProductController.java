@@ -80,9 +80,6 @@ public class ProductController {
 			return "product/productList5";
 		}
 	
-	
-	
-	
 	/**
 	 * 상품 상세페이지
 	 */

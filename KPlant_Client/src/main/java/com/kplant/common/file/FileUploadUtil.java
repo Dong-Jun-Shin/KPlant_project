@@ -1,4 +1,4 @@
-package com.kplant.common.file;
+﻿package com.kplant.common.file;
 
 import java.awt.image.BufferedImage;
 import java.io.File;

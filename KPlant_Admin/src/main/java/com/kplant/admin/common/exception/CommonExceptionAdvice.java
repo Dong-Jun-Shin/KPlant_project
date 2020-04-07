@@ -19,6 +19,8 @@ public class CommonExceptionAdvice {
 		model.addAttribute("exception", ex);
 		log.error(model);
 		
+		ex.printStackTrace();
+		
 		return "error/error_page";
 	}
 	

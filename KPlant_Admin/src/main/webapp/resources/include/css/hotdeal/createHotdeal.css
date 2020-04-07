@@ -1,0 +1,73 @@
+@charset "UTF-8";
+/* common */
+.btn-style, .btn-style:hover, .btn-style:focus {
+	background: #707070;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+/* create-hotdeal */
+#create-hotdeal label {
+	font-size: 14px;
+	font-weight: normal;
+}
+
+#create-hotdeal .body-title {
+	margin: 10px 0px;
+	font-weight: bold;
+}
+
+#create-hotdeal>.hotdeal-info {
+	margin-top: 50px;
+}
+
+#create-hotdeal div>table {
+	width: 80%;
+	border-top: 2px solid #DDDDDD;
+}
+
+#create-hotdeal div>table>tbody>tr {
+	border-bottom: 1px solid #DDDDDD;
+}
+
+#create-hotdeal div>table>tbody>tr>td:nth-child(1) {
+	background: #A3A4A5;
+	text-align: center;
+	height: 70px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+#create-hotdeal div>table>tbody>tr>td:nth-child(2) {
+	padding: 10px 30px;
+}
+
+.write-point {
+	color: #FF0000;
+	margin: 5px;
+	font-size: 16px;
+}
+
+.write-control {
+	display: inline-block;
+	margin: 5px 0px;
+	padding: 0px 15px;
+	width: 400px;
+	height: 35px;
+	font-size: 16px;
+}
+
+.product-info .prd-search{
+	display: inline-block;
+    margin-right: 10px;
+    width: 300px;
+}
+
+/* hotdeal-footer */
+.hotdeal-footer {
+	display: inline-block;
+	float: right;
+	margin: 25px 0px;
+	padding-right: 20%;
+}

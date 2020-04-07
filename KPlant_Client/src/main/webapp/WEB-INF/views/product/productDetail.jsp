@@ -61,18 +61,17 @@
 					$("#sum").html(Number(price)*plusSu);
 				});
 				
-				//장바구니 버튼
-				$("#basket").click(function() {
-					var qty=$("#su").val();
-					$("#prd_qty").val(qty);
+// 				//장바구니 버튼
+// 				$("#basket").click(function() {
+// 					var qty=$("#su").val();
+// 					$("#prd_qty").val(qty);
+// 					$("#p_form").attr({
+// 						"method":"get",
+// 						"action":"/order/cart"
+// 					});
+// 					$("#p_form").submit();
 					
-					$("#p_form").attr({ 
-						"method":"get",
-						"action":"/order/cart"
-					});
-					$("#p_form").submit();
-					
-				})
+// 				})
 				
 				//구매하기 버튼
 	            $("#purchasev").click(function() {
@@ -82,14 +81,11 @@
 	               
 	               $("#p_form").attr({
 	                  "method":"get",
-	                  "action":"/order/orderSheet"
+	                  "action":"/order/cart"
 	               });
 	               
 	               $("#p_form").submit();
 	            });
-				
-				
-				
 			});
 		</script>
 	</head>

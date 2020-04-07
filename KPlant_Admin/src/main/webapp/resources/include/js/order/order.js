@@ -1,6 +1,6 @@
 $(function(){
 	$("ul.nav>li").removeClass("active");
-	$("ul.nav>li:nth-child(4)").addClass("active");
+	$("ul.nav>li:nth-child(3)").addClass("active");
 });
 
 //주문번호에 해당하는 결제 정보 조회
