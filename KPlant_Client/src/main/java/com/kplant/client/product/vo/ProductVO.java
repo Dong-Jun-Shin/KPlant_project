@@ -31,4 +31,20 @@ public class ProductVO extends CommonVO {
 		images = new ArrayList<ProductImageVO>();
 	}
 
+<<<<<<< HEAD
+=======
+    
+    
+    // 이미지 번호 
+    private String img_num;
+
+    // 상품 이미지 
+    private String img_prd;
+    
+    // 상품 상세 이미지 
+    private String img_prd2;
+
+    // 상세 이미지 
+    private String img_spec;
+>>>>>>> db25bb539af4e408e7aa6290f740877ad7ea00ed
 }
