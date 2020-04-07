@@ -27,7 +27,6 @@ public interface MypageDAO {
 
 	// 주문내역 조회
 	//public MemberVO orderDetails(MemberVO mvo);
-	List<Map<String, String>> orderDetails(MemberVO mvo);
 
 	
 	// 취소내역 조회
