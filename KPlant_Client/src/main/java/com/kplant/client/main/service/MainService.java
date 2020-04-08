@@ -9,8 +9,9 @@ public interface MainService {
 
 	List<EventVO> eventList(EventVO evo);
 
-	EventVO eventDetail(EventVO evo);
-
 	List<ProductVO> productList(ProductVO pvo);
 
+	List<ProductVO> productList1(ProductVO pvo);
+
+	int eventListCnt(EventVO evo);
 }

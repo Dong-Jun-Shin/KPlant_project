@@ -28,26 +28,27 @@ public class MainServiceImpl implements MainService {
 	public List<EventVO> eventList(EventVO evo) {
 		List<EventVO> list = null;
 		list = eventDAO.eventList(evo);
-		return list;
-	}
-
-	@Override
-	public EventVO eventDetail(EventVO evo) {
-		EventVO detail = null;
-		detail = eventDAO.eventDetail(evo);
-	    if(detail.getEvnt_content()!=null) {
-	    	detail.setEvnt_content(detail.getEvnt_content().replaceAll("\n", "<br />"));
-	    }
-		return detail;
-	}
-
-	@Override
-	public List<ProductVO> productList(ProductVO pvo) {
-		List<ProductVO> list = null;
-		list = productDAO.productList(pvo);
-		log.info(list.size());
 		
 		return list;
+	}
+
+	public List<ProductVO> productList(ProductVO pvo) {
+		List<ProductVO> list = null;
+		list = productDAO.productList(pvo); 
+		
+		return list;
+	}
+
+	@Override
+	public List<ProductVO> productList1(ProductVO pvo) {
+		List<ProductVO> list = null;
+		list = productDAO.productList2(pvo);
+		return list;
+	}
+
+	@Override
+	public int eventListCnt(EventVO evo) {
+		return eventDAO.eventListCnt(evo);
 	}
 
 }

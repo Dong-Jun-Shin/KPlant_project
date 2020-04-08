@@ -1,9 +1,15 @@
 package com.kplant.client.event.vo;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import com.kplant.client.common.vo.CommonVO;
+
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
-public class EventVO {
+@EqualsAndHashCode(callSuper = false)
+public class EventVO extends CommonVO {
 	private int evnt_num;
 	private String evnt_title;
 	private String evnt_content;
@@ -16,4 +22,7 @@ public class EventVO {
 	private String evnt_fileS;
 	private String evnt_fileT;
 	private String evnt_thumb;
+	private MultipartFile fileF;
+	private MultipartFile fileS;
+	private MultipartFile fileT;
 }

@@ -1,24 +1,25 @@
 ﻿package com.kplant.client.main.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import lombok.Setter;
 import lombok.AllArgsConstructor;
-import com.kplant.client.order.vo.OrderDetailVO;
 import com.kplant.client.product.vo.ProductImageVO;
-import com.kplant.client.product.vo.ProductVO;
+
+import com.kplant.client.common.vo.PageDTO;
 import com.kplant.client.event.vo.EventVO;
 import com.kplant.client.main.service.MainService;
+
+import lombok.Setter;
+import com.kplant.client.product.vo.ProductVO;
 import lombok.extern.log4j.Log4j;
 
 /**
@@ -53,6 +54,13 @@ public class ClientMainController {
 		
 		pvo1.setImages(piList1);
 		arr1.add(pvo1);
+		
+		/*ArrayList<ProductVO> arr = new ArrayList<ProductVO>();
+		ProductVO pvo = new ProductVO();
+		pvo.setPrd_num("prd_num 01");
+		pvo.setPrd_name("몽골바위솔 5포트 바위솔 10cm포트묘");
+		pvo.setPrd_price(9800);
+		pvo.setImg_prd("prd_img 01");
 		
 		//두번째 상품 샘플
 		ProductVO pvo2 = new ProductVO();
@@ -96,20 +104,27 @@ public class ClientMainController {
 		
 //		List<ProductVO> producList = mainService.productList(pvo1);
 		
-		return "index";
-	}
-	
-	
-	/*@RequestMapping(value = "/eventList", method=RequestMethod.GET)
-	public String eventList(@ModelAttribute("data") EventVO evo, Model model) {
-		log.info("Main eventList 호출 성공");
-		
+		/*이벤트 페이지*/
 		List<EventVO> eventList = mainService.eventList(evo);
 		model.addAttribute("MainEventList", eventList);
+		log.info("Main eventList호출 성공");
+		//이벤트 pageing처리
+		int total = mainService.eventListCnt(evo);
+		model.addAttribute("pageMaker", new PageDTO(total, evo));
 		
-		return "home/home";
-	}*/
-	
-	
-	
+		/*상품 페이지 1*/
+		List<ProductVO> productList = mainService.productList(pvo);
+		model.addAttribute("MainProductList", productList);
+		log.info("Main productList호출 성공");
+		
+		/*상품 페이지2*/
+		List<ProductVO> productList1 = mainService.productList1(pvo);
+		model.addAttribute("productList1", productList1);
+		log.info("productList1 호출 성공"); 
+		
+		
+		return "index";
+		
+	}
+
 }
