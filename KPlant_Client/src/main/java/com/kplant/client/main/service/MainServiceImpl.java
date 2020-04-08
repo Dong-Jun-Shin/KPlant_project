@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.kplant.client.event.dao.EventDAO;
 import com.kplant.client.event.vo.EventVO;
+import com.kplant.client.product.dao.ProductDao;
+import com.kplant.client.product.vo.ProductVO;
 
 import lombok.Setter;
 
@@ -16,10 +18,29 @@ public class MainServiceImpl implements MainService {
 	@Setter(onMethod_=@Autowired)
 	private EventDAO eventDAO;
 	
+	@Setter(onMethod_=@Autowired)
+	private ProductDao productDAO;
+	
 	@Override
 	public List<EventVO> eventList(EventVO evo) {
 		List<EventVO> list = null;
 		list = eventDAO.eventList(evo);
+		
+		return list;
+	}
+
+	@Override
+	public List<ProductVO> productList(ProductVO pvo) {
+		List<ProductVO> list = null;
+		list = productDAO.productList(pvo); 
+		
+		return list;
+	}
+
+	@Override
+	public List<ProductVO> productList1(ProductVO pvo) {
+		List<ProductVO> list = null;
+		list = productDAO.productList2(pvo);
 		return list;
 	}
 

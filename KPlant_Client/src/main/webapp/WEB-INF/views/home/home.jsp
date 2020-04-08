@@ -29,7 +29,11 @@
     <script type="text/javascript" src="/resources/include/js/custom.js"></script>
 <%-- script --%>
 	<script type="text/javascript">
-		
+		$(function () {
+			$("#goEventDetail").click(function () {
+				
+			});
+		});
 	</script>
 <%-- script end --%>
 
@@ -118,7 +122,7 @@
                     </a>
                 </div>
                 <div class="product-content">
-                    <h3 class="title"><a href="#">미니다육B-C세트</a></h3>
+                    <h3 class="title"><a href="">미니다육B-C세트</a></h3>
                     <div class="price">$10.00 - $12.00</div>
                 </div>
             </div>
@@ -175,36 +179,7 @@
                 </div>
             </div>
         	
-        	<%-- 이벤트 홈으로 넘어갈수 있도록 처리하기 --%>
-        	<form id="detailForm">
-				<input type="hidden" id="evnt_num" name="evnt_num"/>
-			</form>
-			
             <div class="row">
-            	<c:choose>
-            		<c:when test="${not empty MainEventList}">
-            			<c:forEach var="event" items="${MainEventList}">
-			                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-			                    <div class="shop-cat-box">
-			                    	<div class="caption">
-				                        <img src="/KplantUploadStorage/event/thumbnail/${MainEventList.evnt_thumb}" style="width: auto;">
-				                        <a class="btn hvr-hover" href="#">${MainEventList.title}</a>
-			                        </div>
-			                    </div>
-			                </div>
-		                </c:forEach>
-	                </c:when>
-	                <c:otherwise>
-	                	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-			                    <div class="shop-cat-box">
-			                    	<div class="caption">
-				                        <img src="/resources/images/event/eventDefault.jpg" >
-				                        <a class="btn hvr-hover" href="#">조회된 이벤트가 존재하지 않습니다.</a>
-			                        </div>
-			                    </div>
-			                </div>
-	                </c:otherwise>
-                </c:choose>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
                         <img class="img-fluid" src="/resources/images/event/eventDefault.jpg" alt="" />
@@ -240,18 +215,39 @@
                     </div>
                 </div>
 			</div>
+			
+			<%-- 이벤트 홈으로 넘어갈수 있도록 처리하기 --%>
+        	<form id="eventDetailForm">
+				<input type="hidden" id="evnt_num" name="evnt_num"/>
+			</form>
+			<%-- 이벤트 단 --%>
 			<div class="row">
 				<h2 class="text-center"> KTENRI EVENT</h2>
-				<div class="col-lg-6 col-sm-12">
-					<div class="offer-box-products">
-						<img class="img-fluid home-eventImg" src="/resources/images/event/eventDefault.jpg"/>
-					</div>
-				</div>
-				<div class="col-lg-6 col-sm-12">
-					<div class="offer-box-products">
-						<img class="img-fluid home-eventImg" src="/resources/images/event/eventDefault.jpg"/>
-					</div>
-				</div>
+				<c:choose>
+					<c:when test="${not empty MainEventList}">
+	           			<c:forEach var="event" items="${MainEventList}">
+							<div class="col-lg-4 col-sm-12">
+								<div class="offer-box-products goEventDetail">
+									<div>
+										<a id="evnt_title" href="/event/eventDetail?evnt_num=${event.evnt_num}"><img class="img-fluid home-eventImg" src="/KplantUploadStorage/event/thumbnail/${event.evnt_thumb}" id="evnt_thumb" name="evnt_thumb"/></a>
+									</div>
+									<div>
+										<p>${event.evnt_title}</p>
+						                <p>${event.evnt_startDate}부터  - ${event.evnt_endDate}까지</p>
+						            </div>
+								</div>
+							</div>
+						</c:forEach>
+					</c:when>
+					<c:otherwise>
+						<div class="col-lg-12">
+							<div class="offer-box-products">
+								<img src="/resources/images/event/eventDefault.jpg"/>
+								<p>${event.evnt_startDate}부터  - ${event.evnt_endDate}까지</p>
+							</div>
+						</div>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 	</div>
@@ -268,6 +264,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="row">
                 <div class="col-lg-12">
                     <div class="special-menu text-center">
@@ -279,76 +276,72 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row special-list">
-                <div class="col-lg-3 col-md-6 special-grid best-seller">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <div class="type-lb">
-                                <p class="sale">Sale</p>
-                            </div>
-                            <img src="/resources/images/event/eventDefault.jpg" class="img-fluid" alt="Image" style="width: 100%">
-                        </div>
-                        <div class="why-text">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <h5> $7.79</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 special-grid top-featured">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <div class="type-lb">
-                                <p class="new">New</p>
-                            </div>
-                            <img src="/resources/images/event/eventDefault.jpg" class="img-fluid" alt="Image" style="width: 100%">
-                        </div>
-                        <div class="why-text">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <h5> $9.79</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 special-grid top-featured">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <div class="type-lb">
-                                <p class="sale">Sale</p>
-                            </div>
-                            <img src="/resources/images/event/eventDefault.jpg" class="img-fluid" alt="Image" style="width: 100%">
-                        </div>
-                        <div class="why-text">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <h5> $10.79</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 special-grid best-seller">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <div class="type-lb">
-                                <p class="sale">Sale</p>
-                            </div>
-                            <img src="/resources/images/event/eventDefault.jpg" class="img-fluid" alt="Image" style="width: 100%">
-<!--                             <div class="mask-icon"> -->
-<!--                                 <ul> -->
-<!--                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li> -->
-<!--                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li> -->
-<!--                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> -->
-<!--                                 </ul> -->
-<!--                                 <a class="cart" href="#">Add to Cart</a> -->
-<!--                             </div> -->
-                        </div>
-                        <div class="why-text">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <h5> $15.79</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
+			
+			<div class="row special-list">
+				<c:choose>
+					<c:when test="${not empty MainProductList}">
+						<c:forEach var="product" items="${MainProductList}">
+			                <div class="col-lg-3 col-md-6 special-grid best-seller">
+			                    <div class="products-single fix">
+			                        <div class="box-img-hover">
+			                            <div class="type-lb">
+			                                <p class="sale">Sale</p>
+			                            </div>
+			                            <div class="thumbnail goDetail" data-num="${product.prd_num}">
+				                            <a href="/product/productDetail?prd_num=${product.prd_num}">
+				                            	<img src="/KplantUploadStorage/product/${product.img_prd}" class="img-fluid" alt="Image" style="width: 100%; height: 280px;">
+				                            </a>
+			                            </div>
+			                        </div>
+			                        <div class="why-text">
+			                            <h4>${product.prd_name}</h4>
+			                            <h5> ${product.prd_price} 원</h5>
+			                        </div>
+			                    </div>
+			                </div>
+						</c:forEach>
+					</c:when>
+					<c:when test="${not empty MainProductList1}">
+						<c:forEach var="product1" items="${MainProductList1}">
+							<div class="col-lg-3 col-md-6 special-grid top-featured">
+			                    <div class="products-single fix">
+			                        <div class="box-img-hover">
+			                            <div class="type-lb">
+			                                <p class="sale">Sale</p>
+			                            </div>
+			                            <div class="thumbnail goDetail" data-num="${product1.prd_num}">
+				                            <a href="/product/productDetail?prd_num=${product1.prd_num}">
+				                            	<img src="/KplantUploadStorage/product/${product1.img_prd}" class="img-fluid" alt="Image" style="width: 100%; height: 280px;">
+				                            </a>
+			                            </div>
+			                        </div>
+			                        <div class="why-text">
+			                            <h4>${product1.prd_name}</h4>
+			                            <h5> ${product1.prd_price} 원</h5>
+			                        </div>
+			                    </div>
+			                </div>
+						</c:forEach>
+					</c:when>
+					
+					<c:otherwise>
+						<div class="col-lg-3 col-md-6 special-grid">
+		                    <div class="products-single fix">
+		                        <div class="box-img-hover">
+		                            <div class="type-lb">
+		                                <p class="sale">Sale</p>
+		                            </div>
+		                            <img src="/resources/images/event/eventDefault.jpg" class="img-fluid" alt="Image" style="width: 100%">
+		                        </div>
+		                        <div class="why-text">
+		                            <h4>등록된 제품이 없습니다.</h4>
+		                            <h5>최대한빠른 시일내 등록하도록 하겠습니다.</h5>
+		                        </div>
+		                    </div>
+		                </div>
+					</c:otherwise>
+				</c:choose>
+			</div>
         </div>
     </div>
     <!-- End Products  -->

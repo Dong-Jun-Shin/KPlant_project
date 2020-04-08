@@ -130,10 +130,10 @@
      bottom: 40px;
      right: 40px;
      z-index: 9999;
-     width: 32px;
-     height: 32px;
+     width: 40px;
+     height: 40px;
      text-align: center;
-     line-height: 5px;
+	 /* line-height: 5px; */
      background: #39604D;
      color: #ffffff;
      cursor: pointer;
@@ -141,7 +141,7 @@
      border-radius: 0px;
      text-decoration: none;
      transition: opacity 0.2s ease-out;
-     font-size: 28px;
+     font-size: 20px;
 }
 /*------------------------------------------------------------------ HEADER -------------------------------------------------------------------*/
  .main-top{
@@ -843,6 +843,7 @@
 .offer-box-products{
 	box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
 	-webkit-transition: all 0.3s ease;
+	margin: 15px;
 	transition: all 0.3s ease-in-out 0s;
 }
 
