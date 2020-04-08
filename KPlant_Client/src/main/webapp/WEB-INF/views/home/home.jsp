@@ -180,22 +180,28 @@
             </div>
         	
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="/resources/images/event/eventDefault.jpg" alt="" />
-                        <a class="btn hvr-hover" href="#">관엽/공기정화/분채</a>
+                        <img class="img-fluid" src="/resources/images/main/plan/관엽식물.jpg" alt="" style="height: 200px;"/>
+                        <a class="btn hvr-hover" href="/product/productList">관엽/공기정화/분채</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="/resources/images/event/eventDefault.jpg" alt="" />
-                        <a class="btn hvr-hover" href="#">식물 분류 출력</a>
+                        <img class="img-fluid" src="/resources/images/main/plan/다육식물.jpg" alt="" style="height: 200px;"/>
+                        <a class="btn hvr-hover" href="/product/productList2">다육식물</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="/resources/images/event/eventDefault.jpg" alt="" />
-                        <a class="btn hvr-hover" href="#">식물 분류 출력</a>
+                        <img class="img-fluid" src="/resources/images/main/plan/꽃다발1.jpg" alt="" style="height: 200px;"/>
+                        <a class="btn hvr-hover" href="/product/productList5">꽃다발</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="shop-cat-box">
+                        <img class="img-fluid" src="/resources/images/main/plan/동서양란.jpg" alt="" style="height: 200px;"/>
+                        <a class="btn hvr-hover" href="/product/productList3">동서양란</a>
                     </div>
                 </div>
                 
