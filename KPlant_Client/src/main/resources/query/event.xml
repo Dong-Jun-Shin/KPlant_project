@@ -13,4 +13,8 @@
 		FROM event 
 		WHERE evnt_num=#{evnt_num}
 	</select>
+	
+	<select id="eventListCnt" parameterType="event" resultType="int">
+		SELECT count(*) FROM event
+	</select>
 </mapper>  

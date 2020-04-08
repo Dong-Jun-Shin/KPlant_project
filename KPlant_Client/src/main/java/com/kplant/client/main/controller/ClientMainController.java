@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.kplant.client.common.vo.PageDTO;
 import com.kplant.client.event.vo.EventVO;
 import com.kplant.client.main.service.MainService;
 
@@ -79,6 +80,9 @@ public class ClientMainController {
 		List<EventVO> eventList = mainService.eventList(evo);
 		model.addAttribute("MainEventList", eventList);
 		log.info("Main eventList호출 성공");
+		//이벤트 pageing처리
+		int total = mainService.eventListCnt(evo);
+		model.addAttribute("pageMaker", new PageDTO(total, evo));
 		
 		/*상품 페이지 1*/
 		List<ProductVO> productList = mainService.productList(pvo);

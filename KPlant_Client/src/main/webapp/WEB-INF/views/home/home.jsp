@@ -29,11 +29,6 @@
     <script type="text/javascript" src="/resources/include/js/custom.js"></script>
 <%-- script --%>
 	<script type="text/javascript">
-		$(function () {
-			$("#goEventDetail").click(function () {
-				
-			});
-		});
 	</script>
 <%-- script end --%>
 
@@ -93,7 +88,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="title-all text-center">
-                <h1>인기 상품</h1>
+                <h1 style="padding-top: 100px;">인기 상품</h1>
                 <p>어떤 것들을 골라야 좋을지 고민이라면, 이런것들은 어때요? 인기상품만 모아봤어요</p>
             </div>
         </div>
@@ -148,12 +143,6 @@
                         <img class="pic-1" src="/resources/images/main/mainProduct/main7.jpg">
                         <img class="pic-2" src="/resources/images/main/mainProduct/main9.jpg">
                     </a>
-<!--                     <ul class="social"> -->
-<!--                         <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li> -->
-<!--                         <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li> -->
-<!--                         <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li> -->
-<!--                     </ul> -->
-<!--                     <a href="#" class="select-options"><i class="fa fa-arrow-right"></i> Select Options</a> -->
                 </div>
                 <div class="product-content">
                     <h3 class="title"><a href="#">제품명 /식물명</a></h3>

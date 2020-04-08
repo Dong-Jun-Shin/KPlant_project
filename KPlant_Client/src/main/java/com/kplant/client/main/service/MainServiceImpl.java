@@ -44,4 +44,9 @@ public class MainServiceImpl implements MainService {
 		return list;
 	}
 
+	@Override
+	public int eventListCnt(EventVO evo) {
+		return eventDAO.eventListCnt(evo);
+	}
+
 }

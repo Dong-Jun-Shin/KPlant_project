@@ -13,4 +13,6 @@ public interface MainService {
 
 	List<ProductVO> productList1(ProductVO pvo);
 
+	int eventListCnt(EventVO evo);
+
 }
