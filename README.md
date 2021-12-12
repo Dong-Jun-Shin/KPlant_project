@@ -1,5 +1,5 @@
 # KPlant_project
-KingTenLi Plant Shopping Homepage (03/01 ~)
+KingTenLi Plant Shopping Homepage (03/01 ~ )
 
 -프로젝트명 : Kplant(KingTenLi Plant Shopping Homepage)
 
